@@ -1084,7 +1084,7 @@ p.MsoListBullet2, li.MsoListBullet2, div.MsoListBullet2
 	line-height:119%;
 	text-align:left;
 	mso-level-number-format:bullet;
-	mso-level-text:·;
+	mso-level-text:Â·;
 	mso-level-size:10.0pt;
 	mso-level-font-family:Symbol;
 	mso-level-indent:10.8pt;
@@ -1397,7 +1397,7 @@ p.MsoListBullet, li.MsoListBullet, div.MsoListBullet
 	line-height:119%;
 	text-align:left;
 	mso-level-number-format:bullet;
-	mso-level-text:¨;
+	mso-level-text:Â¨;
 	mso-level-size:9.0pt;
 	mso-level-font-family:Symbol;
 	mso-level-indent:10.8pt;
@@ -3205,10 +3205,10 @@ t'
 in right 7.1738in'><span
   lang=3Den-GB style=3D'language:en-GB;mso-ansi-language:en-GB;mso-ligature=
 s:none'><span
-  style=3D'mso-tab-count:1'>                                               =
-                                                              </span><span
-  style=3D'mso-tab-count:1'>                                               =
-                                       </span>October 2022</span><span
+  style=3D'mso-tab-count:1'>Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â =
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  </span><span
+  style=3D'mso-tab-count:1'>Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â =
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  </span>October 2022</span><span
   lang=3Den-GB style=3D'language:en-GB;mso-ligatures:none'><o:p></o:p></spa=
 n></p>
   </div>
@@ -3275,7 +3275,7 @@ ures:
 n-bottom:
   0pt;text-align:center'><span lang=3Den-GB style=3D'language:en-GB;mso-ans=
 i-language:
-  en-GB;mso-ligatures:none'>Lesson 1a:<span style=3D'mso-spacerun:yes'>  </=
+  en-GB;mso-ligatures:none'>Lesson 1a:<span style=3D'mso-spacerun:yes'>Â  </=
 span>Greetings<o:p></o:p></span></p>
   <p class=3DMsoNormal style=3D'mso-pagination:none;text-align:center;margi=
 n-bottom:
@@ -3375,7 +3375,7 @@ ra.<o:p></o:p></span></p>
 7D;
   mso-style-textfill-type:solid;mso-style-textfill-fill-color:#1F497D;
   mso-style-textfill-fill-alpha:100%;language:en-GB;mso-ansi-language:en-GB;
-  mso-ligatures:none'>Let’s begin by learning how to say hello.<o:p></o:p><=
+  mso-ligatures:none'>LetÂ’s begin by learning how to say hello.<o:p></o:p><=
 /span></p>
   <p class=3DMsoNormal style=3D'mso-pagination:none'><span lang=3Den-GB
   style=3D'font-size:9.0pt;line-height:119%;font-family:Calibri;color:#1F49=
@@ -3388,7 +3388,7 @@ other is by saying <o:p></o:p></span></p>
 align:
   center'><span lang=3Den-GB style=3D'font-size:9.0pt;line-height:119%;font=
 -family:
-  Calibri;language:en-GB;mso-ansi-language:en-GB;mso-ligatures:none'>“</spa=
+  Calibri;language:en-GB;mso-ansi-language:en-GB;mso-ligatures:none'>Â“</spa=
 n><span
   lang=3Den-GB style=3D'font-size:9.0pt;line-height:119%;font-family:Calibr=
 i;
@@ -3397,13 +3397,13 @@ ures:
   none'>salama tompoko</span><span lang=3Den-GB style=3D'font-size:9.0pt;
   line-height:119%;font-family:Calibri;language:en-GB;mso-ansi-language:en-=
 GB;
-  mso-ligatures:none'>”<o:p></o:p></span></p>
+  mso-ligatures:none'>Â”<o:p></o:p></span></p>
   <p class=3DMsoNormal style=3D'mso-pagination:none'><span lang=3Den-GB
   style=3D'font-size:9.0pt;line-height:119%;font-family:Calibri;color:#1F49=
 7D;
   mso-style-textfill-type:solid;mso-style-textfill-fill-color:#1F497D;
   mso-style-textfill-fill-alpha:100%;language:en-GB;mso-ansi-language:en-GB;
-  mso-ligatures:none'>which is literally, “hello, sir”. <o:p></o:p></span><=
+  mso-ligatures:none'>which is literally, Â“hello, sirÂ”. <o:p></o:p></span><=
 /p>
   <p class=3DMsoNormal style=3D'mso-pagination:none'><span lang=3Den-GB
   style=3D'font-size:9.0pt;line-height:119%;font-family:Calibri;color:#1F49=
@@ -3457,8 +3457,8 @@ pan></p>
   mso-style-textfill-type:solid;mso-style-textfill-fill-color:#1F497D;
   mso-style-textfill-fill-alpha:100%;language:en-GB;mso-ansi-language:en-GB;
   mso-ligatures:none'>Another example of a greeting is when one arrives at =
-a friend’s house. The guest would initiate the greeting at the door by sayi=
-ng out loud, “</span><span
+a friendÂ’s house. The guest would initiate the greeting at the door by sayi=
+ng out loud, Â“</span><span
   lang=3Den-GB style=3D'font-size:9.0pt;line-height:119%;font-family:Calibr=
 i;
   color:black;mso-style-textfill-type:solid;mso-style-textfill-fill-color:b=
@@ -3470,7 +3470,7 @@ B;
 7D;
   mso-style-textfill-type:solid;mso-style-textfill-fill-color:#1F497D;
   mso-style-textfill-fill-alpha:100%;language:en-GB;mso-ansi-language:en-GB;
-  mso-ligatures:none'>!”, much like a knock on the door. <o:p></o:p></span>=
+  mso-ligatures:none'>!Â”, much like a knock on the door. <o:p></o:p></span>=
 </p>
   <p class=3DMsoNormal style=3D'mso-pagination:none'><span lang=3Den-GB
   style=3D'font-size:9.0pt;line-height:119%;font-family:Calibri;color:#1F49=
@@ -3537,7 +3537,7 @@ B;
 7D;
   mso-style-textfill-type:solid;mso-style-textfill-fill-color:#1F497D;
   mso-style-textfill-fill-alpha:100%;language:en-GB;mso-ansi-language:en-GB;
-  mso-ligatures:none'>A “</span><span lang=3Den-GB style=3D'font-size:9.0pt;
+  mso-ligatures:none'>A Â“</span><span lang=3Den-GB style=3D'font-size:9.0pt;
   line-height:119%;font-family:Calibri;color:black;mso-style-textfill-type:
   solid;mso-style-textfill-fill-color:black;mso-style-textfill-fill-alpha:1=
 00%;
@@ -3549,7 +3549,7 @@ t:119%;
 -textfill-fill-color:
   #1F497D;mso-style-textfill-fill-alpha:100%;language:en-GB;mso-ansi-langua=
 ge:
-  en-GB;mso-ligatures:none'>” is where both the guest and host take turns t=
+  en-GB;mso-ligatures:none'>Â” is where both the guest and host take turns t=
 o give a short speech. <o:p></o:p></span></p>
   <p class=3DMsoNormal style=3D'mso-pagination:none'><span lang=3Den-GB
   style=3D'font-size:9.0pt;line-height:119%;font-family:Calibri;color:#1F49=
@@ -3557,14 +3557,14 @@ o give a short speech. <o:p></o:p></span></p>
   mso-style-textfill-type:solid;mso-style-textfill-fill-color:#1F497D;
   mso-style-textfill-fill-alpha:100%;language:en-GB;mso-ansi-language:en-GB;
   mso-ligatures:none'>It is important to note that, if a guest is invited t=
-o a meal, the host never asks “in vaovao”, as the intention for the visit i=
+o a meal, the host never asks Â“in vaovaoÂ”, as the intention for the visit i=
 s obvious. <o:p></o:p></span></p>
   <p class=3DMsoNormal style=3D'mso-pagination:none'><span lang=3Den-GB
   style=3D'font-size:9.0pt;line-height:119%;font-family:Calibri;color:#1F49=
 7D;
   mso-style-textfill-type:solid;mso-style-textfill-fill-color:#1F497D;
   mso-style-textfill-fill-alpha:100%;language:en-GB;mso-ansi-language:en-GB;
-  mso-ligatures:none'>That’s it for our first lesson!<o:p></o:p></span></p>
+  mso-ligatures:none'>ThatÂ’s it for our first lesson!<o:p></o:p></span></p>
   <p class=3DMsoNormal style=3D'mso-pagination:none'><span lang=3Den-GB
   style=3D'font-size:9.0pt;line-height:119%;font-family:Calibri;color:#1F49=
 7D;
@@ -4032,7 +4032,7 @@ es:
   <p class=3DMsoNormal style=3D'mso-pagination:none;margin-bottom:2.0pt'><s=
 pan
   lang=3Den-GB style=3D'language:en-GB;mso-ansi-language:en-GB;mso-ligature=
-s:none'>Person 1: Manakory ianao?<span style=3D'mso-spacerun:yes'>  </span>=
+s:none'>Person 1: Manakory ianao?<span style=3D'mso-spacerun:yes'>Â  </span>=
 </span><span
   lang=3Den-GB style=3D'font-family:Calibri;color:#1F497D;mso-style-textfil=
 l-type:
@@ -4073,7 +4073,7 @@ l-type:
   solid;mso-style-textfill-fill-color:#1F497D;mso-style-textfill-fill-alpha:
   100%;font-style:italic;language:en-GB;mso-ansi-language:en-GB;mso-ligatur=
 es:
-  none'>(What’s new?) </span><span lang=3Den-GB style=3D'language:en-GB;mso=
+  none'>(WhatÂ’s new?) </span><span lang=3Den-GB style=3D'language:en-GB;mso=
 -ansi-language:
   en-GB;mso-ligatures:none'><o:p></o:p></span></p>
   <p class=3DMsoNormal style=3D'mso-pagination:none;margin-bottom:2.0pt'><s=
@@ -4083,13 +4083,13 @@ s:none'>Person 2: </span><span
   lang=3Den-GB style=3D'font-family:Calibri;font-style:italic;language:en-G=
 B;
   mso-ansi-language:en-GB;mso-ligatures:none'>Tsisy vaovao.<span style=3D'm=
-so-spacerun:yes'>  </span></span><span
+so-spacerun:yes'>Â  </span></span><span
   lang=3Den-GB style=3D'font-family:Calibri;color:#1F497D;mso-style-textfil=
 l-type:
   solid;mso-style-textfill-fill-color:#1F497D;mso-style-textfill-fill-alpha:
   100%;font-style:italic;language:en-GB;mso-ansi-language:en-GB;mso-ligatur=
 es:
-  none'>(nothing’s new)</span><span lang=3Den-GB style=3D'font-family:Calib=
+  none'>(nothingÂ’s new)</span><span lang=3Den-GB style=3D'font-family:Calib=
 ri;
   color:#1F497D;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
   #1F497D;mso-style-textfill-fill-alpha:100%;language:en-GB;mso-ansi-langua=
@@ -4116,7 +4116,7 @@ absolute;z-index:17;left:66px;top:509px;width:340px;height:172px'><img
 width=3D272 height=3D138 src=3D"lession1a_files/image006.png"
 alt=3D"Text Box: Person 1: Salama Tompoko!&#13;Person 2: Salama Tompoko!&#1=
 3;Person 1: Manakory ianao?  (how are you)&#13;Person 2: Tsara fa misaotra.=
- (fine, thank you)&#13;Person 1: Ino vaovao? (What’s new?) &#13;"
+ (fine, thank you)&#13;Person 1: Ino vaovao? (WhatÂ’s new?) &#13;"
 v:shapes=3D"_x0000_s1041"></span><![endif]><!--[if gte vml 1]><v:shape id=
 =3D"_x0000_s1042"
  type=3D"#_x0000_t202" style=3D'position:absolute;left:43.49pt;top:471.31pt;
@@ -4510,10 +4510,10 @@ t'
 in right 7.1738in'><span
   lang=3Den-GB style=3D'language:en-GB;mso-ansi-language:en-GB;mso-ligature=
 s:none'><span
-  style=3D'mso-tab-count:1'>                                               =
-                                                              </span><span
-  style=3D'mso-tab-count:1'>                                               =
-                                       </span>October 2022</span><span
+  style=3D'mso-tab-count:1'>Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â =
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  </span><span
+  style=3D'mso-tab-count:1'>Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â =
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  </span>October 2022</span><span
   lang=3Den-GB style=3D'language:en-GB;mso-ligatures:none'><o:p></o:p></spa=
 n></p>
   </div>
@@ -11286,10 +11286,10 @@ t'
 in right 7.1738in'><span
   lang=3Den-GB style=3D'language:en-GB;mso-ansi-language:en-GB;mso-ligature=
 s:none'><span
-  style=3D'mso-tab-count:1'>                                               =
-                                                              </span><span
-  style=3D'mso-tab-count:1'>                                               =
-                                       </span>October 2022</span><span
+  style=3D'mso-tab-count:1'>Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â =
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  </span><span
+  style=3D'mso-tab-count:1'>Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â =
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  </span>October 2022</span><span
   lang=3Den-GB style=3D'language:en-GB;mso-ligatures:none'><o:p></o:p></spa=
 n></p>
   </div>
@@ -11499,7 +11499,7 @@ B;
 align:
   center'><span lang=3Den-GB style=3D'language:en-GB;mso-ansi-language:en-G=
 B;
-  mso-ligatures:none'><span style=3D'mso-tab-count:1'>             </span>Q=
+  mso-ligatures:none'><span style=3D'mso-tab-count:1'>Â Â Â Â Â Â Â Â Â Â Â Â  </span>Q=
 UESTION WORDS<o:p></o:p></span></p>
   <p class=3DMsoNormal style=3D'mso-pagination:none;text-align:center;text-=
 align:
@@ -11631,7 +11631,7 @@ t'
   class=3Dshape>
   <p class=3DMsoNormal style=3D'mso-pagination:none'><span lang=3Den-GB
   style=3D'language:en-GB;mso-ansi-language:en-GB;mso-ligatures:none'>Prono=
-unced “Ar–é”</span><span
+unced Â“ArÂ–Ã©Â”</span><span
   lang=3Den-GB style=3D'language:en-GB;mso-ligatures:none'><o:p></o:p></spa=
 n></p>
   </div>
@@ -13889,7 +13889,7 @@ r=3D"f"
    </b:CellFillStyle>
   </xml><![endif]-->
   <p class=3DMsoNormal style=3D'mso-pagination:none'><span lang=3Den-GB
-  style=3D'language:en-GB;mso-ansi-language:en-GB;mso-ligatures:none'>Amin’=
+  style=3D'language:en-GB;mso-ansi-language:en-GB;mso-ligatures:none'>AminÂ’=
 ny firy</span><span
   lang=3Den-GB style=3D'language:en-GB;mso-ligatures:none'><o:p></o:p></spa=
 n></p>
@@ -13927,7 +13927,7 @@ r=3D"f"
    </b:BorderRightFillStyle>
   </xml><![endif]-->
   <p class=3DMsoNormal style=3D'mso-pagination:none'><span lang=3Den-GB
-  style=3D'language:en-GB;mso-ansi-language:en-GB;mso-ligatures:none'>Amin’=
+  style=3D'language:en-GB;mso-ansi-language:en-GB;mso-ligatures:none'>AminÂ’=
 ny firy</span><span
   lang=3Den-GB style=3D'language:en-GB;mso-ligatures:none'><o:p></o:p></spa=
 n></p>
