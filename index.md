@@ -1,4 +1,4 @@
-## Learning Malagasy & Tsimihety with Bako
+# Learning Malagasy & Tsimihety with Bako
 
 <p align="center">
   <img width="100" height="100" src="https://mandritsara.github.io/bako/bako%20avatar.png">
@@ -15,6 +15,9 @@ It is my firm belief that language and culture are intertwined. Understanding co
 I thank God for this unique opportunity to teach the language, despite my lack of teaching qualification. I am a scientist by training. My teaching method has been refined through years of careful study and observation, with plenty of helpful feedback from my students.
 
 This website is my attempt at committing to paper what I have gleaned over the years. Through these prepared lessons, I hope to provide a framework that will help future students master both Malagasy and Tsimihety. 
+
+Note to the learner: these lessons are prepared in PDF format with audio clips included. 
+If you are using adobe acrobat or compatible software, you can listen to the audio clips offline, otherwise, please click on the sound icon which will open up a separate browser to play the audio clip from the cloud. 
 
 ## Introductory lessons (7 in total)
 
