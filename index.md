@@ -10,7 +10,7 @@ It is my firm belief that language and culture are intertwined. Understanding co
 
 I thank God for this unique opportunity to teach the language, despite my lack of teaching qualification. I am a scientist by training, and everything I learnt is through the years of accumulated experience, with plenty of helpful feedback from my students.
 
-This website is my attempt at committing to paper what I have gleaned over the years. Up till now, I have developed a highly personalised teaching style, but through these prepared lessons, I hope to provide a framework that will help future students.
+This website is my attempt at committing to paper what I have gleaned over the years. Through these prepared lessons, I hope to provide a framework that will help future students.
 
 
 
