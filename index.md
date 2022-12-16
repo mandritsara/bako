@@ -1,6 +1,6 @@
 ## Learning Malagasy & Tsimihety with Bako
 
-![avatar](https://mandritsara.github.io/bako/bako%20avatar.png)
+![avatar](https://mandritsara.github.io/bako/bako%20avatar.png){:width="25%"}
 
 Hello, my name is Bako, and welcome to my website! 
 
