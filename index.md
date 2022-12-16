@@ -8,9 +8,9 @@ In Mandritsara, the local Tsimihety people have their own dialect. However, offi
 
 It is my firm belief that language and culture are intertwined. Understanding context is crucial to mastering Malagasy/Tsimihety, conversely, the language itself provides a window into the heart and soul of the people. 
 
-I thank God for this unique opportunity to teach the language, despite my lack of teaching qualification. I am a scientist by training, and everything I learnt is through the years of accumulated experience, with plenty of helpful feedback from my students.
+I thank God for this unique opportunity to teach the language, despite my lack of teaching qualification. I am a scientist by training. My teaching method has been refined through years of careful study and observation, with plenty of helpful feedback from my students.
 
-This website is my attempt at committing to paper what I have gleaned over the years. Through these prepared lessons, I hope to provide a framework that will help future students.
+This website is my attempt at committing to paper what I have gleaned over the years. Through these prepared lessons, I hope to provide a framework that will help future students master both Malagasy and Tsimihety. 
 
 
 
