@@ -1,6 +1,8 @@
 ## Learning Malagasy & Tsimihety with Bako
 
-![avatar](https://mandritsara.github.io/bako/bako%20avatar.png){:height="200px"width="100px"}
+<p align="center">
+  <img width="100" height="200" src="https://github.com/mandritsara/bako/bako%20avatar.png">
+</p>
 
 Hello, my name is Bako, and welcome to my website! 
 
