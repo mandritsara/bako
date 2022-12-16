@@ -16,12 +16,16 @@ I thank God for this unique opportunity to teach the language, despite my lack o
 
 This website is my attempt at committing to paper what I have gleaned over the years. Through these prepared lessons, I hope to provide a framework that will help future students master both Malagasy and Tsimihety. 
 
-## Introductory lessons (6 + 1 review)
+## Introductory lessons (7 in total)
 
-> 1. lesson 1a - [GREETINGS](https://mandritsara.github.io/bako/introduction/introlesson1agreetings.pdf) with **pronouns and question words**
-> 2. lesson 1b - [GOODBYE](https://mandritsara.github.io/bako/introduction/introlesson1bgoodbye.pdf) with **days/weeks/months**
-> 3. lesson 2 - [USEFUL PHRASES](https://mandritsara.github.io/bako/introduction/introlesson2usefulphrases.pdf) with **Malagasy Hospitality**
-
+> - lesson 1a - [GREETINGS](https://mandritsara.github.io/bako/introduction/introlesson1agreetings.pdf) with - *pronouns and question words* 
+> - lesson 1b - [GOODBYE](https://mandritsara.github.io/bako/introduction/introlesson1bgoodbye.pdf) with - days/weeks/months*
+> - lesson 2 - [USEFUL PHRASES](https://mandritsara.github.io/bako/introduction/introlesson2usefulphrases.pdf) with *malagasy hospitality*
+> - lesson 3- [INTRODUCING YOURSELF] with *basic grammar rules*
+> - lesson 4 - [GOING TO THE MARKET] with *numbers, money and groceries*
+> - lesson 5 - [GOING TO CHURCH] with *ordinal numbers*
+> - lesson 6 - [VISITING A VILLAGE] with *adjectives*
+> - lesson 1-4 [REVIEW]
 
 
 
