@@ -24,8 +24,8 @@ Note to the learner:
 
 ## Introductory lessons (7 in total)
 
-> - [lesson 1a - GREETINGS with - *pronouns and question words*](https://mandritsara.github.io/bako/introduction/introlesson1agreetings.pdf) 
-> - [lesson 1b - GOODBYE with - *days/weeks/months*](https://mandritsara.github.io/bako/introduction/introlesson1bgoodbye.pdf) 
+> - [lesson 1a - GREETINGS with *pronouns and question words*](https://mandritsara.github.io/bako/introduction/introlesson1agreetings.pdf) 
+> - [lesson 1b - GOODBYE with *days/weeks/months*](https://mandritsara.github.io/bako/introduction/introlesson1bgoodbye.pdf) 
 > - [lesson 2 - USEFUL PHRASES with *malagasy hospitality*](https://mandritsara.github.io/bako/introduction/introlesson2usefulphrases.pdf)
 > - lesson 3- INTRODUCING YOURSELF with *basic grammar rules*
 > - lesson 4 - GOING TO THE MARKET with *numbers, money and groceries*
