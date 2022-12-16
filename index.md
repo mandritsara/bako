@@ -1,5 +1,7 @@
 ## Learning Malagasy & Tsimihety with Bako
 
+![alt text](image url "https://mandritsara.github.io/bako/bako%20avatar.png")
+
 Hello, my name is Bako, and welcome to my website! 
 
 I have been a language teacher in Mandritsara since 2008. Over the years, I have personally tutored many missionaries and visitors to the [Hopitaly Vaovao Mahafaly Mandritsara](https://www.mandritsara.org.uk/) project.
