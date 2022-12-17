@@ -21,7 +21,7 @@ This website is my attempt at committing to paper what I have gleaned over the y
 Note to the learner: 
 > 1. these lessons are prepared in PDF format with audio clips included. Please click on the relevant lesson titles to download the pdf file. 
 
-> 2. If you are using adobe acrobat or compatible software, you can listen to the audio clips offline, otherwise, please click on the sound icon which will open up a separate browser to play the audio clip from the cloud. 
+> 2. If you are using adobe acrobat or compatible software, you can listen to the audio clips offline by clicking the RED sound icon, otherwise, please click on the GREEN sound icon which opens a separate browser to play the clip from the cloud.
  
 > 3. Official malagasy words are denoted with the superscript *off*, and *tsm* for tsimihety. 
 
