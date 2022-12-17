@@ -19,11 +19,11 @@ I thank God for this unique role despite my lack of teaching qualification. I am
 This website is my attempt at committing to paper what I have gleaned over the years. Through these prepared lessons, I hope to provide a framework that will help future students master both Malagasy and Tsimihety. 
 
 Note to the learner: 
-> 1. these lessons are prepared in PDF format with audio clips included. Please click on the relevant lesson titles to download the pdf file. 
+> - these lessons are prepared in PDF format with audio clips included. Please CLICK on the relevant lesson titles to download the pdf file. 
 
-> 2. If you are using adobe acrobat or compatible software, you can listen to the audio clips offline by clicking the RED sound icon, otherwise, please click on the GREEN sound icon which opens a separate browser to play the clip from the cloud.
+> - If you are using adobe acrobat or compatible software, you can listen to the audio clips offline by clicking the RED sound icon, otherwise, please click on the GREEN sound icon which opens a separate browser to play the clip from the cloud.
  
-> 3. Official malagasy words are denoted with the superscript *off*, and *tsm* for tsimihety. 
+> - Official malagasy words are denoted with the superscript *off*, and *tsm* for tsimihety. 
 
 ## Introductory lessons (7 in total)
 
