@@ -30,7 +30,7 @@ Note to the learner:
 
 > - [lesson 1a - GREETINGS + *pronouns and question words*](https://mandritsara.github.io/bako/introduction/introlesson1agreetings.pdf) 
 > - [lesson 1b - GOODBYE + *days/weeks/months*](https://mandritsara.github.io/bako/introduction/introlesson1bgoodbye.pdf) 
-> - [lesson 2 - USEFUL PHRASES + *malagasy hospitality*](https://mandritsara.github.io/bako/introduction/introlesson2usefulphrases.pdf)
+> - [lesson 2 - USEFUL EXPRESSIONS + *malagasy hospitality*](https://mandritsara.github.io/bako/introduction/introlesson2usefulexpressions.pdf)
 > - lesson 3- INTRODUCING YOURSELF + *basic grammar rules*
 > - lesson 4 - GOING TO THE MARKET + *numbers, money and groceries*
 > - lesson 5 - GOING TO CHURCH + *ordinal numbers*
