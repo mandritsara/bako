@@ -35,7 +35,7 @@ Note to the learner:
 > - [lesson 2 - USEFUL EXPRESSIONS + *malagasy hospitality*](https://mandritsara.github.io/bako/introduction/introlesson2usefulexpressions.pdf)
 > - [lesson 3- INTRODUCING YOURSELF + *basic grammar rules*](https://mandritsara.github.io/bako/introduction/introlesson3introducingyourself.pdf)
 > - [lesson 4 - GOING TO THE MARKET + *numbers, money and groceries*](https://mandritsara.github.io/bako/introduction/introlesson4goingtothemarket.pdf)
-> - [lesson 1-4 REVIEW EXERCISES](https://mandritsara.github.io/bako/introduction/introlessons1-4reviewexercises.pdf)
+> - [lesson 1-4 REVIEW EXERCISES + *answers*](https://mandritsara.github.io/bako/introduction/introlessons1-4reviewexercises.pdf)
 > - [lesson 5 - GOING TO CHURCH + *ordinal numbers*](https://mandritsara.github.io/bako/introduction/introlesson5goingtochurch.pdf)
 > - [lesson 6 - VISITING A VILLAGE + *adjectives*](https://mandritsara.github.io/bako/introduction/introlesson6visitingavillage.pdf)
 > 
