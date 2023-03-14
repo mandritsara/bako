@@ -40,7 +40,15 @@ Note to the learner:
 > - [lesson 6 - VISITING A VILLAGE + *adjectives*](https://mandritsara.github.io/bako/introduction/introlesson6visitingavillage.pdf)
 > 
 
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DG828TL4V1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-
-
+  gtag('config', 'G-DG828TL4V1');
+</script>
+</head>
 
