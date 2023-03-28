@@ -41,7 +41,7 @@ Note to the learner:
 
 ## Grammar lessons (in progress)
 
-> - [Lesson 1 - FORMING SENTENCES - *predicate & subject*](https://mandritsara.github.io/bako/grammar/formingsentences.pdf)
+> - [Lesson 1 - FORMING SENTENCES - *predicate & subject*](https://mandritsara.github.io/bako/grammar/grammar1formingsentences.pdf)
 
 <head>
 <!-- Google tag (gtag.js) -->
