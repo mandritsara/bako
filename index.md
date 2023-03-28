@@ -38,7 +38,10 @@ Note to the learner:
 > - [lesson 1-4 REVIEW EXERCISES + *answers*](https://mandritsara.github.io/bako/introduction/introlessons1-4reviewexercises.pdf)
 > - [lesson 5 - GOING TO CHURCH + *ordinal numbers*](https://mandritsara.github.io/bako/introduction/introlesson5goingtochurch.pdf)
 > - [lesson 6 - VISITING A VILLAGE + *adjectives*](https://mandritsara.github.io/bako/introduction/introlesson6visitingavillage.pdf)
-> 
+
+## Grammar lessons (in progress)
+
+> - [Lesson 1 - FORMING SENTENCES - *predicate & subject*](https://mandritsara.github.io/bako/grammar/formingsentences.pdf)
 
 <head>
 <!-- Google tag (gtag.js) -->
