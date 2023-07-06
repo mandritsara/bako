@@ -3,7 +3,9 @@
 <p align="center">
   <img width="100" height="100" src="https://mandritsara.github.io/bako/bako%20avatar.png">
 </p>
-
+<!DOCTYPE html>
+<html>
+<head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -94,6 +96,10 @@ function myFunction() {
   }
 }
 </script>
+
+</body>
+</html>
+
 
 Hello, my name is Bako, and welcome to my website! 
 
