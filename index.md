@@ -3,20 +3,7 @@
 <p align="center">
   <img width="100" height="100" src="https://mandritsara.github.io/bako/bako%20avatar.png">
 </p>
-<div class="navbar">
-  <a href="#home">Home</a>
-  <a href="#news">News</a>
-  <div class="dropdown">
-    <button class="dropbtn">More
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
-    </div>
-  </div>
-</div>
+
 Hello, my name is Bako, and welcome to my website! 
 
 I have been a language teacher in Mandritsara since 2008. Over the years, I have personally tutored many missionaries and visitors to the [Hopitaly Vaovao Mahafaly Mandritsara](https://www.mandritsara.org.uk/) project.
