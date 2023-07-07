@@ -18,6 +18,9 @@ plugins:
 markdown: kramdown
 title: Learning Malagasy and Tsimihety with Bako
 description: A resource for language learners in Mandritsara, Madagascar
+navigation:
+  name_over_title: [true or false to indicate whether to use the page file name instead of title in the header navigator]
+  toc_parameter: [all toc module parameters can be optionally passed over here]
 extra:
   analytics:
     provider: google
