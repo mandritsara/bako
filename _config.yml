@@ -23,6 +23,9 @@ description: A resource for language learners in Mandritsara, Madagascar
 navigation:
   name_over_title: true
   toc_parameter: [all toc module parameters can be optionally passed over here]
+  header_pages:
+  - introduction/index.md
+  - grammar/index.md
 extra:
   analytics:
     provider: google
