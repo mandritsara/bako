@@ -12,7 +12,7 @@ include:
   - CONTRIBUTING.md
   - ISSUE_TEMPLATE.md
   - PULL_REQUEST_TEMPLATE.md
-remote_theme: Bilal2453/cayman-docs
+theme: minima
 plugins:
 - jekyll-remote-theme
 markdown: kramdown
