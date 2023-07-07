@@ -14,7 +14,8 @@ include:
   - PULL_REQUEST_TEMPLATE.md
 theme: minima
 plugins:
-- jekyll-remote-theme
+ - jekyll-feed
+ - jekyll-seo-tag
 markdown: kramdown
 github:
   is_project_page: false
