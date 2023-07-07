@@ -16,6 +16,8 @@ remote_theme: pages-themes/cayman@v0.2.0
 plugins:
 - jekyll-remote-theme
 markdown: kramdown
+github:
+  is_project_page: false
 title: Learning Malagasy and Tsimihety with Bako
 description: A resource for language learners in Mandritsara, Madagascar
 navigation:
