@@ -1,23 +1,20 @@
-plugins:
-  - jekyll-relative-links
-relative_links:
-  enabled: true
-  collections: true
-include:
-  - CONTRIBUTING.md
-  - README.md
-  - LICENSE.md
-  - COPYING.md
-  - CODE_OF_CONDUCT.md
-  - CONTRIBUTING.md
-  - ISSUE_TEMPLATE.md
-  - PULL_REQUEST_TEMPLATE.md
-remote_theme: aterenin/minima-reboot
-markdown: kramdown
-github:
-  is_project_page: false
 title: Learning Malagasy and Tsimihety with Bako
-description: A resource for language learners in Mandritsara, Madagascar
+author:
+  name: Bako
+  email: ceejay77@gmail.com
+
+# The `>` after `description:` means to ignore line-breaks until next key.
+# If you want to omit the line-break after the end of text, use `>-` instead.
+description: > A resource for language learners in Mandritsara, Madagascar
+
+# Build settings
+
+theme: minima
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+markdown: kramdown 
 extra:
   analytics:
     provider: google
