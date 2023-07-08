@@ -20,10 +20,6 @@ github:
   is_project_page: false
 title: Learning Malagasy and Tsimihety with Bako
 description: A resource for language learners in Mandritsara, Madagascar
-navigation:
-  header_pages:
-  - introduction/index.md
-  - grammar/index.md
 extra:
   analytics:
     provider: google
