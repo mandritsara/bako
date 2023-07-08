@@ -1,11 +1,11 @@
-title: Learning Malagasy and Tsimihety with Bako
+title: Your awesome title
 author:
-  name: Bako
-  email: ceejay77@gmail.com
+  name: GitHub User
+  email: your-email@domain.com
 
 # The `>` after `description:` means to ignore line-breaks until next key.
 # If you want to omit the line-break after the end of text, use `>-` instead.
-description: > A resource for language learners in Mandritsara, Madagascar
+description: >
   Write an awesome description for your new site here. You can edit this line
   in _config.yml. It will appear in your document head meta (for Google search
   results) and in your feed.xml site description.
@@ -54,24 +54,3 @@ minima:
 # Set to `true` to show excerpts on the homepage.
 #
 # show_excerpts: false
-
-extra:
-  analytics:
-    provider: google
-    property: G-DG828TL4V1
-extra:
-  analytics: 
-    feedback:
-      title: Was this page helpful?
-      ratings:
-        - icon: material/emoticon-happy-outline
-          name: This page was helpful
-          data: 1
-          note: >-
-            Thanks for your feedback!
-        - icon: material/emoticon-sad-outline
-          name: This page could be improved
-          data: 0
-          note: >- 
-            Thanks for your feedback! Help us improve this page by
-            using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
