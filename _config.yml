@@ -12,8 +12,7 @@ include:
   - CONTRIBUTING.md
   - ISSUE_TEMPLATE.md
   - PULL_REQUEST_TEMPLATE.md
-theme: minima
-remote_theme: jekyll/minima
+remote_theme: aterenin/minima-reboot
 markdown: kramdown
 github:
   is_project_page: false
