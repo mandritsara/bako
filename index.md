@@ -41,7 +41,7 @@ Note to the learner:
 
 > - [Lesson 1 - FORMING SENTENCES - *predicate & subject*](https://mandritsara.github.io/bako/grammar/grammar1formingsentences.pdf)
 
-## Thematic lessons (in progress)
+## Thematic lessons (NEW) (in progress)
 
 <head>
 <!-- Google tag (gtag.js) -->
