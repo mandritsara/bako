@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="100" height="100" src="https://mandritsara.github.io/bako/bako%20avatar.png">
+  <img width="100" height="100" src="https://mandritsara.github.io/bako/media/bako%20avatar.png">
 </p>
 
 Hello, my name is Bako, and welcome to my website! 
