@@ -12,7 +12,7 @@ include:
   - CONTRIBUTING.md
   - ISSUE_TEMPLATE.md
   - PULL_REQUEST_TEMPLATE.md
-remote_theme: remote_theme: aterenin/minima-reboot
+remote_theme: jekyll/minima
 plugins:
 - jekyll-remote-theme
 markdown: kramdown
