@@ -1,4 +1,4 @@
-[grammar3intransitiveverbs.pdf](https://github.com/mandritsara/bako/files/14594600/grammar3intransitiveverbs.pdf)<p align="center">
+<p align="center">
   <img width="100" height="100" src="https://mandritsara.github.io/bako/media/bako%20avatar.png">
 </p>
 
@@ -41,7 +41,7 @@ Note to the learner:
 
 > - [Lesson 1 - FORMING SENTENCES - *predicate & subject*](https://mandritsara.github.io/bako/grammar/grammar1formingsentences.pdf)
 > - [Lesson 2 - PHRASES WITH VERBS](https://mandritsara.github.io/bako/grammar/grammar2phraseswithverbs.pdf)
-> - [Lesson 1 - INTRANSITIVE VERBS](https://mandritsara.github.io/bako/grammar/grammar3intransitiveverbs.pdf)
+> - [Lesson 3 - INTRANSITIVE VERBS](https://mandritsara.github.io/bako/grammar/grammar3intransitiveverbs.pdf)
 
 ## Thematic lessons (in progress)
 
