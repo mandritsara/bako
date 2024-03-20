@@ -46,8 +46,8 @@ Note to the learner:
 ## Thematic lessons (in progress)
 
 > - [Lesson 1 - FAMILY TREE](https://mandritsara.github.io/bako/theme/theme1family.pdf)
-> - [Lesson 2 - THE HOUSE](https://mandritsara.github.io/bako/the.pdf)
-> - [Lesson 3 - FAMILY TREE](https://mandritsara.github.io/bako/theme/theme1family.pdf)
+> - [Lesson 2 - THE HOUSE](https://mandritsara.github.io/bako/theme/theme%202%20the%20house.pdf)
+> - [Lesson 3 - WEATHER AND CLIMATE](https://mandritsara.github.io/bako/theme/theme%203%20weather%20and%20climate.pdf)
 
 <head>
 <!-- Google tag (gtag.js) -->
