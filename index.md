@@ -42,6 +42,7 @@ Note to the learner:
 > - [Lesson 1 - FORMING SENTENCES - *predicate & subject*](https://mandritsara.github.io/bako/grammar/grammar1formingsentences.pdf)
 > - [Lesson 2 - PHRASES WITH VERBS](https://mandritsara.github.io/bako/grammar/grammar2phraseswithverbs.pdf)
 > - [Lesson 3 - INTRANSITIVE VERBS](https://mandritsara.github.io/bako/grammar/grammar3intransitiveverbs.pdf)
+> - [Lesson 4 - ADVERBS AND COMMON AUXILLIARY VERBS](https://mandritsara.github.io/bako/grammar/grammar5adverbsandcommonauxiliaryverbs.pdf)
 
 ## Thematic lessons (in progress)
 
