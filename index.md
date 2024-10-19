@@ -2,6 +2,10 @@
   <img width="100" height="100" src="https://mandritsara.github.io/bako/media/bako%20avatar.png">
 </p>
 
+THIS REPOSITORY IS BEING TRANSFERRED OVER TO A MORE PERMANENT WEBSITE. PLEASE CHECK OUT:
+
+(www.bako.blog)
+
 Hello, my name is Bako, and welcome to my website! 
 
 I have been a language teacher in Mandritsara since 2008. Over the years, I have personally tutored many missionaries and visitors to the [Hopitaly Vaovao Mahafaly Mandritsara](https://www.mandritsara.org.uk/) project.
