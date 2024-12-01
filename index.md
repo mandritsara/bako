@@ -54,7 +54,7 @@ Note to the learner:
 > - [Lesson 2 - THE HOUSE](https://mandritsara.github.io/bako/theme/theme%202%20the%20house.pdf)
 > - [Lesson 3 - WEATHER AND CLIMATE](https://mandritsara.github.io/bako/theme/theme%203%20weather%20and%20climate.pdf)
 > - [Lesson 4 - IN THE KITCHEN](https://mandritsara.github.io/bako/theme/theme4inthekitchen.pdf)
-
+> - [Lesson 5 - JOBS](https://mandritsara.github.io/bako/theme/theme5jobs.pdf)
 <head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DG828TL4V1"></script>
