@@ -47,7 +47,7 @@ Note to the learner:
 > - [Lesson 2 - PHRASES WITH VERBS](https://mandritsara.github.io/bako/grammar/grammar2phraseswithverbs.pdf)
 > - [Lesson 3 - INTRANSITIVE VERBS](https://mandritsara.github.io/bako/grammar/grammar3intransitiveverbs.pdf)
 > - [Lesson 5 - ADVERBS AND COMMON AUXILLIARY VERBS](https://mandritsara.github.io/bako/grammar/grammar5adverbsandcommonauxiliaryverbs.pdf)
-> - [Lesson 6a - ADVERBS AND COMMON AUXILLIARY VERBS](https://mandritsara.github.io/bako/grammar/grammar6aamin'ny.pdf)
+> - [Lesson 6a - Using "Amin’ny" for Instrumental Complements](https://mandritsara.github.io/bako/grammar/grammar6aamin'ny.pdf)
 
 ## Thematic lessons (in progress)
 
