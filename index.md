@@ -48,7 +48,8 @@ Note to the learner:
 > - [Lesson 4b - TRANSITIVE VERBS(II)](https://mandritsara.github.io/bako/grammar/grammar4btransitiveverbs2.pdf)
 > - [Lesson 5 - ADVERBS AND COMMON AUXILLIARY VERBS](https://mandritsara.github.io/bako/grammar/grammar5adverbsandcommonauxiliaryverbs.pdf)
 > - [Lesson 6a - Using "Amin’ny" for Instrumental Complements](https://mandritsara.github.io/bako/grammar/grammar6aamin'ny.pdf)
-
+> - [Lesson 6b - Using "Amin’ny" and "Tamin’ny" in Malagasy](https://mandritsara.github.io/bako/grammar/grammar6bamin'ny.pdf)
+> - 
 ## Thematic lessons (in progress)
 
 > - [Lesson 1 - FAMILY TREE](https://mandritsara.github.io/bako/theme/theme1family.pdf)
