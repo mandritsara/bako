@@ -44,6 +44,8 @@ Note to the learner:
 > - [Lesson 1 - FORMING SENTENCES - *predicate & subject*](https://mandritsara.github.io/bako/grammar/grammar1formingsentences.pdf)
 > - [Lesson 2 - PHRASES WITH VERBS](https://mandritsara.github.io/bako/grammar/grammar2phraseswithverbs.pdf)
 > - [Lesson 3 - INTRANSITIVE VERBS](https://mandritsara.github.io/bako/grammar/grammar3intransitiveverbs.pdf)
+> - [Lesson 4a - TRANSITIVE VERBS(I)](https://mandritsara.github.io/bako/grammar/grammar4atransitiveverbs.pdf)
+> - [Lesson 4b - TRANSITIVE VERBS(II)](https://mandritsara.github.io/bako/grammar/grammar4btransitiveverbs2.pdf)
 > - [Lesson 5 - ADVERBS AND COMMON AUXILLIARY VERBS](https://mandritsara.github.io/bako/grammar/grammar5adverbsandcommonauxiliaryverbs.pdf)
 > - [Lesson 6a - Using "Amin’ny" for Instrumental Complements](https://mandritsara.github.io/bako/grammar/grammar6aamin'ny.pdf)
 
