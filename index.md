@@ -17,9 +17,6 @@
 
 <button onclick="https://mandritsara.github.io/bako/about.html">Learn more about me</button>
 
- <a href="https://mandritsara.github.io/bako/about.html" class="link-box">
-        Learn More About Me
-
 <p>Hello, my name is Bako, and welcome to my website!</p>
 
 I have been a language teacher in Mandritsara since 2008. Over the years, I have personally tutored many missionaries and visitors to the [Hopitaly Vaovao Mahafaly Mandritsara](https://www.mandritsara.org.uk/) project.
