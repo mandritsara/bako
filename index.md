@@ -2,10 +2,10 @@
   <img width="100" height="100" src="https://mandritsara.github.io/bako/media/bako%20avatar.png">
 </p>
 
- <a href="https://mandritsara.github.io/bako/about" class="link-box">
+ <a href="https://mandritsara.github.io/bako/about.html" class="link-box">
         Learn More About Me
 
-Hello, my name is Bako, and welcome to my website! 
+<p>Hello, my name is Bako, and welcome to my website!</p>
 
 I have been a language teacher in Mandritsara since 2008. Over the years, I have personally tutored many missionaries and visitors to the [Hopitaly Vaovao Mahafaly Mandritsara](https://www.mandritsara.org.uk/) project.
 
