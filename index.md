@@ -15,6 +15,8 @@
   <img width="100" height="100" src="https://mandritsara.github.io/bako/media/bako%20avatar.png">
 </p>
 
+<button onclick="https://mandritsara.github.io/bako/about.html">Learn more about me</button>
+
  <a href="https://mandritsara.github.io/bako/about.html" class="link-box">
         Learn More About Me
 
