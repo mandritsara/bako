@@ -1,5 +1,5 @@
 <head>
-<link rel="stylesheet" href="http://mandritsara.github.io/bako/assets/css/style.scss">
+<link rel="stylesheet" href="http://mandritsara.github.io/bako/assets/css/style.css">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DG828TL4V1"></script>
 <script>
