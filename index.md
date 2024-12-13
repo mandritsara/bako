@@ -1,3 +1,16 @@
+<head>
+<link rel="stylesheet" href="http://mandritsara.github.io/bako/assets/css/style.scss">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DG828TL4V1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DG828TL4V1');
+</script>
+</head>
+
 <p align="center">
   <img width="100" height="100" src="https://mandritsara.github.io/bako/media/bako%20avatar.png">
 </p>
@@ -58,15 +71,5 @@ Note to the learner:
 > - [Lesson 3 - WEATHER AND CLIMATE](https://mandritsara.github.io/bako/theme/theme%203%20weather%20and%20climate.pdf)
 > - [Lesson 4 - IN THE KITCHEN](https://mandritsara.github.io/bako/theme/theme4inthekitchen.pdf)
 > - [Lesson 5 - JOBS](https://mandritsara.github.io/bako/theme/theme5jobs.pdf)
-<head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DG828TL4V1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-DG828TL4V1');
-</script>
-</head>
 
