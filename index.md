@@ -1,5 +1,15 @@
 <head>
 <link rel="stylesheet" href="http://mandritsara.github.io/bako/assets/css/style.scss">
+<style>
+        .center-button {
+            display: block;
+            margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+</style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DG828TL4V1"></script>
 <script>
