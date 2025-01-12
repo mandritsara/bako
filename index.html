@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Site</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/6179a34789.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body class="bg-light">
+  <header class="header" role="banner">
+    <h1 class="project-name">Learning Malagasy and Tsimihety with Bako</h1>
+    <h2 class="project-tagline">A resource for language learners in Mandritsara, Madagascar</h2>
+    <div class="topnav">
+      <a class="active" href="bako.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="#about">Downloads</a>
+      <a href="#about">Contact</a>
+    </div>
+  </header>
+
+<br>
+<div class="position-relative" style="height: 300px; overflow: hidden;">
+  <!-- Blurry Background -->
+  <div style="height: 100%; width: 100%; background-image: url('https://mandritsara.github.io/bako2/images/bakohills.jpg'); background-size: cover; background-position: center; filter: blur(1px); position: absolute; z-index: 1;"></div>
+
+  <!-- Card Container -->
+  <div class="card no-hover mx-auto bg-light" 
+       style="width: 350px; height: 280px; border-radius: 15px; overflow: hidden; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 15px;">
+    <!-- Larger Profile Image -->
+    <img class="card-img-top" 
+         src="https://mandritsara.github.io/bako/images/bakoprofile.jpg" 
+         alt="Card image" style="width: 120px; height: 120px; border-radius: 50%;">
+
+    <!-- Card Body -->
+    <div class="text-center" style="flex: 1; display: flex; flex-direction: column; justify-content: space-evenly;">
+      <h6 class="card-title" style="font-size: 1rem; font-weight: 600; color: #43766C;">
+        Salama Tompoko!<br>Hello, I'm Bako, and welcome to my website.
+      </h6>
+      <a href="about.html" class="btn btn-secondary" 
+         style="padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">About me</a>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<hr style="border: 1px solid #43766C; width: 50%; margin: 20px auto;">
+<p class="text-center" style="font-size: 1.2rem; font-weight: 500; color: #43766C; margin-top: 15px;">
+  Please choose from the following themes to begin your Malagasy lessons.
+</p>
+<hr style="border: 1px solid #43766C; width: 50%; margin: 20px auto;">
+
+<div class="d-flex justify-content-center">
+  <a href="#" class="card bg-light border-dark text-center text-dark text-decoration-none" style="width: 18rem; margin-right: 1rem;"> <!-- Red -->
+    <i class="fa-solid fa-a fa-5x card-img-top" style="font-size: 4rem; text-align: center; margin: 1rem;"></i>
+    <div class="card-body">
+      <h5 class="card-title">INTRODUCTORY LESSONS</h5>
+      <p class="card-text">7 lessons for absolute beginners</p>
+    </div>
+  </a>
+  <a href="#" class="card bg-danger text-white text-center text-decoration-none" style="width: 18rem; margin-right: 1rem;"> <!-- Green -->
+    <i class="fa-solid fa-book-open fa-5x card-img-top" style="font-size: 4rem; text-align: center; margin: 1rem;"></i>
+    <div class="card-body">
+      <h5 class="card-title">GRAMMAR LESSONS</h5>
+      <p class="card-text">Learn the structure and rules of Malagasy grammar</p>
+    </div>
+  </a>
+  <a href="#" class="card bg-success text-white text-center text-decoration-none" style="width: 18rem;"> <!-- Blue -->
+    <i class="fa-solid fa-umbrella-beach fa-5x card-img-top" style="font-size: 4rem; text-align: center; margin: 1rem;"></i>
+    <div class="card-body">
+      <h5 class="card-title">THEMATIC LESSONS</h5>
+      <p class="card-text">Learn the language through common and popular themes</p>
+    </div>
+  </a>
+</div>
+
+
+
+
+</body>
+
+
+</html>

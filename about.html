@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom styling for about section */
+    .header {
+      background-color: #f4f4f4;
+      padding: 0;
+      text-align: center;
+      color: #333;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #3a6f6a;
+    }
+
+    .header h2 {
+      font-size: 1.5rem;
+      font-style: italic;
+      color: #6c757d;
+    }
+
+    .about-section {
+      margin: 40px 0;
+    }
+
+    .about-image {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .about-text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .about-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .about-row img {
+      margin-right: 20px;
+    }
+
+    /* Make the text justify */
+    .text-justify {
+      text-align: justify;
+    }
+
+    /* Card Styling */
+    .about-card {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: #fff;
+      padding: 20px;
+    }
+
+    /* Center content with margin on the sides (2/3 width) */
+    .content-container {
+      width: 66.66%; /* 2/3 of the page width */
+      margin: 0 auto; /* Center the content */
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DG828TL4V1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DG828TL4V1');
+</script>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="header">
+    <h1>Learning Malagasy and Tsimihety with Bako</h1>
+    <h2>A resource for language learners in Mandritsara, Madagascar</h2>
+  </header>
+
+  <!-- Main Content Section -->
+  <div class="container content-container">
+
+    <!-- About Me Heading -->
+    <div class="about-section">
+      <h2>About Me</h2>
+      <p class="about-text text-justify">Born to farmer parents in a small family village called Amparihibe Amparafaravola, located a few kilometers on foot from the National Road in the Alaotra Mangoro region of Madagascar, I spent the first part of my childhood there. Afterward, I pursued studies in Biotechnology and Microbiology at the university in the capital, Antananarivo.</p>
+    </div>
+
+    <!-- Image with Text on the Right -->
+    <div class="about-row">
+      <img src="https://mandritsara.github.io/bako/images/bakohvmm.jpg" alt="Bako" class="about-image">
+      <div class="about-card">
+        <p class="about-text text-justify">For over 20 years now, I have been working at a missionary hospital called Hopitaly Vaovao Mahafaly in Mandritsara, in northern Madagascar. Since 2008, I have been teaching the Malagasy language and the local dialect to missionaries, after having worked in the laboratory of the same hospital.</p>
+      </div>
+    </div>
+
+    <!-- Image with Text on the Left -->
+    <div class="about-row flex-row-reverse">
+      <img src="https://mandritsara.github.io/bako/images/Amparafaravola_district.png" alt="Hospital" class="about-image" style="height: 150px; width: auto; margin-right: 20px;">
+      <div class="about-card">
+        <p class="about-text text-justify" style="margin-top: 0;">All my experiences have prepared me for my ministry as a teacher of Malagasy as a foreign language. Mandritsara, where I work, is just north of the region where I was born. These two neighbouring regions share many similarities in language, geography, and culture, which has helped me adapt and perform my work effectively.</p>
+      </div>
+    </div>
+
+    <!-- Image with Text on the Right -->
+    <div class="about-row">
+      <img src="https://mandritsara.github.io/bako/images/bakoteaching1.jpeg" alt="Missionary" class="about-image">
+      <div class="about-card">
+        <p class="about-text text-justify">Most missionaries work in the hospital, and my background in biosciences and hospital work has been a great asset to my role. Visiting various villages nearby, sharing the Good News of Jesus with children, and visiting churches have helped me better understand the lives and culture of the people, which I then share with the missionaries I teach.</p>
+      </div>
+    </div>
+
+    <!-- Image with Text on the Left -->
+    <div class="about-row flex-row-reverse">
+      <img src="https://mandritsara.github.io/bako/images/bakoroad.jpeg" alt="Missionary" class="about-image">
+      <div class="about-card">
+        <p class="about-text text-justify">If God wills, I have five years left before retirement. Hoping to find someone to take over, we are preparing and uploading lessons to this site. We hope these resources will serve as a helpful introduction to the language for missionaries planning to come here, as well as a support for those already on the field.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
