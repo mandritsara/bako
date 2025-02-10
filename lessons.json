@@ -1,0 +1,41 @@
+{
+    "lessons": [
+      {
+        "category": "Introductory Lessons",
+        "links": [
+          {"title": "Lesson 1a - GREETINGS", "url": "https://mandritsara.github.io/bako/introduction/introlesson1agreetings.pdf"},
+          {"title": "Lesson 1b - GOODBYE", "url": "https://mandritsara.github.io/bako/introduction/introlesson1bgoodbye.pdf"},
+          {"title": "Lesson 2 - USEFUL EXPRESSIONS", "url": "https://mandritsara.github.io/bako/introduction/introlesson2usefulexpressions.pdf"},
+          {"title": "Lesson 3 - INTRODUCING YOURSELF", "url": "https://mandritsara.github.io/bako/introduction/introlesson3introducingyourself.pdf"},
+          {"title": "Lesson 4 - GOING TO THE MARKET", "url": "https://mandritsara.github.io/bako/introduction/introlesson4goingtothemarket.pdf"},
+          {"title": "Lesson 1-4 REVIEW EXERCISES", "url": "https://mandritsara.github.io/bako/introduction/introlessons1-4reviewexercises.pdf"},
+          {"title": "Lesson 5 - GOING TO CHURCH", "url": "https://mandritsara.github.io/bako/introduction/introlesson5goingtochurch.pdf"},
+          {"title": "Lesson 6 - VISITING A VILLAGE", "url": "https://mandritsara.github.io/bako/introduction/introlesson6visitingavillage.pdf"}
+        ]
+      },
+      {
+        "category": "Grammar Lessons",
+        "links": [
+          {"title": "Lesson 1 - FORMING SENTENCES", "url": "https://mandritsara.github.io/bako/grammar/grammar1formingsentences.pdf"},
+          {"title": "Lesson 2 - PHRASES WITH VERBS", "url": "https://mandritsara.github.io/bako/grammar/grammar2phraseswithverbs.pdf"},
+          {"title": "Lesson 3 - INTRANSITIVE VERBS", "url": "https://mandritsara.github.io/bako/grammar/grammar3intransitiveverbs.pdf"},
+          {"title": "Lesson 4a - TRANSITIVE VERBS(I)", "url": "https://mandritsara.github.io/bako/grammar/grammar4atransitiveverbs.pdf"},
+          {"title": "Lesson 4b - TRANSITIVE VERBS(II)", "url": "https://mandritsara.github.io/bako/grammar/grammar4btransitiveverbs2.pdf"},
+          {"title": "Lesson 5 - ADVERBS AND COMMON AUXILIARY VERBS", "url": "https://mandritsara.github.io/bako/grammar/grammar5adverbsandcommonauxiliaryverbs.pdf"},
+          {"title": "Lesson 6a - Using \"Amin’ny\" for Instrumental Complements", "url": "https://mandritsara.github.io/bako/grammar/grammar6aamin'ny.pdf"},
+          {"title": "Lesson 6b - Using \"Amin’ny\" and \"Tamin’ny\" in Malagasy", "url": "https://mandritsara.github.io/bako/grammar/grammar6bamin'ny.pdf"}
+        ]
+      },
+      {
+        "category": "Thematic Lessons",
+        "links": [
+          {"title": "Lesson 1 - FAMILY TREE", "url": "https://mandritsara.github.io/bako/theme/theme1family.pdf"},
+          {"title": "Lesson 2 - THE HOUSE", "url": "https://mandritsara.github.io/bako/theme/theme%202%20the%20house.pdf"},
+          {"title": "Lesson 3 - WEATHER AND CLIMATE", "url": "https://mandritsara.github.io/bako/theme/theme%203%20weather%20and%20climate.pdf"},
+          {"title": "Lesson 4 - IN THE KITCHEN", "url": "https://mandritsara.github.io/bako/theme/theme4inthekitchen.pdf"},
+          {"title": "Lesson 5 - JOBS", "url": "https://mandritsara.github.io/bako/theme/theme5jobs.pdf"}
+        ]
+      }
+    ]
+  }
+  

@@ -6,137 +6,72 @@
   <title>Grammar Lessons</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    /* Custom styling for lessons page */
     .header {
       background-color: #f4f4f4;
-      padding: 0;
       text-align: center;
-      color: #333;
-    }
-
-    .header h1 {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #3a6f6a;
-    }
-
-    .header h2 {
-      font-size: 1.5rem;
-      font-style: italic;
-      color: #6c757d;
-    }
-
-    .lessons-section {
-      margin: 40px 0;
-    }
-
-    .lessons-list {
-      font-size: 1.2rem;
-      line-height: 1.8;
-    }
-
-    .lesson-item {
-      margin-bottom: 15px;
-    }
-
-    .lesson-item a {
-      color: #3a6f6a;
-      text-decoration: none;
-    }
-
-    .lesson-item a:hover {
-      text-decoration: underline;
-    }
-
-    /* Card Styling */
-    .lesson-card {
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      overflow: hidden;
-      background-color: #fff;
       padding: 20px;
     }
-
-    /* Center content with margin on the sides (2/3 width) */
-    .content-container {
-      width: 66.66%; /* 2/3 of the page width */
-      margin: 0 auto; /* Center the content */
-      padding-left: 15px;
-      padding-right: 15px;
+    .header h1 { color: #3a6f6a; }
+    .header h2 { color: #6c757d; }
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
     }
-
+    .card {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      background-color: #fff;
+      padding: 15px;
+      text-align: center;
+    }
+    .card a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #007BFF;
+    }
   </style>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DG828TL4V1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-DG828TL4V1');
-</script>
 </head>
 <body>
-
-  <!-- Header Section -->
-  <header class="header" role="banner">
-    <h1 class="project-name">Learning Malagasy and Tsimihety with Bako</h1>
-    <h2 class="project-tagline">A resource for language learners in Mandritsara, Madagascar</h2>
-    <div class="topnav">
-      <a class="active" href="https://mandritsara.github.io/bako">Home</a>
-      <a href="https://mandritsara.github.io/bako/aboutweb.html">About</a>
-      <a href="https://mandritsara.github.io/bako/downloads.html">Downloads</a>
-      <a href="#about">Contact</a>
-    </div>
-  </header>
-
-  <!-- Main Content Section -->
-  <div class="container content-container">
-
-    <!-- Lessons List -->
-    <div class="lessons-section">
-      <h2>Grammar Lessons</h2>
-
-      <div class="lessons-list">
-        <div class="lesson-item">
-          <a href="https://mandritsara.github.io/bako/grammar/grammar1formingsentences.pdf">Lesson 1 - FORMING SENTENCES - <em>predicate & subject</em></a>
-        </div>
-        <div class="lesson-item">
-          <a href="https://mandritsara.github.io/bako/grammar/grammar2phraseswithverbs.pdf">Lesson 2 - PHRASES WITH VERBS</a>
-        </div>
-        <div class="lesson-item">
-          <a href="https://mandritsara.github.io/bako/grammar/grammar3intransitiveverbs.pdf">Lesson 3 - INTRANSITIVE VERBS</a>
-        </div>
-        <div class="lesson-item">
-          <a href="https://mandritsara.github.io/bako/grammar/grammar4atransitiveverbs.pdf">Lesson 4a - TRANSITIVE VERBS (I)</a>
-        </div>
-        <div class="lesson-item">
-          <a href="https://mandritsara.github.io/bako/grammar/grammar4btransitiveverbs2.pdf">Lesson 4b - TRANSITIVE VERBS (II)</a>
-        </div>
-        <div class="lesson-item">
-          <a href="https://mandritsara.github.io/bako/grammar/grammar5adverbsandcommonauxiliaryverbs.pdf">Lesson 5 - ADVERBS AND COMMON AUXILIARY VERBS</a>
-        </div>
-        <div class="lesson-item">
-          <a href="https://mandritsara.github.io/bako/grammar/grammar6aamin'ny.pdf">Lesson 6a - Using "Amin’ny" for Instrumental Complements</a>
-        </div>
-        <div class="lesson-item">
-          <a href="https://mandritsara.github.io/bako/grammar/grammar6bamin'ny.pdf">Lesson 6b - Using "Amin’ny" and "Tamin’ny" in Malagasy</a>
-        </div>
-        <div class="lesson-item">
-          <a href="https://mandritsara.github.io/bako/grammar/grammar7opposites.pdf">Lesson 7 - OPPOSITES</a>
-        </div>
-        <div class="lesson-item">
-          <a href="https://mandritsara.github.io/bako/grammar/grammar8demonstrativewords.pdf">Lesson 8 - DEMONSTRATIVE WORDS</a>
-        </div>
-      </div>
-    </div>
-
+  <div id="header"></div>
+  <div class="container">
+    <h2 class="text-center">Grammar Lessons</h2>
+    <div class="cards-container" id="lessons-container"></div>
   </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-  <footer class="text-center py-3">
-    <p>&copy; 2025 Learning Malagasy and Tsimihety with Bako. All rights reserved.</p>
-  </footer>
+  <div id="footer"></div>
   
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const lessonsJson = {
+        "lessons": [
+          {
+            "category": "Grammar Lessons",
+            "links": [
+              {"title": "Lesson 1 - FORMING SENTENCES", "url": "https://mandritsara.github.io/bako/grammar/grammar1formingsentences.pdf"},
+              {"title": "Lesson 2 - PHRASES WITH VERBS", "url": "https://mandritsara.github.io/bako/grammar/grammar2phraseswithverbs.pdf"},
+              {"title": "Lesson 3 - INTRANSITIVE VERBS", "url": "https://mandritsara.github.io/bako/grammar/grammar3intransitiveverbs.pdf"},
+              {"title": "Lesson 4a - TRANSITIVE VERBS (I)", "url": "https://mandritsara.github.io/bako/grammar/grammar4atransitiveverbs.pdf"},
+              {"title": "Lesson 4b - TRANSITIVE VERBS (II)", "url": "https://mandritsara.github.io/bako/grammar/grammar4btransitiveverbs2.pdf"},
+              {"title": "Lesson 5 - ADVERBS AND COMMON AUXILIARY VERBS", "url": "https://mandritsara.github.io/bako/grammar/grammar5adverbsandcommonauxiliaryverbs.pdf"},
+              {"title": "Lesson 6a - Using 'Amin’ny' for Instrumental Complements", "url": "https://mandritsara.github.io/bako/grammar/grammar6aamin'ny.pdf"},
+              {"title": "Lesson 6b - Using 'Amin’ny' and 'Tamin’ny' in Malagasy", "url": "https://mandritsara.github.io/bako/grammar/grammar6bamin'ny.pdf"}
+            ]
+          }
+        ]
+      };
+      
+      const container = document.getElementById("lessons-container");
+      const lessons = lessonsJson.lessons.find(lesson => lesson.category === "Grammar Lessons").links;
+      
+      lessons.forEach(lesson => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `<a href="${lesson.url}" target="_blank">${lesson.title}</a>`;
+        container.appendChild(card);
+      });
+    });
+  </script>
+  <script src="script.js"></script>
 </body>
 </html>
