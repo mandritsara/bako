@@ -37,41 +37,13 @@
   <div id="header"></div>
   <div class="container">
     <h2 class="text-center">Grammar Lessons</h2>
-    <div class="cards-container" id="lessons-container"></div>
+    <div class="cards-container" id="lessons-container">
+      <!-- Lessons will be injected here dynamically -->
+    </div>
   </div>
   <div id="footer"></div>
   
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const lessonsJson = {
-        "lessons": [
-          {
-            "category": "Grammar Lessons",
-            "links": [
-              {"title": "Lesson 1 - FORMING SENTENCES", "url": "https://mandritsara.github.io/bako/grammar/grammar1formingsentences.pdf"},
-              {"title": "Lesson 2 - PHRASES WITH VERBS", "url": "https://mandritsara.github.io/bako/grammar/grammar2phraseswithverbs.pdf"},
-              {"title": "Lesson 3 - INTRANSITIVE VERBS", "url": "https://mandritsara.github.io/bako/grammar/grammar3intransitiveverbs.pdf"},
-              {"title": "Lesson 4a - TRANSITIVE VERBS (I)", "url": "https://mandritsara.github.io/bako/grammar/grammar4atransitiveverbs.pdf"},
-              {"title": "Lesson 4b - TRANSITIVE VERBS (II)", "url": "https://mandritsara.github.io/bako/grammar/grammar4btransitiveverbs2.pdf"},
-              {"title": "Lesson 5 - ADVERBS AND COMMON AUXILIARY VERBS", "url": "https://mandritsara.github.io/bako/grammar/grammar5adverbsandcommonauxiliaryverbs.pdf"},
-              {"title": "Lesson 6a - Using 'Amin’ny' for Instrumental Complements", "url": "https://mandritsara.github.io/bako/grammar/grammar6aamin'ny.pdf"},
-              {"title": "Lesson 6b - Using 'Amin’ny' and 'Tamin’ny' in Malagasy", "url": "https://mandritsara.github.io/bako/grammar/grammar6bamin'ny.pdf"}
-            ]
-          }
-        ]
-      };
-      
-      const container = document.getElementById("lessons-container");
-      const lessons = lessonsJson.lessons.find(lesson => lesson.category === "Grammar Lessons").links;
-      
-      lessons.forEach(lesson => {
-        const card = document.createElement("div");
-        card.classList.add("card");
-        card.innerHTML = `<a href="${lesson.url}" target="_blank">${lesson.title}</a>`;
-        container.appendChild(card);
-      });
-    });
-  </script>
+  <!-- Link to script.js which will now handle lesson loading -->
   <script src="script.js"></script>
 </body>
 </html>

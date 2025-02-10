@@ -37,40 +37,13 @@
   <div id="header"></div>
   <div class="container">
     <h2 class="text-center">Thematic Lessons</h2>
-    <div class="cards-container" id="lessons-container"></div>
+    <div class="cards-container" id="lessons-container">
+      <!-- Lessons will be injected here dynamically -->
+    </div>
   </div>
   <div id="footer"></div>
   
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const lessonsJson = {
-        "lessons": [
-          {
-            "category": "Thematic Lessons",
-            "links": [
-              {"title": "Lesson 1 - FAMILY TREE", "url": "https://mandritsara.github.io/bako/theme/theme1family.pdf"},
-              {"title": "Lesson 2 - THE HOUSE", "url": "https://mandritsara.github.io/bako/theme/theme%202%20the%20house.pdf"},
-              {"title": "Lesson 3 - WEATHER AND CLIMATE", "url": "https://mandritsara.github.io/bako/theme/theme%203%20weather%20and%20climate.pdf"},
-              {"title": "Lesson 4 - IN THE KITCHEN", "url": "https://mandritsara.github.io/bako/theme/theme4inthekitchen.pdf"},
-              {"title": "Lesson 5 - JOBS", "url": "https://mandritsara.github.io/bako/theme/theme5jobs.pdf"},
-              {"title": "Lesson 6 - CLOTHING AND COLOURS", "url": "https://mandritsara.github.io/bako/theme/theme6clothingandcolours.pdf"},
-              {"title": "Lesson 7a - PARTS OF THE BODY", "url": "https://mandritsara.github.io/bako/theme/theme7apartsofthebody.pdf"}
-            ]
-          }
-        ]
-      };
-      
-      const container = document.getElementById("lessons-container");
-      const lessons = lessonsJson.lessons.find(lesson => lesson.category === "Thematic Lessons").links;
-      
-      lessons.forEach(lesson => {
-        const card = document.createElement("div");
-        card.classList.add("card");
-        card.innerHTML = `<a href="${lesson.url}" target="_blank">${lesson.title}</a>`;
-        container.appendChild(card);
-      });
-    });
-  </script>
+  <!-- Link to script.js which will now handle lesson loading -->
   <script src="script.js"></script>
 </body>
 </html>

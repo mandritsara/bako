@@ -43,37 +43,7 @@
   </div>
   <div id="footer"></div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const lessonsJson = {
-        "lessons": [
-          {
-            "category": "Introductory Lessons",
-            "links": [
-              {"title": "Lesson 1a - GREETINGS", "url": "https://mandritsara.github.io/bako/introduction/introlesson1agreetings.pdf"},
-              {"title": "Lesson 1b - GOODBYE", "url": "https://mandritsara.github.io/bako/introduction/introlesson1bgoodbye.pdf"},
-              {"title": "Lesson 2 - USEFUL EXPRESSIONS", "url": "https://mandritsara.github.io/bako/introduction/introlesson2usefulexpressions.pdf"},
-              {"title": "Lesson 3 - INTRODUCING YOURSELF", "url": "https://mandritsara.github.io/bako/introduction/introlesson3introducingyourself.pdf"},
-              {"title": "Lesson 4 - GOING TO THE MARKET", "url": "https://mandritsara.github.io/bako/introduction/introlesson4goingtothemarket.pdf"},
-              {"title": "Lesson 1-4 REVIEW EXERCISES", "url": "https://mandritsara.github.io/bako/introduction/introlessons1-4reviewexercises.pdf"},
-              {"title": "Lesson 5 - GOING TO CHURCH", "url": "https://mandritsara.github.io/bako/introduction/introlesson5goingtochurch.pdf"},
-              {"title": "Lesson 6 - VISITING A VILLAGE", "url": "https://mandritsara.github.io/bako/introduction/introlesson6visitingavillage.pdf"}
-            ]
-          }
-        ]
-      };
-      
-      const container = document.getElementById("lessons-container");
-      const lessons = lessonsJson.lessons.find(lesson => lesson.category === "Introductory Lessons").links;
-      
-      lessons.forEach(lesson => {
-        const card = document.createElement("div");
-        card.classList.add("card");
-        card.innerHTML = `<a href="${lesson.url}" target="_blank">${lesson.title}</a>`;
-        container.appendChild(card);
-      });
-    });
-  </script>
-   <script src="script.js"></script>
+  <!-- Link to script.js which will now handle lesson loading -->
+  <script src="script.js"></script>
 </body>
 </html>
