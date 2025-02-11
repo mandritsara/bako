@@ -60,3 +60,28 @@
       font-size: 2rem;
     }
   }
+
+
+  .lesson-card {
+    background: #fff;
+    border: 2px solid #3a6f6a;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-in-out;
+}
+
+.lesson-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+.lesson-card a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #007BFF;
+}
+
+.lesson-card h3 {
+    color: #3a6f6a;
+}
