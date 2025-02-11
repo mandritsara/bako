@@ -4,100 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Malagasy-Tsimihety Lesson 1a: Greetings</title>
+    <script src="script.js" defer></script>
     <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; }
         .container { display: flex; }
-        .content { flex: 3; padding-right: 20px; }
-        .sidebar { flex: 1; background: #f4f4f4; padding: 10px; border-left: 2px solid #ccc; }
-        .audio-section { margin: 20px 0; }
-        .vocab-list { list-style: none; padding: 0; }
-        .vocab-list li { margin: 5px 0; }
+        .content { flex: 3; }
+        .sidebar { flex: 1; padding-left: 20px; background: #f4f4f4; padding: 10px; }
+        .audio { margin-top: 10px; }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Malagasy-Tsimihety with Bako</h1>
-        <h2>Introduction - Lesson 1a: Greetings</h2>
-    </header>
+    <div id="header"></div>
+    
     <div class="container">
         <div class="content">
-            <p>Hello! Welcome to our first lesson. My name is Bako. I have been a language tutor in Mandritsara since 2008, teaching missionaries and visitors to the Hopitaly Vaovao Mahafaly project.</p>
+            <h1>Malagasy-Tsimihety with Bako - Lesson 1a: Greetings</h1>
+            <p><strong>Hello! Welcome to our first lesson.</strong> My name is Bako. I have been a language tutor in Mandritsara since 2008, teaching missionaries and visitors to the Hopitaly Vaovao Mahafaly project.</p>
             <p>The dialect spoken in Mandritsara is called Tsimihety, but official Malagasy is widely spoken here as well.</p>
             <p>Let’s begin by learning how to say hello.</p>
-            <h3>Common Greetings</h3>
+            
+            <h2>Greetings</h2>
             <p>In Mandritsara, the most common way of greeting each other is by saying:</p>
-            <p><strong>Salama Tompoko</strong> - "Hello, sir"</p>
-            <div class="audio-section">
-                <audio controls>
-                    <source src="https://mandritsara.github.io/bako/audio/introduction/lesson1con1.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <p>Example exchange:</p>
-            <ul>
-                <li>Person 1: <em>Salama Tompoko!</em></li>
-                <li>Person 2: <em>Salama Tompoko!</em></li>
-                <li>Person 1: <em>Manakory ianao? (How are you?)</em></li>
-                <li>Person 2: <em>Tsara fa misaotra. (Fine, thank you.)</em></li>
-                <li>Person 1: <em>Ino vaovao? (What’s new?)</em></li>
-                <li>Person 2: <em>Tsisy vaovao. (Nothing’s new.)</em></li>
-            </ul>
-            <h3>Greeting at a Friend’s House</h3>
-            <p>When arriving at a friend’s house, the guest initiates the greeting by saying out loud:</p>
-            <p><strong>Haody!</strong> - Much like knocking on the door.</p>
-            <p>The host responds: <em>Mandrosoa. Mipetrapetraha. (Come in. Have a seat.)</em></p>
-            <div class="audio-section">
-                <audio controls>
-                    <source src="https://mandritsara.github.io/bako/audio/introduction/lesson1con2.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <h3>Vocabulary</h3>
-            <ul class="vocab-list">
-                <li><strong>Salama</strong> = hello</li>
-                <li><strong>Tompoko</strong> = sir</li>
-                <li><strong>Tsara</strong> = good</li>
-                <li><strong>Misaotra</strong> = thank you</li>
-                <li><strong>Vaovao</strong> = new</li>
-                <li><strong>Tsisy</strong> = nothing</li>
-                <li><strong>Haody</strong> = hello</li>
-                <li><strong>Mandrosoa</strong> = come in</li>
-                <li><strong>Mipetrapetraha</strong> = have a seat</li>
-                <li><strong>Mazotoa</strong> = enjoy</li>
-            </ul>
+            <p><strong>“SALAMA TOMPOKO”</strong> (literally, "hello, sir").</p>
+            
+            <p>Here is an example of a typical exchange:</p>
+            <p><strong>Person 1:</strong> Salama Tompoko! <br>
+               <strong>Person 2:</strong> Salama Tompoko! <br>
+               <strong>Person 1:</strong> Manakory ianao? (How are you?) <br>
+               <strong>Person 2:</strong> Tsara fa misaotra. (Fine, thank you.) <br>
+               <strong>Person 1:</strong> Ino vaovao? (What’s new?) <br>
+               <strong>Person 2:</strong> Tsisy vaovao. (Nothing’s new.)
+            </p>
+            <audio controls class="audio">
+                <source src="https://mandritsara.github.io/bako/audio/introduction/lesson1con1.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            
+            <h2>Visiting a Friend’s House</h2>
+            <p>When one arrives at a friend’s house, the guest initiates the greeting at the door by saying out loud, <strong>“HAODY!”</strong>, much like knocking on the door.</p>
+            <p><strong>Guest:</strong> Haody! <br>
+               <strong>Host:</strong> Mandrosoa. Mipetrapetraha. (Come in. Have a seat.) <br>
+               <strong>Guest:</strong> Salama Tompoko. <br>
+               <strong>Host:</strong> Salama Tompoko. Manakory ianao? <br>
+               <strong>Guest:</strong> Tsara fa misaotra.
+            </p>
+            <audio controls class="audio">
+                <source src="https://mandritsara.github.io/bako/audio/introduction/lesson1con2.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            
+            <h2>Pronouns</h2>
+            <table border="1" cellpadding="5">
+                <tr><th>English</th><th>Official</th><th>Tsimihety</th></tr>
+                <tr><td>I</td><td>Aho</td><td>Zaho</td></tr>
+                <tr><td>You (singular)</td><td>Ianao</td><td>Ianao</td></tr>
+                <tr><td>You (plural)</td><td>Ianareo</td><td>Areo</td></tr>
+                <tr><td>He/She/It</td><td>Izy</td><td>Izy</td></tr>
+                <tr><td>They</td><td>Izy ireo</td><td>Zareo</td></tr>
+            </table>
+            <audio controls class="audio">
+                <source src="https://mandritsara.github.io/bako/audio/introduction/lesson1pronouns.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            
+            <h2>Question Words</h2>
+            <table border="1" cellpadding="5">
+                <tr><th>English</th><th>Official</th><th>Tsimihety</th></tr>
+                <tr><td>What</td><td>Inona</td><td>Ino</td></tr>
+                <tr><td>Who</td><td>Iza</td><td>Zovy</td></tr>
+                <tr><td>Where</td><td>Aiza</td><td>Aiza</td></tr>
+                <tr><td>Why</td><td>Fa maninona</td><td>Fa manino</td></tr>
+            </table>
+            <audio controls class="audio">
+                <source src="https://mandritsara.github.io/bako/audio/introduction/lesson1questionwords.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            
+            <p>Offline PDF can be found in the same location as <code>lessons.json</code>.</p>
         </div>
-        <aside class="sidebar">
-            <h3>Language Notes</h3>
+        
+        <div class="sidebar">
+            <h3>Side Notes</h3>
             <p>There are 18 tribes spread across 22 regions in Madagascar.</p>
-            <p>Other greetings in Madagascar:</p>
+            <p>Other ways of saying hello in Madagascar are:</p>
             <ul>
-                <li><strong>Manao ahoana</strong> (Central, e.g. Tana)</li>
-                <li><strong>Salama</strong> (North / Central)</li>
-                <li><strong>Akory</strong> (East / South)</li>
+                <li><strong>Manao ahoana</strong> (Central, e.g., Tana)</li>
+                <li><strong>Salama</strong> (North/Central)</li>
+                <li><strong>Akory</strong> (East/South)</li>
                 <li><strong>Miarahaba</strong> (Central)</li>
             </ul>
-            <h3>Grammar Tip</h3>
-            <p><strong>Tsy</strong> = no, <strong>Tsisy</strong> = nothing. "Tsy" precedes verbs/adjectives, whereas "Tsisy" is usually preceded by a noun.</p>
-        </aside>
+            <p><strong>Malagasy Kabary</strong> originated as a highly poeticized speech performed in front of an audience. Today, it is an integral part of social life, used in festivities, ceremonies, and funerals.</p>
+            <p><strong>Tsy</strong> = no, <strong>Tsisy</strong> = nothing. Tsy precedes verbs/adjectives, whereas tsisy is usually preceded by a noun.</p>
+        </div>
     </div>
-    <h3>Pronouns</h3>
-    <table border="1" cellpadding="5">
-        <tr>
-            <th>English</th><th>Official (Off)</th><th>Tsimihety (Tsm)</th>
-        </tr>
-        <tr><td>I</td><td>Aho</td><td>Zaho</td></tr>
-        <tr><td>You (singular)</td><td>Ianao</td><td>Ianao</td></tr>
-        <tr><td>You (plural)</td><td>Ianareo</td><td>Areo</td></tr>
-        <tr><td>He/She/It</td><td>Izy</td><td>Izy</td></tr>
-        <tr><td>They</td><td>Izy ireo</td><td>Zareo</td></tr>
-        <tr><td>We (inclusive)</td><td>Isika</td><td>Antsika</td></tr>
-        <tr><td>We (exclusive)</td><td>Izahay</td><td>Zahay</td></tr>
-    </table>
-    <div class="audio-section">
-        <audio controls>
-            <source src="https://mandritsara.github.io/bako/audio/introduction/lesson1pronouns.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-    </div>
+    
+    <div id="footer"></div>
+    
+    <script>
+        fetch('header.html').then(response => response.text()).then(data => document.getElementById('header').innerHTML = data);
+        fetch('footer.html').then(response => response.text()).then(data => document.getElementById('footer').innerHTML = data);
+    </script>
 </body>
 </html>
