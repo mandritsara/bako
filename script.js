@@ -11,39 +11,58 @@ document.addEventListener("DOMContentLoaded", function () {
     // Detect which page is currently loaded
     const page = window.location.pathname.split("/").pop(); // Get filename from URL
 
-    // Fetch lessons from JSON and populate relevant section
+    // Define the mapping between pages and lesson categories
+    const categoryMap = {
+        "introduction.html": "Introductory Lessons",
+        "grammar.html": "Grammar Lessons",
+        "themes.html": "Thematic Lessons"
+    };
+
     fetch("lessons.json")
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(lessonData => {
-            let lessonCategory = "";  // Will store the correct key from JSON
+            console.log("Lessons loaded:", lessonData);
 
-            // Determine which category to load based on the page name
-            if (page === "introduction.html") {
-                lessonCategory = "introduction";
-            } else if (page === "grammar.html") {
-                lessonCategory = "grammar";
-            } else if (page === "themes.html") {
-                lessonCategory = "thematic";
+            const lessonCategory = categoryMap[page];
+            if (!lessonCategory) {
+                console.error("No matching category for this page:", page);
+                return;
             }
 
-            // Load the correct lessons into the page
-            if (lessonCategory && lessonData[lessonCategory]) {
-                generateLessonCards(lessonData[lessonCategory], "lessons-container");
+            // Find the correct lesson section in the JSON
+            const categoryData = lessonData.lessons.find(cat => cat.category === lessonCategory);
+            if (!categoryData || !categoryData.links) {
+                console.error("Category data not found for:", lessonCategory);
+                return;
             }
+
+            generateLessonCards(categoryData.links, "lessons-container");
         })
         .catch(error => console.error("Error loading lessons:", error));
 
     // Function to generate lesson cards dynamically
     function generateLessonCards(lessons, containerId) {
         const container = document.getElementById(containerId);
-        if (container) {
-            container.innerHTML = ""; // Clear existing content before inserting new ones
-            lessons.forEach(lesson => {
-                const card = document.createElement("div");
-                card.classList.add("card");
-                card.innerHTML = `<a href="${lesson.url}" target="_blank">${lesson.title}</a>`;
-                container.appendChild(card);
-            });
+        if (!container) {
+            console.error(`Error: Container #${containerId} not found!`);
+            return;
         }
+
+        container.innerHTML = ""; // Clear existing content before inserting new ones
+
+        lessons.forEach(lesson => {
+            const card = document.createElement("div");
+            card.classList.add("card");
+            card.innerHTML = `<a href="${lesson.url}" target="_blank">${lesson.title}</a>`;
+            container.appendChild(card);
+            console.log("Added lesson card:", lesson.title);
+        });
+
+        console.log("All lesson cards added.");
     }
 });
