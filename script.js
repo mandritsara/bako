@@ -25,12 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Fetch lessons from JSON and load the appropriate category
     fetch("lessons.json")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(lessonData => {
             console.log("Lessons loaded:", lessonData);
 
@@ -64,22 +59,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
         container.innerHTML = ""; // Clear existing content before inserting new ones
 
-        // Sort lessons to prioritize HTML first, then PDFs
-        lessons.sort((a, b) => {
-            const isHtmlA = a.url.endsWith(".html") ? -1 : 1;
-            const isHtmlB = b.url.endsWith(".html") ? -1 : 1;
-            return isHtmlA - isHtmlB;
-        });
-
         lessons.forEach(lesson => {
-            const card = document.createElement("div");
-            card.classList.add("card");
-            card.innerHTML = `
-                <h3>${lesson.title}</h3>
-                <a href="${lesson.url}" target="_blank">Open Lesson</a>
-            `;
-            container.appendChild(card);
-            console.log("Added lesson card:", lesson.title);
+            const pdfUrl = lesson.url;
+            const htmlUrl = pdfUrl.replace(/\.pdf$/, ".html"); // Assuming HTML files follow the same name pattern
+
+            // Check if the HTML file exists
+            fetch(htmlUrl, { method: 'HEAD' })
+                .then(response => {
+                    const preferredUrl = response.ok ? htmlUrl : pdfUrl;
+                    const card = document.createElement("div");
+                    card.classList.add("card");
+                    card.innerHTML = `
+                        <h3>${lesson.title}</h3>
+                        <a href="${preferredUrl}" target="_blank">Open Lesson</a>
+                        <p><a href="${pdfUrl}" download>Download PDF</a></p>
+                    `;
+                    container.appendChild(card);
+                    console.log("Added lesson card:", lesson.title);
+                })
+                .catch(() => {
+                    console.error("Failed to check HTML file existence:", htmlUrl);
+                });
         });
 
         console.log("All lesson cards added.");
