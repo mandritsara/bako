@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.error("Error loading lessons:", error));
 
-    // Function to generate lesson cards dynamically
+    // Function to generate lesson cards dynamically while maintaining order
     function generateLessonCards(lessons, containerId) {
         const container = document.getElementById(containerId);
         if (!container) {
@@ -59,29 +59,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
         container.innerHTML = ""; // Clear existing content before inserting new ones
 
-        lessons.forEach(lesson => {
+        // Map lesson URLs to fetch HEAD requests
+        const fetchPromises = lessons.map(lesson => {
             const pdfUrl = lesson.url;
-            const htmlUrl = pdfUrl.replace(/\.pdf$/, ".html"); // Assuming HTML files follow the same name pattern
-
-            // Check if the HTML file exists
-            fetch(htmlUrl, { method: 'HEAD' })
-                .then(response => {
-                    const preferredUrl = response.ok ? htmlUrl : pdfUrl;
-                    const card = document.createElement("div");
-                    card.classList.add("card");
-                    card.innerHTML = `
-                        <h3>${lesson.title}</h3>
-                        <a href="${preferredUrl}" target="_blank">Open Lesson</a>
-                        <p><a href="${pdfUrl}" download>Download PDF</a></p>
-                    `;
-                    container.appendChild(card);
-                    console.log("Added lesson card:", lesson.title);
-                })
-                .catch(() => {
-                    console.error("Failed to check HTML file existence:", htmlUrl);
-                });
+            const htmlUrl = pdfUrl.replace(/\.pdf$/, ".html");
+            return fetch(htmlUrl, { method: 'HEAD' })
+                .then(response => response.ok ? htmlUrl : pdfUrl)
+                .catch(() => pdfUrl); // Default to PDF if fetch fails
         });
 
-        console.log("All lesson cards added.");
+        // Resolve all fetch requests before displaying content
+        Promise.all(fetchPromises).then(resolvedUrls => {
+            lessons.forEach((lesson, index) => {
+                const preferredUrl = resolvedUrls[index];
+                const card = document.createElement("div");
+                card.classList.add("card");
+                card.innerHTML = `
+                    <h3>${lesson.title}</h3>
+                    <a href="${preferredUrl}" target="_blank">Open Lesson</a>
+                `;
+                container.appendChild(card);
+                console.log("Added lesson card:", lesson.title);
+            });
+        });
     }
 });
