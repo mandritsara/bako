@@ -75,8 +75,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 const card = document.createElement("div");
                 card.classList.add("card");
                 card.innerHTML = `
-                    <h3>${lesson.title}</h3>
-                    <a href="${preferredUrl}" target="_blank">Open Lesson</a>
+                    <a href="${preferredUrl}" target="_blank" style="text-decoration: none; color: inherit; display: block; padding: 15px;">
+                        <h3>${lesson.title}</h3>
+                    </a>
                 `;
                 container.appendChild(card);
                 console.log("Added lesson card:", lesson.title);
