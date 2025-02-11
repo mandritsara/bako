@@ -4,105 +4,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Malagasy-Tsimihety Lesson 1a: Greetings</title>
-    <script src="script.js" defer></script>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; }
-        .container { display: flex; }
-        .content { flex: 3; }
-        .sidebar { flex: 1; padding-left: 20px; background: #f4f4f4; padding: 10px; }
-        .audio { margin-top: 10px; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .textbox {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #007BFF;
+        }
+        .audio {
+            margin: 10px 0;
+        }
+        .header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .table th {
+            background-color: #f2f2f2;
+        }
     </style>
 </head>
 <body>
-    <div id="header"></div>
+    <div class="header">Malagasy-Tsimihety with Bako: Lesson 1a - Greetings</div>
     
-    <div class="container">
-        <div class="content">
-            <h1>Malagasy-Tsimihety with Bako - Lesson 1a: Greetings</h1>
-            <p><strong>Hello! Welcome to our first lesson.</strong> My name is Bako. I have been a language tutor in Mandritsara since 2008, teaching missionaries and visitors to the Hopitaly Vaovao Mahafaly project.</p>
-            <p>The dialect spoken in Mandritsara is called Tsimihety, but official Malagasy is widely spoken here as well.</p>
-            <p>Let’s begin by learning how to say hello.</p>
-            
-            <h2>Greetings</h2>
-            <p>In Mandritsara, the most common way of greeting each other is by saying:</p>
-            <p><strong>“SALAMA TOMPOKO”</strong> (literally, "hello, sir").</p>
-            
-            <p>Here is an example of a typical exchange:</p>
-            <p><strong>Person 1:</strong> Salama Tompoko! <br>
-               <strong>Person 2:</strong> Salama Tompoko! <br>
-               <strong>Person 1:</strong> Manakory ianao? (How are you?) <br>
-               <strong>Person 2:</strong> Tsara fa misaotra. (Fine, thank you.) <br>
-               <strong>Person 1:</strong> Ino vaovao? (What’s new?) <br>
-               <strong>Person 2:</strong> Tsisy vaovao. (Nothing’s new.)
-            </p>
-            <audio controls class="audio">
-                <source src="https://mandritsara.github.io/bako/audio/introduction/lesson1con1.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-            
-            <h2>Visiting a Friend’s House</h2>
-            <p>When one arrives at a friend’s house, the guest initiates the greeting at the door by saying out loud, <strong>“HAODY!”</strong>, much like knocking on the door.</p>
-            <p><strong>Guest:</strong> Haody! <br>
-               <strong>Host:</strong> Mandrosoa. Mipetrapetraha. (Come in. Have a seat.) <br>
-               <strong>Guest:</strong> Salama Tompoko. <br>
-               <strong>Host:</strong> Salama Tompoko. Manakory ianao? <br>
-               <strong>Guest:</strong> Tsara fa misaotra.
-            </p>
-            <audio controls class="audio">
-                <source src="https://mandritsara.github.io/bako/audio/introduction/lesson1con2.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-            
-            <h2>Pronouns</h2>
-            <table border="1" cellpadding="5">
-                <tr><th>English</th><th>Official</th><th>Tsimihety</th></tr>
-                <tr><td>I</td><td>Aho</td><td>Zaho</td></tr>
-                <tr><td>You (singular)</td><td>Ianao</td><td>Ianao</td></tr>
-                <tr><td>You (plural)</td><td>Ianareo</td><td>Areo</td></tr>
-                <tr><td>He/She/It</td><td>Izy</td><td>Izy</td></tr>
-                <tr><td>They</td><td>Izy ireo</td><td>Zareo</td></tr>
-            </table>
-            <audio controls class="audio">
-                <source src="https://mandritsara.github.io/bako/audio/introduction/lesson1pronouns.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-            
-            <h2>Question Words</h2>
-            <table border="1" cellpadding="5">
-                <tr><th>English</th><th>Official</th><th>Tsimihety</th></tr>
-                <tr><td>What</td><td>Inona</td><td>Ino</td></tr>
-                <tr><td>Who</td><td>Iza</td><td>Zovy</td></tr>
-                <tr><td>Where</td><td>Aiza</td><td>Aiza</td></tr>
-                <tr><td>Why</td><td>Fa maninona</td><td>Fa manino</td></tr>
-            </table>
-            <audio controls class="audio">
-                <source src="https://mandritsara.github.io/bako/audio/introduction/lesson1questionwords.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-            
-            <p>Offline PDF can be found in the same location as <code>lessons.json</code>.</p>
-        </div>
-        
-        <div class="sidebar">
-            <h3>Side Notes</h3>
-            <p>There are 18 tribes spread across 22 regions in Madagascar.</p>
-            <p>Other ways of saying hello in Madagascar are:</p>
-            <ul>
-                <li><strong>Manao ahoana</strong> (Central, e.g., Tana)</li>
-                <li><strong>Salama</strong> (North/Central)</li>
-                <li><strong>Akory</strong> (East/South)</li>
-                <li><strong>Miarahaba</strong> (Central)</li>
-            </ul>
-            <p><strong>Malagasy Kabary</strong> originated as a highly poeticized speech performed in front of an audience. Today, it is an integral part of social life, used in festivities, ceremonies, and funerals.</p>
-            <p><strong>Tsy</strong> = no, <strong>Tsisy</strong> = nothing. Tsy precedes verbs/adjectives, whereas tsisy is usually preceded by a noun.</p>
-        </div>
+    <p>Hello! Welcome to our first lesson. My name is Bako. I have been a language tutor in Mandritsara since 2008, teaching missionaries and visitors to the Hopitaly Vaovao Mahafaly project.</p>
+    <p>The dialect spoken in Mandritsara is called <strong>Tsimihety</strong>, but official Malagasy is widely spoken here as well.</p>
+    <p>Let’s begin by learning how to say hello.</p>
+    
+    <h3>Common Greetings</h3>
+    <p>In Mandritsara, the most common way of greeting each other is:</p>
+    <p><strong>"SALAMA TOMPOKO"</strong> (Hello, sir).</p>
+    
+    <div class="audio">
+        <p>Listen to the pronunciation:</p>
+        <audio controls>
+            <source src="https://mandritsara.github.io/bako/audio/introduction/lesson1con1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
     </div>
     
-    <div id="footer"></div>
+    <h3>Example Conversation</h3>
+    <p><strong>Person 1:</strong> Salama Tompoko!<br>
+       <strong>Person 2:</strong> Salama Tompoko!<br>
+       <strong>Person 1:</strong> Manakory ianao? (How are you?)<br>
+       <strong>Person 2:</strong> Tsara fa misaotra. (Fine, thank you)<br>
+       <strong>Person 1:</strong> Ino vaovao? (What’s new?)<br>
+       <strong>Person 2:</strong> Tsisy vaovao. (Nothing’s new)</p>
     
-    <script>
-        fetch('header.html').then(response => response.text()).then(data => document.getElementById('header').innerHTML = data);
-        fetch('footer.html').then(response => response.text()).then(data => document.getElementById('footer').innerHTML = data);
-    </script>
+    <div class="textbox">
+        <p>There are 18 tribes spread across 22 regions in Madagascar. Other ways of saying hello:</p>
+        <ul>
+            <li>Manao ahoana (Central, e.g., Tana)</li>
+            <li>Salama (North / Central)</li>
+            <li>Akory (East / South)</li>
+            <li>Miarahaba (Central)</li>
+        </ul>
+    </div>
+    
+    <h3>Visiting a Friend’s House</h3>
+    <p>When visiting a friend’s house, the guest would say:</p>
+    <p><strong>"HAODY!"</strong> (similar to knocking on the door).</p>
+    
+    <p><strong>Guest:</strong> Haody!<br>
+       <strong>Host:</strong> Mandrosoa. Mipetrapetraha. (Come in. Have a seat.)<br>
+       <strong>Guest:</strong> Salama tompoko.<br>
+       <strong>Host:</strong> Salama tompoko. Manakory ianao?<br>
+       <strong>Guest:</strong> Tsara fa misaotra.</p>
+    
+    <div class="textbox">
+        <p><strong>Kabary</strong>: A "Kabary" is a traditional poetic speech given in social events like festivities, ceremonies, and funerals. Informally, it is used to express thanks or welcome.</p>
+    </div>
+    
+    <h3>Vocabulary</h3>
+    <ul>
+        <li>Salama = Hello</li>
+        <li>Tompoko = Sir</li>
+        <li>Tsara = Good</li>
+        <li>Fa = But</li>
+        <li>Misaotra = Thank you</li>
+        <li>Vaovao = New</li>
+        <li>Tsisy = No</li>
+        <li>Haody = Hello</li>
+        <li>Mandrosoa = Come in</li>
+        <li>Mipetrapetraha = Have a seat</li>
+        <li>Mazotoa = Enjoy</li>
+    </ul>
+    
+    <h3>Pronouns</h3>
+    <table class="table">
+        <tr><th>English</th><th>Official Malagasy (off)</th><th>Tsimihety (tsm)</th></tr>
+        <tr><td>I</td><td>Aho</td><td>Zaho</td></tr>
+        <tr><td>You (singular)</td><td>Ianao</td><td>Ianao</td></tr>
+        <tr><td>You (plural)</td><td>Ianareo</td><td>Areo</td></tr>
+        <tr><td>He/She/It</td><td>Izy</td><td>Izy</td></tr>
+        <tr><td>They</td><td>Izy ireo</td><td>Zareo</td></tr>
+        <tr><td>We (inclusive)</td><td>Isika</td><td>Antsika</td></tr>
+        <tr><td>We (exclusive)</td><td>Izahay</td><td>Zahay</td></tr>
+    </table>
+    
+    <div class="audio">
+        <p>Listen to Pronouns:</p>
+        <audio controls>
+            <source src="https://mandritsara.github.io/bako/audio/introduction/lesson1pronouns.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    
+    <h3>Question Words</h3>
+    <div class="audio">
+        <p>Listen to Question Words:</p>
+        <audio controls>
+            <source src="https://mandritsara.github.io/bako/audio/introduction/lesson1questionwords.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
 </body>
 </html>
