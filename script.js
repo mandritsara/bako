@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
             lessons.forEach((lesson, index) => {
                 const preferredUrl = resolvedUrls[index];
                 const card = document.createElement("div");
-                card.classList.add("card");
+                card.classList.add("lesson-card");
                 card.innerHTML = `
                     <a href="${preferredUrl}" target="_blank" style="text-decoration: none; color: inherit; display: block; padding: 15px;">
                         <h3>${lesson.title}</h3>
