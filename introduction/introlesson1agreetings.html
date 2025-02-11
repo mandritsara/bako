@@ -41,6 +41,7 @@
     </style>
 </head>
 <body>
+     <div id="header"></div>
     <div class="header">Malagasy-Tsimihety with Bako: Lesson 1a - Greetings</div>
     
     <p>Hello! Welcome to our first lesson. My name is Bako. I have been a language tutor in Mandritsara since 2008, teaching missionaries and visitors to the Hopitaly Vaovao Mahafaly project.</p>
@@ -127,6 +128,13 @@
     </div>
     
     <h3>Question Words</h3>
+    <table border="1" cellpadding="5">
+                <tr><th>English</th><th>Official</th><th>Tsimihety</th></tr>
+                <tr><td>What</td><td>Inona</td><td>Ino</td></tr>
+                <tr><td>Who</td><td>Iza</td><td>Zovy</td></tr>
+                <tr><td>Where</td><td>Aiza</td><td>Aiza</td></tr>
+                <tr><td>Why</td><td>Fa maninona</td><td>Fa manino</td></tr>
+            </table>
     <div class="audio">
         <p>Listen to Question Words:</p>
         <audio controls>
@@ -134,5 +142,12 @@
             Your browser does not support the audio element.
         </audio>
     </div>
+<p>Download the PDF version: <a href="https://mandritsara.github.io/bako/introduction/introlesson1agreetings.pdf" target="_blank">Click here</a></p>
+<div id="footer"></div>
+    <script>
+        fetch('header.html').then(response => response.text()).then(data => document.getElementById('header').innerHTML = data);
+        fetch('footer.html').then(response => response.text()).then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+    
 </body>
 </html>
