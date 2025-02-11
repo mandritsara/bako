@@ -8,61 +8,51 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.text())
         .then(data => document.getElementById("footer").innerHTML = data);
 
-    // Detect which page is currently loaded
-    const page = window.location.pathname.split("/").pop(); // Get filename from URL
-
-    // Define the mapping between pages and lesson categories
-    const categoryMap = {
-        "introduction.html": "Introductory Lessons",
-        "grammar.html": "Grammar Lessons",
-        "themes.html": "Thematic Lessons"
-    };
-
     fetch("lessons.json")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(lessonData => {
-            console.log("Lessons loaded:", lessonData);
+        .then(response => response.json())
+        .then(data => {
+            const lessonsList = document.getElementById("lessons-list");
 
-            const lessonCategory = categoryMap[page];
-            if (!lessonCategory) {
-                console.error("No matching category for this page:", page);
-                return;
-            }
+            data.lessons.forEach(category => {
+                let categoryTitle = document.createElement("h3");
+                categoryTitle.textContent = category.category;
+                lessonsList.appendChild(categoryTitle);
 
-            // Find the correct lesson section in the JSON
-            const categoryData = lessonData.lessons.find(cat => cat.category === lessonCategory);
-            if (!categoryData || !categoryData.links) {
-                console.error("Category data not found for:", lessonCategory);
-                return;
-            }
+                category.links.forEach(lesson => {
+                    let lessonCard = document.createElement("div");
+                    lessonCard.className = "lesson-card";
 
-            generateLessonCards(categoryData.links, "lessons-container");
+                    let lessonTitle = document.createElement("h4");
+                    lessonTitle.textContent = lesson.title;
+
+                    let pdfLink = document.createElement("a");
+                    pdfLink.href = lesson.url;
+                    pdfLink.target = "_blank";
+                    pdfLink.textContent = "Download PDF";
+                    pdfLink.style.marginRight = "10px";
+
+                    let htmlUrl = lesson.url.replace(".pdf", ".html");
+                    let htmlLink = document.createElement("a");
+                    htmlLink.href = htmlUrl;
+                    htmlLink.target = "_blank";
+                    htmlLink.textContent = "View Lesson (HTML)";
+
+                    // Check if HTML file exists
+                    fetch(htmlUrl, { method: "HEAD" })
+                        .then(response => {
+                            if (response.ok) {
+                                lessonCard.appendChild(htmlLink);
+                            }
+                        })
+                        .catch(() => {
+                            console.warn(`HTML version not available for: ${lesson.title}`);
+                        });
+
+                    lessonCard.appendChild(lessonTitle);
+                    lessonCard.appendChild(pdfLink);
+                    lessonsList.appendChild(lessonCard);
+                });
+            });
         })
         .catch(error => console.error("Error loading lessons:", error));
-
-    // Function to generate lesson cards dynamically
-    function generateLessonCards(lessons, containerId) {
-        const container = document.getElementById(containerId);
-        if (!container) {
-            console.error(`Error: Container #${containerId} not found!`);
-            return;
-        }
-
-        container.innerHTML = ""; // Clear existing content before inserting new ones
-
-        lessons.forEach(lesson => {
-            const card = document.createElement("div");
-            card.classList.add("card");
-            card.innerHTML = `<a href="${lesson.url}" target="_blank">${lesson.title}</a>`;
-            container.appendChild(card);
-            console.log("Added lesson card:", lesson.title);
-        });
-
-        console.log("All lesson cards added.");
-    }
 });
