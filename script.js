@@ -91,15 +91,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     console.log("✅ script.js has loaded!");
-    
+
+    // Check if the header container exists
+    const headerElement = document.getElementById("header");
+    if (!headerElement) {
+        console.error("❌ ERROR: <div id='header'></div> is missing in the HTML.");
+        return;
+    } else {
+        console.log("🔍 Found #header div.");
+    }
+
+    console.log("🔄 Fetching header.html...");
     fetch("header.html")
         .then(response => {
-            console.log("🔄 Fetching header.html... Response:", response);
+            console.log("📡 Fetch response:", response);
             if (!response.ok) throw new Error(`❌ HTTP Error ${response.status}`);
             return response.text();
         })
         .then(data => {
-            document.getElementById("header").innerHTML = data;
+            console.log("📜 Received header content:", data);
+            if (!data.trim()) {
+                console.error("❌ ERROR: header.html is empty!");
+                return;
+            }
+            headerElement.innerHTML = data;
             console.log("✅ Header loaded successfully!");
         })
         .catch(error => console.error("❌ Error loading header:", error));
