@@ -1,6 +1,3 @@
-console.log("✅ script.js has loaded!");
-
-
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Script loaded!"); // Debugging
 
@@ -52,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.error("Error loading lessons:", error));
 
-    // Function to generate lesson cards dynamically while maintaining order
+    // Function to generate lesson cards dynamically
     function generateLessonCards(lessons, containerId) {
         const container = document.getElementById(containerId);
         if (!container) {
@@ -62,73 +59,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
         container.innerHTML = ""; // Clear existing content before inserting new ones
 
-        // Map lesson URLs to fetch HEAD requests
-        const fetchPromises = lessons.map(lesson => {
+        lessons.forEach(lesson => {
             const pdfUrl = lesson.url;
-            const htmlUrl = pdfUrl.replace(/\.pdf$/, ".html");
-            return fetch(htmlUrl, { method: 'HEAD' })
-                .then(response => response.ok ? htmlUrl : pdfUrl)
-                .catch(() => pdfUrl); // Default to PDF if fetch fails
-        });
+            const htmlUrl = pdfUrl.replace(/\.pdf$/, ".html"); // Assuming HTML files follow the same name pattern
 
-        // Resolve all fetch requests before displaying content
-        Promise.all(fetchPromises).then(resolvedUrls => {
-            lessons.forEach((lesson, index) => {
-                const preferredUrl = resolvedUrls[index];
-                const card = document.createElement("div");
-                card.classList.add("lesson-card");
-                card.innerHTML = `
-                    <a href="${preferredUrl}" target="_blank" style="text-decoration: none; color: inherit; display: block; padding: 15px;">
+            // Check if the HTML file exists
+            fetch(htmlUrl, { method: 'HEAD' })
+                .then(response => {
+                    const preferredUrl = response.ok ? htmlUrl : pdfUrl;
+                    const card = document.createElement("div");
+                    card.classList.add("lesson-card");
+                    card.innerHTML = `
                         <h3>${lesson.title}</h3>
-                    </a>
-                `;
-                container.appendChild(card);
-                console.log("Added lesson card:", lesson.title);
-            });
+                        <a href="${preferredUrl}" target="_blank">Open Lesson</a>
+                        <p><a href="${pdfUrl}" download>Download PDF</a></p>
+                    `;
+                    container.appendChild(card);
+                    console.log("Added lesson card:", lesson.title);
+                })
+                .catch(() => {
+                    console.error("Failed to check HTML file existence:", htmlUrl);
+                });
         });
-    }
-});
 
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("✅ script.js has loaded!");
-
-    // Load header
-    const headerElement = document.getElementById("header");
-    if (headerElement) {
-        console.log("🔍 Found #header div. Fetching header.html...");
-        fetch("header.html")
-            .then(response => {
-                console.log("📡 Header fetch response:", response);
-                if (!response.ok) throw new Error(`❌ HTTP Error ${response.status}`);
-                return response.text();
-            })
-            .then(data => {
-                console.log("📜 Received header content:", data);
-                headerElement.innerHTML = data;
-                console.log("✅ Header loaded successfully!");
-            })
-            .catch(error => console.error("❌ Error loading header:", error));
-    } else {
-        console.error("❌ ERROR: <div id='header'></div> is missing in the HTML.");
-    }
-
-    // Load footer
-    const footerElement = document.getElementById("footer");
-    if (footerElement) {
-        console.log("🔍 Found #footer div. Fetching footer.html...");
-        fetch("footer.html")
-            .then(response => {
-                console.log("📡 Footer fetch response:", response);
-                if (!response.ok) throw new Error(`❌ HTTP Error ${response.status}`);
-                return response.text();
-            })
-            .then(data => {
-                console.log("📜 Received footer content:", data);
-                footerElement.innerHTML = data;
-                console.log("✅ Footer loaded successfully!");
-            })
-            .catch(error => console.error("❌ Error loading footer:", error));
-    } else {
-        console.error("❌ ERROR: <div id='footer'></div> is missing in the HTML.");
+        console.log("All lesson cards added.");
     }
 });
