@@ -92,30 +92,43 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     console.log("✅ script.js has loaded!");
 
-    // Check if the header container exists
+    // Load header
     const headerElement = document.getElementById("header");
-    if (!headerElement) {
-        console.error("❌ ERROR: <div id='header'></div> is missing in the HTML.");
-        return;
+    if (headerElement) {
+        console.log("🔍 Found #header div. Fetching header.html...");
+        fetch("header.html")
+            .then(response => {
+                console.log("📡 Header fetch response:", response);
+                if (!response.ok) throw new Error(`❌ HTTP Error ${response.status}`);
+                return response.text();
+            })
+            .then(data => {
+                console.log("📜 Received header content:", data);
+                headerElement.innerHTML = data;
+                console.log("✅ Header loaded successfully!");
+            })
+            .catch(error => console.error("❌ Error loading header:", error));
     } else {
-        console.log("🔍 Found #header div.");
+        console.error("❌ ERROR: <div id='header'></div> is missing in the HTML.");
     }
 
-    console.log("🔄 Fetching header.html...");
-    fetch("header.html")
-        .then(response => {
-            console.log("📡 Fetch response:", response);
-            if (!response.ok) throw new Error(`❌ HTTP Error ${response.status}`);
-            return response.text();
-        })
-        .then(data => {
-            console.log("📜 Received header content:", data);
-            if (!data.trim()) {
-                console.error("❌ ERROR: header.html is empty!");
-                return;
-            }
-            headerElement.innerHTML = data;
-            console.log("✅ Header loaded successfully!");
-        })
-        .catch(error => console.error("❌ Error loading header:", error));
+    // Load footer
+    const footerElement = document.getElementById("footer");
+    if (footerElement) {
+        console.log("🔍 Found #footer div. Fetching footer.html...");
+        fetch("footer.html")
+            .then(response => {
+                console.log("📡 Footer fetch response:", response);
+                if (!response.ok) throw new Error(`❌ HTTP Error ${response.status}`);
+                return response.text();
+            })
+            .then(data => {
+                console.log("📜 Received footer content:", data);
+                footerElement.innerHTML = data;
+                console.log("✅ Footer loaded successfully!");
+            })
+            .catch(error => console.error("❌ Error loading footer:", error));
+    } else {
+        console.error("❌ ERROR: <div id='footer'></div> is missing in the HTML.");
+    }
 });
