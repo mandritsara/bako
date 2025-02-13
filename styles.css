@@ -42,12 +42,12 @@
 }
 
 
-  .card:hover {
+  .index-card:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   }
   
-  .card.no-hover:hover {
+  .index-card.no-hover:hover {
     transform: none;
     box-shadow: none;
   }
@@ -60,7 +60,6 @@
       font-size: 2rem;
     }
   }
-
 
   .lesson-card {
     background: #fff;
