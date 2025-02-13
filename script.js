@@ -1,3 +1,6 @@
+console.log("✅ script.js has loaded!");
+
+
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Script loaded!"); // Debugging
 
@@ -84,4 +87,20 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("✅ script.js has loaded!");
+    
+    fetch("header.html")
+        .then(response => {
+            console.log("🔄 Fetching header.html... Response:", response);
+            if (!response.ok) throw new Error(`❌ HTTP Error ${response.status}`);
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById("header").innerHTML = data;
+            console.log("✅ Header loaded successfully!");
+        })
+        .catch(error => console.error("❌ Error loading header:", error));
 });
