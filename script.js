@@ -12,6 +12,10 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
             const lessonsList = document.getElementById("lessons-list");
+            if (!lessonsList) {
+                console.error("Error: lessons-list container not found!");
+                return;
+            }
 
             data.lessons.forEach(category => {
                 let categoryTitle = document.createElement("h3");
@@ -37,17 +41,20 @@ document.addEventListener("DOMContentLoaded", function () {
                     htmlLink.target = "_blank";
                     htmlLink.textContent = "View Lesson (HTML)";
 
-                    // Check if HTML file exists
+                    // Check if the HTML file exists before displaying the link
                     fetch(htmlUrl, { method: "HEAD" })
                         .then(response => {
                             if (response.ok) {
                                 lessonCard.appendChild(htmlLink);
+                            } else {
+                                console.warn(`HTML version not available for: ${lesson.title}`);
                             }
                         })
                         .catch(() => {
-                            console.warn(`HTML version not available for: ${lesson.title}`);
+                            console.warn(`HTML version not found for: ${lesson.title}`);
                         });
 
+                    // Always add the PDF link
                     lessonCard.appendChild(lessonTitle);
                     lessonCard.appendChild(pdfLink);
                     lessonsList.appendChild(lessonCard);
