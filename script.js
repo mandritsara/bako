@@ -1,87 +1,58 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("Script loaded!"); // Debugging
-
     // Load header and footer dynamically
     fetch("header.html")
         .then(response => response.text())
-        .then(data => document.getElementById("header").innerHTML = data)
-        .catch(error => console.error("Error loading header:", error));
+        .then(data => document.getElementById("header").innerHTML = data);
 
     fetch("footer.html")
         .then(response => response.text())
-        .then(data => document.getElementById("footer").innerHTML = data)
-        .catch(error => console.error("Error loading footer:", error));
+        .then(data => document.getElementById("footer").innerHTML = data);
 
-    // Detect which page is currently loaded
-    const page = window.location.pathname.split("/").pop(); // Get filename from URL
-    console.log("Current page:", page);
-
-    // Define the mapping between pages and lesson categories
-    const categoryMap = {
-        "introduction.html": "Introductory Lessons",
-        "grammar.html": "Grammar Lessons",
-        "themes.html": "Thematic Lessons"
-    };
-
-    // Fetch lessons from JSON and load the appropriate category
     fetch("lessons.json")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(lessonData => {
-            console.log("Lessons loaded:", lessonData);
+        .then(response => response.json())
+        .then(data => {
+            const lessonsList = document.getElementById("lessons-list");
 
-            const lessonCategory = categoryMap[page];
-            if (!lessonCategory) {
-                console.error("No matching category for this page:", page);
-                return;
-            }
+            data.lessons.forEach(category => {
+                let categoryTitle = document.createElement("h3");
+                categoryTitle.textContent = category.category;
+                lessonsList.appendChild(categoryTitle);
 
-            // Find the correct category by searching the array
-            const categoryData = lessonData.lessons.find(cat => cat.category === lessonCategory);
-            if (!categoryData || !categoryData.links) {
-                console.error("Category data not found for:", lessonCategory);
-                return;
-            }
+                category.links.forEach(lesson => {
+                    let lessonCard = document.createElement("div");
+                    lessonCard.className = "lesson-card";
 
-            console.log("Category found:", lessonCategory);
-            console.log("Lessons in category:", categoryData.links);
+                    let lessonTitle = document.createElement("h4");
+                    lessonTitle.textContent = lesson.title;
 
-            generateLessonCards(categoryData.links, "lessons-container");
+                    let pdfLink = document.createElement("a");
+                    pdfLink.href = lesson.url;
+                    pdfLink.target = "_blank";
+                    pdfLink.textContent = "Download PDF";
+                    pdfLink.style.marginRight = "10px";
+
+                    let htmlUrl = lesson.url.replace(".pdf", ".html");
+                    let htmlLink = document.createElement("a");
+                    htmlLink.href = htmlUrl;
+                    htmlLink.target = "_blank";
+                    htmlLink.textContent = "View Lesson (HTML)";
+
+                    // Check if HTML file exists
+                    fetch(htmlUrl, { method: "HEAD" })
+                        .then(response => {
+                            if (response.ok) {
+                                lessonCard.appendChild(htmlLink);
+                            }
+                        })
+                        .catch(() => {
+                            console.warn(`HTML version not available for: ${lesson.title}`);
+                        });
+
+                    lessonCard.appendChild(lessonTitle);
+                    lessonCard.appendChild(pdfLink);
+                    lessonsList.appendChild(lessonCard);
+                });
+            });
         })
         .catch(error => console.error("Error loading lessons:", error));
-
-    // Function to generate lesson cards dynamically
-    function generateLessonCards(lessons, containerId) {
-        const container = document.getElementById(containerId);
-        if (!container) {
-            console.error(`Error: Container #${containerId} not found!`);
-            return;
-        }
-
-        container.innerHTML = ""; // Clear existing content before inserting new ones
-
-        // Sort lessons to prioritize HTML first, then PDFs
-        lessons.sort((a, b) => {
-            const isHtmlA = a.url.endsWith(".html") ? -1 : 1;
-            const isHtmlB = b.url.endsWith(".html") ? -1 : 1;
-            return isHtmlA - isHtmlB;
-        });
-
-        lessons.forEach(lesson => {
-            const card = document.createElement("div");
-            card.classList.add("card");
-            card.innerHTML = `
-                <h3>${lesson.title}</h3>
-                <a href="${lesson.url}" target="_blank">Open Lesson</a>
-            `;
-            container.appendChild(card);
-            console.log("Added lesson card:", lesson.title);
-        });
-
-        console.log("All lesson cards added.");
-    }
 });
