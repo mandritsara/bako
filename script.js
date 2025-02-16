@@ -1,63 +1,74 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Load header and footer dynamically
-    fetch("header.html")
-        .then(response => response.text())
-        .then(data => document.getElementById("header").innerHTML = data);
+    function loadHeaderFooter() {
+        const headerContainer = document.getElementById("header");
+        const footerContainer = document.getElementById("footer");
 
-    fetch("footer.html")
-        .then(response => response.text())
-        .then(data => document.getElementById("footer").innerHTML = data);
+        if (headerContainer) {
+            fetch("header.html")
+                .then(response => response.text())
+                .then(data => headerContainer.innerHTML = data)
+                .catch(error => console.error("Error loading header:", error));
+        } else {
+            console.warn("No header container found!");
+        }
 
+        if (footerContainer) {
+            fetch("footer.html")
+                .then(response => response.text())
+                .then(data => footerContainer.innerHTML = data)
+                .catch(error => console.error("Error loading footer:", error));
+        } else {
+            console.warn("No footer container found!");
+        }
+    }
+
+    loadHeaderFooter(); // Ensure header & footer load on all pages
+
+    // Load lesson data
     fetch("lessons.json")
         .then(response => response.json())
         .then(data => {
-            const lessonsList = document.getElementById("lessons-list");
-            if (!lessonsList) {
-                console.error("Error: lessons-list container not found!");
+            const lessonsContainer = document.getElementById("lessons-container");
+            if (!lessonsContainer) {
+                console.error("Error: lessons-container not found!");
                 return;
             }
 
             data.lessons.forEach(category => {
                 let categoryTitle = document.createElement("h3");
                 categoryTitle.textContent = category.category;
-                lessonsList.appendChild(categoryTitle);
+                lessonsContainer.appendChild(categoryTitle);
 
                 category.links.forEach(lesson => {
-                    let lessonCard = document.createElement("div");
+                    let lessonCard = document.createElement("a"); // Entire card is a clickable link
                     lessonCard.className = "lesson-card";
+                    lessonCard.style.display = "block"; // Makes it behave like a block-level button
+                    lessonCard.style.textDecoration = "none"; // Remove default link styles
 
                     let lessonTitle = document.createElement("h4");
                     lessonTitle.textContent = lesson.title;
-
-                    let pdfLink = document.createElement("a");
-                    pdfLink.href = lesson.url;
-                    pdfLink.target = "_blank";
-                    pdfLink.textContent = "Download PDF";
-                    pdfLink.style.marginRight = "10px";
+                    lessonTitle.style.color = "#3a6f6a"; // Matches your current styles
 
                     let htmlUrl = lesson.url.replace(".pdf", ".html");
-                    let htmlLink = document.createElement("a");
-                    htmlLink.href = htmlUrl;
-                    htmlLink.target = "_blank";
-                    htmlLink.textContent = "View Lesson (HTML)";
 
-                    // Check if the HTML file exists before displaying the link
+                    // Check if HTML exists first
                     fetch(htmlUrl, { method: "HEAD" })
                         .then(response => {
                             if (response.ok) {
-                                lessonCard.appendChild(htmlLink);
+                                lessonCard.href = htmlUrl; // Use HTML if available
                             } else {
                                 console.warn(`HTML version not available for: ${lesson.title}`);
+                                lessonCard.href = lesson.url; // Fall back to PDF
                             }
                         })
                         .catch(() => {
                             console.warn(`HTML version not found for: ${lesson.title}`);
+                            lessonCard.href = lesson.url; // Fall back to PDF
                         });
 
-                    // Always add the PDF link
                     lessonCard.appendChild(lessonTitle);
-                    lessonCard.appendChild(pdfLink);
-                    lessonsList.appendChild(lessonCard);
+                    lessonsContainer.appendChild(lessonCard);
                 });
             });
         })
