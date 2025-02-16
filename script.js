@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Load header and footer dynamically
     function loadHeaderFooter() {
-        const headerContainer = document.getElementById("header");
-        const footerContainer = document.getElementById("footer");
+        let headerContainer = document.getElementById("header");
+        let footerContainer = document.getElementById("footer");
 
         if (headerContainer) {
             fetch("header.html")
