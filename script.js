@@ -29,49 +29,38 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     let categoryToLoad = getPageCategory();
+    if (!categoryToLoad) return;
 
-    if (categoryToLoad) {
-        fetch("lessons.json")
-            .then(response => response.json())
-            .then(data => {
-                const lessonsContainer = document.getElementById("lessons-container");
-                if (!lessonsContainer) return;
+    fetch("lessons.json")
+        .then(response => response.json())
+        .then(data => {
+            const lessonsContainer = document.getElementById("lessons-container");
+            if (!lessonsContainer) {
+                console.error("Error: #lessons-container not found.");
+                return;
+            }
 
-                let category = data.lessons.find(cat => cat.category === categoryToLoad);
-                if (!category) return;
+            let category = data.lessons.find(cat => cat.category === categoryToLoad);
+            if (!category) return;
 
-                let categoryTitle = document.createElement("h3");
-                categoryTitle.textContent = category.category;
-                lessonsContainer.appendChild(categoryTitle);
-
-                category.links.forEach(lesson => {
-                    let lessonCard = document.createElement("a");
-                    lessonCard.className = "lesson-card";
-                    lessonCard.style.display = "block";
-                    lessonCard.style.textDecoration = "none";
-
-                    let lessonTitle = document.createElement("h4");
-                    lessonTitle.textContent = lesson.title;
-                    lessonTitle.style.color = "#3a6f6a";
-
-                    let htmlUrl = lesson.url.replace(".pdf", ".html");
-
-                    fetch(htmlUrl, { method: "HEAD" })
-                        .then(response => {
-                            if (response.ok) {
-                                lessonCard.href = htmlUrl;
-                            } else {
-                                lessonCard.href = lesson.url;
-                            }
-                        })
-                        .catch(() => {
-                            lessonCard.href = lesson.url;
-                        });
-
-                    lessonCard.appendChild(lessonTitle);
-                    lessonsContainer.appendChild(lessonCard);
-                });
-            })
-            .catch(error => console.error("Error loading lessons:", error));
-    }
+            category.links.forEach(lesson => {
+                let lessonCard = document.createElement("div");
+                lessonCard.className = "card";
+                
+                let lessonTitle = document.createElement("h4");
+                lessonTitle.textContent = lesson.title;
+                lessonTitle.style.color = "#3a6f6a";
+                
+                let lessonLink = document.createElement("a");
+                lessonLink.textContent = "View Lesson";
+                lessonLink.href = lesson.url;
+                lessonLink.target = "_blank";
+                lessonLink.className = "btn btn-primary";
+                
+                lessonCard.appendChild(lessonTitle);
+                lessonCard.appendChild(lessonLink);
+                lessonsContainer.appendChild(lessonCard);
+            });
+        })
+        .catch(error => console.error("Error loading lessons:", error));
 });
