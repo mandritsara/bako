@@ -7,34 +7,33 @@ document.addEventListener("DOMContentLoaded", function () {
         const headerPath = "/bako/header.html"; // Adjust if your header is elsewhere
         const footerPath = "/bako/footer.html"; // Adjust if your footer is elsewhere
 
+console.log("Fetching header from:", headerPath);
+console.log("Fetching footer from:", footerPath);
 
-        console.log("Fetching header from:", basePath + "header.html");
-        console.log("Fetching footer from:", basePath + "footer.html");
+if (headerContainer) {
+    fetch(headerPath)
+        .then(response => {
+            if (!response.ok) throw new Error(`Failed to load ${headerPath}`);
+            return response.text();
+        })
+        .then(data => {
+            headerContainer.innerHTML = data;
+        })
+        .catch(error => console.error("Error loading header:", error));
+}
 
-        if (headerContainer) {
-            fetch(basePath + "header.html")
-                .then(response => {
-                    if (!response.ok) throw new Error(`Failed to load ${basePath}header.html`);
-                    return response.text();
-                })
-                .then(data => {
-                    headerContainer.innerHTML = data;
-                })
-                .catch(error => console.error("Error loading header:", error));
-        }
+if (footerContainer) {
+    fetch(footerPath)
+        .then(response => {
+            if (!response.ok) throw new Error(`Failed to load ${footerPath}`);
+            return response.text();
+        })
+        .then(data => {
+            footerContainer.innerHTML = data;
+        })
+        .catch(error => console.error("Error loading footer:", error));
+}
 
-        if (footerContainer) {
-            fetch(basePath + "footer.html")
-                .then(response => {
-                    if (!response.ok) throw new Error(`Failed to load ${basePath}footer.html`);
-                    return response.text();
-                })
-                .then(data => {
-                    footerContainer.innerHTML = data;
-                })
-                .catch(error => console.error("Error loading footer:", error));
-        }
-    }
 
     function loadLessons() {
         function getPageCategory() {
