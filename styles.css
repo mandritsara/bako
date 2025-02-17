@@ -61,18 +61,30 @@
     }
   }
 
-/* Ensure Lesson Cards Have Borders */
+/* Grid Layout for Lesson Cards */
+.lesson-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Ensure Lesson Cards Remain as Separate Boxes */
 .lesson-card {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background: #fff;
-    border: 2px solid #3a6f6a;  /* Border added */
+    border: 2px solid #3a6f6a;
     padding: 15px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.2s ease-in-out;
     border-radius: 10px;
-    text-decoration: none !important; /* Remove link underline */
-    color: inherit !important; /* Prevents default link styling */
+    text-decoration: none !important;
+    color: inherit !important;
+    width: 100%; /* Ensures responsiveness */
 }
 
 /* Hover Effect for Lesson Cards */
