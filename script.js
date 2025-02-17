@@ -1,14 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     function loadHeaderFooter() {
-        let headerContainer = document.getElementById("header");
-        let footerContainer = document.getElementById("footer");
+        const headerContainer = document.getElementById("header");
+        const footerContainer = document.getElementById("footer");
 
-        // Use absolute paths for header and footer.
-        const headerPath = "/bako/header.html"; // Adjust if your header is elsewhere
-        const footerPath = "/bako/footer.html"; // Adjust if your footer is elsewhere
-
-        console.log("Fetching header from:", headerPath);
-        console.log("Fetching footer from:", footerPath);
+        const headerPath = "/header.html"; // Fetch from the root directory
+        const footerPath = "/footer.html"; // Fetch from the root directory
 
         if (headerContainer) {
             fetch(headerPath)
@@ -16,9 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (!response.ok) throw new Error(`Failed to load ${headerPath}`);
                     return response.text();
                 })
-                .then(data => {
-                    headerContainer.innerHTML = data;
-                })
+                .then(data => headerContainer.innerHTML = data)
                 .catch(error => console.error("Error loading header:", error));
         }
 
@@ -28,12 +22,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (!response.ok) throw new Error(`Failed to load ${footerPath}`);
                     return response.text();
                 })
-                .then(data => {
-                    footerContainer.innerHTML = data;
-                })
+                .then(data => footerContainer.innerHTML = data)
                 .catch(error => console.error("Error loading footer:", error));
         }
-    } // ❗️ FIXED: Added this missing closing bracket for loadHeaderFooter()
+    }
+
+    loadHeaderFooter();
+});
+
 
     function loadLessons() {
         function getPageCategory() {
