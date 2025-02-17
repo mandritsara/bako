@@ -3,8 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
         let headerContainer = document.getElementById("header");
         let footerContainer = document.getElementById("footer");
 
-        // ✅ Adjust the path based on whether the file is inside a subfolder
-        let basePath = window.location.pathname.includes("/introduction/") ? "../" : "./";
+        // ✅ Dynamically detect how deep the page is in the directory structure
+        let depth = window.location.pathname.split("/").length - 2;
+        let basePath = depth === 0 ? "./" : "../".repeat(depth);
 
         if (headerContainer) {
             fetch(basePath + "header.html")
@@ -20,6 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 .catch(error => console.error("Error loading footer:", error));
         }
     }
+
+    loadHeaderFooter();
+});
 
     function getPageCategory() {
         let path = window.location.pathname;
