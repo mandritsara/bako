@@ -3,22 +3,23 @@ document.addEventListener("DOMContentLoaded", function () {
         let headerContainer = document.getElementById("header");
         let footerContainer = document.getElementById("footer");
 
+        // ✅ Adjust the path based on whether the file is inside a subfolder
+        let basePath = window.location.pathname.includes("/introduction/") ? "../" : "./";
+
         if (headerContainer) {
-            fetch("header.html")
+            fetch(basePath + "header.html")
                 .then(response => response.text())
                 .then(data => headerContainer.innerHTML = data)
                 .catch(error => console.error("Error loading header:", error));
         }
 
         if (footerContainer) {
-            fetch("footer.html")
+            fetch(basePath + "footer.html")
                 .then(response => response.text())
                 .then(data => footerContainer.innerHTML = data)
                 .catch(error => console.error("Error loading footer:", error));
         }
     }
-
-    loadHeaderFooter();
 
     function getPageCategory() {
         let path = window.location.pathname;
