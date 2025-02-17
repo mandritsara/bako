@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const headerContainer = document.getElementById("header");
         const footerContainer = document.getElementById("footer");
 
-        const headerPath = "/header.html"; // Fetch from the root directory
-        const footerPath = "/footer.html"; // Fetch from the root directory
+        const headerPath = "/header.html";
+        const footerPath = "/footer.html";
 
         if (headerContainer) {
             fetch(headerPath)
@@ -27,10 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    loadHeaderFooter();
-});
-
-
     function loadLessons() {
         function getPageCategory() {
             let path = window.location.pathname;
@@ -43,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let categoryToLoad = getPageCategory();
 
         if (categoryToLoad) {
-            fetch("/bako/lessons.json") // ✅ Use absolute path to ensure it works from any folder
+            fetch("/bako/lessons.json")
                 .then(response => response.json())
                 .then(data => {
                     const lessonsContainer = document.getElementById("lessons-container");
@@ -52,11 +48,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     let category = data.lessons.find(cat => cat.category === categoryToLoad);
                     if (!category) return;
 
-                    // ✅ Create a wrapper for the grid layout
                     let lessonGrid = document.createElement("div");
                     lessonGrid.className = "lesson-container";
 
-                    // ✅ Add category title
                     let categoryTitle = document.createElement("h3");
                     categoryTitle.textContent = category.category;
                     lessonsContainer.appendChild(categoryTitle);
@@ -71,7 +65,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         let htmlUrl = lesson.url.replace(".pdf", ".html");
 
-                        // ✅ Dynamically assign correct URL
                         fetch(htmlUrl, { method: "HEAD" })
                             .then(response => {
                                 lessonCard.href = response.ok ? htmlUrl : lesson.url;
@@ -81,15 +74,15 @@ document.addEventListener("DOMContentLoaded", function () {
                             });
 
                         lessonCard.appendChild(lessonTitle);
-                        lessonGrid.appendChild(lessonCard); // ✅ Append to grid
+                        lessonGrid.appendChild(lessonCard);
                     });
 
-                    lessonsContainer.appendChild(lessonGrid); // ✅ Append grid to page
+                    lessonsContainer.appendChild(lessonGrid);
                 })
                 .catch(error => console.error("Error loading lessons:", error));
         }
     }
 
-    loadHeaderFooter();
-    loadLessons();
-});
+    loadHeaderFooter(); // Call only *once*, inside the DOMContentLoaded
+    loadLessons();      // Call only *once*, inside the DOMContentLoaded
+}); // Correctly closed
