@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const headerContainer = document.getElementById("header");
         const footerContainer = document.getElementById("footer");
 
-        const headerPath = "/header.html";
-        const footerPath = "/footer.html";
+        const headerPath = "/bako/header.html";
+        const footerPath = "/bako/footer.html";
 
         if (headerContainer) {
             fetch(headerPath)
