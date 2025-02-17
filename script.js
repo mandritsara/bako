@@ -40,6 +40,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 let category = data.lessons.find(cat => cat.category === categoryToLoad);
                 if (!category) return;
 
+                // ✅ Create a wrapper for the grid layout
+                let lessonGrid = document.createElement("div");
+                lessonGrid.className = "lesson-container";
+
+                // ✅ Add category title
                 let categoryTitle = document.createElement("h3");
                 categoryTitle.textContent = category.category;
                 lessonsContainer.appendChild(categoryTitle);
@@ -47,30 +52,27 @@ document.addEventListener("DOMContentLoaded", function () {
                 category.links.forEach(lesson => {
                     let lessonCard = document.createElement("a");
                     lessonCard.className = "lesson-card";
-                    lessonCard.style.display = "block";
                     lessonCard.style.textDecoration = "none";
 
                     let lessonTitle = document.createElement("h4");
                     lessonTitle.textContent = lesson.title;
-                    lessonTitle.style.color = "#3a6f6a";
 
                     let htmlUrl = lesson.url.replace(".pdf", ".html");
 
+                    // ✅ Dynamically assign correct URL
                     fetch(htmlUrl, { method: "HEAD" })
                         .then(response => {
-                            if (response.ok) {
-                                lessonCard.href = htmlUrl;
-                            } else {
-                                lessonCard.href = lesson.url;
-                            }
+                            lessonCard.href = response.ok ? htmlUrl : lesson.url;
                         })
                         .catch(() => {
                             lessonCard.href = lesson.url;
                         });
 
                     lessonCard.appendChild(lessonTitle);
-                    lessonsContainer.appendChild(lessonCard);
+                    lessonGrid.appendChild(lessonCard); // ✅ Append to grid
                 });
+
+                lessonsContainer.appendChild(lessonGrid); // ✅ Append grid to page
             })
             .catch(error => console.error("Error loading lessons:", error));
     }
