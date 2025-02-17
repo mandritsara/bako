@@ -52,6 +52,14 @@
     box-shadow: none;
   }
 
+/* Ensure Icons in Cards Are Centered */
+.card i {
+    display: block;
+    text-align: center;
+    margin: 10px auto; /* Centers the icon horizontally */
+    font-size: 4rem; /* Adjust icon size as needed */
+}
+
   @media (max-width: 576px) {
     .about-text {
       font-size: 1rem;
