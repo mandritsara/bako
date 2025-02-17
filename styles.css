@@ -1,3 +1,66 @@
+.header {
+  background-color: #f4f4f4; /* Dark background for the header */
+  padding: 0;
+  text-align: center;
+  color: #f2f2f2; /* Light text for contrast */
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #3a6f6a; /* Highlighted text color for the title */
+}
+
+.header h2 {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #6c757d; /* Subtle lighter text for the tagline */
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333; /* Dark background for the navigation bar */
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2; /* Light text for navigation links */
+  text-align: center;
+  padding: 10px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd; /* Light background on hover */
+  color: black; /* Dark text on hover */
+}
+
+.topnav a.active {
+  background-color: #04AA6D; /* Highlighted background for the active link */
+  color: white; /* Text color for the active link */
+}
+
+
+  .index-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .index-card.no-hover:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  @media (max-width: 576px) {
+    .about-text {
+      font-size: 1rem;
+    }
+    .header h1 {
+      font-size: 2rem;
+    }
+  }
+
 /* Ensure Lesson Cards Have Borders */
 .lesson-card {
     display: block;
