@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     function loadHeaderFooter() {
-        //... (same as above)
+        const headerContainer = document.getElementById("header");
+        const footerContainer = document.getElementById("footer");
 
         // Relative paths to go UP one directory
         const headerPath = "header.html"; 
