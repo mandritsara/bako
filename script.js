@@ -3,34 +3,33 @@ document.addEventListener("DOMContentLoaded", function () {
         let headerContainer = document.getElementById("header");
         let footerContainer = document.getElementById("footer");
 
-        // ✅ Automatically detect how deep the page is
-        let depth = window.location.pathname.split("/").length - 2;
-        let basePath = depth === 0 ? "./" : "../".repeat(depth);
+        // ✅ Detect if the page is inside a subfolder like /bako/introduction/
+        let basePath = window.location.pathname.includes("/introduction/") ? "../" : "./";
 
-        console.log("Current path:", window.location.pathname);
-        console.log("Base path detected:", basePath);
+        console.log("Fetching header from:", basePath + "header.html");
+        console.log("Fetching footer from:", basePath + "footer.html");
 
         if (headerContainer) {
-            let headerPath = basePath + "header.html";
-            console.log("Fetching header from:", headerPath);
-            fetch(headerPath)
+            fetch(basePath + "header.html")
                 .then(response => {
-                    if (!response.ok) throw new Error(`Failed to load ${headerPath}`);
+                    if (!response.ok) throw new Error(`Failed to load ${basePath}header.html`);
                     return response.text();
                 })
-                .then(data => headerContainer.innerHTML = data)
+                .then(data => {
+                    headerContainer.innerHTML = data;
+                })
                 .catch(error => console.error("Error loading header:", error));
         }
 
         if (footerContainer) {
-            let footerPath = basePath + "footer.html";
-            console.log("Fetching footer from:", footerPath);
-            fetch(footerPath)
+            fetch(basePath + "footer.html")
                 .then(response => {
-                    if (!response.ok) throw new Error(`Failed to load ${footerPath}`);
+                    if (!response.ok) throw new Error(`Failed to load ${basePath}footer.html`);
                     return response.text();
                 })
-                .then(data => footerContainer.innerHTML = data)
+                .then(data => {
+                    footerContainer.innerHTML = data;
+                })
                 .catch(error => console.error("Error loading footer:", error));
         }
     }
