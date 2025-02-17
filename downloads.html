@@ -1,156 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lesson PDFs</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    .header {
-      background-color: #f4f4f4;
-      padding: 20px 0;
-      text-align: center;
-      color: #333;
-    }
-
-    .header h1 {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #3a6f6a;
-    }
-
-    .header h2 {
-      font-size: 1.5rem;
-      font-style: italic;
-      color: #6c757d;
-    }
-
-    .content-container {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 15px;
-    }
-
-    .note {
-      font-size: 1rem;
-      color: #555;
-      margin-bottom: 20px;
-      padding: 15px;
-      border-left: 5px solid #3a6f6a;
-      background-color: #f9f9f9;
-    }
-
-    .lesson-category {
-      margin-top: 40px;
-    }
-
-    .lesson-category h3 {
-      color: #3a6f6a;
-    }
-
-    .lesson-list {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    .lesson-list li {
-      margin: 10px 0;
-    }
-
-    .lesson-list a {
-      text-decoration: none;
-      color: #007bff;
-    }
-
-    .lesson-list a:hover {
-      text-decoration: underline;
-    }
-  </style>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DG828TL4V1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-DG828TL4V1');
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson Downloads - Learning Malagasy with Bako</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
-  <!-- Header Section -->
-  <header class="header" role="banner">
-    <h1 class="project-name">Learning Malagasy and Tsimihety with Bako</h1>
-    <h2 class="project-tagline">A resource for language learners in Mandritsara, Madagascar</h2>
-    <div class="topnav">
-      <a class="active" href="https://mandritsara.github.io/bako">Home</a>
-      <a href="https://mandritsara.github.io/bako/aboutweb.html">About</a>
-      <a href="https://mandritsara.github.io/bako/originalindex.md">Downloads</a>
-      <a href="#about">Contact</a>
-    </div>
-  </header>
+    <!-- Header (Loaded via JS) -->
+    <div id="header"></div>
 
-  <!-- Main Content Section -->
-  <div class="container content-container">
+    <div class="container mt-5">
+        <h2 class="text-center">Lesson Downloads</h2>
+        <p class="text-center">Download all the lesson PDFs here.</p>
 
-    <!-- Note to Learners -->
-    <div class="note">
-      <p>Note to the learner:</p>
-      <ul>
-        <li>These lessons are prepared in PDF format with audio clips included. Please <strong>CLICK</strong> on the relevant lesson titles to download the PDF file.</li>
-        <li>If you are using Adobe Acrobat or compatible software, you can listen to the audio clips offline by clicking the <span style="color: red;">RED</span> sound icon; otherwise, please click the <span style="color: green;">GREEN</span> sound icon which opens a separate browser to play the clip from the cloud.</li>
-        <li>Official Malagasy words are denoted with the superscript <em>off</em>, and <em>tsm</em> for Tsimihety.</li>
-        <li>Each lesson has an appendix with supplementary material containing grammar or cultural insights that are aimed at complementing the main text.</li>
-      </ul>
+        <!-- Placeholder for the dynamically loaded PDF links -->
+        <div id="pdf-list" class="mt-4"></div>
     </div>
 
-    <!-- Introductory Lessons -->
-    <div class="lesson-category">
-      <h3>Introductory Lessons (7 in total)</h3>
-      <ul class="lesson-list">
-        <li><a href="https://mandritsara.github.io/bako/introduction/introlesson1agreetings.pdf" target="_blank">Lesson 1a - GREETINGS + <em>pronouns and question words</em></a></li>
-        <li><a href="https://mandritsara.github.io/bako/introduction/introlesson1bgoodbye.pdf" target="_blank">Lesson 1b - GOODBYE + <em>days/weeks/months</em></a></li>
-        <li><a href="https://mandritsara.github.io/bako/introduction/introlesson2usefulexpressions.pdf" target="_blank">Lesson 2 - USEFUL EXPRESSIONS + <em>Malagasy hospitality</em></a></li>
-        <li><a href="https://mandritsara.github.io/bako/introduction/introlesson3introducingyourself.pdf" target="_blank">Lesson 3 - INTRODUCING YOURSELF + <em>basic grammar rules</em></a></li>
-        <li><a href="https://mandritsara.github.io/bako/introduction/introlesson4goingtothemarket.pdf" target="_blank">Lesson 4 - GOING TO THE MARKET + <em>numbers, money, and groceries</em></a></li>
-        <li><a href="https://mandritsara.github.io/bako/introduction/introlessons1-4reviewexercises.pdf" target="_blank">Lesson 1-4 REVIEW EXERCISES + <em>answers</em></a></li>
-        <li><a href="https://mandritsara.github.io/bako/introduction/introlesson5goingtochurch.pdf" target="_blank">Lesson 5 - GOING TO CHURCH + <em>ordinal numbers</em></a></li>
-        <li><a href="https://mandritsara.github.io/bako/introduction/introlesson6visitingavillage.pdf" target="_blank">Lesson 6 - VISITING A VILLAGE + <em>adjectives</em></a></li>
-      </ul>
-    </div>
+    <!-- Footer (Loaded via JS) -->
+    <div id="footer"></div>
 
-    <!-- Grammar Lessons -->
-    <div class="lesson-category">
-      <h3>Grammar Lessons (in progress)</h3>
-      <ul class="lesson-list">
-        <li><a href="https://mandritsara.github.io/bako/grammar/grammar1formingsentences.pdf" target="_blank">Lesson 1 - FORMING SENTENCES - <em>predicate & subject</em></a></li>
-        <li><a href="https://mandritsara.github.io/bako/grammar/grammar2phraseswithverbs.pdf" target="_blank">Lesson 2 - PHRASES WITH VERBS</a></li>
-        <li><a href="https://mandritsara.github.io/bako/grammar/grammar3intransitiveverbs.pdf" target="_blank">Lesson 3 - INTRANSITIVE VERBS</a></li>
-        <li><a href="https://mandritsara.github.io/bako/grammar/grammar4atransitiveverbs.pdf" target="_blank">Lesson 4a - TRANSITIVE VERBS(I)</a></li>
-        <li><a href="https://mandritsara.github.io/bako/grammar/grammar4btransitiveverbs2.pdf" target="_blank">Lesson 4b - TRANSITIVE VERBS(II)</a></li>
-        <li><a href="https://mandritsara.github.io/bako/grammar/grammar5adverbsandcommonauxiliaryverbs.pdf" target="_blank">Lesson 5 - ADVERBS AND COMMON AUXILIARY VERBS</a></li>
-        <li><a href="https://mandritsara.github.io/bako/grammar/grammar6aamin'ny.pdf" target="_blank">Lesson 6a - Using "Amin’ny" for Instrumental Complements</a></li>
-        <li><a href="https://mandritsara.github.io/bako/grammar/grammar6bamin'ny.pdf" target="_blank">Lesson 6b - Using "Amin’ny" and "Tamin’ny" in Malagasy</a></li>
-      </ul>
-    </div>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("lessons.json")
+                .then(response => response.json())
+                .then(data => {
+                    const pdfList = document.getElementById("pdf-list");
 
-    <!-- Thematic Lessons -->
-    <div class="lesson-category">
-      <h3>Thematic Lessons (in progress)</h3>
-      <ul class="lesson-list">
-        <li><a href="https://mandritsara.github.io/bako/theme/theme1family.pdf" target="_blank">Lesson 1 - FAMILY TREE</a></li>
-        <li><a href="https://mandritsara.github.io/bako/theme/theme%202%20the%20house.pdf" target="_blank">Lesson 2 - THE HOUSE</a></li>
-        <li><a href="https://mandritsara.github.io/bako/theme/theme%203%20weather%20and%20climate.pdf" target="_blank">Lesson 3 - WEATHER AND CLIMATE</a></li>
-        <li><a href="https://mandritsara.github.io/bako/theme/theme4inthekitchen.pdf" target="_blank">Lesson 4 - IN THE KITCHEN</a></li>
-        <li><a href="https://mandritsara.github.io/bako/theme/theme5jobs.pdf" target="_blank">Lesson 5 - JOBS</a></li>
-      </ul>
-    </div>
+                    data.lessons.forEach(category => {
+                        let categoryTitle = document.createElement("h3");
+                        categoryTitle.textContent = category.category;
+                        pdfList.appendChild(categoryTitle);
 
-  </div>
+                        let list = document.createElement("ul");
+                        list.className = "list-group mb-4";
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-  <footer class="text-center py-3">
-    <p>&copy; 2025 Learning Malagasy and Tsimihety with Bako. All rights reserved.</p>
-  </footer>
+                        category.links.forEach(lesson => {
+                            let pdfUrl = lesson.url; // PDF URL stored in JSON
+
+                            // Ensure only PDF links are added
+                            if (pdfUrl.endsWith(".pdf")) {
+                                let listItem = document.createElement("li");
+                                listItem.className = "list-group-item";
+
+                                let link = document.createElement("a");
+                                link.href = pdfUrl;
+                                link.textContent = lesson.title;
+                                link.target = "_blank"; // Opens in new tab
+
+                                listItem.appendChild(link);
+                                list.appendChild(listItem);
+                            }
+                        });
+
+                        pdfList.appendChild(list);
+                    });
+                })
+                .catch(error => console.error("Error loading PDFs:", error));
+        });
+    </script>
+
 </body>
 </html>
