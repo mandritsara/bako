@@ -69,7 +69,7 @@
     padding: 20px;
 }
 
-/* Ensure Lesson Cards Remain as Separate Boxes */
+/* Lesson Cards */
 .lesson-card {
     display: flex;
     flex-direction: column;
@@ -84,8 +84,9 @@
     border-radius: 10px;
     text-decoration: none !important;
     color: inherit !important;
-    width: 100%; /* Ensures responsiveness */
+    width: 100%;
 }
+
 
 /* Hover Effect for Lesson Cards */
 .lesson-card:hover {
