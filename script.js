@@ -3,37 +3,37 @@ document.addEventListener("DOMContentLoaded", function () {
         let headerContainer = document.getElementById("header");
         let footerContainer = document.getElementById("footer");
 
-// Use absolute paths for header and footer.
+        // Use absolute paths for header and footer.
         const headerPath = "/bako/header.html"; // Adjust if your header is elsewhere
         const footerPath = "/bako/footer.html"; // Adjust if your footer is elsewhere
 
-console.log("Fetching header from:", headerPath);
-console.log("Fetching footer from:", footerPath);
+        console.log("Fetching header from:", headerPath);
+        console.log("Fetching footer from:", footerPath);
 
-if (headerContainer) {
-    fetch(headerPath)
-        .then(response => {
-            if (!response.ok) throw new Error(`Failed to load ${headerPath}`);
-            return response.text();
-        })
-        .then(data => {
-            headerContainer.innerHTML = data;
-        })
-        .catch(error => console.error("Error loading header:", error));
-}
+        if (headerContainer) {
+            fetch(headerPath)
+                .then(response => {
+                    if (!response.ok) throw new Error(`Failed to load ${headerPath}`);
+                    return response.text();
+                })
+                .then(data => {
+                    headerContainer.innerHTML = data;
+                })
+                .catch(error => console.error("Error loading header:", error));
+        }
 
-if (footerContainer) {
-    fetch(footerPath)
-        .then(response => {
-            if (!response.ok) throw new Error(`Failed to load ${footerPath}`);
-            return response.text();
-        })
-        .then(data => {
-            footerContainer.innerHTML = data;
-        })
-        .catch(error => console.error("Error loading footer:", error));
-}
-
+        if (footerContainer) {
+            fetch(footerPath)
+                .then(response => {
+                    if (!response.ok) throw new Error(`Failed to load ${footerPath}`);
+                    return response.text();
+                })
+                .then(data => {
+                    footerContainer.innerHTML = data;
+                })
+                .catch(error => console.error("Error loading footer:", error));
+        }
+    } // ❗️ FIXED: Added this missing closing bracket for loadHeaderFooter()
 
     function loadLessons() {
         function getPageCategory() {
