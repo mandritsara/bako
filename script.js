@@ -3,20 +3,33 @@ document.addEventListener("DOMContentLoaded", function () {
         let headerContainer = document.getElementById("header");
         let footerContainer = document.getElementById("footer");
 
-        // ✅ Dynamically detect how deep the page is in the directory structure
+        // ✅ Automatically detect how deep the page is
         let depth = window.location.pathname.split("/").length - 2;
         let basePath = depth === 0 ? "./" : "../".repeat(depth);
 
+        console.log("Current path:", window.location.pathname);
+        console.log("Base path detected:", basePath);
+
         if (headerContainer) {
-            fetch(basePath + "header.html")
-                .then(response => response.text())
+            let headerPath = basePath + "header.html";
+            console.log("Fetching header from:", headerPath);
+            fetch(headerPath)
+                .then(response => {
+                    if (!response.ok) throw new Error(`Failed to load ${headerPath}`);
+                    return response.text();
+                })
                 .then(data => headerContainer.innerHTML = data)
                 .catch(error => console.error("Error loading header:", error));
         }
 
         if (footerContainer) {
-            fetch(basePath + "footer.html")
-                .then(response => response.text())
+            let footerPath = basePath + "footer.html";
+            console.log("Fetching footer from:", footerPath);
+            fetch(footerPath)
+                .then(response => {
+                    if (!response.ok) throw new Error(`Failed to load ${footerPath}`);
+                    return response.text();
+                })
                 .then(data => footerContainer.innerHTML = data)
                 .catch(error => console.error("Error loading footer:", error));
         }
