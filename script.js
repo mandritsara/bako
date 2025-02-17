@@ -3,9 +3,10 @@ document.addEventListener("DOMContentLoaded", function () {
         let headerContainer = document.getElementById("header");
         let footerContainer = document.getElementById("footer");
 
-        // ✅ Correct path detection: Detects if the page is inside any subfolder
-        let depth = window.location.pathname.split("/").length - 2;
-        let basePath = depth === 0 ? "./" : "../".repeat(depth);
+// Use absolute paths for header and footer.
+        const headerPath = "/bako/header.html"; // Adjust if your header is elsewhere
+        const footerPath = "/bako/footer.html"; // Adjust if your footer is elsewhere
+
 
         console.log("Fetching header from:", basePath + "header.html");
         console.log("Fetching footer from:", basePath + "footer.html");
