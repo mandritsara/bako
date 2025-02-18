@@ -3,15 +3,39 @@ document.addEventListener("DOMContentLoaded", function () {
         const headerContainer = document.getElementById("header");
         const footerContainer = document.getElementById("footer");
 
-        // Relative paths to go UP one directory
-        const headerPath = "header.html"; 
-        const footerPath = "footer.html"; 
+        // ✅ Fetch from the same `/bako/introduction/` folder
+        const headerPath = "header.html";  
+        const footerPath = "footer.html";  
 
-        //... (rest of the fetch logic for header and footer remains the same)
+        console.log(`Fetching Header from: ${headerPath}`);
+        console.log(`Fetching Footer from: ${footerPath}`);
+
+        if (headerContainer) {
+            fetch(headerPath)
+                .then(response => {
+                    if (!response.ok) throw new Error(`Failed to load ${headerPath}`);
+                    return response.text();
+                })
+                .then(data => {
+                    console.log("Header loaded successfully!");
+                    headerContainer.innerHTML = data;
+                })
+                .catch(error => console.error("Error loading header:", error));
+        }
+
+        if (footerContainer) {
+            fetch(footerPath)
+                .then(response => {
+                    if (!response.ok) throw new Error(`Failed to load ${footerPath}`);
+                    return response.text();
+                })
+                .then(data => {
+                    console.log("Footer loaded successfully!");
+                    footerContainer.innerHTML = data;
+                })
+                .catch(error => console.error("Error loading footer:", error));
+        }
     }
 
-    //... (rest of your script.js, including loadLessons() if needed)
-
     loadHeaderFooter();
-    //... other functions
 });
