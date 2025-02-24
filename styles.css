@@ -137,3 +137,32 @@
     position: relative; /* Keeps text above the full-card clickable layer */
     z-index: 2;
 }
+
+ body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .textbox {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #007BFF;
+        }
+        .audio {
+            margin: 10px 0;
+        }
+      
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .table th {
+            background-color: #f2f2f2;
+        }
