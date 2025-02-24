@@ -23,14 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .catch(error => console.error("Error loading header:", error));
         }
 
-        fetch(htmlUrl, { method: "HEAD" })
-                            .then(response => {
-                                lessonCard.href = response.ok ? htmlUrl : lesson.url;
-                            })
-                            .catch(() => {
-                                lessonCard.href = lesson.url;
-                            });
-
+     
 
         if (footerContainer) {
             fetch(footerPath)
