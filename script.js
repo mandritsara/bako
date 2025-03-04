@@ -80,13 +80,11 @@ document.addEventListener("DOMContentLoaded", function () {
     loadHeaderFooter();
     loadLessons();
 
-    // 🚀 Fix Bootstrap Carousel: Ensure it loops and left/right navigation works
-    document.querySelector("#galleryCarousel").addEventListener("slid.bs.carousel", function (event) {
-        console.log(`Current active slide index: ${event.to}`);
-    });
+    // 🚀 FIX: Ensure Bootstrap Carousel loops & buttons work
+    const galleryCarousel = document.getElementById("galleryCarousel");
 
+    // ✅ 1. Force Bootstrap Carousel to wrap correctly
     setTimeout(() => {
-        const galleryCarousel = document.getElementById("galleryCarousel");
         new bootstrap.Carousel(galleryCarousel, {
             interval: 3000,  // Auto-slide every 3 seconds
             wrap: true,      // Ensure looping
@@ -94,16 +92,21 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }, 100);
 
-    // ✅ Fix left/right arrow navigation
+    // ✅ 2. Fix navigation buttons (prev and next)
     document.querySelector(".carousel-control-prev").addEventListener("click", function () {
-        document.querySelector("#galleryCarousel").carousel("prev");
+        galleryCarousel.carousel("prev");
     });
 
     document.querySelector(".carousel-control-next").addEventListener("click", function () {
-        document.querySelector("#galleryCarousel").carousel("next");
+        galleryCarousel.carousel("next");
     });
 
-    // ✅ Captions for each image
+    // ✅ 3. Debug: Ensure slides are changing correctly
+    galleryCarousel.addEventListener("slid.bs.carousel", function (event) {
+        console.log(`Current slide index: ${event.to}`);
+    });
+
+    // ✅ 4. Captions for each image
     const captions = [
         "My sister and I pounding cassava leaves ('ravitoto') for lunch, with rice.",
         "Family dinner by candlelight, with visitors (not often) from Tana, in the village.",
