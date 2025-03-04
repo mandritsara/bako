@@ -198,18 +198,18 @@ p, ul, ol {
     text-align: center;
     background: rgba(0, 0, 0, 0.7); /* Dark background for readability */
     color: white;
-    padding: 10px;
+    padding: 12px;
     font-size: 1rem;
     line-height: 1.4;
     border-radius: 8px;
     width: 100%;
     max-width: 600px; /* Prevents captions from getting too wide on PC */
-    margin: 10px auto; /* Centers below the carousel */
+    margin: 15px auto; /* Centers below the carousel */
     display: block; /* Ensures visibility */
     min-height: 50px; /* Prevents height shifting */
 }
 
-/* 🎯 Ensure captions resize properly on smaller screens */
+/* 📌 Ensure captions resize properly on mobile */
 @media (max-width: 768px) {
     .carousel-caption-below {
         font-size: 0.9rem;
@@ -217,4 +217,3 @@ p, ul, ol {
         padding: 8px;
     }
 }
-
