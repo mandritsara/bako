@@ -89,15 +89,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     const captions = [
-        "Children enjoying a moment together",
-        "Traditional Malagasy cooking",
-        "A warm family gathering",
-        "A view of my hometown",
-        "A typical Malagasy house",
-        "Another home in the village",
-        "My parents in our village",
-        "Swimming in the river",
-        "Walking through nature"
+        "My sister and I pounding cassava leaves ('ravitoto') for lunch, with rice.", // cooking
+        "Family dinner by candlelight, with visitors (not often) from Tana, in the village.", // cooking
+        "My parents and the three youngest siblings (G = D). My father. My mother. My little sister, me, my brother.", // family
+        "In our home village, 'Amparihibe.'", // hometown
+        "HVMM Laboratory Technician (2005–2010)", // lab
+        "Our childhood home, the family village of Amparihibe, Amparafaravola.", // house
+        "Our village—the bamboo behind our house, decades old, along with fruit trees and fields.", // house 2
+        "My parents and the three youngest siblings (G = D).", // parents
+        "Return to our home village for the holidays—swimming in the nearby lake.", // swimming
+        "Walking back from the Thursday market, about ten kilometers away.", // walking
+        "Rice harvest. Zebus trampling the rice.", // rice
+        "Waiting for the taxi-brousse to return to the center of the island, hundreds of kilometers away.", // road
+        "Our rice fields. July–August.", // ombi 1
+        "Harvest." // ombi 2
     ];
 
     const carouselItems = document.querySelectorAll(".carousel-item");
@@ -111,4 +116,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
