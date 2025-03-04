@@ -196,22 +196,32 @@ p, ul, ol {
 
 .carousel-caption {
     position: absolute;
-    bottom: 15px; /* Moves caption higher to prevent cropping */
-    width: 90%; /* Ensures text fits on different screen sizes */
+    bottom: 5%; /* Keeps caption near bottom without covering the main image */
+    width: 80%; /* Ensures captions don't stretch too wide on PC */
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background for readability */
-    padding: 10px;
-    border-radius: 5px;
-    max-width: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black for readability */
+    padding: 8px 15px; /* Balanced padding */
+    border-radius: 8px;
+    max-width: 500px; /* Prevents captions from getting too wide on larger screens */
+}
+
+/* 🎯 Ensure captions resize properly on smaller screens */
+@media (max-width: 768px) {
+    .carousel-caption {
+        font-size: 0.9rem; /* Slightly smaller text on mobile */
+        max-width: 90%; /* Allows wider captions on small screens */
+        padding: 6px 10px; /* Adjusts padding for mobile */
+        bottom: 3%; /* Moves captions slightly lower on mobile */
+    }
 }
 
 .carousel-caption p {
-    font-size: 1rem; /* Adjust text size */
-    line-height: 1.4; /* Prevents text from being squished */
-    word-wrap: break-word; /* Ensures long words don't overflow */
-    white-space: normal;
-    margin-bottom: 0; /* Prevents extra spacing */
+    font-size: 1rem; /* Readable text size */
+    line-height: 1.4; /* Spacing for better readability */
+    color: white; /* White text for contrast */
+    margin: 0;
+    word-wrap: break-word; /* Prevents text from overflowing */
 }
 
