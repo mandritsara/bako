@@ -3,18 +3,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const headerContainer = document.getElementById("header");
         const footerContainer = document.getElementById("footer");
 
-        const headerPath = "header.html";
-        const footerPath = "footer.html";
-
         if (headerContainer) {
-            fetch(headerPath)
+            fetch("header.html")
                 .then(response => response.text())
                 .then(data => headerContainer.innerHTML = data)
                 .catch(error => console.error("Error loading header:", error));
         }
 
         if (footerContainer) {
-            fetch(footerPath)
+            fetch("footer.html")
                 .then(response => response.text())
                 .then(data => footerContainer.innerHTML = data)
                 .catch(error => console.error("Error loading footer:", error));
@@ -22,15 +19,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function loadLessons() {
-        function getPageCategory() {
-            let path = window.location.pathname;
-            if (path.includes("introduction")) return "Introductory Lessons";
-            if (path.includes("grammar")) return "Grammar Lessons";
-            if (path.includes("theme")) return "Thematic Lessons";
-            return null;
-        }
-
-        let categoryToLoad = getPageCategory();
+        let path = window.location.pathname;
+        let categoryToLoad = path.includes("introduction") ? "Introductory Lessons"
+                         : path.includes("grammar") ? "Grammar Lessons"
+                         : path.includes("theme") ? "Thematic Lessons"
+                         : null;
 
         if (categoryToLoad) {
             fetch("/bako/lessons.json")
@@ -94,11 +87,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ✅ 2. Fix navigation buttons (prev and next)
     document.querySelector(".carousel-control-prev").addEventListener("click", function () {
-        galleryCarousel.carousel("prev");
+        bootstrap.Carousel.getInstance(galleryCarousel).prev();
     });
 
     document.querySelector(".carousel-control-next").addEventListener("click", function () {
-        galleryCarousel.carousel("next");
+        bootstrap.Carousel.getInstance(galleryCarousel).next();
     });
 
     // ✅ 3. Debug: Ensure slides are changing correctly
@@ -111,19 +104,18 @@ document.addEventListener("DOMContentLoaded", function () {
         "My nephew and I on vacation in our home village.",
         "My sister and I pounding cassava leaves ('ravitoto') for lunch, with rice.",
         "Family dinner by candlelight, with visitors (not often) from Tana, in the village.",
-        "Our lake, called "Amparihibe," 1 km from the village—our water source. A lake for bathing, fishing, hunting birds, but also our source of drinking water.",
+        "Our lake, called \"Amparihibe,\" 1 km from the village—our water source. A lake for bathing, fishing, hunting birds, but also our source of drinking water.",
         "HVMM Laboratory Technician (2005–2010)",    
         "In our home village, 'Amparihibe.'",
         "Our village—the bamboo behind our house, decades old, along with fruit trees and fields.",
         "My parents and the three youngest siblings (L to R). My father. My mother. My little sister, me, my brother.",
         "Return to our home village for the holidays—swimming in the nearby lake.",
         "Our childhood home, the family village of Amparihibe, Amparafaravola.",
-       "Walking back from the Thursday market, about ten kilometers away.",
+        "Walking back from the Thursday market, about ten kilometers away.",
         "Our vegetable gardens near the lake, with different kinds of vegetables.",
-       "Waiting for the taxi-brousse to return to the center of the island, hundreds of kilometers away.", 
+        "Waiting for the taxi-brousse to return to the center of the island, hundreds of kilometers away.", 
         "Rice harvest. Zebus trampling the rice.",
         "Harvest."
-        
     ];
 
     const carouselItems = document.querySelectorAll(".carousel-item");
