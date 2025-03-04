@@ -106,15 +106,31 @@ document.addEventListener("DOMContentLoaded", function () {
         "Our rice fields. July–August."
     ];
 
+   
     const carouselItems = document.querySelectorAll(".carousel-item");
 
     carouselItems.forEach((item, index) => {
-    if (captions[index]) {
-        const captionDiv = document.createElement("div");
-        captionDiv.classList.add("carousel-text");
-        captionDiv.innerHTML = `<p>${captions[index]}</p>`;
-        item.parentNode.insertBefore(captionDiv, item.nextSibling); // Places it below the image
+        if (captions[index]) {
+            // Create the caption div
+            const captionDiv = document.createElement("div");
+            captionDiv.classList.add("carousel-caption-below");
+            captionDiv.innerHTML = `<p>${captions[index]}</p>`;
+
+            // Insert caption div after the image (i.e., below the image)
+            item.parentNode.insertBefore(captionDiv, item.nextSibling);
         }
     });
 
+    // Function to update active captions
+    function updateCaptions() {
+        document.querySelectorAll(".carousel-caption-below").forEach((caption, index) => {
+            caption.style.display = carouselItems[index].classList.contains("active") ? "block" : "none";
+        });
+    }
+
+    // Run updateCaptions on page load
+    updateCaptions();
+
+    // Add an event listener to the carousel to update captions when slides change
+    document.getElementById("galleryCarousel").addEventListener("slid.bs.carousel", updateCaptions);
 });
