@@ -194,34 +194,31 @@ p, ul, ol {
     line-height: 1.6;
 }
 
-.carousel-caption {
-    position: absolute;
-    bottom: 5%; /* Keeps caption near bottom without covering the main image */
-    width: 80%; /* Ensures captions don't stretch too wide on PC */
-    left: 50%;
-    transform: translateX(-50%);
+.carousel-caption-below {
+    display: none; /* Hide all captions by default */
     text-align: center;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black for readability */
-    padding: 8px 15px; /* Balanced padding */
+    background: rgba(0, 0, 0, 0.7); /* Dark background for readability */
+    color: white;
+    padding: 10px;
+    font-size: 1rem;
+    line-height: 1.4;
     border-radius: 8px;
-    max-width: 500px; /* Prevents captions from getting too wide on larger screens */
+    width: 100%;
+    max-width: 600px; /* Limits width for desktop readability */
+    margin: 10px auto; /* Centers below the image */
 }
 
-/* 🎯 Ensure captions resize properly on smaller screens */
+/* 🎯 Show caption only when the slide is active */
+.carousel-item.active .carousel-caption-below {
+    display: block;
+}
+
+/* Ensure captions resize properly on smaller screens */
 @media (max-width: 768px) {
-    .carousel-caption {
-        font-size: 0.9rem; /* Slightly smaller text on mobile */
-        max-width: 90%; /* Allows wider captions on small screens */
-        padding: 6px 10px; /* Adjusts padding for mobile */
-        bottom: 3%; /* Moves captions slightly lower on mobile */
+    .carousel-caption-below {
+        font-size: 0.9rem;
+        max-width: 90%;
+        padding: 8px;
     }
-}
-
-.carousel-caption p {
-    font-size: 1rem; /* Readable text size */
-    line-height: 1.4; /* Spacing for better readability */
-    color: white; /* White text for contrast */
-    margin: 0;
-    word-wrap: break-word; /* Prevents text from overflowing */
 }
 
