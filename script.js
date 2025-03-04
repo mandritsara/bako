@@ -8,20 +8,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (headerContainer) {
             fetch(headerPath)
-                .then(response => {
-                    if (!response.ok) throw new Error(`Failed to load ${headerPath}`);
-                    return response.text();
-                })
+                .then(response => response.text())
                 .then(data => headerContainer.innerHTML = data)
                 .catch(error => console.error("Error loading header:", error));
         }
 
         if (footerContainer) {
             fetch(footerPath)
-                .then(response => {
-                    if (!response.ok) throw new Error(`Failed to load ${footerPath}`);
-                    return response.text();
-                })
+                .then(response => response.text())
                 .then(data => footerContainer.innerHTML = data)
                 .catch(error => console.error("Error loading footer:", error));
         }
@@ -83,42 +77,48 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    loadHeaderFooter(); // Load header and footer
-    loadLessons();      // Load lessons
+    loadHeaderFooter();
+    loadLessons();
 
-    // FIX: Ensure Bootstrap Carousel loops continuously and allows backward navigation
-    const galleryCarousel = document.getElementById("galleryCarousel");
-    const carousel = new bootstrap.Carousel(galleryCarousel, {
-        interval: 3000, // Auto-slide every 3 seconds
-        wrap: true, // Ensure it loops back to the first slide
-        ride: "carousel"
+    // 🚀 Fix Bootstrap Carousel: Ensure it loops and left/right navigation works
+    document.querySelector("#galleryCarousel").addEventListener("slid.bs.carousel", function (event) {
+        console.log(`Current active slide index: ${event.to}`);
     });
 
-    // Fix previous and next buttons
+    setTimeout(() => {
+        const galleryCarousel = document.getElementById("galleryCarousel");
+        new bootstrap.Carousel(galleryCarousel, {
+            interval: 3000,  // Auto-slide every 3 seconds
+            wrap: true,      // Ensure looping
+            ride: "carousel" // Auto-start carousel
+        });
+    }, 100);
+
+    // ✅ Fix left/right arrow navigation
     document.querySelector(".carousel-control-prev").addEventListener("click", function () {
-        carousel.prev(); // Move to the previous slide
+        document.querySelector("#galleryCarousel").carousel("prev");
     });
 
     document.querySelector(".carousel-control-next").addEventListener("click", function () {
-        carousel.next(); // Move to the next slide
+        document.querySelector("#galleryCarousel").carousel("next");
     });
 
-    // Captions for each image
+    // ✅ Captions for each image
     const captions = [
-        "My sister and I pounding cassava leaves ('ravitoto') for lunch, with rice.", // cooking
-        "Family dinner by candlelight, with visitors (not often) from Tana, in the village.", // cooking
-        "My parents and the three youngest siblings (G = D). My father. My mother. My little sister, me, my brother.", // family
-        "In our home village, 'Amparihibe.'", // hometown
-        "HVMM Laboratory Technician (2005–2010)", // lab
-        "Our childhood home, the family village of Amparihibe, Amparafaravola.", // house
-        "Our village—the bamboo behind our house, decades old, along with fruit trees and fields.", // house 2
-        "My parents and the three youngest siblings (G = D).", // parents
-        "Return to our home village for the holidays—swimming in the nearby lake.", // swimming
-        "Walking back from the Thursday market, about ten kilometers away.", // walking
-        "Rice harvest. Zebus trampling the rice.", // rice
-        "Waiting for the taxi-brousse to return to the center of the island, hundreds of kilometers away.", // road
-        "Our rice fields. July–August.", // ombi 1
-        "Harvest." // ombi 2
+        "My sister and I pounding cassava leaves ('ravitoto') for lunch, with rice.",
+        "Family dinner by candlelight, with visitors (not often) from Tana, in the village.",
+        "My parents and the three youngest siblings (G = D). My father. My mother. My little sister, me, my brother.",
+        "In our home village, 'Amparihibe.'",
+        "HVMM Laboratory Technician (2005–2010)",
+        "Our childhood home, the family village of Amparihibe, Amparafaravola.",
+        "Our village—the bamboo behind our house, decades old, along with fruit trees and fields.",
+        "My parents and the three youngest siblings (G = D).",
+        "Return to our home village for the holidays—swimming in the nearby lake.",
+        "Walking back from the Thursday market, about ten kilometers away.",
+        "Rice harvest. Zebus trampling the rice.",
+        "Waiting for the taxi-brousse to return to the center of the island, hundreds of kilometers away.",
+        "Our rice fields. July–August.",
+        "Harvest."
     ];
 
     const carouselItems = document.querySelectorAll(".carousel-item");
