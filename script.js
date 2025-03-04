@@ -102,7 +102,8 @@ document.addEventListener("DOMContentLoaded", function () {
         "Our vegetable gardens near the lake, with different kinds of vegetables.",
         "Waiting for the taxi-brousse to return to the center of the island, hundreds of kilometers away.", 
         "Rice harvest. Zebus trampling the rice.",
-        "Harvest."
+        "Harvest.",
+        "Our rice fields. July–August."
     ];
 
     const carouselItems = document.querySelectorAll(".carousel-item");
