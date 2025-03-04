@@ -3,27 +3,40 @@ document.addEventListener("DOMContentLoaded", function () {
         const headerContainer = document.getElementById("header");
         const footerContainer = document.getElementById("footer");
 
+        const headerPath = "header.html";
+        const footerPath = "footer.html";
+
         if (headerContainer) {
-            fetch("header.html")
-                .then(response => response.text())
+            fetch(headerPath)
+                .then(response => {
+                    if (!response.ok) throw new Error(`Failed to load ${headerPath}`);
+                    return response.text();
+                })
                 .then(data => headerContainer.innerHTML = data)
                 .catch(error => console.error("Error loading header:", error));
         }
 
         if (footerContainer) {
-            fetch("footer.html")
-                .then(response => response.text())
+            fetch(footerPath)
+                .then(response => {
+                    if (!response.ok) throw new Error(`Failed to load ${footerPath}`);
+                    return response.text();
+                })
                 .then(data => footerContainer.innerHTML = data)
                 .catch(error => console.error("Error loading footer:", error));
         }
     }
 
     function loadLessons() {
-        let path = window.location.pathname;
-        let categoryToLoad = path.includes("introduction") ? "Introductory Lessons"
-                         : path.includes("grammar") ? "Grammar Lessons"
-                         : path.includes("theme") ? "Thematic Lessons"
-                         : null;
+        function getPageCategory() {
+            let path = window.location.pathname;
+            if (path.includes("introduction")) return "Introductory Lessons";
+            if (path.includes("grammar")) return "Grammar Lessons";
+            if (path.includes("theme")) return "Thematic Lessons";
+            return null;
+        }
+
+        let categoryToLoad = getPageCategory();
 
         if (categoryToLoad) {
             fetch("/bako/lessons.json")
@@ -70,37 +83,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    loadHeaderFooter();
-    loadLessons();
+    loadHeaderFooter(); // Call only *once*, inside the DOMContentLoaded
+    loadLessons();      // Call only *once*, inside the DOMContentLoaded
+}); // Correctly closed
 
-    // 🚀 FIX: Ensure Bootstrap Carousel loops & buttons work
-    const galleryCarousel = document.getElementById("galleryCarousel");
-
-    // ✅ 1. Force Bootstrap Carousel to wrap correctly
-    setTimeout(() => {
-        new bootstrap.Carousel(galleryCarousel, {
-            interval: 3000,  // Auto-slide every 3 seconds
-            wrap: true,      // Ensure looping
-            ride: "carousel" // Auto-start carousel
-        });
-    }, 100);
-
-    // ✅ 2. Fix navigation buttons (prev and next)
-    document.querySelector(".carousel-control-prev").addEventListener("click", function () {
-        bootstrap.Carousel.getInstance(galleryCarousel).prev();
-    });
-
-    document.querySelector(".carousel-control-next").addEventListener("click", function () {
-        bootstrap.Carousel.getInstance(galleryCarousel).next();
-    });
-
-    // ✅ 3. Debug: Ensure slides are changing correctly
-    galleryCarousel.addEventListener("slid.bs.carousel", function (event) {
-        console.log(`Current slide index: ${event.to}`);
-    });
-
-    // ✅ 4. Captions for each image
-    const captions = [
+document.addEventListener("DOMContentLoaded", function () {
+ const captions = [
         "My nephew and I on vacation in our home village.",
         "My sister and I pounding cassava leaves ('ravitoto') for lunch, with rice.",
         "Family dinner by candlelight, with visitors (not often) from Tana, in the village.",
