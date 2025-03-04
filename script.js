@@ -83,11 +83,27 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    loadHeaderFooter(); // Call only *once*, inside the DOMContentLoaded
-    loadLessons();      // Call only *once*, inside the DOMContentLoaded
-}); // Correctly closed
+    loadHeaderFooter(); // Load header and footer
+    loadLessons();      // Load lessons
 
-document.addEventListener("DOMContentLoaded", function () {
+    // FIX: Ensure Bootstrap Carousel loops continuously and allows backward navigation
+    const galleryCarousel = document.getElementById("galleryCarousel");
+    const carousel = new bootstrap.Carousel(galleryCarousel, {
+        interval: 3000, // Auto-slide every 3 seconds
+        wrap: true, // Ensure it loops back to the first slide
+        ride: "carousel"
+    });
+
+    // Fix previous and next buttons
+    document.querySelector(".carousel-control-prev").addEventListener("click", function () {
+        carousel.prev(); // Move to the previous slide
+    });
+
+    document.querySelector(".carousel-control-next").addEventListener("click", function () {
+        carousel.next(); // Move to the next slide
+    });
+
+    // Captions for each image
     const captions = [
         "My sister and I pounding cassava leaves ('ravitoto') for lunch, with rice.", // cooking
         "Family dinner by candlelight, with visitors (not often) from Tana, in the village.", // cooking
