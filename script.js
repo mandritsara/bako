@@ -108,20 +108,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ✅ 4. Captions for each image
     const captions = [
+        "My nephew and I on vacation in our home village."
         "My sister and I pounding cassava leaves ('ravitoto') for lunch, with rice.",
         "Family dinner by candlelight, with visitors (not often) from Tana, in the village.",
-        "My parents and the three youngest siblings (G = D). My father. My mother. My little sister, me, my brother.",
+        "Our lake, called "Amparihibe," 1 km from the village—our water source. A lake for bathing, fishing, hunting birds, but also our source of drinking water."
+        "HVMM Laboratory Technician (2005–2010)",    
         "In our home village, 'Amparihibe.'",
-        "HVMM Laboratory Technician (2005–2010)",
-        "Our childhood home, the family village of Amparihibe, Amparafaravola.",
         "Our village—the bamboo behind our house, decades old, along with fruit trees and fields.",
-        "My parents and the three youngest siblings (G = D).",
+        "My parents and the three youngest siblings (L to R). My father. My mother. My little sister, me, my brother.",
         "Return to our home village for the holidays—swimming in the nearby lake.",
-        "Walking back from the Thursday market, about ten kilometers away.",
+            "Our childhood home, the family village of Amparihibe, Amparafaravola.",
+       "Walking back from the Thursday market, about ten kilometers away.",
+            "Our vegetable gardens near the lake, with different kinds of vegetables."
+       "Waiting for the taxi-brousse to return to the center of the island, hundreds of kilometers away.", 
         "Rice harvest. Zebus trampling the rice.",
-        "Waiting for the taxi-brousse to return to the center of the island, hundreds of kilometers away.",
-        "Our rice fields. July–August.",
         "Harvest."
+        "Our rice fields. July–August.",
+        
     ];
 
     const carouselItems = document.querySelectorAll(".carousel-item");
