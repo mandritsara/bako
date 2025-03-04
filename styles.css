@@ -194,3 +194,23 @@ p, ul, ol {
     line-height: 1.6;
 }
 
+.carousel-caption {
+    bottom: 10px; /* Adjust positioning to prevent cropping */
+    width: 90%; /* Makes text more readable on small screens */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background for readability */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.carousel-caption p {
+    font-size: 1rem; /* Adjust text size */
+    line-height: 1.4; /* Improves readability */
+    word-wrap: break-word; /* Ensures long words don't overflow */
+    white-space: normal;
+    max-width: 100%;
+}
+
+
