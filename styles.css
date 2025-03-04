@@ -195,7 +195,6 @@ p, ul, ol {
 }
 
 .carousel-caption-below {
-    display: none; /* Hide all captions initially */
     text-align: center;
     background: rgba(0, 0, 0, 0.7); /* Dark background for readability */
     color: white;
@@ -205,7 +204,9 @@ p, ul, ol {
     border-radius: 8px;
     width: 100%;
     max-width: 600px; /* Prevents captions from getting too wide on PC */
-    margin: 10px auto; /* Centers below the image */
+    margin: 10px auto; /* Centers below the carousel */
+    display: block; /* Ensures visibility */
+    min-height: 50px; /* Prevents height shifting */
 }
 
 /* 🎯 Ensure captions resize properly on smaller screens */
