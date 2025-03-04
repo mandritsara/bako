@@ -109,11 +109,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const carouselItems = document.querySelectorAll(".carousel-item");
 
     carouselItems.forEach((item, index) => {
-        if (captions[index]) {
-            const captionDiv = document.createElement("div");
-            captionDiv.classList.add("carousel-caption", "d-block");
-            captionDiv.innerHTML = `<p>${captions[index]}</p>`;
-            item.appendChild(captionDiv);
+    if (captions[index]) {
+        const captionDiv = document.createElement("div");
+        captionDiv.classList.add("carousel-text");
+        captionDiv.innerHTML = `<p>${captions[index]}</p>`;
+        item.parentNode.insertBefore(captionDiv, item.nextSibling); // Places it below the image
         }
     });
+
 });
