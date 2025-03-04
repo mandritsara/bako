@@ -195,7 +195,7 @@ p, ul, ol {
 }
 
 .carousel-caption-below {
-    display: none; /* Hide all captions by default */
+    display: none; /* Hide all captions initially */
     text-align: center;
     background: rgba(0, 0, 0, 0.7); /* Dark background for readability */
     color: white;
@@ -204,16 +204,11 @@ p, ul, ol {
     line-height: 1.4;
     border-radius: 8px;
     width: 100%;
-    max-width: 600px; /* Limits width for desktop readability */
+    max-width: 600px; /* Prevents captions from getting too wide on PC */
     margin: 10px auto; /* Centers below the image */
 }
 
-/* 🎯 Show caption only when the slide is active */
-.carousel-item.active .carousel-caption-below {
-    display: block;
-}
-
-/* Ensure captions resize properly on smaller screens */
+/* 🎯 Ensure captions resize properly on smaller screens */
 @media (max-width: 768px) {
     .carousel-caption-below {
         font-size: 0.9rem;
