@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
 }); // Correctly closed
 
 document.addEventListener("DOMContentLoaded", function () {
- const captions = [
+    const captions = [
         "My nephews and I on vacation in our home village.",
         "My sister and I pounding cassava leaves ('ravitoto') for lunch, with rice.",
         "Family dinner by candlelight, with visitors (not often) from Tana, in the village.",
@@ -106,31 +106,20 @@ document.addEventListener("DOMContentLoaded", function () {
         "Our rice fields. July–August."
     ];
 
-   
+    const carousel = document.getElementById("galleryCarousel");
+    const captionContainer = document.getElementById("carousel-caption-below");
     const carouselItems = document.querySelectorAll(".carousel-item");
 
-    carouselItems.forEach((item, index) => {
-        if (captions[index]) {
-            // Create the caption div
-            const captionDiv = document.createElement("div");
-            captionDiv.classList.add("carousel-caption-below");
-            captionDiv.innerHTML = `<p>${captions[index]}</p>`;
-
-            // Insert caption div after the image (i.e., below the image)
-            item.parentNode.insertBefore(captionDiv, item.nextSibling);
+    function updateCaption() {
+        const activeIndex = Array.from(carouselItems).findIndex(item => item.classList.contains("active"));
+        if (activeIndex !== -1) {
+            captionContainer.innerHTML = `<p>${captions[activeIndex]}</p>`;
         }
-    });
-
-    // Function to update active captions
-    function updateCaptions() {
-        document.querySelectorAll(".carousel-caption-below").forEach((caption, index) => {
-            caption.style.display = carouselItems[index].classList.contains("active") ? "block" : "none";
-        });
     }
 
-    // Run updateCaptions on page load
-    updateCaptions();
+    // Run updateCaption on page load
+    updateCaption();
 
-    // Add an event listener to the carousel to update captions when slides change
-    document.getElementById("galleryCarousel").addEventListener("slid.bs.carousel", updateCaptions);
+    // Update caption when the carousel slides
+    carousel.addEventListener("slid.bs.carousel", updateCaption);
 });
