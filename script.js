@@ -98,7 +98,6 @@ document.addEventListener("DOMContentLoaded", function () {
         "Our village—the bamboo behind our house, decades old, along with fruit trees and fields.",
         "My parents and the three youngest siblings (L to R). My father. My mother. My little sister, me, my brother.",
         "Return to our home village for the holidays—swimming in the nearby lake.",
-        "Our childhood home, the family village of Amparihibe, Amparafaravola.",
         "Walking back from the Thursday market, about ten kilometers away.",
         "Our vegetable gardens near the lake, with different kinds of vegetables.",
         "Waiting for the taxi-brousse to return to the center of the island, hundreds of kilometers away.", 
