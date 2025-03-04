@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
     carouselItems.forEach((item, index) => {
         if (captions[index]) {
             const captionDiv = document.createElement("div");
-            captionDiv.classList.add("carousel-caption", "d-none", "d-md-block");
+            captionDiv.classList.add("carousel-caption", "d-block");
             captionDiv.innerHTML = `<p>${captions[index]}</p>`;
             item.appendChild(captionDiv);
         }
