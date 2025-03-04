@@ -86,3 +86,29 @@ document.addEventListener("DOMContentLoaded", function () {
     loadHeaderFooter(); // Call only *once*, inside the DOMContentLoaded
     loadLessons();      // Call only *once*, inside the DOMContentLoaded
 }); // Correctly closed
+
+document.addEventListener("DOMContentLoaded", function () {
+    const captions = [
+        "Children enjoying a moment together",
+        "Traditional Malagasy cooking",
+        "A warm family gathering",
+        "A view of my hometown",
+        "A typical Malagasy house",
+        "Another home in the village",
+        "My parents in our village",
+        "Swimming in the river",
+        "Walking through nature"
+    ];
+
+    const carouselItems = document.querySelectorAll(".carousel-item");
+
+    carouselItems.forEach((item, index) => {
+        if (captions[index]) {
+            const captionDiv = document.createElement("div");
+            captionDiv.classList.add("carousel-caption", "d-none", "d-md-block");
+            captionDiv.innerHTML = `<p>${captions[index]}</p>`;
+            item.appendChild(captionDiv);
+        }
+    });
+});
+
