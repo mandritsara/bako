@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Walking back from the Thursday market, about ten kilometers away.",
         "Our vegetable gardens near the lake, with different kinds of vegetables.",
         "Waiting for the taxi-brousse to return to the center of the island, hundreds of kilometers away.", 
-        "Rice harvest. Zebus trampling the rice.",
+        "Rice harvest. Omby (Malagasy cows) trampling the rice.",
         "Harvest.",
         "Our rice fields. July–August."
     ];
