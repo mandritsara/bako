@@ -217,3 +217,9 @@ p, ul, ol {
         padding: 8px;
     }
 }
+
+.btn-danger:hover {
+  background-color: #c62828;
+  transform: scale(1.05);
+  transition: all 0.2s ease-in-out;
+}
