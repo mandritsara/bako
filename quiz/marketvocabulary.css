@@ -1,0 +1,28 @@
+.match-card {
+  border: 2px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+.droppable {
+  min-height: 60px;
+  padding: 10px;
+  border: 2px dashed #888;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.correct {
+  background-color: #d4edda !important;
+}
+.incorrect {
+  background-color: #f8d7da !important;
+}
+.malagasy-word {
+  cursor: grab;
+  padding: 5px;
+  margin: 5px;
+  background: #eee;
+  border-radius: 5px;
+  display: inline-block;
+}
