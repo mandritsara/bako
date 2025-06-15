@@ -32,29 +32,29 @@
   <script>
     // Using stable Wikimedia images
     const quizData = [
-  {english:"RICE",               malagasy:"VARY",          tsimihety:"",             image:"https://upload.wikimedia.org/wikipedia/commons/5/5b/Rice.JPG"},            // public domain :contentReference[oaicite:1]{index=1}
-  {english:"OIL",                malagasy:"MENAKA",        tsimihety:"",             image:"https://upload.wikimedia.org/wikipedia/commons/4/4d/Cooking_oil.jpg"},   // CC‑BY‑SA :contentReference[oaicite:2]{index=2}
-  {english:"GARLIC",             malagasy:"TONGOLO GASY", tsimihety:"",             image:"https://upload.wikimedia.org/wikipedia/commons/b/b5/Garlic_cloves_garlic.jpg"},  // public domain :contentReference[oaicite:3]{index=3}
-  {english:"WHITE BEANS",        malagasy:"TSARAMASO",     tsimihety:"",             image:"https://upload.wikimedia.org/wikipedia/commons/4/4f/White_beans.jpg"}, // CC‑BY :contentReference[oaicite:4]{index=4}
-  {english:"BREAD",              malagasy:"MOFO",          tsimihety:"MOFO",         image:"https://upload.wikimedia.org/wikipedia/commons/4/4c/White_bread-2.jpg"}, // common staple :contentReference[oaicite:5]{index=5}
-  {english:"BANANA",             malagasy:"AKONDRO",       tsimihety:"FONTSY",       image:"https://upload.wikimedia.org/wikipedia/commons/7/70/Banana_Fruit.JPG"}, // public domain :contentReference[oaicite:6]{index=6}
-  {english:"FLOUR",              malagasy:"LAFARINA",      tsimihety:"",             image:"https://upload.wikimedia.org/wikipedia/commons/7/79/All-Purpose_Flour.jpg"}, // Wikimedia :contentReference[oaicite:7]{index=7}
-  {english:"MEAT",               malagasy:"HENA",          tsimihety:"",             image:"https://upload.wikimedia.org/wikipedia/commons/4/47/FoodMeat.jpg"}, // meat mix :contentReference[oaicite:8]{index=8}
-  {english:"COCONUTS",           malagasy:"VANIO",         tsimihety:"",             image:"https://upload.wikimedia.org/wikipedia/commons/5/5c/Coconuts_-_single_and_cracked_open.jpg"}, // CC‑BY‑SA :contentReference[oaicite:9]{index=9}
-  {english:"MILK",               malagasy:"RONONO",        tsimihety:"",             image:"https://upload.wikimedia.org/wikipedia/commons/a/a0/Milk_glass.jpg"}, // Wikimedia :contentReference[oaicite:10]{index=10}
-  {english:"BEEF",               malagasy:"HENA OMBY",     tsimihety:"",             image:"https://upload.wikimedia.org/wikipedia/commons/3/3b/US_Beef_cuts.svg"}, // SVG diagram :contentReference[oaicite:11]{index=11}
-  {english:"EGGS",               malagasy:"ATODY",         tsimihety:"",             image:"https://upload.wikimedia.org/wikipedia/commons/1/1e/EGGS.jpg"}, // find proper link?
-  {english:"PORK",               malagasy:"HENAN-KISOA",   tsimihety:"",             image:"https://upload.wikimedia.org/wikipedia/commons/5/5e/Pork_roast.jpg"}, // example image
-  {english:"PAPAYA",             malagasy:"MAPAZA",        tsimihety:"",             image:"https://upload.wikimedia.org/wikipedia/commons/9/9f/Papaya_couple.jpg"},
-  {english:"POTATOES",           malagasy:"OVY",           tsimihety:"OVY",           image:"https://upload.wikimedia.org/wikipedia/commons/a/a9/Potatoes.jpg"},
-  {english:"CHICKEN",            malagasy:"AKOHO",         tsimihety:"AKOHO",         image:"https://upload.wikimedia.org/wikipedia/commons/4/4b/Chicken.jpg"},
-  {english:"HONEY",              malagasy:"TANTELY",       tsimihety:"",             image:"https://upload.wikimedia.org/wikipedia/commons/7/7b/Honey_dipper.jpg"},
-  {english:"CARROTS",            malagasy:"KARAOTY",       tsimihety:"",             image:"https://upload.wikimedia.org/wikipedia/commons/8/84/Carrot.png"},
-  {english:"FATTENED CHICKEN",   malagasy:"AKOHO CHAIR",   tsimihety:"",             image:"https://upload.wikimedia.org/wikipedia/commons/3/3e/Fattened_chicken.jpg"},
-  {english:"PEA-LIKE VEG",       malagasy:"ANTSOTRY",       tsimihety:"",             image:"https://upload.wikimedia.org/wikipedia/commons/2/23/SnowPeas.jpg"},
-  {english:"LEMONS",             malagasy:"CITRON",        tsimihety:"",             image:"https://upload.wikimedia.org/wikipedia/commons/c/c5/Lemons.jpg"},
-  {english:"CUCUMBER",           malagasy:"KONKONBRA",     tsimihety:"",             image:"https://upload.wikimedia.org/wikipedia/commons/9/9e/Cucumber.jpg"},
-  {english:"PINEAPPLE",          malagasy:"MANANASY",      tsimihety:"",             image:"https://upload.wikimedia.org/wikipedia/commons/c/cb/Pineapple_and_cross_section.jpg"}
+  {english:"RICE", malagasy:"VARY", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Rice.JPG/320px-Rice.JPG"},
+  {english:"OIL", malagasy:"MENAKA", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cooking_oil.jpg/320px-Cooking_oil.jpg"},
+  {english:"GARLIC", malagasy:"TONGOLO GASY", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Garlic_cloves_garlic.jpg/320px-Garlic_cloves_garlic.jpg"},
+  {english:"WHITE BEANS", malagasy:"TSARAMASO", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/White_beans.jpg/320px-White_beans.jpg"},
+  {english:"BREAD", malagasy:"MOFO", tsimihety:"MOFO", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/White_bread-2.jpg/320px-White_bread-2.jpg"},
+  {english:"BANANA", malagasy:"AKONDRO", tsimihety:"FONTSY", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Banana_Fruit.JPG/320px-Banana_Fruit.JPG"},
+  {english:"FLOUR", malagasy:"LAFARINA", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/All-Purpose_Flour.jpg/320px-All-Purpose_Flour.jpg"},
+  {english:"MEAT", malagasy:"HENA", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/FoodMeat.jpg/320px-FoodMeat.jpg"},
+  {english:"COCONUTS", malagasy:"VANIO", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Coconuts_-_single_and_cracked_open.jpg/320px-Coconuts_-_single_and_cracked_open.jpg"},
+  {english:"MILK", malagasy:"RONONO", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Milk_glass.jpg/320px-Milk_glass.jpg"},
+  {english:"BEEF", malagasy:"HENA OMBY", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/US_Beef_cuts.svg/320px-US_Beef_cuts.svg.png"},
+  {english:"EGGS", malagasy:"ATODY", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/EGGS.jpg/320px-EGGS.jpg"},
+  {english:"PORK", malagasy:"HENAN-KISOA", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Pork_roast.jpg/320px-Pork_roast.jpg"},
+  {english:"PAPAYA", malagasy:"MAPAZA", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Papaya_couple.jpg/320px-Papaya_couple.jpg"},
+  {english:"POTATOES", malagasy:"OVY", tsimihety:"OVY", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Potatoes.jpg/320px-Potatoes.jpg"},
+  {english:"CHICKEN", malagasy:"AKOHO", tsimihety:"AKOHO", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Chicken.jpg/320px-Chicken.jpg"},
+  {english:"HONEY", malagasy:"TANTELY", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Honey_dipper.jpg/320px-Honey_dipper.jpg"},
+  {english:"CARROTS", malagasy:"KARAOTY", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Carrot.png/320px-Carrot.png"},
+  {english:"FATTENED CHICKEN", malagasy:"AKOHO CHAIR", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Fattened_chicken.jpg/320px-Fattened_chicken.jpg"},
+  {english:"PEA-LIKE VEG", malagasy:"ANTSOTRY", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/SnowPeas.jpg/320px-SnowPeas.jpg"},
+  {english:"LEMONS", malagasy:"CITRON", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Lemons.jpg/320px-Lemons.jpg"},
+  {english:"CUCUMBER", malagasy:"KONKONBRA", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Cucumber.jpg/320px-Cucumber.jpg"},
+  {english:"PINEAPPLE", malagasy:"MANANASY", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pineapple_and_cross_section.jpg/320px-Pineapple_and_cross_section.jpg"}
 ];
 
     let currentIndex = 0;
