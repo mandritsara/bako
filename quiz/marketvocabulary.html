@@ -3,23 +3,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Malagasy Market Vocabulary Match</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Malagasy Market Vocabulary Match (Emoji Edition)</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    body { background: #f8f9fa; }
-    .match-card { border:1px solid #ccc; padding:10px; margin-bottom:20px; border-radius:10px; background:#fff; text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
-    .droppable { min-height:50px; padding:8px; border:2px dashed #888; border-radius:8px; margin-top:10px; font-weight:bold; }
-    .correct { background-color:#d4edda !important; }
-    .incorrect { background-color:#f8d7da !important; }
-    .malagasy-word { cursor:grab; padding:8px 12px; margin:6px; background:#e2e6ea; border-radius:5px; display:inline-block; font-size:1rem; }
-    .word-bank { padding:20px; background:#fff; border:1px solid #ccc; border-radius:10px; margin-top:30px; }
-    .image-thumb { max-height:100px; object-fit:contain; }
+    body { background-color: #f8f9fa; }
+    .match-card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      background: #fff;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .droppable {
+      min-height: 50px;
+      padding: 8px;
+      border: 2px dashed #888;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .correct { background-color: #d4edda !important; }
+    .incorrect { background-color: #f8d7da !important; }
+    .malagasy-word {
+      cursor: grab;
+      padding: 8px 12px;
+      margin: 6px;
+      background: #e2e6ea;
+      border-radius: 5px;
+      display: inline-block;
+      font-size: 1rem;
+    }
+    .word-bank {
+      padding: 20px;
+      background: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+    .emoji {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 <body class="bg-light">
   <div id="header"></div>
+
   <div class="container my-4">
     <h3 class="text-center text-success mb-4">Match the Malagasy Words to the English Meanings</h3>
     <div class="row" id="quiz-area"></div>
@@ -29,35 +62,32 @@
 
   <div id="footer"></div>
   <script async defer data-domain="bako.blog" src="https://plausible.io/js/plausible.js"></script>
-  <script src="quiz.js"></script>
-
   <script>
-    // Using stable Wikimedia images
     const quizData = [
-  {english:"RICE", malagasy:"VARY", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Rice.JPG/320px-Rice.JPG"},
-  {english:"OIL", malagasy:"MENAKA", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cooking_oil.jpg/320px-Cooking_oil.jpg"},
-  {english:"GARLIC", malagasy:"TONGOLO GASY", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Garlic_cloves_garlic.jpg/320px-Garlic_cloves_garlic.jpg"},
-  {english:"WHITE BEANS", malagasy:"TSARAMASO", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/White_beans.jpg/320px-White_beans.jpg"},
-  {english:"BREAD", malagasy:"MOFO", tsimihety:"MOFO", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/White_bread-2.jpg/320px-White_bread-2.jpg"},
-  {english:"BANANA", malagasy:"AKONDRO", tsimihety:"FONTSY", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Banana_Fruit.JPG/320px-Banana_Fruit.JPG"},
-  {english:"FLOUR", malagasy:"LAFARINA", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/All-Purpose_Flour.jpg/320px-All-Purpose_Flour.jpg"},
-  {english:"MEAT", malagasy:"HENA", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/FoodMeat.jpg/320px-FoodMeat.jpg"},
-  {english:"COCONUTS", malagasy:"VANIO", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Coconuts_-_single_and_cracked_open.jpg/320px-Coconuts_-_single_and_cracked_open.jpg"},
-  {english:"MILK", malagasy:"RONONO", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Milk_glass.jpg/320px-Milk_glass.jpg"},
-  {english:"BEEF", malagasy:"HENA OMBY", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/US_Beef_cuts.svg/320px-US_Beef_cuts.svg.png"},
-  {english:"EGGS", malagasy:"ATODY", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/EGGS.jpg/320px-EGGS.jpg"},
-  {english:"PORK", malagasy:"HENAN-KISOA", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Pork_roast.jpg/320px-Pork_roast.jpg"},
-  {english:"PAPAYA", malagasy:"MAPAZA", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Papaya_couple.jpg/320px-Papaya_couple.jpg"},
-  {english:"POTATOES", malagasy:"OVY", tsimihety:"OVY", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Potatoes.jpg/320px-Potatoes.jpg"},
-  {english:"CHICKEN", malagasy:"AKOHO", tsimihety:"AKOHO", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Chicken.jpg/320px-Chicken.jpg"},
-  {english:"HONEY", malagasy:"TANTELY", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Honey_dipper.jpg/320px-Honey_dipper.jpg"},
-  {english:"CARROTS", malagasy:"KARAOTY", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Carrot.png/320px-Carrot.png"},
-  {english:"FATTENED CHICKEN", malagasy:"AKOHO CHAIR", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Fattened_chicken.jpg/320px-Fattened_chicken.jpg"},
-  {english:"PEA-LIKE VEG", malagasy:"ANTSOTRY", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/SnowPeas.jpg/320px-SnowPeas.jpg"},
-  {english:"LEMONS", malagasy:"CITRON", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Lemons.jpg/320px-Lemons.jpg"},
-  {english:"CUCUMBER", malagasy:"KONKONBRA", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Cucumber.jpg/320px-Cucumber.jpg"},
-  {english:"PINEAPPLE", malagasy:"MANANASY", tsimihety:"", image:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pineapple_and_cross_section.jpg/320px-Pineapple_and_cross_section.jpg"}
-];
+      {english:"RICE", malagasy:"VARY", tsimihety:"", image:"🍚"},
+      {english:"OIL", malagasy:"MENAKA", tsimihety:"", image:"🛢️"},
+      {english:"GARLIC", malagasy:"TONGOLO GASY", tsimihety:"", image:"🧄"},
+      {english:"WHITE BEANS", malagasy:"TSARAMASO", tsimihety:"", image:"🫘"},
+      {english:"BREAD", malagasy:"MOFO", tsimihety:"MOFO", image:"🍞"},
+      {english:"BANANA", malagasy:"AKONDRO", tsimihety:"FONTSY", image:"🍌"},
+      {english:"FLOUR", malagasy:"LAFARINA", tsimihety:"", image:"🌾"},
+      {english:"MEAT", malagasy:"HENA", tsimihety:"", image:"🥩"},
+      {english:"COCONUTS", malagasy:"VANIO", tsimihety:"", image:"🥥"},
+      {english:"MILK", malagasy:"RONONO", tsimihety:"", image:"🥛"},
+      {english:"BEEF", malagasy:"HENA OMBY", tsimihety:"", image:"🐄"},
+      {english:"EGGS", malagasy:"ATODY", tsimihety:"", image:"🥚"},
+      {english:"PORK", malagasy:"HENAN-KISOA", tsimihety:"", image:"🐖"},
+      {english:"PAPAYA", malagasy:"MAPAZA", tsimihety:"", image:"🍈"},
+      {english:"POTATOES", malagasy:"OVY", tsimihety:"OVY", image:"🥔"},
+      {english:"CHICKEN", malagasy:"AKOHO", tsimihety:"AKOHO", image:"🐓"},
+      {english:"HONEY", malagasy:"TANTELY", tsimihety:"", image:"🍯"},
+      {english:"CARROTS", malagasy:"KARAOTY", tsimihety:"", image:"🥕"},
+      {english:"FATTENED CHICKEN", malagasy:"AKOHO CHAIR", tsimihety:"", image:"🐔"},
+      {english:"PEA-LIKE VEG", malagasy:"ANTSOTRY", tsimihety:"", image:"🌱"},
+      {english:"LEMONS", malagasy:"CITRON", tsimihety:"", image:"🍋"},
+      {english:"CUCUMBER", malagasy:"KONKONBRA", tsimihety:"", image:"🥒"},
+      {english:"PINEAPPLE", malagasy:"MANANASY", tsimihety:"", image:"🍍"}
+    ];
 
     let currentIndex = 0;
     let shuffledData = [];
@@ -70,7 +100,7 @@
     }
 
     function formatLabel(m, t) {
-      return t && t!==m ? `${m} / ${t}` : m;
+      return t && t !== m ? `${m} / ${t}` : m;
     }
 
     function buildQuiz() {
@@ -79,27 +109,27 @@
       area.innerHTML = "";
       bank.innerHTML = "";
 
-      const batch = shuffledData.slice(currentIndex, currentIndex+5);
+      const batch = shuffledData.slice(currentIndex, currentIndex + 5);
 
       batch.forEach(item => {
-        const card = document.createElement("div");
-        card.className = "col-sm-6 col-md-4 col-lg-3";
-        card.innerHTML = `
+        const col = document.createElement("div");
+        col.className = "col-sm-6 col-md-4 col-lg-3";
+        col.innerHTML = `
           <div class="match-card">
-            <img src="${item.image}" class="img-fluid image-thumb mb-2" alt="${item.english}">
+            <div class="emoji">${item.image}</div>
             <h6>${item.english}</h6>
             <div class="droppable" data-answer="${item.malagasy}"></div>
           </div>`;
-        area.appendChild(card);
+        area.appendChild(col);
       });
 
-      const bankItems = batch.map(item => ({
+      const wordBank = batch.map(item => ({
         label: formatLabel(item.malagasy, item.tsimihety),
         answer: item.malagasy
       }));
-      shuffle(bankItems);
+      shuffle(wordBank);
 
-      bankItems.forEach(w => {
+      wordBank.forEach(w => {
         const span = document.createElement("span");
         span.className = "malagasy-word";
         span.textContent = w.label;
@@ -108,18 +138,30 @@
         bank.appendChild(span);
       });
 
-      document.querySelectorAll('.droppable').forEach(drop => {
-        drop.addEventListener('dragover', e => e.preventDefault());
-        drop.addEventListener('drop', e => {
-          e.preventDefault();
-          const d = e.dataTransfer.getData("text/plain");
-          const ans = drop.getAttribute("data-answer");
-          drop.textContent = d;
-          drop.classList.toggle("correct", d===ans);
-          drop.classList.toggle("incorrect", d!==ans);
-        });
-      });
+    document.querySelectorAll('.droppable').forEach(drop => {
+  drop.addEventListener('dragover', e => e.preventDefault());
+  drop.addEventListener('drop', e => {
+    e.preventDefault();
+    const dragged = e.dataTransfer.getData("text/plain");
+    const answer = drop.getAttribute("data-answer");
+
+    drop.textContent = dragged;
+
+    if (dragged === answer) {
+      drop.classList.add("correct");
+      drop.classList.remove("incorrect");
+    } else {
+      drop.classList.add("incorrect");
+      drop.classList.remove("correct");
+
+      // ❌ remove wrong answer after 1s
+      setTimeout(() => {
+        drop.textContent = "";
+        drop.classList.remove("incorrect");
+      }, 1000);
     }
+  });
+});
 
     function nextBatch() {
       currentIndex += 5;
@@ -136,7 +178,7 @@
       buildQuiz();
     });
   </script>
-  <div id="footer"></div>
-  <script src="quiz.js" defer></script>
+
+  <script src="quiz.js" defer></script> <!-- loads header/footer -->
 </body>
 </html>
