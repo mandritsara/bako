@@ -3,96 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Malagasy Market Vocabulary Match (Emoji Edition)</title>
+  <title>Malagasy Vocabulary Match</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body { background-color: #f8f9fa; }
     .match-card {
       border: 1px solid #ccc;
       padding: 10px;
-      margin-bottom: 20px;
+      margin: 10px;
       border-radius: 10px;
       background: #fff;
       text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s;
     }
-    .droppable {
-      min-height: 50px;
-      padding: 8px;
-      border: 2px dashed #888;
-      border-radius: 8px;
-      margin-top: 10px;
-      font-weight: bold;
-    }
-    .correct { background-color: #d4edda !important; }
-    .incorrect { background-color: #f8d7da !important; }
-    .malagasy-word {
-      cursor: grab;
+    .emoji { font-size: 2rem; }
+    .word-button {
+      margin: 5px;
       padding: 8px 12px;
-      margin: 6px;
       background: #e2e6ea;
-      border-radius: 5px;
-      display: inline-block;
+      border: none;
+      border-radius: 6px;
       font-size: 1rem;
     }
-    .word-bank {
-      padding: 20px;
-      background: #ffffff;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      margin-top: 30px;
+    .word-button.selected {
+      background-color: #007bff;
+      color: white;
     }
-    .emoji {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
+    .correct {
+      background-color: #d4edda !important;
+    }
+    .incorrect {
+      background-color: #f8d7da !important;
     }
   </style>
 </head>
 <body class="bg-light">
 
 <div class="container my-4">
-  <h3 class="text-center text-success mb-4">Match the Malagasy Words to the English Meanings</h3>
-  <div class="row" id="quiz-area"></div>
-  <div class="row word-bank text-center" id="word-bank"></div>
-  <div class="text-center mt-3">
+  <h4 class="text-center text-success mb-4">Tap the Malagasy word, then the matching emoji</h4>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="quiz-cards"></div>
+  <div class="text-center mt-4" id="word-buttons"></div>
+  <div class="text-center mt-4">
     <button class="btn btn-primary" onclick="nextBatch()">Next</button>
   </div>
 </div>
 
 <script>
 const quizData = [
-  {english:"RICE", malagasy:"VARY", tsimihety:"", image:"🍚"},
-  {english:"OIL", malagasy:"MENAKA", tsimihety:"", image:"🛢️"},
-  {english:"GARLIC", malagasy:"TONGOLO GASY", tsimihety:"", image:"🧄"},
-  {english:"WHITE BEANS", malagasy:"TSARAMASO", tsimihety:"", image:"🫘"},
-  {english:"BREAD", malagasy:"MOFO", tsimihety:"MOFO", image:"🍞"},
-  {english:"BANANA", malagasy:"AKONDRO", tsimihety:"FONTSY", image:"🍌"},
-  {english:"FLOUR", malagasy:"LAFARINA", tsimihety:"", image:"🌾"},
-  {english:"MEAT", malagasy:"HENA", tsimihety:"", image:"🥩"},
-  {english:"COCONUTS", malagasy:"VANIO", tsimihety:"", image:"🥥"},
-  {english:"MILK", malagasy:"RONONO", tsimihety:"", image:"🥛"},
-  {english:"BEEF", malagasy:"HENA OMBY", tsimihety:"", image:"🐄"},
-  {english:"EGGS", malagasy:"ATODY", tsimihety:"", image:"🥚"},
-  {english:"PORK", malagasy:"HENAN-KISOA", tsimihety:"", image:"🐖"},
-  {english:"PAPAYA", malagasy:"MAPAZA", tsimihety:"", image:"🍈"},
-  {english:"POTATOES", malagasy:"OVY", tsimihety:"OVY", image:"🥔"},
-  {english:"CHICKEN", malagasy:"AKOHO", tsimihety:"AKOHO", image:"🐓"},
-  {english:"HONEY", malagasy:"TANTELY", tsimihety:"", image:"🍯"},
-  {english:"CARROTS", malagasy:"KARAOTY", tsimihety:"", image:"🥕"},
-  {english:"FATTENED CHICKEN", malagasy:"AKOHO CHAIR", tsimihety:"", image:"🐔"},
-  {english:"PEA-LIKE VEG", malagasy:"ANTSOTRY", tsimihety:"", image:"🌱"},
-  {english:"LEMONS", malagasy:"CITRON", tsimihety:"", image:"🍋"},
-  {english:"CUCUMBER", malagasy:"KONKONBRA", tsimihety:"", image:"🥒"},
-  {english:"PINEAPPLE", malagasy:"MANANASY", tsimihety:"", image:"🍍"}
+  {english:"RICE", malagasy:"VARY", tsimihety:"", emoji:"🍚"},
+  {english:"OIL", malagasy:"MENAKA", tsimihety:"", emoji:"🛢️"},
+  {english:"GARLIC", malagasy:"TONGOLO GASY", tsimihety:"", emoji:"🧄"},
+  {english:"WHITE BEANS", malagasy:"TSARAMASO", tsimihety:"", emoji:"🫘"},
+  {english:"BREAD", malagasy:"MOFO", tsimihety:"MOFO", emoji:"🍞"},
+  {english:"BANANA", malagasy:"AKONDRO", tsimihety:"FONTSY", emoji:"🍌"},
+  {english:"FLOUR", malagasy:"LAFARINA", tsimihety:"", emoji:"🌾"},
+  {english:"MEAT", malagasy:"HENA", tsimihety:"", emoji:"🥩"},
+  {english:"COCONUTS", malagasy:"VANIO", tsimihety:"", emoji:"🥥"},
+  {english:"MILK", malagasy:"RONONO", tsimihety:"", emoji:"🥛"},
+  {english:"BEEF", malagasy:"HENA OMBY", tsimihety:"", emoji:"🐄"},
+  {english:"EGGS", malagasy:"ATODY", tsimihety:"", emoji:"🥚"},
+  {english:"PORK", malagasy:"HENAN-KISOA", tsimihety:"", emoji:"🐖"},
+  {english:"PAPAYA", malagasy:"MAPAZA", tsimihety:"", emoji:"🍈"},
+  {english:"POTATOES", malagasy:"OVY", tsimihety:"OVY", emoji:"🥔"},
+  {english:"CHICKEN", malagasy:"AKOHO", tsimihety:"AKOHO", emoji:"🐓"},
+  {english:"HONEY", malagasy:"TANTELY", tsimihety:"", emoji:"🍯"},
+  {english:"CARROTS", malagasy:"KARAOTY", tsimihety:"", emoji:"🥕"},
+  {english:"FATTENED CHICKEN", malagasy:"AKOHO CHAIR", tsimihety:"", emoji:"🐔"},
+  {english:"PEA-LIKE VEG", malagasy:"ANTSOTRY", tsimihety:"", emoji:"🌱"},
+  {english:"LEMONS", malagasy:"CITRON", tsimihety:"", emoji:"🍋"},
+  {english:"CUCUMBER", malagasy:"KONKONBRA", tsimihety:"", emoji:"🥒"},
+  {english:"PINEAPPLE", malagasy:"MANANASY", tsimihety:"", emoji:"🍍"}
 ];
 
+let currentBatch = [];
+let selectedWord = null;
 let currentIndex = 0;
-let shuffledData = [];
 
-function shuffle(a) {
-  for (let i = a.length - 1; i > 0; i--) {
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
+    [array[i], array[j]] = [array[j], array[i]];
   }
 }
 
@@ -101,59 +91,57 @@ function formatLabel(m, t) {
 }
 
 function buildQuiz() {
-  const area = document.getElementById("quiz-area");
-  const bank = document.getElementById("word-bank");
-  area.innerHTML = "";
-  bank.innerHTML = "";
+  const cardContainer = document.getElementById("quiz-cards");
+  const wordButtons = document.getElementById("word-buttons");
+  cardContainer.innerHTML = "";
+  wordButtons.innerHTML = "";
+  selectedWord = null;
 
-  const batch = shuffledData.slice(currentIndex, currentIndex + 5);
+  const batch = quizData.slice(currentIndex, currentIndex + 5);
+  currentBatch = batch;
 
-  batch.forEach(item => {
+  batch.forEach((item, idx) => {
     const col = document.createElement("div");
-    col.className = "col-sm-6 col-md-4 col-lg-3";
     col.innerHTML = `
-      <div class="match-card">
-        <div class="emoji">${item.image}</div>
-        <h6>${item.english}</h6>
-        <div class="droppable" data-answer="${item.malagasy}"></div>
-      </div>`;
-    area.appendChild(col);
+      <div class="match-card" data-answer="${item.malagasy}" data-done="false">
+        <div class="emoji">${item.emoji}</div>
+        <div><strong>${item.english}</strong></div>
+      </div>
+    `;
+    cardContainer.appendChild(col);
   });
 
-  const wordBank = batch.map(item => ({
+  const shuffledWords = batch.map(item => ({
     label: formatLabel(item.malagasy, item.tsimihety),
     answer: item.malagasy
   }));
-  shuffle(wordBank);
+  shuffle(shuffledWords);
 
-  wordBank.forEach(w => {
-    const span = document.createElement("span");
-    span.className = "malagasy-word";
-    span.textContent = w.label;
-    span.draggable = true;
-    span.addEventListener("dragstart", e => e.dataTransfer.setData("text/plain", w.answer));
-    bank.appendChild(span);
+  shuffledWords.forEach(word => {
+    const btn = document.createElement("button");
+    btn.className = "word-button";
+    btn.textContent = word.label;
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".word-button").forEach(b => b.classList.remove("selected"));
+      btn.classList.add("selected");
+      selectedWord = word.answer;
+    });
+    wordButtons.appendChild(btn);
   });
 
-  document.querySelectorAll('.droppable').forEach(drop => {
-    drop.addEventListener('dragover', e => e.preventDefault());
-    drop.addEventListener('drop', e => {
-      e.preventDefault();
-      const dragged = e.dataTransfer.getData("text/plain");
-      const answer = drop.getAttribute("data-answer");
+  document.querySelectorAll(".match-card").forEach(card => {
+    card.addEventListener("click", () => {
+      if (!selectedWord || card.getAttribute("data-done") === "true") return;
 
-      drop.textContent = dragged;
-
-      if (dragged === answer) {
-        drop.classList.add("correct");
-        drop.classList.remove("incorrect");
+      const correct = card.getAttribute("data-answer") === selectedWord;
+      if (correct) {
+        card.classList.add("correct");
+        card.setAttribute("data-done", "true");
+        selectedWord = null;
+        document.querySelectorAll(".word-button").forEach(b => b.classList.remove("selected"));
       } else {
-        drop.classList.add("incorrect");
-        drop.classList.remove("correct");
-        setTimeout(() => {
-          drop.textContent = "";
-          drop.classList.remove("incorrect");
-        }, 1000);
+        card.classList.add("incorrect");
+        setTimeout(() => card.classList.remove("incorrect"), 800);
       }
     });
   });
@@ -161,16 +149,15 @@ function buildQuiz() {
 
 function nextBatch() {
   currentIndex += 5;
-  if (currentIndex >= shuffledData.length) {
-    shuffle(shuffledData);
+  if (currentIndex >= quizData.length) {
+    shuffle(quizData);
     currentIndex = 0;
   }
   buildQuiz();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  shuffledData = [...quizData];
-  shuffle(shuffledData);
+  shuffle(quizData);
   buildQuiz();
 });
 </script>
