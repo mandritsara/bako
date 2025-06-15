@@ -1,5 +1,3 @@
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DG828TL4V1"></script>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,131 +50,130 @@
 </head>
 <body class="bg-light">
 
-
-  <div class="container my-4">
-    <h3 class="text-center text-success mb-4">Match the Malagasy Words to the English Meanings</h3>
-    <div class="row" id="quiz-area"></div>
-    <div class="row word-bank text-center" id="word-bank"></div>
-    <div class="text-center mt-3"><button class="btn btn-primary" onclick="nextBatch()">Next</button></div>
+<div class="container my-4">
+  <h3 class="text-center text-success mb-4">Match the Malagasy Words to the English Meanings</h3>
+  <div class="row" id="quiz-area"></div>
+  <div class="row word-bank text-center" id="word-bank"></div>
+  <div class="text-center mt-3">
+    <button class="btn btn-primary" onclick="nextBatch()">Next</button>
   </div>
+</div>
 
-  <script>
-    const quizData = [
-      {english:"RICE", malagasy:"VARY", tsimihety:"", image:"🍚"},
-      {english:"OIL", malagasy:"MENAKA", tsimihety:"", image:"🛢️"},
-      {english:"GARLIC", malagasy:"TONGOLO GASY", tsimihety:"", image:"🧄"},
-      {english:"WHITE BEANS", malagasy:"TSARAMASO", tsimihety:"", image:"🫘"},
-      {english:"BREAD", malagasy:"MOFO", tsimihety:"MOFO", image:"🍞"},
-      {english:"BANANA", malagasy:"AKONDRO", tsimihety:"FONTSY", image:"🍌"},
-      {english:"FLOUR", malagasy:"LAFARINA", tsimihety:"", image:"🌾"},
-      {english:"MEAT", malagasy:"HENA", tsimihety:"", image:"🥩"},
-      {english:"COCONUTS", malagasy:"VANIO", tsimihety:"", image:"🥥"},
-      {english:"MILK", malagasy:"RONONO", tsimihety:"", image:"🥛"},
-      {english:"BEEF", malagasy:"HENA OMBY", tsimihety:"", image:"🐄"},
-      {english:"EGGS", malagasy:"ATODY", tsimihety:"", image:"🥚"},
-      {english:"PORK", malagasy:"HENAN-KISOA", tsimihety:"", image:"🐖"},
-      {english:"PAPAYA", malagasy:"MAPAZA", tsimihety:"", image:"🍈"},
-      {english:"POTATOES", malagasy:"OVY", tsimihety:"OVY", image:"🥔"},
-      {english:"CHICKEN", malagasy:"AKOHO", tsimihety:"AKOHO", image:"🐓"},
-      {english:"HONEY", malagasy:"TANTELY", tsimihety:"", image:"🍯"},
-      {english:"CARROTS", malagasy:"KARAOTY", tsimihety:"", image:"🥕"},
-      {english:"FATTENED CHICKEN", malagasy:"AKOHO CHAIR", tsimihety:"", image:"🐔"},
-      {english:"PEA-LIKE VEG", malagasy:"ANTSOTRY", tsimihety:"", image:"🌱"},
-      {english:"LEMONS", malagasy:"CITRON", tsimihety:"", image:"🍋"},
-      {english:"CUCUMBER", malagasy:"KONKONBRA", tsimihety:"", image:"🥒"},
-      {english:"PINEAPPLE", malagasy:"MANANASY", tsimihety:"", image:"🍍"}
-    ];
+<script>
+const quizData = [
+  {english:"RICE", malagasy:"VARY", tsimihety:"", image:"🍚"},
+  {english:"OIL", malagasy:"MENAKA", tsimihety:"", image:"🛢️"},
+  {english:"GARLIC", malagasy:"TONGOLO GASY", tsimihety:"", image:"🧄"},
+  {english:"WHITE BEANS", malagasy:"TSARAMASO", tsimihety:"", image:"🫘"},
+  {english:"BREAD", malagasy:"MOFO", tsimihety:"MOFO", image:"🍞"},
+  {english:"BANANA", malagasy:"AKONDRO", tsimihety:"FONTSY", image:"🍌"},
+  {english:"FLOUR", malagasy:"LAFARINA", tsimihety:"", image:"🌾"},
+  {english:"MEAT", malagasy:"HENA", tsimihety:"", image:"🥩"},
+  {english:"COCONUTS", malagasy:"VANIO", tsimihety:"", image:"🥥"},
+  {english:"MILK", malagasy:"RONONO", tsimihety:"", image:"🥛"},
+  {english:"BEEF", malagasy:"HENA OMBY", tsimihety:"", image:"🐄"},
+  {english:"EGGS", malagasy:"ATODY", tsimihety:"", image:"🥚"},
+  {english:"PORK", malagasy:"HENAN-KISOA", tsimihety:"", image:"🐖"},
+  {english:"PAPAYA", malagasy:"MAPAZA", tsimihety:"", image:"🍈"},
+  {english:"POTATOES", malagasy:"OVY", tsimihety:"OVY", image:"🥔"},
+  {english:"CHICKEN", malagasy:"AKOHO", tsimihety:"AKOHO", image:"🐓"},
+  {english:"HONEY", malagasy:"TANTELY", tsimihety:"", image:"🍯"},
+  {english:"CARROTS", malagasy:"KARAOTY", tsimihety:"", image:"🥕"},
+  {english:"FATTENED CHICKEN", malagasy:"AKOHO CHAIR", tsimihety:"", image:"🐔"},
+  {english:"PEA-LIKE VEG", malagasy:"ANTSOTRY", tsimihety:"", image:"🌱"},
+  {english:"LEMONS", malagasy:"CITRON", tsimihety:"", image:"🍋"},
+  {english:"CUCUMBER", malagasy:"KONKONBRA", tsimihety:"", image:"🥒"},
+  {english:"PINEAPPLE", malagasy:"MANANASY", tsimihety:"", image:"🍍"}
+];
 
-    let currentIndex = 0;
-    let shuffledData = [];
+let currentIndex = 0;
+let shuffledData = [];
 
-    function shuffle(a) {
-      for (let i = a.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
-      }
-    }
+function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+}
 
-    function formatLabel(m, t) {
-      return t && t !== m ? `${m} / ${t}` : m;
-    }
+function formatLabel(m, t) {
+  return t && t !== m ? `${m} / ${t}` : m;
+}
 
-    function buildQuiz() {
-      const area = document.getElementById("quiz-area");
-      const bank = document.getElementById("word-bank");
-      area.innerHTML = "";
-      bank.innerHTML = "";
+function buildQuiz() {
+  const area = document.getElementById("quiz-area");
+  const bank = document.getElementById("word-bank");
+  area.innerHTML = "";
+  bank.innerHTML = "";
 
-      const batch = shuffledData.slice(currentIndex, currentIndex + 5);
+  const batch = shuffledData.slice(currentIndex, currentIndex + 5);
 
-      batch.forEach(item => {
-        const col = document.createElement("div");
-        col.className = "col-sm-6 col-md-4 col-lg-3";
-        col.innerHTML = `
-          <div class="match-card">
-            <div class="emoji">${item.image}</div>
-            <h6>${item.english}</h6>
-            <div class="droppable" data-answer="${item.malagasy}"></div>
-          </div>`;
-        area.appendChild(col);
-      });
-
-      const wordBank = batch.map(item => ({
-        label: formatLabel(item.malagasy, item.tsimihety),
-        answer: item.malagasy
-      }));
-      shuffle(wordBank);
-
-      wordBank.forEach(w => {
-        const span = document.createElement("span");
-        span.className = "malagasy-word";
-        span.textContent = w.label;
-        span.draggable = true;
-        span.addEventListener("dragstart", e => e.dataTransfer.setData("text/plain", w.answer));
-        bank.appendChild(span);
-      });
-
-    document.querySelectorAll('.droppable').forEach(drop => {
-  drop.addEventListener('dragover', e => e.preventDefault());
-  drop.addEventListener('drop', e => {
-    e.preventDefault();
-    const dragged = e.dataTransfer.getData("text/plain");
-    const answer = drop.getAttribute("data-answer");
-
-    drop.textContent = dragged;
-
-    if (dragged === answer) {
-      drop.classList.add("correct");
-      drop.classList.remove("incorrect");
-    } else {
-      drop.classList.add("incorrect");
-      drop.classList.remove("correct");
-
-      // ❌ remove wrong answer after 1s
-      setTimeout(() => {
-        drop.textContent = "";
-        drop.classList.remove("incorrect");
-      }, 1000);
-    }
+  batch.forEach(item => {
+    const col = document.createElement("div");
+    col.className = "col-sm-6 col-md-4 col-lg-3";
+    col.innerHTML = `
+      <div class="match-card">
+        <div class="emoji">${item.image}</div>
+        <h6>${item.english}</h6>
+        <div class="droppable" data-answer="${item.malagasy}"></div>
+      </div>`;
+    area.appendChild(col);
   });
-});
 
-    function nextBatch() {
-      currentIndex += 5;
-      if (currentIndex >= shuffledData.length) {
-        shuffle(shuffledData);
-        currentIndex = 0;
+  const wordBank = batch.map(item => ({
+    label: formatLabel(item.malagasy, item.tsimihety),
+    answer: item.malagasy
+  }));
+  shuffle(wordBank);
+
+  wordBank.forEach(w => {
+    const span = document.createElement("span");
+    span.className = "malagasy-word";
+    span.textContent = w.label;
+    span.draggable = true;
+    span.addEventListener("dragstart", e => e.dataTransfer.setData("text/plain", w.answer));
+    bank.appendChild(span);
+  });
+
+  document.querySelectorAll('.droppable').forEach(drop => {
+    drop.addEventListener('dragover', e => e.preventDefault());
+    drop.addEventListener('drop', e => {
+      e.preventDefault();
+      const dragged = e.dataTransfer.getData("text/plain");
+      const answer = drop.getAttribute("data-answer");
+
+      drop.textContent = dragged;
+
+      if (dragged === answer) {
+        drop.classList.add("correct");
+        drop.classList.remove("incorrect");
+      } else {
+        drop.classList.add("incorrect");
+        drop.classList.remove("correct");
+        setTimeout(() => {
+          drop.textContent = "";
+          drop.classList.remove("incorrect");
+        }, 1000);
       }
-      buildQuiz();
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      shuffledData = [...quizData];
-      shuffle(shuffledData);
-      buildQuiz();
     });
-  </script>
+  });
+}
 
- 
+function nextBatch() {
+  currentIndex += 5;
+  if (currentIndex >= shuffledData.length) {
+    shuffle(shuffledData);
+    currentIndex = 0;
+  }
+  buildQuiz();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  shuffledData = [...quizData];
+  shuffle(shuffledData);
+  buildQuiz();
+});
+</script>
+
 </body>
 </html>
