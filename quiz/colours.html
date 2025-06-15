@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Malagasy Colour Quiz</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background-color: #f8f9fa; }
+    .match-card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      background: #fff;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .color-swatch {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin: 0 auto 10px;
+    }
+    .droppable {
+      min-height: 50px;
+      padding: 8px;
+      border: 2px dashed #888;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    .correct { background-color: #d4edda !important; }
+    .incorrect { background-color: #f8d7da !important; }
+    .malagasy-word {
+      cursor: grab;
+      padding: 8px 12px;
+      margin: 6px;
+      background: #e2e6ea;
+      border-radius: 5px;
+      display: inline-block;
+      font-size: 1rem;
+    }
+    .word-bank {
+      padding: 20px;
+      background: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <div class="container my-4">
+    <h3 class="text-center text-success mb-4">Match the Malagasy Colour Names to the Swatches</h3>
+    <div class="row" id="quiz-area"></div>
+    <div class="row word-bank text-center" id="word-bank"></div>
+    <div class="text-center mt-3">
+      <button class="btn btn-primary" onclick="nextBatch()">Next</button>
+    </div>
+  </div>
+
+  <script>
+    const quizData = [
+      { color: "white", malagasy: "Fotsy" },
+      { color: "yellow", malagasy: "Mavo / Fondragna" },
+      { color: "red", malagasy: "Mena" },
+      { color: "orange", malagasy: "Volomboasary / Fondramena" },
+      { color: "green", malagasy: "Maitso / Mahitso" },
+      { color: "pink", malagasy: "Mavokely" },
+      { color: "gray", malagasy: "Volondavenona" },
+      { color: "blue", malagasy: "Manga" },
+      { color: "purple", malagasy: "Volomparasy" },
+      { color: "brown", malagasy: "Volontany / Sokosokolà" },
+      { color: "black", malagasy: "Mainty / Mahintigny" }
+    ];
+
+    let currentIndex = 0;
+    let shuffledData = [];
+
+    function shuffle(a) {
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+    }
+
+    function buildQuiz() {
+      const area = document.getElementById("quiz-area");
+      const bank = document.getElementById("word-bank");
+      area.innerHTML = "";
+      bank.innerHTML = "";
+
+      const batch = shuffledData.slice(currentIndex, currentIndex + 5);
+
+      batch.forEach(item => {
+        const col = document.createElement("div");
+        col.className = "col-sm-6 col-md-4 col-lg-3";
+        col.innerHTML = `
+          <div class="match-card">
+            <div class="color-swatch" style="background: ${item.color};"></div>
+            <div class="droppable" data-answer="${item.malagasy}"></div>
+          </div>`;
+        area.appendChild(col);
+      });
+
+      const wordBank = batch.map(item => ({
+        label: item.malagasy,
+        answer: item.malagasy
+      }));
+      shuffle(wordBank);
+
+      wordBank.forEach(w => {
+        const span = document.createElement("span");
+        span.className = "malagasy-word";
+        span.textContent = w.label;
+        span.draggable = true;
+        span.addEventListener("dragstart", e => e.dataTransfer.setData("text/plain", w.answer));
+        bank.appendChild(span);
+      });
+
+      document.querySelectorAll('.droppable').forEach(drop => {
+        drop.addEventListener('dragover', e => e.preventDefault());
+        drop.addEventListener('drop', e => {
+          e.preventDefault();
+          const dragged = e.dataTransfer.getData("text/plain");
+          const answer = drop.getAttribute("data-answer");
+
+          drop.textContent = dragged;
+
+          if (dragged === answer) {
+            drop.classList.add("correct");
+            drop.classList.remove("incorrect");
+          } else {
+            drop.classList.add("incorrect");
+            drop.classList.remove("correct");
+            setTimeout(() => {
+              drop.textContent = "";
+              drop.classList.remove("incorrect");
+            }, 1000);
+          }
+        });
+      });
+    }
+
+    function nextBatch() {
+      currentIndex += 5;
+      if (currentIndex >= shuffledData.length) {
+        shuffle(shuffledData);
+        currentIndex = 0;
+      }
+      buildQuiz();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      shuffledData = [...quizData];
+      shuffle(shuffledData);
+      buildQuiz();
+    });
+  </script>
+</body>
+</html>
