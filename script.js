@@ -1,7 +1,9 @@
 // ------------------------------
-// Shared helpers / constants
+// Constants
 // ------------------------------
-const BASE = location.hostname.endsWith('github.io') ? '/bako/' : '/';
+const IS_GH = location.hostname.endsWith('github.io');
+const BASE  = IS_GH ? '/bako/' : '/';
+const ABS   = `${location.origin}${BASE}`;   // absolute base, avoids relative-path 404s
 
 // ------------------------------
 // Header + Footer loader
@@ -10,9 +12,8 @@ function loadHeaderFooter() {
   const headerContainer = document.getElementById("header");
   const footerContainer = document.getElementById("footer");
 
-  // Use BASE so subfolders work too
-  const headerPath = `${BASE}header.html`;
-  const footerPath = `${BASE}footer.html`;
+  const headerPath = `${ABS}header.html`;
+  const footerPath = `${ABS}footer.html`;
 
   if (headerContainer) {
     fetch(headerPath)
@@ -44,13 +45,12 @@ function loadLessons() {
   const categoryToLoad = getPageCategory();
   if (!categoryToLoad) return;
 
-  const jsonUrl = `${BASE}lessons.json`;
+  const jsonUrl = `${ABS}lessons.json`;
   console.log("Fetching lessons JSON:", jsonUrl);
 
   fetch(jsonUrl)
     .then(res => {
       if (!res.ok) throw new Error(`Failed to load lessons.json (${res.status})`);
-      // If a 404 HTML page comes back, the next line would throw; that means the path/file is wrong.
       return res.json();
     })
     .then(data => {
@@ -69,6 +69,12 @@ function loadLessons() {
       const lessonGrid = document.createElement("div");
       lessonGrid.className = "lesson-container";
 
+      // Convert hard-coded GitHub URLs to site-relative when on bako.blog
+      const normalize = (url) => {
+        if (IS_GH) return url; // keep as-is on github.io
+        return url.replace(/^https?:\/\/mandritsara\.github\.io\/bako\//, '/');
+      };
+
       // Cards
       category.links.forEach(lesson => {
         const lessonCard = document.createElement("a");
@@ -78,12 +84,13 @@ function loadLessons() {
         const lessonTitle = document.createElement("h4");
         lessonTitle.textContent = lesson.title;
 
-        // Prefer HTML if it exists, else fall back to PDF
-        const htmlUrl = lesson.url.replace(/\.pdf$/i, ".html");
+        const pdfUrl  = normalize(lesson.url);
+        const htmlUrl = pdfUrl.replace(/\.pdf$/i, ".html");
 
+        // Prefer HTML if it exists, else fall back to PDF
         fetch(htmlUrl, { method: "HEAD" })
-          .then(r => { lessonCard.href = r.ok ? htmlUrl : lesson.url; })
-          .catch(() => { lessonCard.href = lesson.url; });
+          .then(r => { lessonCard.href = r.ok ? htmlUrl : pdfUrl; })
+          .catch(() => { lessonCard.href = pdfUrl; });
 
         lessonCard.appendChild(lessonTitle);
         lessonGrid.appendChild(lessonCard);
