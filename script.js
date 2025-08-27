@@ -1,102 +1,77 @@
 // ------------------------------
-// Constants
-// ------------------------------
-const IS_GH = location.hostname.endsWith('github.io');
-const BASE  = IS_GH ? '/bako/' : '/';
-const ABS   = `${location.origin}${BASE}`;   // absolute base, avoids relative-path 404s
-
-// ------------------------------
-// Header + Footer loader
+// Header + Footer (root-relative)
 // ------------------------------
 function loadHeaderFooter() {
-  const headerContainer = document.getElementById("header");
-  const footerContainer = document.getElementById("footer");
+  const header = document.getElementById("header");
+  const footer = document.getElementById("footer");
 
-  const headerPath = `${ABS}header.html`;
-  const footerPath = `${ABS}footer.html`;
-
-  if (headerContainer) {
-    fetch(headerPath)
-      .then(r => { if (!r.ok) throw new Error(`Failed to load ${headerPath}`); return r.text(); })
-      .then(html => { headerContainer.innerHTML = html; })
+  if (header) {
+    fetch("/header.html")
+      .then(r => { if (!r.ok) throw new Error("header"); return r.text(); })
+      .then(html => header.innerHTML = html)
       .catch(err => console.error("Error loading header:", err));
   }
 
-  if (footerContainer) {
-    fetch(footerPath)
-      .then(r => { if (!r.ok) throw new Error(`Failed to load ${footerPath}`); return r.text(); })
-      .then(html => { footerContainer.innerHTML = html; })
+  if (footer) {
+    fetch("/footer.html")
+      .then(r => { if (!r.ok) throw new Error("footer"); return r.text(); })
+      .then(html => footer.innerHTML = html)
       .catch(err => console.error("Error loading footer:", err));
   }
 }
 
 // ------------------------------
-// Lessons loader
+// Lessons (root-relative)
 // ------------------------------
 function loadLessons() {
-  function getPageCategory() {
-    const path = window.location.pathname.toLowerCase();
-    if (path.includes("introduction")) return "Introductory Lessons";
-    if (path.includes("grammar"))      return "Grammar Lessons";
-    if (path.includes("theme"))        return "Thematic Lessons";
-    return null;
-  }
+  const path = location.pathname.toLowerCase();
+  const category =
+    path.includes("introduction") ? "Introductory Lessons" :
+    path.includes("grammar")      ? "Grammar Lessons" :
+    path.includes("theme")        ? "Thematic Lessons"   : null;
 
-  const categoryToLoad = getPageCategory();
-  if (!categoryToLoad) return;
+  if (!category) return;
 
-  const jsonUrl = `${ABS}lessons.json`;
-  console.log("Fetching lessons JSON:", jsonUrl);
-
-  fetch(jsonUrl)
-    .then(res => {
-      if (!res.ok) throw new Error(`Failed to load lessons.json (${res.status})`);
-      return res.json();
-    })
+  fetch("/lessons.json", { cache: "no-store" })
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(data => {
-      const lessonsContainer = document.getElementById("lessons-container");
-      if (!lessonsContainer) return;
+      const box = document.getElementById("lessons-container");
+      if (!box) return;
 
-      const category = (data.lessons || []).find(cat => cat.category === categoryToLoad);
-      if (!category) return;
+      const cat = (data.lessons || []).find(c => c.category === category);
+      if (!cat) return;
 
-      // Title
-      const categoryTitle = document.createElement("h3");
-      categoryTitle.textContent = category.category;
-      lessonsContainer.appendChild(categoryTitle);
+      const h3 = document.createElement("h3");
+      h3.textContent = cat.category;
+      box.appendChild(h3);
 
-      // Grid container
-      const lessonGrid = document.createElement("div");
-      lessonGrid.className = "lesson-container";
+      const grid = document.createElement("div");
+      grid.className = "lesson-container";
 
-      // Convert hard-coded GitHub URLs to site-relative when on bako.blog
-      const normalize = (url) => {
-        if (IS_GH) return url; // keep as-is on github.io
-        return url.replace(/^https?:\/\/mandritsara\.github\.io\/bako\//, '/');
-      };
+      // If lessons.json still has old github.io links, normalize them to root paths
+      const normalize = (url) => url.replace(/^https?:\/\/mandritsara\.github\.io\/bako\//, "/");
 
-      // Cards
-      category.links.forEach(lesson => {
-        const lessonCard = document.createElement("a");
-        lessonCard.className = "lesson-card";
-        lessonCard.style.textDecoration = "none";
+      cat.links.forEach(lesson => {
+        const a = document.createElement("a");
+        a.className = "lesson-card";
+        a.style.textDecoration = "none";
 
-        const lessonTitle = document.createElement("h4");
-        lessonTitle.textContent = lesson.title;
+        const h4 = document.createElement("h4");
+        h4.textContent = lesson.title;
 
-        const pdfUrl  = normalize(lesson.url);
-        const htmlUrl = pdfUrl.replace(/\.pdf$/i, ".html");
+        const pdf  = normalize(lesson.url);
+        const html = pdf.replace(/\.pdf$/i, ".html");
 
-        // Prefer HTML if it exists, else fall back to PDF
-        fetch(htmlUrl, { method: "HEAD" })
-          .then(r => { lessonCard.href = r.ok ? htmlUrl : pdfUrl; })
-          .catch(() => { lessonCard.href = pdfUrl; });
+        // Prefer HTML if present, otherwise PDF
+        fetch(html, { method: "HEAD" })
+          .then(res => { a.href = res.ok ? html : pdf; })
+          .catch(() => { a.href = pdf; });
 
-        lessonCard.appendChild(lessonTitle);
-        lessonGrid.appendChild(lessonCard);
+        a.appendChild(h4);
+        grid.appendChild(a);
       });
 
-      lessonsContainer.appendChild(lessonGrid);
+      box.appendChild(grid);
     })
     .catch(err => console.error("Error loading lessons:", err));
 }
@@ -124,29 +99,26 @@ function initCarouselCaptions() {
   ];
 
   const carousel = document.getElementById("galleryCarousel");
-  const captionContainer = document.getElementById("carousel-caption-below");
-  const carouselItems = document.querySelectorAll(".carousel-item");
+  const captionEl = document.getElementById("carousel-caption-below");
+  const items = document.querySelectorAll(".carousel-item");
+  if (!carousel || !captionEl || !items.length) return;
 
-  if (!carousel || !captionContainer || !carouselItems.length) return;
-
-  function updateCaption() {
-    const activeIndex = Array.from(carouselItems).findIndex(item => item.classList.contains("active"));
-    if (activeIndex !== -1) captionContainer.innerHTML = `<p>${captions[activeIndex] || ""}</p>`;
+  function update() {
+    const i = Array.from(items).findIndex(x => x.classList.contains("active"));
+    if (i !== -1) captionEl.innerHTML = `<p>${captions[i] || ""}</p>`;
   }
-
-  updateCaption();
-  carousel.addEventListener("slid.bs.carousel", updateCaption);
+  update();
+  carousel.addEventListener("slid.bs.carousel", update);
 }
 
 // ------------------------------
-// Google Analytics injection
+// Google Analytics (adblockers may block)
 // ------------------------------
 (function injectGATag() {
-  const ga = document.createElement("script");
-  ga.src = "https://www.googletagmanager.com/gtag/js?id=G-DG828TL4V1";
-  ga.async = true;
-  document.head.appendChild(ga);
-
+  const s = document.createElement("script");
+  s.src = "https://www.googletagmanager.com/gtag/js?id=G-DG828TL4V1";
+  s.async = true;
+  document.head.appendChild(s);
   window.dataLayer = window.dataLayer || [];
   function gtag(){ dataLayer.push(arguments); }
   gtag('js', new Date());
@@ -154,9 +126,9 @@ function initCarouselCaptions() {
 })();
 
 // ------------------------------
-// Init on DOM ready
+// Init
 // ------------------------------
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   loadHeaderFooter();
   loadLessons();
   initCarouselCaptions();
