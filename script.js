@@ -136,3 +136,6 @@ document.addEventListener("DOMContentLoaded", function () {
   gtag('js', new Date());
   gtag('config', 'G-DG828TL4V1');
 })();
+
+const BASE = location.hostname.endsWith('github.io') ? '/bako/' : '/';
+fetch(`${BASE}lessons.json`)
