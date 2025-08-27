@@ -10,25 +10,20 @@ function loadHeaderFooter() {
   const headerContainer = document.getElementById("header");
   const footerContainer = document.getElementById("footer");
 
-  const headerPath = "header.html";
-  const footerPath = "footer.html";
+  // Use BASE so subfolders work too
+  const headerPath = `${BASE}header.html`;
+  const footerPath = `${BASE}footer.html`;
 
   if (headerContainer) {
     fetch(headerPath)
-      .then(response => {
-        if (!response.ok) throw new Error(`Failed to load ${headerPath}`);
-        return response.text();
-      })
+      .then(r => { if (!r.ok) throw new Error(`Failed to load ${headerPath}`); return r.text(); })
       .then(html => { headerContainer.innerHTML = html; })
       .catch(err => console.error("Error loading header:", err));
   }
 
   if (footerContainer) {
     fetch(footerPath)
-      .then(response => {
-        if (!response.ok) throw new Error(`Failed to load ${footerPath}`);
-        return response.text();
-      })
+      .then(r => { if (!r.ok) throw new Error(`Failed to load ${footerPath}`); return r.text(); })
       .then(html => { footerContainer.innerHTML = html; })
       .catch(err => console.error("Error loading footer:", err));
   }
@@ -49,9 +44,13 @@ function loadLessons() {
   const categoryToLoad = getPageCategory();
   if (!categoryToLoad) return;
 
-  fetch(`${BASE}lessons.json`)
+  const jsonUrl = `${BASE}lessons.json`;
+  console.log("Fetching lessons JSON:", jsonUrl);
+
+  fetch(jsonUrl)
     .then(res => {
       if (!res.ok) throw new Error(`Failed to load lessons.json (${res.status})`);
+      // If a 404 HTML page comes back, the next line would throw; that means the path/file is wrong.
       return res.json();
     })
     .then(data => {
@@ -83,12 +82,8 @@ function loadLessons() {
         const htmlUrl = lesson.url.replace(/\.pdf$/i, ".html");
 
         fetch(htmlUrl, { method: "HEAD" })
-          .then(r => {
-            lessonCard.href = r.ok ? htmlUrl : lesson.url;
-          })
-          .catch(() => {
-            lessonCard.href = lesson.url;
-          });
+          .then(r => { lessonCard.href = r.ok ? htmlUrl : lesson.url; })
+          .catch(() => { lessonCard.href = lesson.url; });
 
         lessonCard.appendChild(lessonTitle);
         lessonGrid.appendChild(lessonCard);
@@ -100,7 +95,7 @@ function loadLessons() {
 }
 
 // ------------------------------
-// Carousel captions (homepage/about gallery)
+// Carousel captions (guarded)
 // ------------------------------
 function initCarouselCaptions() {
   const captions = [
@@ -129,15 +124,10 @@ function initCarouselCaptions() {
 
   function updateCaption() {
     const activeIndex = Array.from(carouselItems).findIndex(item => item.classList.contains("active"));
-    if (activeIndex !== -1) {
-      captionContainer.innerHTML = `<p>${captions[activeIndex] || ""}</p>`;
-    }
+    if (activeIndex !== -1) captionContainer.innerHTML = `<p>${captions[activeIndex] || ""}</p>`;
   }
 
-  // On load
   updateCaption();
-
-  // Update after slide
   carousel.addEventListener("slid.bs.carousel", updateCaption);
 }
 
