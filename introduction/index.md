@@ -1,1 +1,23 @@
-List of introductory lessons
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introductory Lessons</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div id="header"></div>
+  <div class="container">
+    <div class="cards-container" id="lessons-container">
+      <!-- Lessons will be injected here dynamically -->
+    </div>
+  </div>
+  <div id="footer"></div>
+
+  <!-- Link to script.js which will now handle lesson loading -->
+ <script src="/script.js?v=6" defer></script>
+
+</body>
+</html>
