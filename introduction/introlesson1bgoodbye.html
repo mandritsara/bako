@@ -23,7 +23,7 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item"><a href="bako.blog/introduction.html">Introduction</a></li>
+        <li class="breadcrumb-item"><a href="https://bako.blog/introduction.html">Introduction</a></li>
         <li class="breadcrumb-item active" aria-current="page">Lesson 1b: Goodbye</li>
       </ol>
     </nav>
@@ -31,7 +31,6 @@
     <header class="mb-4">
       <h1 class="h2">Malagasy–Tsimihety with Bako: Lesson 1b — Goodbye</h1>
       <p class="lead mb-0">Common ways to say goodbye and how to specify when you’ll meet again.</p>
-      <p><a class="btn btn-outline-secondary btn-sm" href="/introduction/introlesson1bgoodbye.pdf" target="_blank" rel="noopener">Download PDF</a></p>
     </header>
 
     <!-- Common Ways to Say Goodbye -->
@@ -216,4 +215,88 @@
           </audio>
 
           <h4 class="h6">Days of the Week</h4>
-          <div class="table
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead class="table-warning">
+                <tr>
+                  <th>English</th>
+                  <th>Official</th>
+                  <th>Tsimihety</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Monday</td><td>Alatsinainy</td><td>Tinainy</td></tr>
+                <tr><td>Tuesday</td><td>Talata</td><td>Talata</td></tr>
+                <tr><td>Wednesday</td><td>Alarobia</td><td>Robia</td></tr>
+                <tr><td>Thursday</td><td>Alakamisy</td><td>Kamisy</td></tr>
+                <tr><td>Friday</td><td>Zoma</td><td>Zoma</td></tr>
+                <tr><td>Saturday</td><td>Asabotsy</td><td>Sabotsy</td></tr>
+                <tr><td>Sunday</td><td>Alahady</td><td>Lahady/Dimansy</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <audio controls class="w-100 mb-4">
+            <source src="/audio/introduction/lesson1bapp4.mp3" type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
+
+          <h4 class="h6">Months of the Year</h4>
+          <p>
+            There are English and French influenced words for months in Malagasy. Both are commonly used; however, Tsimihety prefers the French version.
+          </p>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead class="table-primary">
+                <tr>
+                  <th>English</th>
+                  <th>Official (English)</th>
+                  <th>Official (French) / Tsimihety</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>January</td><td>Janoary</td><td>Zanvie</td></tr>
+                <tr><td>February</td><td>Febroary</td><td>Fevrie</td></tr>
+                <tr><td>March</td><td>Martsa</td><td>Marsa</td></tr>
+                <tr><td>April</td><td>Aprily</td><td>Avrily</td></tr>
+                <tr><td>May</td><td>May</td><td>May</td></tr>
+                <tr><td>June</td><td>Jona</td><td>Jona</td></tr>
+                <tr><td>July</td><td>Jolay</td><td>Jolay</td></tr>
+                <tr><td>August</td><td>Aogositra</td><td>Aogositra</td></tr>
+                <tr><td>September</td><td>Septambra</td><td>Septambra</td></tr>
+                <tr><td>October</td><td>Oktobra</td><td>Oktobra</td></tr>
+                <tr><td>November</td><td>Novambra</td><td>Novambra</td></tr>
+                <tr><td>December</td><td>Desambra</td><td>Desambra</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOWNLOAD PDF -->
+    <div class="text-center my-4">
+      <p class="mini">You can also download this lesson as a PDF for offline study:</p>
+      <a class="btn btn-outline-secondary" href="/introduction/introlesson1bgoodbye.pdf" target="_blank" rel="noopener">Download PDF</a>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+  <script>
+    (async () => {
+      try {
+        const header = document.getElementById('header');
+        const footer = document.getElementById('footer');
+        if (header) {
+          const h = await fetch('/header.html');
+          if (h.ok) header.innerHTML = await h.text();
+        }
+        if (footer) {
+          const f = await fetch('/footer.html');
+          if (f.ok) footer.innerHTML = await f.text();
+        }
+      } catch(e) { /* no-op */ }
+    })();
+  </script>
+</body>
+</html>
