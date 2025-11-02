@@ -11,7 +11,7 @@
     .term { font-weight: 700; letter-spacing: .2px; }
     .mini { font-size: .95rem; color: #555; }
     .example { background: #f8f9fa; border-left: 4px solid #dee2e6; padding: .75rem 1rem; border-radius: .5rem; }
-    .sidebar-box { background: #f8f9fa; border-radius: .5rem; padding: 1rem; }
+    .sidebar-box { background: #f8f9fa; border-radius: .5rem; padding: 1rem; height: 100%; }
     .vocab td { vertical-align: top; }
     .table-tight td, .table-tight th { padding: .4rem .5rem; }
   </style>
@@ -35,11 +35,11 @@
       <p>One can talk about anything, but in practice, there are some things that are essential, like saying your name, where you are from and what you do for a living.</p>
     </header>
 
-    <!-- BASIC INTRODUCTION LINES -->
+    <!-- BASIC INTRODUCTION -->
     <section class="mb-4">
       <div class="card border-0 shadow-sm">
         <div class="card-body">
-          <div class="row g-4">
+          <div class="row g-4 align-items-start">
             <div class="col-md-8">
               <h2 class="h5">Basic Introduction</h2>
               <div class="example mb-3">
@@ -60,7 +60,31 @@
               <audio controls class="w-100 mb-3">
                 <source src="/audio/introduction/lesson3con2.mp3" type="audio/mpeg" />
               </audio>
+            </div>
 
+            <div class="col-md-4">
+              <div class="sidebar-box">
+                <h3 class="h6 mb-2">Word order note</h3>
+                <p class="mb-2">Note that in official Malagasy, saying “my name is …” and “my job is …” are inverted.</p>
+                <div class="example p-2 bg-white border rounded mb-0">
+                  <div><span class="term">Anarako</span> … (name) … <span class="mini">(Tsm)</span></div>
+                  <div>vs … (name) … <span class="term">no anarako</span> <span class="mini">(Off)</span></div>
+                  <div class="mt-2"><span class="term">Asako</span> … (job) … <span class="mini">(Tsm)</span></div>
+                  <div>vs … (job) … <span class="term">no asako</span> <span class="mini">(Off)</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TALKING ABOUT FAMILY -->
+    <section class="mb-4">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body">
+          <div class="row g-4 align-items-start">
+            <div class="col-md-8">
               <p class="mb-2">After this obligatory introduction, you can talk about anything you like. For example, you can talk about your family or your spouse and children.</p>
               <div class="example mb-3">
                 <div><span class="term">Manambady zaho</span> — I am married.</div>
@@ -79,22 +103,12 @@
             </div>
 
             <div class="col-md-4">
-              <aside class="sidebar-box h-100">
-                <h3 class="h6 mb-2">Word order note</h3>
-                <p class="mb-2">Note that in official Malagasy, saying “my name is …” and “my job is …” are inverted.</p>
-                <div class="example p-2 bg-white border rounded mb-2">
-                  <div><span class="term">Anarako</span> … (name) … <span class="mini">(Tsm)</span></div>
-                  <div>vs … (name) … <span class="term">no anarako</span> <span class="mini">(Off)</span></div>
-                  <div class="mt-2"><span class="term">Asako</span> … (job) … <span class="mini">(Tsm)</span></div>
-                  <div>vs … (job) … <span class="term">no asako</span> <span class="mini">(Off)</span></div>
-                </div>
-
-                <h3 class="h6 mt-3 mb-2">Cultural note</h3>
-                <p class="mb-0">Malagasy society generally favours marriage and having children. If you are in neither of these categories, it might be difficult to avoid feeling a bit second-class. So, if you don’t know someone that well, it’s probably not a good idea to ask if they are married or how many children they have!</p>
-
-                <h3 class="h6 mt-3 mb-2">Two words for “children”</h3>
+              <div class="sidebar-box">
+                <h3 class="h6 mb-2">Cultural note</h3>
+                <p class="mb-3">Malagasy society generally favours marriage and having children. If you are in neither of these categories, it might be difficult to avoid feeling a bit second-class. So, if you don’t know someone that well, it’s probably not a good idea to ask if they are married or how many children they have!</p>
+                <h3 class="h6 mb-2">Two words for “children”</h3>
                 <p class="mb-0">There are two words for children. If you are referring to children in relation to their parents, use <strong>zanaka</strong>. Otherwise, use <strong>zaza</strong> for children in the general sense.</p>
-              </aside>
+              </div>
             </div>
           </div>
         </div>
@@ -142,6 +156,24 @@
           <h2 class="h5">Appendix: Basic Grammar Rules</h2>
           <ol class="mb-3">
             <li>The subject of the sentence is at the end instead of the beginning.</li>
+          </ol>
+
+          <div class="example my-3 text-center">
+            <div class="d-flex justify-content-between text-muted mb-2" style="font-weight:600;">
+              <span style="border:2px solid #000; border-radius:50%; padding:0.25rem 0.6rem;">I</span>
+              <span>am</span>
+              <span>from</span>
+              <span>England.</span>
+            </div>
+            <div class="d-flex justify-content-between">
+              <span>Avy any</span>
+              <span>Angletera</span>
+              <span class="term" style="border:2px solid #000; border-radius:50%; padding:0.25rem 0.6rem;">zaho.</span>
+            </div>
+            <p class="mini mt-2">Note how the subject moves to the end of the sentence in Malagasy.</p>
+          </div>
+
+          <ol start="2" class="mb-3">
             <li>“to be” or “to have” does not exist in the Malagasy language.</li>
             <li>Nouns do not have singular/plural forms.</li>
             <li>Similar to English, and unlike French, grammatical gender does not exist—no struggling with masculine and feminine forms!</li>
