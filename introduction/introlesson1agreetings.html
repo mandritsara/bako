@@ -228,39 +228,6 @@
       </div>
     </section>
 
-    <section class="mb-5">
-  <div class="card border-0 shadow-sm">
-    <div class="card-body">
-      <h2 class="h5 mb-3">Quiz 1: Match the greetings</h2>
-      <p class="mini mb-3">Drag the English meanings to match the Malagasy/Tsimihety greetings.</p>
-      <div class="row">
-        <div class="col-md-6">
-          <ul class="list-group" id="malagasyList">
-            <li class="list-group-item" draggable="true">Salama tompoko</li>
-            <li class="list-group-item" draggable="true">Haody</li>
-            <li class="list-group-item" draggable="true">Manakory ianao?</li>
-            <li class="list-group-item" draggable="true">Tsara fa misaotra</li>
-            <li class="list-group-item" draggable="true">Ino vaovao?</li>
-            <li class="list-group-item" draggable="true">Tsisy vaovao</li>
-          </ul>
-        </div>
-        <div class="col-md-6">
-          <ul class="list-group" id="englishList">
-            <li class="list-group-item" data-answer="Salama tompoko">Hello, sir</li>
-            <li class="list-group-item" data-answer="Haody">Knock/Hello at the door</li>
-            <li class="list-group-item" data-answer="Manakory ianao?">How are you?</li>
-            <li class="list-group-item" data-answer="Tsara fa misaotra">Fine, thank you</li>
-            <li class="list-group-item" data-answer="Ino vaovao?">What’s new?</li>
-            <li class="list-group-item" data-answer="Tsisy vaovao">Nothing’s new</li>
-          </ul>
-        </div>
-      </div>
-      <button class="btn btn-primary mt-3" id="checkMatchBtn">Check answers</button>
-      <p id="matchResult" class="mt-2"></p>
-    </div>
-  </div>
-</section>
-
 <section class="mb-5">
   <div class="card border-0 shadow-sm">
     <div class="card-body">
@@ -294,33 +261,78 @@
   </div>
 </section>
 
+<section class="mb-5">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 2: Fill in the pronouns</h2>
+      <p class="mini mb-3">Type the correct pronoun for each meaning. Answers are not case-sensitive.</p>
+
+      <form id="pronounQuizFull">
+        <h6 class="mt-3 mb-2 text-primary">Official Malagasy</h6>
+        <div class="mb-2">I = <input type="text" class="form-control d-inline-block w-auto" name="aho" placeholder="?" /></div>
+        <div class="mb-2">You (singular) = <input type="text" class="form-control d-inline-block w-auto" name="ianao" placeholder="?" /></div>
+        <div class="mb-2">You (plural) = <input type="text" class="form-control d-inline-block w-auto" name="ianareo" placeholder="?" /></div>
+        <div class="mb-2">He/She/It = <input type="text" class="form-control d-inline-block w-auto" name="izy" placeholder="?" /></div>
+        <div class="mb-2">They = <input type="text" class="form-control d-inline-block w-auto" name="izyireo" placeholder="?" /></div>
+        <div class="mb-2">We (inclusive) = <input type="text" class="form-control d-inline-block w-auto" name="isika" placeholder="?" /></div>
+        <div class="mb-2">We (exclusive) = <input type="text" class="form-control d-inline-block w-auto" name="izahay" placeholder="?" /></div>
+
+        <h6 class="mt-4 mb-2 text-success">Tsimihety Dialect</h6>
+        <div class="mb-2">I = <input type="text" class="form-control d-inline-block w-auto" name="zaho" placeholder="?" /></div>
+        <div class="mb-2">You (singular) = <input type="text" class="form-control d-inline-block w-auto" name="tsm_ianao" placeholder="?" /></div>
+        <div class="mb-2">You (plural) = <input type="text" class="form-control d-inline-block w-auto" name="areo" placeholder="?" /></div>
+        <div class="mb-2">He/She/It = <input type="text" class="form-control d-inline-block w-auto" name="tsm_izy" placeholder="?" /></div>
+        <div class="mb-2">They = <input type="text" class="form-control d-inline-block w-auto" name="zareo" placeholder="?" /></div>
+        <div class="mb-2">We (inclusive) = <input type="text" class="form-control d-inline-block w-auto" name="antsika" placeholder="?" /></div>
+        <div class="mb-2">We (exclusive) = <input type="text" class="form-control d-inline-block w-auto" name="zahay" placeholder="?" /></div>
+
+        <button type="button" class="btn btn-primary mt-3" id="checkPronounsFull">Check answers</button>
+        <p id="pronounResultFull" class="mt-3 fw-bold"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
 <script>
-  // Simple drag-and-drop quiz
-  const malagasyList = document.querySelectorAll('#malagasyList li');
-  const englishList = document.querySelectorAll('#englishList li');
-  let draggedItem = null;
+  const correctPronounsFull = {
+    // Official Malagasy
+    aho: "Aho",
+    ianao: "Ianao",
+    ianareo: "Ianareo",
+    izy: "Izy",
+    izyireo: "Izy ireo",
+    isika: "Isika",
+    izahay: "Izahay",
+    // Tsimihety
+    zaho: "Zaho",
+    tsm_ianao: "Ianao",
+    areo: "Areo",
+    tsm_izy: "Izy",
+    zareo: "Zareo",
+    antsika: "Antsika",
+    zahay: "Zahay"
+  };
 
-  malagasyList.forEach(item => {
-    item.addEventListener('dragstart', () => draggedItem = item.textContent.trim());
-  });
+  document.getElementById('checkPronounsFull').onclick = () => {
+    const form = document.getElementById('pronounQuizFull');
+    let score = 0;
+    const total = Object.keys(correctPronounsFull).length;
 
-  englishList.forEach(item => {
-    item.addEventListener('dragover', e => e.preventDefault());
-    item.addEventListener('drop', e => {
-      if (!item.textContent.includes('←')) {
-        item.textContent += ` ← ${draggedItem}`;
-        item.classList.add('bg-light');
+    Object.keys(correctPronounsFull).forEach(k => {
+      const input = form[k];
+      if (!input) return;
+      if (input.value.trim().toLowerCase() === correctPronounsFull[k].toLowerCase()) {
+        input.classList.add('border-success');
+        input.classList.remove('border-danger');
+        score++;
+      } else {
+        input.classList.add('border-danger');
+        input.classList.remove('border-success');
       }
     });
-  });
 
-  document.getElementById('checkMatchBtn').onclick = () => {
-    let score = 0;
-    englishList.forEach(item => {
-      if (item.textContent.includes(item.dataset.answer)) score++;
-    });
-    document.getElementById('matchResult').textContent =
-      `✅ You got ${score} / ${englishList.length} correct.`;
+    document.getElementById('pronounResultFull').textContent =
+      `✅ You got ${score} / ${total} correct.`;
   };
 </script>
 
