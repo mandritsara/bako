@@ -631,110 +631,28 @@
 
     <!--quiz3-->
     
-    <section class="mb-5" id="l1b-quiz3">
+   <section class="mb-5" id="l1b-quiz3">
   <div class="card border-0 shadow-sm">
     <div class="card-body">
       <h2 class="h5 mb-3">Quiz 3: Days of the week</h2>
-      <p class="mini mb-3">Match the English day to the correct Official and Tsimihety form.</p>
+      <p class="mini mb-3">Choose the correct day in Official and Tsimihety. You can reshuffle the options.</p>
 
       <form id="l1b-days-quiz">
         <div class="row g-4">
           <!-- OFFICIAL -->
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6" id="l1b-days-off">
             <h6 class="mb-2 text-primary">Official Malagasy</h6>
-            <div class="mb-2">Monday →
-              <select class="form-select d-inline-block w-auto" name="off_mon">
-                <option value="">—</option>
-                <option>Alatsinainy</option><option>Talata</option><option>Alarobia</option>
-              </select>
-            </div>
-            <div class="mb-2">Tuesday →
-              <select class="form-select d-inline-block w-auto" name="off_tue">
-                <option value="">—</option>
-                <option>Talata</option><option>Alarobia</option><option>Alakamisy</option>
-              </select>
-            </div>
-            <div class="mb-2">Wednesday →
-              <select class="form-select d-inline-block w-auto" name="off_wed">
-                <option value="">—</option>
-                <option>Alarobia</option><option>Talata</option><option>Zoma</option>
-              </select>
-            </div>
-            <div class="mb-2">Thursday →
-              <select class="form-select d-inline-block w-auto" name="off_thu">
-                <option value="">—</option>
-                <option>Alakamisy</option><option>Asabotsy</option>
-              </select>
-            </div>
-            <div class="mb-2">Friday →
-              <select class="form-select d-inline-block w-auto" name="off_fri">
-                <option value="">—</option>
-                <option>Zoma</option><option>Alahady</option>
-              </select>
-            </div>
-            <div class="mb-2">Saturday →
-              <select class="form-select d-inline-block w-auto" name="off_sat">
-                <option value="">—</option>
-                <option>Asabotsy</option><option>Zoma</option>
-              </select>
-            </div>
-            <div class="mb-2">Sunday →
-              <select class="form-select d-inline-block w-auto" name="off_sun">
-                <option value="">—</option>
-                <option>Alahady</option><option>Talata</option>
-              </select>
-            </div>
+            <!-- JS injects fields here -->
           </div>
-
           <!-- TSIMIHETY -->
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6" id="l1b-days-tsm">
             <h6 class="mb-2 text-success">Tsimihety</h6>
-            <div class="mb-2">Monday →
-              <select class="form-select d-inline-block w-auto" name="tsm_mon">
-                <option value="">—</option>
-                <option>Tinainy</option><option>Talata</option><option>Robia</option>
-              </select>
-            </div>
-            <div class="mb-2">Tuesday →
-              <select class="form-select d-inline-block w-auto" name="tsm_tue">
-                <option value="">—</option>
-                <option>Talata</option><option>Robia</option><option>Kamisy</option>
-              </select>
-            </div>
-            <div class="mb-2">Wednesday →
-              <select class="form-select d-inline-block w-auto" name="tsm_wed">
-                <option value="">—</option>
-                <option>Robia</option><option>Talata</option><option>Zoma</option>
-              </select>
-            </div>
-            <div class="mb-2">Thursday →
-              <select class="form-select d-inline-block w-auto" name="tsm_thu">
-                <option value="">—</option>
-                <option>Kamisy</option><option>Sabotsy</option>
-              </select>
-            </div>
-            <div class="mb-2">Friday →
-              <select class="form-select d-inline-block w-auto" name="tsm_fri">
-                <option value="">—</option>
-                <option>Zoma</option><option>Lahady</option>
-              </select>
-            </div>
-            <div class="mb-2">Saturday →
-              <select class="form-select d-inline-block w-auto" name="tsm_sat">
-                <option value="">—</option>
-                <option>Sabotsy</option><option>Zoma</option>
-              </select>
-            </div>
-            <div class="mb-2">Sunday →
-              <select class="form-select d-inline-block w-auto" name="tsm_sun">
-                <option value="">—</option>
-                <option>Lahady/Dimansy</option><option>Talata</option>
-              </select>
-            </div>
+            <!-- JS injects fields here -->
           </div>
         </div>
 
-        <button type="button" class="btn btn-primary mt-3" id="l1b-days-check">Check</button>
+        <button type="button" class="btn btn-primary mt-3 me-2" id="l1b-days-check">Check</button>
+        <button type="button" class="btn btn-outline-secondary mt-3" id="l1b-days-scramble">Scramble options</button>
         <p id="l1b-days-result" class="mt-3 fw-bold"></p>
       </form>
     </div>
@@ -742,45 +660,191 @@
 </section>
 
 <script>
-  const l1bDaysCorrect = {
-    off_mon: "Alatsinainy",
-    off_tue: "Talata",
-    off_wed: "Alarobia",
-    off_thu: "Alakamisy",
-    off_fri: "Zoma",
-    off_sat: "Asabotsy",
-    off_sun: "Alahady",
-    tsm_mon: "Tinainy",
-    tsm_tue: "Talata",
-    tsm_wed: "Robia",
-    tsm_thu: "Kamisy",
-    tsm_fri: "Zoma",
-    tsm_sat: "Sabotsy",
-    tsm_sun: "Lahady/Dimansy"
-  };
+  // data from your Lesson 1b table
+  const l1bDaysFields = [
+    // OFFICIAL
+    {
+      id: "off_mon",
+      col: "off",
+      label: "Monday",
+      correct: "Alatsinainy",
+      choices: ["Alatsinainy","Talata","Alarobia","Alakamisy","Zoma","Asabotsy","Alahady"]
+    },
+    {
+      id: "off_tue",
+      col: "off",
+      label: "Tuesday",
+      correct: "Talata",
+      choices: ["Talata","Alatsinainy","Alarobia","Alakamisy","Zoma","Asabotsy","Alahady"]
+    },
+    {
+      id: "off_wed",
+      col: "off",
+      label: "Wednesday",
+      correct: "Alarobia",
+      choices: ["Alarobia","Talata","Alakamisy","Zoma","Asabotsy","Alahady"]
+    },
+    {
+      id: "off_thu",
+      col: "off",
+      label: "Thursday",
+      correct: "Alakamisy",
+      choices: ["Alakamisy","Alarobia","Zoma","Asabotsy","Alahady"]
+    },
+    {
+      id: "off_fri",
+      col: "off",
+      label: "Friday",
+      correct: "Zoma",
+      choices: ["Zoma","Alakamisy","Asabotsy","Alahady"]
+    },
+    {
+      id: "off_sat",
+      col: "off",
+      label: "Saturday",
+      correct: "Asabotsy",
+      choices: ["Asabotsy","Zoma","Alahady"]
+    },
+    {
+      id: "off_sun",
+      col: "off",
+      label: "Sunday",
+      correct: "Alahady",
+      choices: ["Alahady","Asabotsy","Zoma"]
+    },
 
-  document.getElementById('l1b-days-check').onclick = () => {
-    const form = document.getElementById('l1b-days-quiz');
-    let score = 0;
-    const total = Object.keys(l1bDaysCorrect).length;
+    // TSIMIHETY
+    {
+      id: "tsm_mon",
+      col: "tsm",
+      label: "Monday",
+      correct: "Tinainy",
+      choices: ["Tinainy","Talata","Robia","Kamisy","Zoma","Sabotsy","Lahady/Dimansy"]
+    },
+    {
+      id: "tsm_tue",
+      col: "tsm",
+      label: "Tuesday",
+      correct: "Talata",
+      choices: ["Talata","Tinainy","Robia","Kamisy","Zoma","Sabotsy","Lahady/Dimansy"]
+    },
+    {
+      id: "tsm_wed",
+      col: "tsm",
+      label: "Wednesday",
+      correct: "Robia",
+      choices: ["Robia","Talata","Kamisy","Zoma","Sabotsy","Lahady/Dimansy"]
+    },
+    {
+      id: "tsm_thu",
+      col: "tsm",
+      label: "Thursday",
+      correct: "Kamisy",
+      choices: ["Kamisy","Robia","Zoma","Sabotsy","Lahady/Dimansy"]
+    },
+    {
+      id: "tsm_fri",
+      col: "tsm",
+      label: "Friday",
+      correct: "Zoma",
+      choices: ["Zoma","Kamisy","Sabotsy","Lahady/Dimansy"]
+    },
+    {
+      id: "tsm_sat",
+      col: "tsm",
+      label: "Saturday",
+      correct: "Sabotsy",
+      choices: ["Sabotsy","Zoma","Lahady/Dimansy"]
+    },
+    {
+      id: "tsm_sun",
+      col: "tsm",
+      label: "Sunday",
+      correct: "Lahady/Dimansy",
+      choices: ["Lahady/Dimansy","Sabotsy","Zoma"]
+    }
+  ];
 
-    Object.keys(l1bDaysCorrect).forEach(name => {
-      const sel = form[name];
-      if (!sel) return;
-      const val = (sel.value || "").trim();
-      if (val === l1bDaysCorrect[name]) {
-        score++;
-        sel.classList.add('border-success');
-        sel.classList.remove('border-danger');
+  const l1bDaysOffCol = document.getElementById("l1b-days-off");
+  const l1bDaysTsmCol = document.getElementById("l1b-days-tsm");
+
+  function shuffleList(arr) {
+    return arr
+      .map(x => ({ v: x, r: Math.random() }))
+      .sort((a,b) => a.r - b.r)
+      .map(x => x.v);
+  }
+
+  function renderL1bDaysQuiz() {
+    // remove previously rendered fields
+    l1bDaysOffCol.querySelectorAll(".l1b-day-field").forEach(el => el.remove());
+    l1bDaysTsmCol.querySelectorAll(".l1b-day-field").forEach(el => el.remove());
+
+    l1bDaysFields.forEach(field => {
+      const wrapper = document.createElement("div");
+      wrapper.className = "mb-2 l1b-day-field";
+      wrapper.innerHTML = `${field.label} → `;
+
+      const sel = document.createElement("select");
+      sel.className = "form-select d-inline-block w-auto";
+      sel.name = field.id;
+
+      // placeholder
+      const optEmpty = document.createElement("option");
+      optEmpty.value = "";
+      optEmpty.textContent = "—";
+      sel.appendChild(optEmpty);
+
+      // shuffled choices
+      const shuffled = shuffleList(field.choices.slice());
+      shuffled.forEach(choice => {
+        const opt = document.createElement("option");
+        opt.value = choice;
+        opt.textContent = choice;
+        sel.appendChild(opt);
+      });
+
+      wrapper.appendChild(sel);
+
+      if (field.col === "off") {
+        l1bDaysOffCol.appendChild(wrapper);
       } else {
-        sel.classList.add('border-danger');
-        sel.classList.remove('border-success');
+        l1bDaysTsmCol.appendChild(wrapper);
       }
     });
 
-    document.getElementById('l1b-days-result').textContent =
+    document.getElementById("l1b-days-result").textContent = "";
+  }
+
+  // check button
+  document.getElementById("l1b-days-check").onclick = () => {
+    const form = document.getElementById("l1b-days-quiz");
+    let score = 0;
+    const total = l1bDaysFields.length;
+
+    l1bDaysFields.forEach(field => {
+      const sel = form[field.id];
+      sel.classList.remove("border-success","border-danger");
+      const val = (sel.value || "").trim();
+      if (val === field.correct) {
+        score++;
+        sel.classList.add("border-success");
+      } else {
+        sel.classList.add("border-danger");
+      }
+    });
+
+    document.getElementById("l1b-days-result").textContent =
       `You got ${score} / ${total} correct.`;
   };
+
+  // scramble button
+  document.getElementById("l1b-days-scramble").onclick = () => {
+    renderL1bDaysQuiz();
+  };
+
+  // initial render
+  renderL1bDaysQuiz();
 </script>
 
     <!--quiz 4-->
