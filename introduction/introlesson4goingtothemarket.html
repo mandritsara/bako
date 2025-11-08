@@ -436,6 +436,391 @@
       </div>
     </section>
 
+    <!--quiz1-->
+    <section class="mb-5" id="l4-quiz1">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 1: Match the market dialogue</h2>
+      <p class="mini mb-3">Tap a Malagasy line, then tap its English meaning.</p>
+
+      <div class="row">
+        <!-- MALAGASY FIRST -->
+        <div class="col-12 col-md-6 mb-3 mb-md-0">
+          <h6 class="text-primary text-center mb-2">Malagasy</h6>
+          <ul class="list-group border border-primary-subtle" id="l4-malagasy-list">
+            <li class="list-group-item bg-light" data-key="haody">Haody</li>
+            <li class="list-group-item bg-light" data-key="mandroso">Mandroso</li>
+            <li class="list-group-item bg-light" data-key="misyatody">Misy atody ve?</li>
+            <li class="list-group-item bg-light" data-key="ia">Ia, misy.</li>
+            <li class="list-group-item bg-light" data-key="ohatrino">Ohatriño(na)?</li>
+            <li class="list-group-item bg-light" data-key="amezo">Amezo telo azafady.</li>
+            <li class="list-group-item bg-light" data-key="tsisymadinika">Azafady tsisy la monnaie / tsisy madinika.</li>
+          </ul>
+        </div>
+
+        <!-- ENGLISH SECOND -->
+        <div class="col-12 col-md-6">
+          <h6 class="text-success text-center mb-2">English meaning</h6>
+          <ul class="list-group border border-success-subtle" id="l4-english-list"></ul>
+        </div>
+      </div>
+
+      <button class="btn btn-primary mt-3 me-2" id="l4-q1-check">Check answers</button>
+      <button class="btn btn-outline-secondary mt-3" id="l4-q1-retry">Retry / Scramble</button>
+      <p id="l4-q1-result" class="mt-2 fw-bold"></p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const l4Pairs = [
+    { key: "haody",        text: "Hello (to call the shopkeeper)" },
+    { key: "mandroso",     text: "Come in / come closer" },
+    { key: "misyatody",    text: "Do you have eggs? / Are there any eggs?" },
+    { key: "ia",           text: "Yes, there are." },
+    { key: "ohatrino",     text: "How much is it / are they?" },
+    { key: "amezo",        text: "Give me three, please." },
+    { key: "tsisymadinika",text: "Sorry, no change." }
+  ];
+
+  const l4MalList = document.getElementById("l4-malagasy-list");
+  const l4MalItems = l4MalList.querySelectorAll("li");
+  const l4EngList = document.getElementById("l4-english-list");
+  const l4Q1Result = document.getElementById("l4-q1-result");
+
+  let l4SelectedMalKey = null;
+  let l4SelectedMalLi = null;
+
+  function l4Shuffle(arr) {
+    return arr.map(x => ({v:x, r:Math.random()})).sort((a,b)=>a.r-b.r).map(x=>x.v);
+  }
+
+  function renderL4English() {
+    l4EngList.innerHTML = "";
+    const scrambled = l4Shuffle(l4Pairs);
+    scrambled.forEach(item => {
+      const li = document.createElement("li");
+      li.className = "list-group-item";
+      li.textContent = item.text;
+      li.dataset.answerKey = item.key;
+      li.dataset.matchedKey = "";
+
+      li.addEventListener("click", () => {
+        if (!l4SelectedMalKey) return;
+        const base = item.text;
+        li.textContent = base + " ← " + l4SelectedMalKey;
+        li.dataset.matchedKey = l4SelectedMalKey;
+        li.classList.add("bg-light");
+        if (l4SelectedMalLi) l4SelectedMalLi.classList.remove("active");
+        l4SelectedMalKey = null;
+        l4SelectedMalLi = null;
+      });
+
+      l4EngList.appendChild(li);
+    });
+    l4Q1Result.textContent = "";
+  }
+
+  // malagasy click
+  l4MalItems.forEach(li => {
+    li.addEventListener("click", () => {
+      if (l4SelectedMalLi) l4SelectedMalLi.classList.remove("active");
+      l4SelectedMalKey = li.dataset.key;
+      l4SelectedMalLi = li;
+      li.classList.add("active");
+    });
+  });
+
+  document.getElementById("l4-q1-check").onclick = () => {
+    const items = l4EngList.querySelectorAll("li");
+    let score = 0;
+    items.forEach(li => {
+      li.classList.remove("border-success","border-danger");
+      if (li.dataset.matchedKey && li.dataset.matchedKey === li.dataset.answerKey) {
+        score++;
+        li.classList.add("border","border-success");
+      } else {
+        li.classList.add("border","border-danger");
+      }
+    });
+    l4Q1Result.textContent = `You matched ${score} / ${l4Pairs.length} correctly.`;
+  };
+
+  document.getElementById("l4-q1-retry").onclick = () => {
+    if (l4SelectedMalLi) l4SelectedMalLi.classList.remove("active");
+    l4SelectedMalKey = null;
+    l4SelectedMalLi = null;
+    renderL4English();
+  };
+
+  renderL4English();
+</script>
+
+    <!--quiz2-->
+
+    <section class="mb-5" id="l4-quiz2">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 2: “Misy … ve?” and “Tsisy …”</h2>
+      <p class="mini mb-3">Choose the correct Malagasy sentence.</p>
+
+      <form id="l4-misy-form">
+        <div class="mb-2">
+          <p class="mb-1">1. Is there any sugar?</p>
+          <select name="q1" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Misy siramamy ve?">Misy siramamy ve?</option>
+            <option value="Tsisy siramamy.">Tsisy siramamy.</option>
+            <option value="Misy la monnaie ve?">Misy la monnaie ve?</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">2. There is no meat.</p>
+          <select name="q2" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Misy hena ve?">Misy hena ve?</option>
+            <option value="Tsisy hena.">Tsisy hena.</option>
+            <option value="Hena telo azafady.">Hena telo azafady.</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">3. Is there any milk?</p>
+          <select name="q3" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Misy ronono ve?">Misy ronono ve?</option>
+            <option value="Tsisy ronono.">Tsisy ronono.</option>
+            <option value="Ohatriño ronono?">Ohatriño ronono?</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">4. There is no bread.</p>
+          <select name="q4" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Tsisy mofo.">Tsisy mofo.</option>
+            <option value="Misy mofo ve?">Misy mofo ve?</option>
+            <option value="Mofo telo azafady.">Mofo telo azafady.</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">5. Is there any rice?</p>
+          <select name="q5" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Misy vary ve?">Misy vary ve?</option>
+            <option value="Tsisy vary.">Tsisy vary.</option>
+            <option value="Vary telo kapoaka.">Vary telo kapoaka.</option>
+          </select>
+        </div>
+
+        <button type="button" class="btn btn-primary mt-3 me-2" id="l4-misy-check">Check</button>
+        <p id="l4-misy-result" class="mt-3 fw-bold"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById("l4-misy-check").onclick = () => {
+    const form = document.getElementById("l4-misy-form");
+    const answers = {
+      q1: "Misy siramamy ve?",
+      q2: "Tsisy hena.",
+      q3: "Misy ronono ve?",
+      q4: "Tsisy mofo.",
+      q5: "Misy vary ve?"
+    };
+    let score = 0;
+    Object.keys(answers).forEach(id => {
+      const sel = form[id];
+      sel.classList.remove("border-success","border-danger");
+      if (sel.value === answers[id]) {
+        score++;
+        sel.classList.add("border-success");
+      } else {
+        sel.classList.add("border-danger");
+      }
+    });
+    document.getElementById("l4-misy-result").textContent =
+      `You got ${score} / ${Object.keys(answers).length} correct.`;
+  };
+</script>
+
+    <!--quiz3-->
+
+    <section class="mb-5" id="l4-quiz3">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 3: Market units</h2>
+      <p class="mini mb-3">Choose the correct Malagasy phrase.</p>
+
+      <form id="l4-units-form">
+        <div class="mb-2">
+          <p class="mb-1">1. 3 eggs</p>
+          <select name="u1" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="atody telo">atody telo</option>
+            <option value="atody telo kapoaka">atody telo kapoaka</option>
+            <option value="atody telo kilao">atody telo kilao</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">2. 3 piles of tomatoes</p>
+          <select name="u2" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="tomaty 3 toko">tomaty 3 toko</option>
+            <option value="tomaty 3 kapoaka">tomaty 3 kapoaka</option>
+            <option value="tomaty 3 kilao">tomaty 3 kilao</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">3. 3 kilos of sugar</p>
+          <select name="u3" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="siramamy 3 kilao">siramamy 3 kilao</option>
+            <option value="siramamy 3 kapoaka">siramamy 3 kapoaka</option>
+            <option value="siramamy 3 toko">siramamy 3 toko</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">4. 3 litres of milk</p>
+          <select name="u4" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="ronono 3 litatra">ronono 3 litatra</option>
+            <option value="ronono 3 toko">ronono 3 toko</option>
+            <option value="ronono 3 kapoaka">ronono 3 kapoaka</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">5. 3 cups of rice</p>
+          <select name="u5" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="vary 3 kapoaka">vary 3 kapoaka</option>
+            <option value="vary 3 kilao">vary 3 kilao</option>
+            <option value="vary 3 toko">vary 3 toko</option>
+          </select>
+        </div>
+
+        <button type="button" class="btn btn-primary mt-3 me-2" id="l4-units-check">Check</button>
+        <p id="l4-units-result" class="mt-3 fw-bold"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById("l4-units-check").onclick = () => {
+    const form = document.getElementById("l4-units-form");
+    const answers = {
+      u1: "atody telo",
+      u2: "tomaty 3 toko",
+      u3: "siramamy 3 kilao",
+      u4: "ronono 3 litatra",
+      u5: "vary 3 kapoaka"
+    };
+    let score = 0;
+    Object.keys(answers).forEach(id => {
+      const sel = form[id];
+      sel.classList.remove("border-success","border-danger");
+      if (sel.value === answers[id]) {
+        score++;
+        sel.classList.add("border-success");
+      } else {
+        sel.classList.add("border-danger");
+      }
+    });
+    document.getElementById("l4-units-result").textContent =
+      `You got ${score} / ${Object.keys(answers).length} correct.`;
+  };
+</script>
+
+    <!--quiz4-->
+
+    <section class="mb-5" id="l4-quiz4">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 4: Number connectors</h2>
+      <p class="mini mb-3">Choose the correct way to say the number in Malagasy.</p>
+
+      <form id="l4-num-form">
+        <div class="mb-2">
+          <p class="mb-1">1. 17</p>
+          <select name="n1" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="fito ambin’ny folo">fito ambin’ny folo</option>
+            <option value="fito amby folo">fito amby folo</option>
+            <option value="fito sy folo">fito sy folo</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">2. 21</p>
+          <select name="n2" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="iraika ambin’ny folo">iraika ambin’ny folo</option>
+            <option value="iraika amby roapolo">iraika amby roapolo</option>
+            <option value="iraika sy roapolo">iraika sy roapolo</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">3. 85</p>
+          <select name="n3" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="dimy amby valopolo">dimy amby valopolo</option>
+            <option value="dimy ambin’ny valopolo">dimy ambin’ny valopolo</option>
+            <option value="dimy sy valopolo">dimy sy valopolo</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">4. 214</p>
+          <select name="n4" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="efatra ambin’ny folo sy roanjato">efatra ambin’ny folo sy roanjato</option>
+            <option value="efatra amby roanjato">efatra amby roanjato</option>
+            <option value="efatra ambin’ny folo amby roanjato">efatra ambin’ny folo amby roanjato</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">5. 109</p>
+          <select name="n5" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="sivy amby zato">sivy amby zato</option>
+            <option value="sivy ambin’ny zato">sivy ambin’ny zato</option>
+            <option value="sivy sy zato">sivy sy zato</option>
+          </select>
+        </div>
+
+        <button type="button" class="btn btn-primary mt-3 me-2" id="l4-num-check">Check</button>
+        <p id="l4-num-result" class="mt-3 fw-bold"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById("l4-num-check").onclick = () => {
+    const form = document.getElementById("l4-num-form");
+    const answers = {
+      n1: "fito ambin’ny folo",                  // 11–19 -> ambin’ny
+      n2: "iraika amby roapolo",                 // 21–199 -> amby
+      n3: "dimy amby valopolo",                  // 21–199 -> amby
+      n4: "efatra ambin’ny folo sy roanjato",    // 200+ -> sy
+      n5: "sivy amby zato"                       // 21–199 -> amby
+    };
+    let score = 0;
+    Object.keys(answers).forEach(id => {
+      const sel = form[id];
+      sel.classList.remove("border-success","border-danger");
+      if (sel.value === answers[id]) {
+        score++;
+        sel.classList.add("border-success");
+      } else {
+        sel.classList.add("border-danger");
+      }
+    });
+    document.getElementById("l4-num-result").textContent =
+      `You got ${score} / ${Object.keys(answers).length} correct.`;
+  };
+</script>
+
+
     <!-- DOWNLOAD PDF -->
     <div class="text-center my-4">
       <p class="mini">You can also download this lesson as a PDF for offline study:</p>
