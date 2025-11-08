@@ -241,6 +241,393 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+<!--quiz1-->
+ <section class="mb-5" id="l6-quiz1">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 1: Match the village lines</h2>
+      <p class="mini mb-3">Tap a Malagasy line, then tap its English meaning.</p>
+
+      <div class="row">
+        <!-- MALAGASY FIRST -->
+        <div class="col-12 col-md-6 mb-3 mb-md-0">
+          <h6 class="text-primary text-center mb-2">Malagasy</h6>
+          <ul class="list-group border border-primary-subtle" id="l6-malagasy-list">
+            <li class="list-group-item bg-light" data-key="goodvillage">Tsara ve any ambanivohitra?</li>
+            <li class="list-group-item bg-light" data-key="fewcars">Tsy betsaka ny fiara.</li>
+            <li class="list-group-item bg-light" data-key="cleanair">Madio ny rivotra.</li>
+            <li class="list-group-item bg-light" data-key="spacious">Malalaka.</li>
+            <li class="list-group-item bg-light" data-key="freshfood">Vaovao ny sakafo amin’ny ankapobeny.</li>
+            <li class="list-group-item bg-light" data-key="nonoise">Tsisy tabataba.</li>
+            <li class="list-group-item bg-light" data-key="beautifulsky">Tsara tarehy ny lanitra sy ny kintana amin’ny alina.</li>
+          </ul>
+        </div>
+
+        <!-- ENGLISH SECOND (scrambled) -->
+        <div class="col-12 col-md-6">
+          <h6 class="text-success text-center mb-2">English meaning</h6>
+          <ul class="list-group border border-success-subtle" id="l6-english-list"></ul>
+        </div>
+      </div>
+
+      <button class="btn btn-primary mt-3 me-2" id="l6-q1-check">Check answers</button>
+      <button class="btn btn-outline-secondary mt-3" id="l6-q1-retry">Retry / Scramble</button>
+      <p id="l6-q1-result" class="mt-2 fw-bold"></p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const l6Pairs = [
+    { key: "goodvillage",   text: "Was it nice in the village?" },
+    { key: "fewcars",       text: "There aren’t many cars." },
+    { key: "cleanair",      text: "The air is clean." },
+    { key: "spacious",      text: "It is spacious." },
+    { key: "freshfood",     text: "The food is generally fresh." },
+    { key: "nonoise",       text: "There isn’t much noise." },
+    { key: "beautifulsky",  text: "The sky and stars at night are beautiful." }
+  ];
+
+  const l6MalList  = document.getElementById("l6-malagasy-list");
+  const l6MalItems = l6MalList.querySelectorAll("li");
+  const l6EngList  = document.getElementById("l6-english-list");
+  const l6Q1Result = document.getElementById("l6-q1-result");
+
+  let l6SelectedMalKey = null;
+  let l6SelectedMalLi  = null;
+
+  function l6Shuffle(arr) {
+    return arr.map(x => ({v:x, r:Math.random()}))
+              .sort((a,b)=>a.r-b.r)
+              .map(x=>x.v);
+  }
+
+  function renderL6English() {
+    l6EngList.innerHTML = "";
+    const scrambled = l6Shuffle(l6Pairs);
+    scrambled.forEach(item => {
+      const li = document.createElement("li");
+      li.className = "list-group-item";
+      li.textContent = item.text;
+      li.dataset.answerKey = item.key;
+      li.dataset.matchedKey = "";
+
+      li.addEventListener("click", () => {
+        if (!l6SelectedMalKey) return;
+        const base = item.text;
+        li.textContent = base + " ← " + l6SelectedMalKey;
+        li.dataset.matchedKey = l6SelectedMalKey;
+        li.classList.add("bg-light");
+        if (l6SelectedMalLi) l6SelectedMalLi.classList.remove("active");
+        l6SelectedMalKey = null;
+        l6SelectedMalLi  = null;
+      });
+
+      l6EngList.appendChild(li);
+    });
+    l6Q1Result.textContent = "";
+  }
+
+  // Malagasy click
+  l6MalItems.forEach(li => {
+    li.addEventListener("click", () => {
+      if (l6SelectedMalLi) l6SelectedMalLi.classList.remove("active");
+      l6SelectedMalKey = li.dataset.key;
+      l6SelectedMalLi  = li;
+      li.classList.add("active");
+    });
+  });
+
+  document.getElementById("l6-q1-check").onclick = () => {
+    const items = l6EngList.querySelectorAll("li");
+    let score = 0;
+    items.forEach(li => {
+      li.classList.remove("border-success","border-danger");
+      if (li.dataset.matchedKey && li.dataset.matchedKey === li.dataset.answerKey) {
+        score++;
+        li.classList.add("border","border-success");
+      } else {
+        li.classList.add("border","border-danger");
+      }
+    });
+    l6Q1Result.textContent = `You matched ${score} / ${l6Pairs.length} correctly.`;
+  };
+
+  document.getElementById("l6-q1-retry").onclick = () => {
+    if (l6SelectedMalLi) l6SelectedMalLi.classList.remove("active");
+    l6SelectedMalKey = null;
+    l6SelectedMalLi  = null;
+    renderL6English();
+  };
+
+  renderL6English();
+</script>
+<!--quiz2-->
+          <section class="mb-5" id="l6-quiz2">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 2: Adjectives in sentences</h2>
+      <p class="mini mb-3">Choose the correct Malagasy sentence.</p>
+
+      <form id="l6-adj-form">
+        <div class="mb-2">
+          <p class="mb-1">1. “The air is clean.”</p>
+          <select name="q1" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Madio ny rivotra">Madio ny rivotra</option>
+            <option value="Ny rivotra misy ve?">Ny rivotra misy ve?</option>
+            <option value="Tsisy tabataba">Tsisy tabataba</option>
+          </select>
+        </div>
+
+        <div class="mb-2">
+          <p class="mb-1">2. “The food is fresh.”</p>
+          <select name="q2" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Vaovao ny sakafo amin’ny ankapobeny">Vaovao ny sakafo amin’ny ankapobeny</option>
+            <option value="Sakafo vaovao ve?">Sakafo vaovao ve?</option>
+            <option value="Tsy betsaka ny fiara">Tsy betsaka ny fiara</option>
+          </select>
+        </div>
+
+        <div class="mb-2">
+          <p class="mb-1">3. “There isn’t much noise.”</p>
+          <select name="q3" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Tsisy tabataba">Tsisy tabataba</option>
+            <option value="Tabataba vaovao">Tabataba vaovao</option>
+            <option value="Tabataba tsara tarehy">Tabataba tsara tarehy</option>
+          </select>
+        </div>
+
+        <div class="mb-2">
+          <p class="mb-1">4. “The sky is beautiful.”</p>
+          <select name="q4" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Tsara tarehy ny lanitra">Tsara tarehy ny lanitra</option>
+            <option value="Lanitra madio ve?">Lanitra madio ve?</option>
+            <option value="Tsisy lanitra">Tsisy lanitra</option>
+          </select>
+        </div>
+
+        <div class="mb-2">
+          <p class="mb-1">5. “There aren’t many cars.”</p>
+          <select name="q5" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Tsy betsaka ny fiara">Tsy betsaka ny fiara</option>
+            <option value="Madio ny fiara">Madio ny fiara</option>
+            <option value="Tsisy tabataba ny fiara">Tsisy tabataba ny fiara</option>
+          </select>
+        </div>
+
+        <button type="button" class="btn btn-primary mt-3 me-2" id="l6-adj-check">Check</button>
+        <p id="l6-adj-result" class="mt-3 fw-bold"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById("l6-adj-check").onclick = () => {
+    const form = document.getElementById("l6-adj-form");
+    const answers = {
+      q1: "Madio ny rivotra",
+      q2: "Vaovao ny sakafo amin’ny ankapobeny",
+      q3: "Tsisy tabataba",
+      q4: "Tsara tarehy ny lanitra",
+      q5: "Tsy betsaka ny fiara"
+    };
+    let score = 0;
+    Object.keys(answers).forEach(id => {
+      const sel = form[id];
+      sel.classList.remove("border-success","border-danger");
+      if (sel.value === answers[id]) {
+        score++;
+        sel.classList.add("border-success");
+      } else {
+        sel.classList.add("border-danger");
+      }
+    });
+    document.getElementById("l6-adj-result").textContent =
+      `You got ${score} / ${Object.keys(answers).length} correct.`;
+  };
+</script>
+
+<!--quiz3-->
+
+          <section class="mb-5" id="l6-quiz3">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 3: How do you ask it?</h2>
+      <p class="mini mb-3">Choose the correct question form for the situation.</p>
+
+      <form id="l6-qform-form">
+        <div class="mb-2">
+          <p class="mb-1">1. You want to ask: “How is the air?”</p>
+          <select name="f1" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Manahoana ny rivotra?">Manahoana ny rivotra?</option>
+            <option value="Madio ve ny rivotra?">Madio ve ny rivotra?</option>
+            <option value="Ino madio?">Ino madio?</option>
+          </select>
+        </div>
+
+        <div class="mb-2">
+          <p class="mb-1">2. You want to ask: “Is the air clean?” (yes/no)</p>
+          <select name="f2" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Madio ve ny rivotra?">Madio ve ny rivotra?</option>
+            <option value="Manahoana ny rivotra?">Manahoana ny rivotra?</option>
+            <option value="Zovy tsara tarehy?">Zovy tsara tarehy?</option>
+          </select>
+        </div>
+
+        <div class="mb-2">
+          <p class="mb-1">3. You want to ask: “What is clean?”</p>
+          <select name="f3" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Ino madio?">Ino madio?</option>
+            <option value="Madio ve ny rivotra?">Madio ve ny rivotra?</option>
+            <option value="Manahoana ny sakafo?">Manahoana ny sakafo?</option>
+          </select>
+        </div>
+
+        <div class="mb-2">
+          <p class="mb-1">4. You want to ask: “Who is beautiful?”</p>
+          <select name="f4" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Zovy tsara tarehy?">Zovy tsara tarehy?</option>
+            <option value="Ino tsara tarehy?">Ino tsara tarehy?</option>
+            <option value="Tsara tarehy ve izy?">Tsara tarehy ve izy?</option>
+          </select>
+        </div>
+
+        <div class="mb-2">
+          <p class="mb-1">5. You want to ask: “Is it spacious in the countryside?” (yes/no)</p>
+          <select name="f5" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Malalaka ve any ambanivohitra?">Malalaka ve any ambanivohitra?</option>
+            <option value="Manahoana any ambanivohitra?">Manahoana any ambanivohitra?</option>
+            <option value="Ino malalaka?">Ino malalaka?</option>
+          </select>
+        </div>
+
+        <button type="button" class="btn btn-primary mt-3 me-2" id="l6-qform-check">Check</button>
+        <p id="l6-qform-result" class="mt-3 fw-bold"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById("l6-qform-check").onclick = () => {
+    const form = document.getElementById("l6-qform-form");
+    const answers = {
+      f1: "Manahoana ny rivotra?",          // open "how is..."
+      f2: "Madio ve ny rivotra?",            // yes/no ADJ + ve + noun
+      f3: "Ino madio?",                      // Inona/Ino + ADJ?
+      f4: "Zovy tsara tarehy?",              // Iza/Zovy + ADJ?
+      f5: "Malalaka ve any ambanivohitra?"   // yes/no with ve
+    };
+    let score = 0;
+    Object.keys(answers).forEach(id => {
+      const sel = form[id];
+      sel.classList.remove("border-success","border-danger");
+      if (sel.value === answers[id]) {
+        score++;
+        sel.classList.add("border-success");
+      } else {
+        sel.classList.add("border-danger");
+      }
+    });
+    document.getElementById("l6-qform-result").textContent =
+      `You got ${score} / ${Object.keys(answers).length} correct.`;
+  };
+</script>
+
+<!--quiz4-->
+
+          <section class="mb-5" id="l6-quiz4">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 4: “Tsy” or “Tsisy”?</h2>
+      <p class="mini mb-3">Choose the correct negative form.</p>
+
+      <form id="l6-neg-form">
+        <div class="mb-2">
+          <p class="mb-1">1. _____ betsaka ny fiara. (There are not many cars.)</p>
+          <select name="n1" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Tsy">Tsy</option>
+            <option value="Tsisy">Tsisy</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">2. _____ tabataba. (There is no noise.)</p>
+          <select name="n2" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Tsisy">Tsisy</option>
+            <option value="Tsy">Tsy</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">3. _____ madio ny rivotra. (The air is not clean.)</p>
+          <select name="n3" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Tsy">Tsy</option>
+            <option value="Tsisy">Tsisy</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">4. _____ sakafo amin’ny ankapobeny. (There is no food in general.)</p>
+          <select name="n4" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Tsisy">Tsisy</option>
+            <option value="Tsy">Tsy</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">5. _____ tsara tarehy. (It is not beautiful.)</p>
+          <select name="n5" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Tsy">Tsy</option>
+            <option value="Tsisy">Tsisy</option>
+          </select>
+        </div>
+
+        <button type="button" class="btn btn-primary mt-3 me-2" id="l6-neg-check">Check</button>
+        <p id="l6-neg-result" class="mt-3 fw-bold"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById("l6-neg-check").onclick = () => {
+    const form = document.getElementById("l6-neg-form");
+    const answers = {
+      n1: "Tsy",    // adj: tsy betsaka
+      n2: "Tsisy",  // noun: tsisy tabataba
+      n3: "Tsy",    // adj: tsy madio
+      n4: "Tsisy",  // noun: tsisy sakafo ...
+      n5: "Tsy"     // adj: tsy tsara tarehy
+    };
+    let score = 0;
+    Object.keys(answers).forEach(id => {
+      const sel = form[id];
+      sel.classList.remove("border-success","border-danger");
+      if (sel.value === answers[id]) {
+        score++;
+        sel.classList.add("border-success");
+      } else {
+        sel.classList.add("border-danger");
+      }
+    });
+    document.getElementById("l6-neg-result").textContent =
+      `You got ${score} / ${Object.keys(answers).length} correct.`;
+  };
+</script>
+
  <!-- DOWNLOAD PDF -->
     <div class="text-center my-4">
       <p class="mini">You can also download this lesson as a PDF for offline study:</p>
