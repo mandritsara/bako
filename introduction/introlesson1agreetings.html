@@ -229,13 +229,13 @@
     </section>
 
 <!--quiz 1-->
-    <section class="mb-5" id="quiz1">
+ <section class="mb-5" id="quiz1">
   <div class="card border-0 shadow-sm">
     <div class="card-body">
       <h2 class="h5 mb-3">Quiz 1: Match the greetings</h2>
       <p class="mini mb-3">Drag the Malagasy/Tsimihety greeting (left) onto the correct English meaning (right).</p>
       <div class="row">
-        <!-- LEFT: fixed order -->
+        <!-- LEFT: fixed order from your lesson -->
         <div class="col-md-6">
           <ul class="list-group" id="malagasyList">
             <li class="list-group-item" draggable="true" data-key="salama">Salama tompoko</li>
@@ -246,11 +246,9 @@
             <li class="list-group-item" draggable="true" data-key="tsisy">Tsisy vaovao</li>
           </ul>
         </div>
-        <!-- RIGHT: will be scrambled -->
+        <!-- RIGHT: scrambled by JS -->
         <div class="col-md-6">
-          <ul class="list-group" id="englishList">
-            <!-- filled by JS -->
-          </ul>
+          <ul class="list-group" id="englishList"></ul>
         </div>
       </div>
       <button class="btn btn-primary mt-3 me-2" id="checkMatchBtn">Check answers</button>
@@ -261,7 +259,7 @@
 </section>
 
 <script>
-  // data for quiz 1
+  // 1. data
   const quiz1Pairs = [
     { key: 'salama', text: 'Hello, sir' },
     { key: 'haody', text: 'Knock / hello at the door' },
@@ -276,47 +274,52 @@
   const matchResult = document.getElementById('matchResult');
   let draggedKey = null;
 
-  // shuffle helper
+  // 2. helper to shuffle
   function shuffle(arr) {
-    return arr.map(a => [Math.random(), a])
-              .sort((a,b) => a[0]-b[0])
-              .map(a => a[1]);
+    return arr
+      .map(x => ({ sort: Math.random(), value: x }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(x => x.value);
   }
 
+  // 3. render the right-hand list (scrambled)
   function renderEnglishList() {
     englishList.innerHTML = '';
-    const shuffled = shuffle(quiz1Pairs);
-    shuffled.forEach(item => {
+    const scrambled = shuffle(quiz1Pairs);
+    scrambled.forEach(item => {
       const li = document.createElement('li');
       li.className = 'list-group-item';
-      li.dataset.answerKey = item.key;
       li.textContent = item.text;
+      li.dataset.answerKey = item.key;
+      li.dataset.droppedKey = '';
+      // allow drop
       li.addEventListener('dragover', e => e.preventDefault());
       li.addEventListener('drop', e => {
-        // don’t stack infinite tags
-        if (!li.textContent.includes('←')) {
-          li.textContent = item.text + ' ← ' + draggedKey;
-          li.dataset.droppedKey = draggedKey;
-          li.classList.add('bg-light');
-        }
+        e.preventDefault(); // <-- this is the bit that often fixes "won't drop"
+        if (!draggedKey) return;
+        // restore original text first
+        li.textContent = item.text + ' ← ' + draggedKey;
+        li.dataset.droppedKey = draggedKey;
+        li.classList.add('bg-light');
       });
       englishList.appendChild(li);
     });
     matchResult.textContent = '';
   }
 
-  // set up dragging on left
-  malItems.forEach(item => {
-    item.addEventListener('dragstart', () => {
-      draggedKey = item.dataset.key;
+  // 4. make left items draggable
+  malItems.forEach(li => {
+    li.addEventListener('dragstart', () => {
+      draggedKey = li.dataset.key;
     });
   });
 
-  // check button
-  document.getElementById('checkMatchBtn').onclick = () => {
+  // 5. check answers
+  document.getElementById('checkMatchBtn').addEventListener('click', () => {
     const rightItems = englishList.querySelectorAll('li');
     let score = 0;
     rightItems.forEach(li => {
+      li.classList.remove('border-success', 'border-danger');
       if (li.dataset.droppedKey && li.dataset.droppedKey === li.dataset.answerKey) {
         score++;
         li.classList.add('border', 'border-success');
@@ -325,16 +328,17 @@
       }
     });
     matchResult.textContent = `You got ${score} / ${quiz1Pairs.length} correct.`;
-  };
+  });
 
-  // retry / scramble button
-  document.getElementById('retryMatchBtn').onclick = () => {
+  // 6. retry/scramble
+  document.getElementById('retryMatchBtn').addEventListener('click', () => {
     renderEnglishList();
-  };
+  });
 
   // initial render
   renderEnglishList();
 </script>
+
 
     <!--quiz 2-->
 
