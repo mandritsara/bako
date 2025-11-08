@@ -228,6 +228,166 @@
       </div>
     </section>
 
+    <section class="mb-5">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 1: Match the greetings</h2>
+      <p class="mini mb-3">Drag the English meanings to match the Malagasy/Tsimihety greetings.</p>
+      <div class="row">
+        <div class="col-md-6">
+          <ul class="list-group" id="malagasyList">
+            <li class="list-group-item" draggable="true">Salama tompoko</li>
+            <li class="list-group-item" draggable="true">Haody</li>
+            <li class="list-group-item" draggable="true">Manakory ianao?</li>
+            <li class="list-group-item" draggable="true">Tsara fa misaotra</li>
+            <li class="list-group-item" draggable="true">Ino vaovao?</li>
+            <li class="list-group-item" draggable="true">Tsisy vaovao</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <ul class="list-group" id="englishList">
+            <li class="list-group-item" data-answer="Salama tompoko">Hello, sir</li>
+            <li class="list-group-item" data-answer="Haody">Knock/Hello at the door</li>
+            <li class="list-group-item" data-answer="Manakory ianao?">How are you?</li>
+            <li class="list-group-item" data-answer="Tsara fa misaotra">Fine, thank you</li>
+            <li class="list-group-item" data-answer="Ino vaovao?">What’s new?</li>
+            <li class="list-group-item" data-answer="Tsisy vaovao">Nothing’s new</li>
+          </ul>
+        </div>
+      </div>
+      <button class="btn btn-primary mt-3" id="checkMatchBtn">Check answers</button>
+      <p id="matchResult" class="mt-2"></p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const malagasyList = document.querySelectorAll('#malagasyList li');
+  const englishList = document.querySelectorAll('#englishList li');
+  let draggedItem = null;
+
+  malagasyList.forEach(item => {
+    item.addEventListener('dragstart', e => { draggedItem = item.textContent; });
+  });
+
+  englishList.forEach(item => {
+    item.addEventListener('dragover', e => e.preventDefault());
+    item.addEventListener('drop', e => {
+      item.textContent += ` ← ${draggedItem}`;
+      item.classList.add('bg-light');
+    });
+  });
+
+  document.getElementById('checkMatchBtn').onclick = () => {
+    let score = 0;
+    englishList.forEach(item => {
+      if (item.textContent.includes(item.dataset.answer)) score++;
+    });
+    document.getElementById('matchResult').textContent = `✅ You got ${score} / ${englishList.length} correct.`;
+  };
+</script>
+<section class="mb-5">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 2: Fill in the pronoun</h2>
+      <p class="mini mb-3">Type the correct Tsimihety pronoun.</p>
+      <form id="pronounQuiz">
+        <div class="mb-2">I = <input type="text" class="form-control d-inline-block w-auto" name="I" placeholder="?" /></div>
+        <div class="mb-2">You (singular) = <input type="text" class="form-control d-inline-block w-auto" name="you1" placeholder="?" /></div>
+        <div class="mb-2">We (inclusive) = <input type="text" class="form-control d-inline-block w-auto" name="weinc" placeholder="?" /></div>
+        <div class="mb-2">We (exclusive) = <input type="text" class="form-control d-inline-block w-auto" name="weexc" placeholder="?" /></div>
+        <div class="mb-2">They = <input type="text" class="form-control d-inline-block w-auto" name="they" placeholder="?" /></div>
+        <button type="button" class="btn btn-primary mt-2" id="checkPronouns">Check answers</button>
+        <p id="pronounResult" class="mt-2"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const correctPronouns = { I:"Zaho", you1:"Ianao", weinc:"Antsika", weexc:"Zahay", they:"Zareo" };
+  document.getElementById('checkPronouns').onclick = () => {
+    const form = document.getElementById('pronounQuiz');
+    let score = 0;
+    Object.keys(correctPronouns).forEach(k => {
+      if (form[k].value.trim().toLowerCase() === correctPronouns[k].toLowerCase()) score++;
+    });
+    document.getElementById('pronounResult').textContent = `✅ ${score}/5 correct`;
+  };
+</script>
+<section class="mb-5">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 3: Choose the correct question word (Tsimihety)</h2>
+      <p class="mini mb-3">Select the right word for each English meaning.</p>
+      <form id="questionQuiz">
+        <div class="mb-2">What → 
+          <select class="form-select d-inline-block w-auto" name="what">
+            <option>—</option><option>Ino</option><option>Zovy</option><option>Akory</option>
+          </select>
+        </div>
+        <div class="mb-2">Who → 
+          <select class="form-select d-inline-block w-auto" name="who">
+            <option>—</option><option>Ino</option><option>Zovy</option><option>Hafiriana</option>
+          </select>
+        </div>
+        <div class="mb-2">How → 
+          <select class="form-select d-inline-block w-auto" name="how">
+            <option>—</option><option>Akory</option><option>Ohatrino</option><option>Fa manino</option>
+          </select>
+        </div>
+        <div class="mb-2">Why → 
+          <select class="form-select d-inline-block w-auto" name="why">
+            <option>—</option><option>Fa manino</option><option>Aiza</option><option>Ino</option>
+          </select>
+        </div>
+        <button type="button" class="btn btn-primary mt-2" id="checkQuestions">Check</button>
+        <p id="questionResult" class="mt-2"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const correctQ = { what:"Ino", who:"Zovy", how:"Akory", why:"Fa manino" };
+  document.getElementById('checkQuestions').onclick = () => {
+    const form = document.getElementById('questionQuiz');
+    let score = 0;
+    Object.keys(correctQ).forEach(k => {
+      if (form[k].value === correctQ[k]) score++;
+    });
+    document.getElementById('questionResult').textContent = `✅ ${score}/4 correct`;
+  };
+</script>
+<section class="mb-5">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 4: Listening practice</h2>
+      <p class="mini mb-3">Listen and choose the correct translation.</p>
+      <audio controls class="mb-2 w-100">
+        <source src="/audio/introduction/lesson1con1.mp3" type="audio/mpeg" />
+      </audio>
+      <select class="form-select w-auto" id="listenSelect">
+        <option>—</option>
+        <option value="A">Fine, thank you</option>
+        <option value="B">How are you?</option>
+        <option value="C">Come in, have a seat</option>
+      </select>
+      <button class="btn btn-primary mt-2" id="checkListening">Check</button>
+      <p id="listenResult" class="mt-2"></p>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById('checkListening').onclick = () => {
+    const val = document.getElementById('listenSelect').value;
+    document.getElementById('listenResult').textContent =
+      val === 'B' ? '✅ Correct! The clip says “Manakory ianao?” — How are you?' : '❌ Try again.';
+  };
+</script>
+
+
     <!-- DOWNLOAD PDF -->
     <div class="text-center my-4">
       <p class="mini">You can also download this lesson as a PDF for offline study:</p>
