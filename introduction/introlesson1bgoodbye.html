@@ -279,11 +279,11 @@
   <div class="card border-0 shadow-sm">
     <div class="card-body">
       <h2 class="h5 mb-3">Quiz 1: Match the goodbyes</h2>
-      <p class="mini mb-3">Drag the Malagasy goodbye (left) onto the correct English meaning (right).</p>
+      <p class="mini mb-3">On mobile: tap a phrase on the left, then tap its meaning on the right. On desktop: you can drag.</p>
       <div class="row">
-        <!-- LEFT fixed -->
+        <!-- LEFT: fixed list of lesson 1b goodbyes -->
         <div class="col-md-6">
-          <ul class="list-group" id="l1b-malagasy">
+          <ul class="list-group" id="l1b-malagasyList">
             <li class="list-group-item" draggable="true" data-key="veloma">Veloma tompoko</li>
             <li class="list-group-item" draggable="true" data-key="velomae">Veloma e</li>
             <li class="list-group-item" draggable="true" data-key="mazotoa">Mazotoa</li>
@@ -291,48 +291,55 @@
             <li class="list-group-item" draggable="true" data-key="mandr">Mandrapihaona</li>
           </ul>
         </div>
-        <!-- RIGHT scrambled -->
+        <!-- RIGHT: scrambled meanings -->
         <div class="col-md-6">
-          <ul class="list-group" id="l1b-english"></ul>
+          <ul class="list-group" id="l1b-englishList"></ul>
         </div>
       </div>
-      <button class="btn btn-primary mt-3 me-2" id="l1b-check">Check answers</button>
-      <button class="btn btn-outline-secondary mt-3" id="l1b-retry">Retry / scramble</button>
-      <p id="l1b-result" class="mt-2"></p>
+      <button class="btn btn-primary mt-3 me-2" id="l1b-checkMatchBtn">Check answers</button>
+      <button class="btn btn-outline-secondary mt-3" id="l1b-retryMatchBtn">Retry / scramble</button>
+      <p id="l1b-matchResult" class="mt-2"></p>
     </div>
   </div>
 </section>
 
 <script>
-  const l1bPairs = [
-    { key: 'veloma', text: 'Goodbye, sir/polite goodbye' },
+  // data for lesson 1b
+  const l1bQuizPairs = [
+    { key: 'veloma', text: 'Goodbye (polite) / Goodbye, sir' },
     { key: 'velomae', text: 'Bye! (informal)' },
-    { key: 'mazotoa', text: 'Enjoy / go well / “mazotoa”' },
-    { key: 'rehefa', text: 'See you in a little while' },
-    { key: 'mandr', text: 'See you again / until we meet' }
+    { key: 'mazotoa', text: 'Enjoy / go well (said when someone is about to do something)' },
+    { key: 'rehefa', text: 'See you in a short while' },
+    { key: 'mandr', text: 'Until we meet again' }
   ];
 
-  const l1bMalItems = document.querySelectorAll('#l1b-malagasy li');
-  const l1bEnglishList = document.getElementById('l1b-english');
-  const l1bResult = document.getElementById('l1b-result');
-  let l1bDraggedKey = null;
+  const l1bMalList = document.getElementById('l1b-malagasyList');
+  const l1bMalItems = l1bMalList.querySelectorAll('li');
+  const l1bEnglishList = document.getElementById('l1b-englishList');
+  const l1bMatchResult = document.getElementById('l1b-matchResult');
+
+  let l1bDraggedKey = null;   // for desktop drag
+  let l1bSelectedKey = null;  // for mobile tap
+  let l1bSelectedLi = null;   // to unhighlight previous left item
 
   function l1bShuffle(arr) {
     return arr
-      .map(x => ({ v: x, s: Math.random() }))
-      .sort((a,b) => a.s - b.s)
+      .map(x => ({ v: x, r: Math.random() }))
+      .sort((a,b) => a.r - b.r)
       .map(x => x.v);
   }
 
-  function renderL1bEnglish() {
+  function renderL1bEnglishList() {
     l1bEnglishList.innerHTML = '';
-    const scrambled = l1bShuffle(l1bPairs);
+    const scrambled = l1bShuffle(l1bQuizPairs);
     scrambled.forEach(item => {
       const li = document.createElement('li');
       li.className = 'list-group-item';
       li.textContent = item.text;
       li.dataset.answerKey = item.key;
       li.dataset.droppedKey = '';
+
+      // allow drop (desktop)
       li.addEventListener('dragover', e => e.preventDefault());
       li.addEventListener('drop', e => {
         e.preventDefault();
@@ -341,20 +348,37 @@
         li.dataset.droppedKey = l1bDraggedKey;
         li.classList.add('bg-light');
       });
+
+      // allow tap (mobile)
+      li.addEventListener('click', () => {
+        if (!l1bSelectedKey) return;
+        li.textContent = item.text + ' ← ' + l1bSelectedKey;
+        li.dataset.droppedKey = l1bSelectedKey;
+        li.classList.add('bg-light');
+      });
+
       l1bEnglishList.appendChild(li);
     });
-    l1bResult.textContent = '';
+    l1bMatchResult.textContent = '';
   }
 
-  // drag from left
+  // left list: drag + tap
   l1bMalItems.forEach(li => {
+    // desktop drag
     li.addEventListener('dragstart', () => {
       l1bDraggedKey = li.dataset.key;
+    });
+    // mobile tap
+    li.addEventListener('click', () => {
+      if (l1bSelectedLi) l1bSelectedLi.classList.remove('active');
+      l1bSelectedKey = li.dataset.key;
+      l1bSelectedLi = li;
+      li.classList.add('active');
     });
   });
 
   // check
-  document.getElementById('l1b-check').onclick = () => {
+  document.getElementById('l1b-checkMatchBtn').addEventListener('click', () => {
     const rightItems = l1bEnglishList.querySelectorAll('li');
     let score = 0;
     rightItems.forEach(li => {
@@ -366,15 +390,21 @@
         li.classList.add('border','border-danger');
       }
     });
-    l1bResult.textContent = `You got ${score} / ${l1bPairs.length} correct.`;
-  };
+    l1bMatchResult.textContent = `You got ${score} / ${l1bQuizPairs.length} correct.`;
+  });
 
   // retry
-  document.getElementById('l1b-retry').onclick = renderL1bEnglish;
+  document.getElementById('l1b-retryMatchBtn').addEventListener('click', () => {
+    l1bSelectedKey = null;
+    if (l1bSelectedLi) l1bSelectedLi.classList.remove('active');
+    l1bSelectedLi = null;
+    renderL1bEnglishList();
+  });
 
-  // initial
-  renderL1bEnglish();
+  // initial render
+  renderL1bEnglishList();
 </script>
+
 
     <!--quiz 2-->
     <section class="mb-5" id="l1b-quiz2">
