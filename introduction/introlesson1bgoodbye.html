@@ -274,6 +274,570 @@
       </div>
     </section>
 
+    <!--quiz1-->
+    <section class="mb-5" id="l1b-quiz1">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 1: Match the goodbyes</h2>
+      <p class="mini mb-3">Drag the Malagasy goodbye (left) onto the correct English meaning (right).</p>
+      <div class="row">
+        <!-- LEFT fixed -->
+        <div class="col-md-6">
+          <ul class="list-group" id="l1b-malagasy">
+            <li class="list-group-item" draggable="true" data-key="veloma">Veloma tompoko</li>
+            <li class="list-group-item" draggable="true" data-key="velomae">Veloma e</li>
+            <li class="list-group-item" draggable="true" data-key="mazotoa">Mazotoa</li>
+            <li class="list-group-item" draggable="true" data-key="rehefa">Rehefa avy eo</li>
+            <li class="list-group-item" draggable="true" data-key="mandr">Mandrapihaona</li>
+          </ul>
+        </div>
+        <!-- RIGHT scrambled -->
+        <div class="col-md-6">
+          <ul class="list-group" id="l1b-english"></ul>
+        </div>
+      </div>
+      <button class="btn btn-primary mt-3 me-2" id="l1b-check">Check answers</button>
+      <button class="btn btn-outline-secondary mt-3" id="l1b-retry">Retry / scramble</button>
+      <p id="l1b-result" class="mt-2"></p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const l1bPairs = [
+    { key: 'veloma', text: 'Goodbye, sir/polite goodbye' },
+    { key: 'velomae', text: 'Bye! (informal)' },
+    { key: 'mazotoa', text: 'Enjoy / go well / “mazotoa”' },
+    { key: 'rehefa', text: 'See you in a little while' },
+    { key: 'mandr', text: 'See you again / until we meet' }
+  ];
+
+  const l1bMalItems = document.querySelectorAll('#l1b-malagasy li');
+  const l1bEnglishList = document.getElementById('l1b-english');
+  const l1bResult = document.getElementById('l1b-result');
+  let l1bDraggedKey = null;
+
+  function l1bShuffle(arr) {
+    return arr
+      .map(x => ({ v: x, s: Math.random() }))
+      .sort((a,b) => a.s - b.s)
+      .map(x => x.v);
+  }
+
+  function renderL1bEnglish() {
+    l1bEnglishList.innerHTML = '';
+    const scrambled = l1bShuffle(l1bPairs);
+    scrambled.forEach(item => {
+      const li = document.createElement('li');
+      li.className = 'list-group-item';
+      li.textContent = item.text;
+      li.dataset.answerKey = item.key;
+      li.dataset.droppedKey = '';
+      li.addEventListener('dragover', e => e.preventDefault());
+      li.addEventListener('drop', e => {
+        e.preventDefault();
+        if (!l1bDraggedKey) return;
+        li.textContent = item.text + ' ← ' + l1bDraggedKey;
+        li.dataset.droppedKey = l1bDraggedKey;
+        li.classList.add('bg-light');
+      });
+      l1bEnglishList.appendChild(li);
+    });
+    l1bResult.textContent = '';
+  }
+
+  // drag from left
+  l1bMalItems.forEach(li => {
+    li.addEventListener('dragstart', () => {
+      l1bDraggedKey = li.dataset.key;
+    });
+  });
+
+  // check
+  document.getElementById('l1b-check').onclick = () => {
+    const rightItems = l1bEnglishList.querySelectorAll('li');
+    let score = 0;
+    rightItems.forEach(li => {
+      li.classList.remove('border-success','border-danger');
+      if (li.dataset.droppedKey && li.dataset.droppedKey === li.dataset.answerKey) {
+        score++;
+        li.classList.add('border','border-success');
+      } else {
+        li.classList.add('border','border-danger');
+      }
+    });
+    l1bResult.textContent = `You got ${score} / ${l1bPairs.length} correct.`;
+  };
+
+  // retry
+  document.getElementById('l1b-retry').onclick = renderL1bEnglish;
+
+  // initial
+  renderL1bEnglish();
+</script>
+
+    <!--quiz 2-->
+    <section class="mb-5" id="l1b-quiz2">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 2: Time words (Official vs Tsimihety)</h2>
+      <p class="mini mb-3">Choose the correct form in each column.</p>
+
+      <form id="l1b-time-quiz">
+        <div class="row g-4">
+          <!-- OFFICIAL -->
+          <div class="col-12 col-md-6">
+            <h6 class="mb-2 text-primary">Official Malagasy</h6>
+            <div class="mb-2">Morning →
+              <select class="form-select d-inline-block w-auto" name="off_morning">
+                <option value="">—</option>
+                <option>Maraina</option>
+                <option>Atoandro</option>
+                <option>Tolakandro</option>
+              </select>
+            </div>
+            <div class="mb-2">Noon →
+              <select class="form-select d-inline-block w-auto" name="off_noon">
+                <option value="">—</option>
+                <option>Maraina</option>
+                <option>Atoandro</option>
+                <option>Hariva</option>
+              </select>
+            </div>
+            <div class="mb-2">Afternoon →
+              <select class="form-select d-inline-block w-auto" name="off_afternoon">
+                <option value="">—</option>
+                <option>Hariva</option>
+                <option>Tolakandro</option>
+              </select>
+            </div>
+            <div class="mb-2">Night →
+              <select class="form-select d-inline-block w-auto" name="off_night">
+                <option value="">—</option>
+                <option>Alina</option>
+                <option>Hariva</option>
+              </select>
+            </div>
+            <div class="mb-2">Yesterday →
+              <select class="form-select d-inline-block w-auto" name="off_yesterday">
+                <option value="">—</option>
+                <option>Omaly</option>
+                <option>Androany</option>
+              </select>
+            </div>
+            <div class="mb-2">Today →
+              <select class="form-select d-inline-block w-auto" name="off_today">
+                <option value="">—</option>
+                <option>Androany</option>
+                <option>Rahampitso</option>
+              </select>
+            </div>
+            <div class="mb-2">Tomorrow →
+              <select class="form-select d-inline-block w-auto" name="off_tomorrow">
+                <option value="">—</option>
+                <option>Rahampitso</option>
+                <option>Omaly</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- TSIMIHETY -->
+          <div class="col-12 col-md-6">
+            <h6 class="mb-2 text-success">Tsimihety</h6>
+            <div class="mb-2">Morning →
+              <select class="form-select d-inline-block w-auto" name="tsm_morning">
+                <option value="">—</option>
+                <option>Maraindrainy</option>
+                <option>Matsagna</option>
+                <option>Folakandro</option>
+              </select>
+            </div>
+            <div class="mb-2">Noon →
+              <select class="form-select d-inline-block w-auto" name="tsm_noon">
+                <option value="">—</option>
+                <option>Matsagna</option>
+                <option>Harivariva</option>
+              </select>
+            </div>
+            <div class="mb-2">Afternoon →
+              <select class="form-select d-inline-block w-auto" name="tsm_afternoon">
+                <option value="">—</option>
+                <option>Harivariva</option>
+                <option>Folakandro</option>
+              </select>
+            </div>
+            <div class="mb-2">Night →
+              <select class="form-select d-inline-block w-auto" name="tsm_night">
+                <option value="">—</option>
+                <option>Alina</option>
+                <option>Harivariva</option>
+              </select>
+            </div>
+            <div class="mb-2">Yesterday →
+              <select class="form-select d-inline-block w-auto" name="tsm_yesterday">
+                <option value="">—</option>
+                <option>Nomoaligny</option>
+                <option>Niany</option>
+              </select>
+            </div>
+            <div class="mb-2">Today →
+              <select class="form-select d-inline-block w-auto" name="tsm_today">
+                <option value="">—</option>
+                <option>Niany</option>
+                <option>Amarainy</option>
+              </select>
+            </div>
+            <div class="mb-2">Tomorrow →
+              <select class="form-select d-inline-block w-auto" name="tsm_tomorrow">
+                <option value="">—</option>
+                <option>Amarainy</option>
+                <option>Nomoaligny</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-primary mt-3" id="l1b-time-check">Check</button>
+        <p id="l1b-time-result" class="mt-3 fw-bold"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const l1bTimeCorrect = {
+    off_morning: "Maraina",
+    off_noon: "Atoandro",
+    off_afternoon: "Hariva",    // your table: "Hariva"
+    off_night: "Alina",
+    off_yesterday: "Omaly",
+    off_today: "Androany",
+    off_tomorrow: "Rahampitso",
+    tsm_morning: "Maraindrainy",
+    tsm_noon: "Matsagna",
+    tsm_afternoon: "Harivariva",
+    tsm_night: "Alina",
+    tsm_yesterday: "Nomoaligny",
+    tsm_today: "Niany",
+    tsm_tomorrow: "Amarainy"
+  };
+
+  document.getElementById('l1b-time-check').onclick = () => {
+    const form = document.getElementById('l1b-time-quiz');
+    let score = 0;
+    const total = Object.keys(l1bTimeCorrect).length;
+
+    Object.keys(l1bTimeCorrect).forEach(name => {
+      const sel = form[name];
+      if (!sel) return;
+      const val = (sel.value || "").trim();
+      if (val === l1bTimeCorrect[name]) {
+        score++;
+        sel.classList.add('border-success');
+        sel.classList.remove('border-danger');
+      } else {
+        sel.classList.add('border-danger');
+        sel.classList.remove('border-success');
+      }
+    });
+
+    document.getElementById('l1b-time-result').textContent =
+      `You got ${score} / ${total} correct.`;
+  };
+</script>
+
+    <!--quiz3--><section class="mb-5" id="l1b-quiz3">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 3: Days of the week</h2>
+      <p class="mini mb-3">Match the English day to the correct Official and Tsimihety form.</p>
+
+      <form id="l1b-days-quiz">
+        <div class="row g-4">
+          <!-- OFFICIAL -->
+          <div class="col-12 col-md-6">
+            <h6 class="mb-2 text-primary">Official Malagasy</h6>
+            <div class="mb-2">Monday →
+              <select class="form-select d-inline-block w-auto" name="off_mon">
+                <option value="">—</option>
+                <option>Alatsinainy</option><option>Talata</option><option>Alarobia</option>
+              </select>
+            </div>
+            <div class="mb-2">Tuesday →
+              <select class="form-select d-inline-block w-auto" name="off_tue">
+                <option value="">—</option>
+                <option>Talata</option><option>Alarobia</option><option>Alakamisy</option>
+              </select>
+            </div>
+            <div class="mb-2">Wednesday →
+              <select class="form-select d-inline-block w-auto" name="off_wed">
+                <option value="">—</option>
+                <option>Alarobia</option><option>Talata</option><option>Zoma</option>
+              </select>
+            </div>
+            <div class="mb-2">Thursday →
+              <select class="form-select d-inline-block w-auto" name="off_thu">
+                <option value="">—</option>
+                <option>Alakamisy</option><option>Asabotsy</option>
+              </select>
+            </div>
+            <div class="mb-2">Friday →
+              <select class="form-select d-inline-block w-auto" name="off_fri">
+                <option value="">—</option>
+                <option>Zoma</option><option>Alahady</option>
+              </select>
+            </div>
+            <div class="mb-2">Saturday →
+              <select class="form-select d-inline-block w-auto" name="off_sat">
+                <option value="">—</option>
+                <option>Asabotsy</option><option>Zoma</option>
+              </select>
+            </div>
+            <div class="mb-2">Sunday →
+              <select class="form-select d-inline-block w-auto" name="off_sun">
+                <option value="">—</option>
+                <option>Alahady</option><option>Talata</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- TSIMIHETY -->
+          <div class="col-12 col-md-6">
+            <h6 class="mb-2 text-success">Tsimihety</h6>
+            <div class="mb-2">Monday →
+              <select class="form-select d-inline-block w-auto" name="tsm_mon">
+                <option value="">—</option>
+                <option>Tinainy</option><option>Talata</option><option>Robia</option>
+              </select>
+            </div>
+            <div class="mb-2">Tuesday →
+              <select class="form-select d-inline-block w-auto" name="tsm_tue">
+                <option value="">—</option>
+                <option>Talata</option><option>Robia</option><option>Kamisy</option>
+              </select>
+            </div>
+            <div class="mb-2">Wednesday →
+              <select class="form-select d-inline-block w-auto" name="tsm_wed">
+                <option value="">—</option>
+                <option>Robia</option><option>Talata</option><option>Zoma</option>
+              </select>
+            </div>
+            <div class="mb-2">Thursday →
+              <select class="form-select d-inline-block w-auto" name="tsm_thu">
+                <option value="">—</option>
+                <option>Kamisy</option><option>Sabotsy</option>
+              </select>
+            </div>
+            <div class="mb-2">Friday →
+              <select class="form-select d-inline-block w-auto" name="tsm_fri">
+                <option value="">—</option>
+                <option>Zoma</option><option>Lahady</option>
+              </select>
+            </div>
+            <div class="mb-2">Saturday →
+              <select class="form-select d-inline-block w-auto" name="tsm_sat">
+                <option value="">—</option>
+                <option>Sabotsy</option><option>Zoma</option>
+              </select>
+            </div>
+            <div class="mb-2">Sunday →
+              <select class="form-select d-inline-block w-auto" name="tsm_sun">
+                <option value="">—</option>
+                <option>Lahady/Dimansy</option><option>Talata</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-primary mt-3" id="l1b-days-check">Check</button>
+        <p id="l1b-days-result" class="mt-3 fw-bold"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const l1bDaysCorrect = {
+    off_mon: "Alatsinainy",
+    off_tue: "Talata",
+    off_wed: "Alarobia",
+    off_thu: "Alakamisy",
+    off_fri: "Zoma",
+    off_sat: "Asabotsy",
+    off_sun: "Alahady",
+    tsm_mon: "Tinainy",
+    tsm_tue: "Talata",
+    tsm_wed: "Robia",
+    tsm_thu: "Kamisy",
+    tsm_fri: "Zoma",
+    tsm_sat: "Sabotsy",
+    tsm_sun: "Lahady/Dimansy"
+  };
+
+  document.getElementById('l1b-days-check').onclick = () => {
+    const form = document.getElementById('l1b-days-quiz');
+    let score = 0;
+    const total = Object.keys(l1bDaysCorrect).length;
+
+    Object.keys(l1bDaysCorrect).forEach(name => {
+      const sel = form[name];
+      if (!sel) return;
+      const val = (sel.value || "").trim();
+      if (val === l1bDaysCorrect[name]) {
+        score++;
+        sel.classList.add('border-success');
+        sel.classList.remove('border-danger');
+      } else {
+        sel.classList.add('border-danger');
+        sel.classList.remove('border-success');
+      }
+    });
+
+    document.getElementById('l1b-days-result').textContent =
+      `You got ${score} / ${total} correct.`;
+  };
+</script>
+
+    <!--quiz 4-->
+
+    <section class="mb-5" id="l1b-quiz4a">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 4a: Listening – common goodbyes</h2>
+      <p class="mini mb-3">Listen and tick the lines you heard.</p>
+      <audio controls class="w-100 mb-3">
+        <source src="/audio/introduction/lesson1bcon1.mp3" type="audio/mpeg" />
+      </audio>
+
+      <form id="l1b-listen1">
+        <div class="form-check mb-1">
+          <input class="form-check-input" type="checkbox" value="veloma" id="l1bq4a1">
+          <label class="form-check-label" for="l1bq4a1">Veloma tompoko</label>
+        </div>
+        <div class="form-check mb-1">
+          <input class="form-check-input" type="checkbox" value="velomae" id="l1bq4a2">
+          <label class="form-check-label" for="l1bq4a2">Veloma e</label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" value="mazotoa" id="l1bq4a3">
+          <label class="form-check-label" for="l1bq4a3">Mazotoa</label>
+        </div>
+
+        <!-- distractors -->
+        <div class="form-check mb-1">
+          <input class="form-check-input" type="checkbox" value="rehefa" id="l1bq4a4">
+          <label class="form-check-label" for="l1bq4a4">Rehefa avy eo</label>
+        </div>
+        <div class="form-check mb-1">
+          <input class="form-check-input" type="checkbox" value="mandr" id="l1bq4a5">
+          <label class="form-check-label" for="l1bq4a5">Mandrapihaona</label>
+        </div>
+
+        <button type="button" class="btn btn-primary mt-3" id="l1b-listen1-check">Check</button>
+        <p id="l1b-listen1-result" class="mt-3 fw-bold"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const l1bListen1Correct = new Set(["veloma","velomae","mazotoa"]);
+
+  document.getElementById('l1b-listen1-check').onclick = () => {
+    const form = document.getElementById('l1b-listen1');
+    const checks = form.querySelectorAll('.form-check-input');
+    let correct = 0, wrong = 0;
+    checks.forEach(ch => {
+      const good = l1bListen1Correct.has(ch.value);
+      ch.parentElement.classList.remove('border','border-success','border-danger','rounded');
+      if (ch.checked && good) {
+        correct++; ch.parentElement.classList.add('border','border-success','rounded');
+      } else if (ch.checked && !good) {
+        wrong++; ch.parentElement.classList.add('border','border-danger','rounded');
+      }
+    });
+    document.getElementById('l1b-listen1-result').textContent =
+      `You picked ${correct}/${l1bListen1Correct.size} correct and ${wrong} wrong.`;
+  };
+</script>
+<section class="mb-5" id="l1b-quiz4b">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 4b: Listening – “see you … koa”</h2>
+      <p class="mini mb-3">Listen and tick every line you heard.</p>
+      <!-- you can change to con2.mp3 or con5.mp3 depending on what you actually record -->
+      <audio controls class="w-100 mb-3">
+        <source src="/audio/introduction/lesson1bcon5.mp3" type="audio/mpeg" />
+      </audio>
+
+      <form id="l1b-listen2">
+        <!-- real patterns from your section -->
+        <div class="form-check mb-1">
+          <input class="form-check-input" type="checkbox" value="harivariva" id="l1bq4b1">
+          <label class="form-check-label" for="l1bq4b1">Veloma / Mazotoa harivariva koa</label>
+        </div>
+        <div class="form-check mb-1">
+          <input class="form-check-input" type="checkbox" value="amarainy" id="l1bq4b2">
+          <label class="form-check-label" for="l1bq4b2">Veloma / Mazotoa rahampitso / amarainy koa</label>
+        </div>
+        <div class="form-check mb-1">
+          <input class="form-check-input" type="checkbox" value="alarobia" id="l1bq4b3">
+          <label class="form-check-label" for="l1bq4b3">Veloma / Mazotoa Alarobia koa</label>
+        </div>
+        <div class="form-check mb-1">
+          <input class="form-check-input" type="checkbox" value="aminnyalina" id="l1bq4b4">
+          <label class="form-check-label" for="l1bq4b4">Amin’ny alina koa</label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" value="talata" id="l1bq4b5">
+          <label class="form-check-label" for="l1bq4b5">Talata koa</label>
+        </div>
+
+        <!-- distractors -->
+        <div class="form-check mb-1">
+          <input class="form-check-input" type="checkbox" value="rehefa" id="l1bq4b6">
+          <label class="form-check-label" for="l1bq4b6">Rehefa avy eo</label>
+        </div>
+        <div class="form-check mb-1">
+          <input class="form-check-input" type="checkbox" value="mandr" id="l1bq4b7">
+          <label class="form-check-label" for="l1bq4b7">Mandrapihaona</label>
+        </div>
+
+        <button type="button" class="btn btn-primary mt-3" id="l1b-listen2-check">Check</button>
+        <p id="l1b-listen2-result" class="mt-3 fw-bold"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const l1bListen2Correct = new Set([
+    "harivariva",
+    "amarainy",
+    "alarobia",
+    "aminnyalina",
+    "talata"
+  ]);
+
+  document.getElementById('l1b-listen2-check').onclick = () => {
+    const form = document.getElementById('l1b-listen2');
+    const checks = form.querySelectorAll('.form-check-input');
+    let correct = 0, wrong = 0;
+    checks.forEach(ch => {
+      const good = l1bListen2Correct.has(ch.value);
+      ch.parentElement.classList.remove('border','border-success','border-danger','rounded');
+      if (ch.checked && good) {
+        correct++; ch.parentElement.classList.add('border','border-success','rounded');
+      } else if (ch.checked && !good) {
+        wrong++; ch.parentElement.classList.add('border','border-danger','rounded');
+      }
+    });
+    document.getElementById('l1b-listen2-result').textContent =
+      `You picked ${correct}/${l1bListen2Correct.size} correct and ${wrong} wrong.`;
+  };
+</script>
+
+
     <!-- DOWNLOAD PDF -->
     <div class="text-center my-4">
       <p class="mini">You can also download this lesson as a PDF for offline study:</p>
