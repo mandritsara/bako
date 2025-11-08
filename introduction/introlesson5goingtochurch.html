@@ -295,6 +295,387 @@
       </div>
     </section>
 
+    <!--quiz1-->
+
+    <section class="mb-5" id="l5-quiz1">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 1: Match the church words</h2>
+      <p class="mini mb-3">Tap a Malagasy word, then tap its English meaning.</p>
+
+      <div class="row">
+        <!-- MALAGASY FIRST -->
+        <div class="col-12 col-md-6 mb-3 mb-md-0">
+          <h6 class="text-primary text-center mb-2">Malagasy</h6>
+          <ul class="list-group border border-primary-subtle" id="l5-malagasy-list">
+            <li class="list-group-item bg-light" data-key="gochurch">Mandeha mivavaka / mandeha miangona</li>
+            <li class="list-group-item bg-light" data-key="service">Fanompoam-pivavahana</li>
+            <li class="list-group-item bg-light" data-key="worship">Fiderana</li>
+            <li class="list-group-item bg-light" data-key="offering">Fanatitra</li>
+            <li class="list-group-item bg-light" data-key="reading">Vakitena / Vakitieny / VAKITENY</li>
+            <li class="list-group-item bg-light" data-key="sermon">Toriteny</li>
+            <li class="list-group-item bg-light" data-key="announce">Filazana vaovao</li>
+            <li class="list-group-item bg-light" data-key="blessing">Tsodrano</li>
+          </ul>
+        </div>
+
+        <!-- ENGLISH SECOND (scrambled) -->
+        <div class="col-12 col-md-6">
+          <h6 class="text-success text-center mb-2">English meaning</h6>
+          <ul class="list-group border border-success-subtle" id="l5-english-list"></ul>
+        </div>
+      </div>
+
+      <button class="btn btn-primary mt-3 me-2" id="l5-q1-check">Check answers</button>
+      <button class="btn btn-outline-secondary mt-3" id="l5-q1-retry">Retry / Scramble</button>
+      <p id="l5-q1-result" class="mt-2 fw-bold"></p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const l5Pairs = [
+    { key: "gochurch", text: "Going to church / going to pray" },
+    { key: "service",  text: "Church service" },
+    { key: "worship",  text: "Worship" },
+    { key: "offering", text: "Offering" },
+    { key: "reading",  text: "Bible reading" },
+    { key: "sermon",   text: "Sermon" },
+    { key: "announce", text: "Announcements" },
+    { key: "blessing", text: "Benediction / blessing" }
+  ];
+
+  const l5MalList  = document.getElementById("l5-malagasy-list");
+  const l5MalItems = l5MalList.querySelectorAll("li");
+  const l5EngList  = document.getElementById("l5-english-list");
+  const l5Q1Result = document.getElementById("l5-q1-result");
+
+  let l5SelectedMalKey = null;
+  let l5SelectedMalLi  = null;
+
+  function l5Shuffle(arr) {
+    return arr.map(x => ({v:x, r:Math.random()})).sort((a,b)=>a.r-b.r).map(x=>x.v);
+  }
+
+  function renderL5English() {
+    l5EngList.innerHTML = "";
+    const scrambled = l5Shuffle(l5Pairs);
+    scrambled.forEach(item => {
+      const li = document.createElement("li");
+      li.className = "list-group-item";
+      li.textContent = item.text;
+      li.dataset.answerKey = item.key;
+      li.dataset.matchedKey = "";
+
+      li.addEventListener("click", () => {
+        if (!l5SelectedMalKey) return;
+        const base = item.text;
+        li.textContent = base + " ← " + l5SelectedMalKey;
+        li.dataset.matchedKey = l5SelectedMalKey;
+        li.classList.add("bg-light");
+        if (l5SelectedMalLi) l5SelectedMalLi.classList.remove("active");
+        l5SelectedMalKey = null;
+        l5SelectedMalLi  = null;
+      });
+
+      l5EngList.appendChild(li);
+    });
+    l5Q1Result.textContent = "";
+  }
+
+  l5MalItems.forEach(li => {
+    li.addEventListener("click", () => {
+      if (l5SelectedMalLi) l5SelectedMalLi.classList.remove("active");
+      l5SelectedMalKey = li.dataset.key;
+      l5SelectedMalLi  = li;
+      li.classList.add("active");
+    });
+  });
+
+  document.getElementById("l5-q1-check").onclick = () => {
+    const engItems = l5EngList.querySelectorAll("li");
+    let score = 0;
+    engItems.forEach(li => {
+      li.classList.remove("border-success","border-danger");
+      if (li.dataset.matchedKey && li.dataset.matchedKey === li.dataset.answerKey) {
+        score++;
+        li.classList.add("border","border-success");
+      } else {
+        li.classList.add("border","border-danger");
+      }
+    });
+    l5Q1Result.textContent = `You matched ${score} / ${l5Pairs.length} correctly.`;
+  };
+
+  document.getElementById("l5-q1-retry").onclick = () => {
+    if (l5SelectedMalLi) l5SelectedMalLi.classList.remove("active");
+    l5SelectedMalKey = null;
+    l5SelectedMalLi  = null;
+    renderL5English();
+  };
+
+  renderL5English();
+</script>
+
+<!--quiz2-->
+
+    <section class="mb-5" id="l5-quiz2">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 2: What are we doing in the service?</h2>
+      <p class="mini mb-3">Choose the correct Malagasy verb or phrase.</p>
+
+      <form id="l5-actions-form">
+        <div class="mb-2">
+          <p class="mb-1">1. “Stand up”</p>
+          <select name="a1" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Mitsangana">Mitsangana</option>
+            <option value="Mipetraka">Mipetraka</option>
+            <option value="Mihira">Mihira</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">2. “Sit down”</p>
+          <select name="a2" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Mipetraka">Mipetraka</option>
+            <option value="Mitsangana">Mitsangana</option>
+            <option value="Mivavaka">Mivavaka</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">3. “Sing”</p>
+          <select name="a3" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Mihira">Mihira</option>
+            <option value="Mamaky ny Tenin’Andriamanitra">Mamaky ny Tenin’Andriamanitra</option>
+            <option value="Mivavaka">Mivavaka</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">4. “Pray”</p>
+          <select name="a4" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Mivavaka">Mivavaka</option>
+            <option value="Mitsangana">Mitsangana</option>
+            <option value="Fanatitra">Fanatitra</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">5. “We will read God’s Word”</p>
+          <select name="a5" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Hamaky ny Tenin’Andriamanitra antsika">Hamaky ny Tenin’Andriamanitra antsika</option>
+            <option value="Mihira">Mihira</option>
+            <option value="Mandroso">Mandroso</option>
+          </select>
+        </div>
+
+        <button type="button" class="btn btn-primary mt-3 me-2" id="l5-actions-check">Check</button>
+        <p id="l5-actions-result" class="mt-3 fw-bold"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById("l5-actions-check").onclick = () => {
+    const form = document.getElementById("l5-actions-form");
+    const answers = {
+      a1: "Mitsangana",
+      a2: "Mipetraka",
+      a3: "Mihira",
+      a4: "Mivavaka",
+      a5: "Hamaky ny Tenin’Andriamanitra antsika"
+    };
+    let score = 0;
+    Object.keys(answers).forEach(id => {
+      const sel = form[id];
+      sel.classList.remove("border-success","border-danger");
+      if (sel.value === answers[id]) {
+        score++;
+        sel.classList.add("border-success");
+      } else {
+        sel.classList.add("border-danger");
+      }
+    });
+    document.getElementById("l5-actions-result").textContent =
+      `You got ${score} / ${Object.keys(answers).length} correct.`;
+  };
+</script>
+
+    <!--quiz3-->
+
+    <section class="mb-5" id="l5-quiz3">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 3: Ordinal numbers (church use)</h2>
+      <p class="mini mb-3">Choose the correct Malagasy form.</p>
+
+      <form id="l5-ord-form">
+        <div class="mb-2">
+          <p class="mb-1">1. “First verse”</p>
+          <select name="o1" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="andininy voalohany">andininy voalohany</option>
+            <option value="andininy faharoa">andininy faharoa</option>
+            <option value="andininy farany">andininy farany</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">2. “Second verse”</p>
+          <select name="o2" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="andininy faharoa">andininy faharoa</option>
+            <option value="andininy fahatelo">andininy fahatelo</option>
+            <option value="andininy voalohany">andininy voalohany</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">3. “FFPM number 10”</p>
+          <select name="o3" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="FFPM fahafolo">FFPM fahafolo</option>
+            <option value="FFPM voalohany">FFPM voalohany</option>
+            <option value="FFPM farany">FFPM farany</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">4. “John chapter 3” (Jaona 3)</p>
+          <select name="o4" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Jaona toko fahatelo">Jaona toko fahatelo</option>
+            <option value="Jaona toko faharoa">Jaona toko faharoa</option>
+            <option value="Jaona toko voalohany">Jaona toko voalohany</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">5. “Last verse”</p>
+          <select name="o5" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="andininy farany">andininy farany</option>
+            <option value="andininy faharoa">andininy faharoa</option>
+            <option value="andininy fahatelo">andininy fahatelo</option>
+          </select>
+        </div>
+
+        <button type="button" class="btn btn-primary mt-3 me-2" id="l5-ord-check">Check</button>
+        <p id="l5-ord-result" class="mt-3 fw-bold"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById("l5-ord-check").onclick = () => {
+    const form = document.getElementById("l5-ord-form");
+    const answers = {
+      o1: "andininy voalohany",
+      o2: "andininy faharoa",
+      o3: "FFPM fahafolo",
+      o4: "Jaona toko fahatelo",
+      o5: "andininy farany"
+    };
+    let score = 0;
+    Object.keys(answers).forEach(id => {
+      const sel = form[id];
+      sel.classList.remove("border-success","border-danger");
+      if (sel.value === answers[id]) {
+        score++;
+        sel.classList.add("border-success");
+      } else {
+        sel.classList.add("border-danger");
+      }
+    });
+    document.getElementById("l5-ord-result").textContent =
+      `You got ${score} / ${Object.keys(answers).length} correct.`;
+  };
+</script>
+
+    <!--quiz4-->
+
+    <section class="mb-5" id="l5-quiz4">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 4: Which “number” word?</h2>
+      <p class="mini mb-3">Choose the correct Malagasy question word.</p>
+
+      <form id="l5-numword-form">
+        <div class="mb-2">
+          <p class="mb-1">1. “How many?” (just counting things)</p>
+          <select name="q1" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Firy?">Firy?</option>
+            <option value="Fahafiry?">Fahafiry?</option>
+            <option value="Impiry?">Impiry?</option>
+            <option value="Tsifirifiry?">Tsifirifiry?</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">2. “Which number?” / “the nth one?” (ordinal)</p>
+          <select name="q2" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Fahafiry?">Fahafiry?</option>
+            <option value="Firy?">Firy?</option>
+            <option value="Impiry?">Impiry?</option>
+            <option value="Tsifirifiry?">Tsifirifiry?</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">3. “How many times?”</p>
+          <select name="q3" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Impiry?">Impiry?</option>
+            <option value="Fahafiry?">Fahafiry?</option>
+            <option value="Firy?">Firy?</option>
+            <option value="Tsifirifiry?">Tsifirifiry?</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">4. “(number) by (number)” e.g. animals two by two</p>
+          <select name="q4" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Tsifirifiry?">Tsifirifiry?</option>
+            <option value="Impiry?">Impiry?</option>
+            <option value="Firy?">Firy?</option>
+            <option value="Fahafiry?">Fahafiry?</option>
+          </select>
+        </div>
+
+        <button type="button" class="btn btn-primary mt-3 me-2" id="l5-numword-check">Check</button>
+        <p id="l5-numword-result" class="mt-3 fw-bold"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById("l5-numword-check").onclick = () => {
+    const form = document.getElementById("l5-numword-form");
+    const answers = {
+      q1: "Firy?",
+      q2: "Fahafiry?",
+      q3: "Impiry?",
+      q4: "Tsifirifiry?"
+    };
+    let score = 0;
+    Object.keys(answers).forEach(id => {
+      const sel = form[id];
+      sel.classList.remove("border-success","border-danger");
+      if (sel.value === answers[id]) {
+        score++;
+        sel.classList.add("border-success");
+      } else {
+        sel.classList.add("border-danger");
+      }
+    });
+    document.getElementById("l5-numword-result").textContent =
+      `You got ${score} / ${Object.keys(answers).length} correct.`;
+  };
+</script>
+
+
     <!-- DOWNLOAD PDF -->
     <div class="text-center my-4">
       <p class="mini">You can also download this lesson as a PDF for offline study:</p>
