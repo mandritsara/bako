@@ -348,9 +348,386 @@
 <audio controls class="w-100 mt-3">
 <source src="/audio/introduction/lesson3app7.mp3" type="audio/mpeg" />
 </audio>
+  </section>
 
+    <!--quiz1-->
+    <section class="mb-5" id="l3-quiz1">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 1: Match the self-introduction lines</h2>
+      <p class="mini mb-3">Tap a Malagasy line, then tap its English meaning.</p>
 
-      </section>
+      <div class="row">
+        <!-- MALAGASY FIRST -->
+        <div class="col-12 col-md-6 mb-3 mb-md-0">
+          <h6 class="text-primary text-center mb-2">Malagasy</h6>
+          <ul class="list-group border border-primary-subtle" id="l3-malagasy-list">
+            <li class="list-group-item bg-light" data-key="name">Anarako Bako</li>
+            <li class="list-group-item bg-light" data-key="from">Avy any Angletera zaho</li>
+            <li class="list-group-item bg-light" data-key="job">Asako dokotera</li>
+            <li class="list-group-item bg-light" data-key="welcome">Tonga soa eto Mandritsara</li>
+            <li class="list-group-item bg-light" data-key="pleased">Faly mahafantatra anao</li>
+            <li class="list-group-item bg-light" data-key="happyreceive">Faly mandray anao</li>
+          </ul>
+        </div>
+
+        <!-- ENGLISH SECOND (scrambled) -->
+        <div class="col-12 col-md-6">
+          <h6 class="text-success text-center mb-2">English meaning</h6>
+          <ul class="list-group border border-success-subtle" id="l3-english-list"></ul>
+        </div>
+      </div>
+
+      <button class="btn btn-primary mt-3 me-2" id="l3-q1-check">Check answers</button>
+      <button class="btn btn-outline-secondary mt-3" id="l3-q1-retry">Retry / Scramble</button>
+      <p id="l3-q1-result" class="mt-2 fw-bold"></p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const l3Pairs = [
+    { key: "name",        text: "My name is Bako" },
+    { key: "from",        text: "I am from England" },
+    { key: "job",         text: "My job is doctor" },
+    { key: "welcome",     text: "Welcome to Mandritsara" },
+    { key: "pleased",     text: "Pleased to meet you" },
+    { key: "happyreceive",text: "Happy to receive you" }
+  ];
+
+  const l3MalList = document.getElementById("l3-malagasy-list");
+  const l3MalItems = l3MalList.querySelectorAll("li");
+  const l3EngList = document.getElementById("l3-english-list");
+  const l3Q1Result = document.getElementById("l3-q1-result");
+
+  let l3SelectedMalKey = null;
+  let l3SelectedMalLi = null;
+
+  function l3Shuffle(arr) {
+    return arr.map(x => ({v:x, r:Math.random()})).sort((a,b)=>a.r-b.r).map(x=>x.v);
+  }
+
+  function renderL3English() {
+    l3EngList.innerHTML = "";
+    const scrambled = l3Shuffle(l3Pairs);
+    scrambled.forEach(item => {
+      const li = document.createElement("li");
+      li.className = "list-group-item";
+      li.textContent = item.text;
+      li.dataset.answerKey = item.key;
+      li.dataset.matchedKey = "";
+
+      li.addEventListener("click", () => {
+        if (!l3SelectedMalKey) return;
+        const baseText = item.text;
+        li.textContent = baseText + " ← " + l3SelectedMalKey;
+        li.dataset.matchedKey = l3SelectedMalKey;
+        li.classList.add("bg-light");
+        if (l3SelectedMalLi) l3SelectedMalLi.classList.remove("active");
+        l3SelectedMalKey = null;
+        l3SelectedMalLi = null;
+      });
+
+      l3EngList.appendChild(li);
+    });
+    l3Q1Result.textContent = "";
+  }
+
+  // malagasy clicks
+  l3MalItems.forEach(li => {
+    li.addEventListener("click", () => {
+      if (l3SelectedMalLi) l3SelectedMalLi.classList.remove("active");
+      l3SelectedMalKey = li.dataset.key;
+      l3SelectedMalLi = li;
+      li.classList.add("active");
+    });
+  });
+
+  document.getElementById("l3-q1-check").onclick = () => {
+    const engItems = l3EngList.querySelectorAll("li");
+    let score = 0;
+    engItems.forEach(li => {
+      li.classList.remove("border-success","border-danger");
+      if (li.dataset.matchedKey && li.dataset.matchedKey === li.dataset.answerKey) {
+        score++;
+        li.classList.add("border","border-success");
+      } else {
+        li.classList.add("border","border-danger");
+      }
+    });
+    l3Q1Result.textContent = `You matched ${score} / ${l3Pairs.length} correctly.`;
+  };
+
+  document.getElementById("l3-q1-retry").onclick = () => {
+    if (l3SelectedMalLi) l3SelectedMalLi.classList.remove("active");
+    l3SelectedMalKey = null;
+    l3SelectedMalLi = null;
+    renderL3English();
+  };
+
+  renderL3English();
+</script>
+
+    <!--quiz2-->
+
+    <section class="mb-5" id="l3-quiz2">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 2: Verb tense prefixes</h2>
+      <p class="mini mb-3">Choose the correct Malagasy verb form.</p>
+
+      <form id="l3-tense-form">
+        <div class="mb-3">
+          <p class="mb-1">1. “I am working”</p>
+          <select name="q1" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Miasa zaho">Miasa zaho</option>
+            <option value="Niasa zaho">Niasa zaho</option>
+            <option value="Hiasa zaho">Hiasa zaho</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <p class="mb-1">2. “I worked”</p>
+          <select name="q2" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Miasa zaho">Miasa zaho</option>
+            <option value="Niasa zaho">Niasa zaho</option>
+            <option value="Hiasa zaho">Hiasa zaho</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <p class="mb-1">3. “I will work”</p>
+          <select name="q3" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Miasa zaho">Miasa zaho</option>
+            <option value="Niasa zaho">Niasa zaho</option>
+            <option value="Hiasa zaho">Hiasa zaho</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <p class="mb-1">4. “I am not working”</p>
+          <select name="q4" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Tsy miasa zaho">Tsy miasa zaho</option>
+            <option value="Tsisy asa">Tsisy asa</option>
+            <option value="Niasa tsy zaho">Niasa tsy zaho</option>
+          </select>
+        </div>
+
+        <button type="button" class="btn btn-primary mt-2 me-2" id="l3-tense-check">Check</button>
+        <p id="l3-tense-result" class="mt-3 fw-bold"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById("l3-tense-check").onclick = () => {
+    const form = document.getElementById("l3-tense-form");
+    const answers = {
+      q1: "Miasa zaho",
+      q2: "Niasa zaho",
+      q3: "Hiasa zaho",
+      q4: "Tsy miasa zaho"
+    };
+    let score = 0;
+    Object.keys(answers).forEach(id => {
+      const sel = form[id];
+      sel.classList.remove("border-success","border-danger");
+      if (sel.value === answers[id]) {
+        score++;
+        sel.classList.add("border-success");
+      } else {
+        sel.classList.add("border-danger");
+      }
+    });
+    document.getElementById("l3-tense-result").textContent =
+      `You got ${score} / ${Object.keys(answers).length} correct.`;
+  };
+</script>
+
+    <!--quiz3-->
+    <section class="mb-5" id="l3-quiz3">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 3: “Tsy” or “Tsisy”?</h2>
+      <p class="mini mb-3">Choose the correct negative form.</p>
+
+      <form id="l3-neg-form">
+        <div class="mb-2">
+          <p class="mb-1">1. _____ miasa zaho. (I am not working.)</p>
+          <select name="n1" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Tsy">Tsy</option>
+            <option value="Tsisy">Tsisy</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">2. _____ asa. (There is no work.)</p>
+          <select name="n2" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Tsy">Tsy</option>
+            <option value="Tsisy">Tsisy</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">3. _____ manambady zaho. (I am not married.)</p>
+          <select name="n3" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Tsy">Tsy</option>
+            <option value="Tsisy">Tsisy</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <p class="mb-1">4. _____ zanaka zahay. (We have no children.)</p>
+          <select name="n4" class="form-select d-inline-block w-auto">
+            <option value="">—</option>
+            <option value="Tsy">Tsy</option>
+            <option value="Tsisy">Tsisy</option>
+          </select>
+        </div>
+
+        <button type="button" class="btn btn-primary mt-3 me-2" id="l3-neg-check">Check</button>
+        <p id="l3-neg-result" class="mt-3 fw-bold"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById("l3-neg-check").onclick = () => {
+    const form = document.getElementById("l3-neg-form");
+    const answers = {
+      n1: "Tsy",   // verb/adjective
+      n2: "Tsisy", // noun
+      n3: "Tsy",
+      n4: "Tsisy"
+    };
+    let score = 0;
+    Object.keys(answers).forEach(id => {
+      const sel = form[id];
+      sel.classList.remove("border-success","border-danger");
+      if (sel.value === answers[id]) {
+        score++;
+        sel.classList.add("border-success");
+      } else {
+        sel.classList.add("border-danger");
+      }
+    });
+    document.getElementById("l3-neg-result").textContent =
+      `You got ${score} / ${Object.keys(answers).length} correct.`;
+  };
+</script>
+
+    <!--quiz4-->
+
+    <section class="mb-5" id="l3-quiz-possessive">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 4: Possessive suffixes</h2>
+      <p class="mini mb-3">Choose the correct suffix to match the English meaning.</p>
+
+      <form id="l3-poss-form">
+        <div class="row g-4" id="l3-poss-container">
+          <!-- JS injects items -->
+        </div>
+
+        <button type="button" class="btn btn-primary mt-3 me-2" id="l3-poss-check">Check</button>
+        <button type="button" class="btn btn-outline-secondary mt-3" id="l3-poss-scramble">Scramble options</button>
+        <p id="l3-poss-result" class="mt-3 fw-bold"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  // based on your tables (Tsimihety forms)
+  const l3PossItems = [
+    // ANARA (name)
+    { id: "name_my",    base: "Anara", english: "my name",            correct: "ko" },
+    { id: "name_your",  base: "Anara", english: "your name",          correct: "nao" },
+    { id: "name_his",   base: "Anara", english: "his / her name",     correct: "ny" },
+    { id: "name_inc",   base: "Anara", english: "our name (inclusive)", correct: "ntsika" },
+    { id: "name_exc",   base: "Anara", english: "our name (exclusive)", correct: "nay" },
+    { id: "name_pl",    base: "Anara", english: "your (plural) name", correct: "reo" },
+    { id: "name_their", base: "Anara", english: "their name",         correct: "njareo" },
+
+    // ASA (job)
+    { id: "job_my",     base: "Asa",   english: "my job",             correct: "ko" },
+    { id: "job_your",   base: "Asa",   english: "your job",           correct: "nao" },
+    { id: "job_his",    base: "Asa",   english: "his / her job",      correct: "ny" },
+    { id: "job_inc",    base: "Asa",   english: "our job (inclusive)", correct: "ntsika" },
+    { id: "job_exc",    base: "Asa",   english: "our job (exclusive)", correct: "nay" },
+    { id: "job_pl",     base: "Asa",   english: "your (plural) job",  correct: "reo" },
+    { id: "job_their",  base: "Asa",   english: "their job",          correct: "njareo" }
+  ];
+
+  const l3PossAllSuffixes = ["ko","nao","ny","ntsika","nay","reo","njareo"];
+
+  const l3PossContainer = document.getElementById("l3-poss-container");
+
+  function shuffleL3Poss(arr) {
+    return arr.map(x => ({v:x, r:Math.random()})).sort((a,b)=>a.r-b.r).map(x=>x.v);
+  }
+
+  function renderL3Poss() {
+    l3PossContainer.innerHTML = "";
+    l3PossItems.forEach(item => {
+      const col = document.createElement("div");
+      col.className = "col-12 col-md-6";
+
+      const wrap = document.createElement("div");
+      wrap.className = "mb-2";
+
+      const label = document.createElement("p");
+      label.className = "mb-1";
+      label.innerHTML = `<strong>${item.english}</strong> (${item.base} + __)`;
+      wrap.appendChild(label);
+
+      const sel = document.createElement("select");
+      sel.name = item.id;
+      sel.className = "form-select d-inline-block w-auto";
+      const opt0 = document.createElement("option");
+      opt0.value = "";
+      opt0.textContent = "—";
+      sel.appendChild(opt0);
+
+      shuffleL3Poss(l3PossAllSuffixes.slice()).forEach(suf => {
+        const opt = document.createElement("option");
+        opt.value = suf;
+        opt.textContent = suf;
+        sel.appendChild(opt);
+      });
+
+      wrap.appendChild(sel);
+      col.appendChild(wrap);
+      l3PossContainer.appendChild(col);
+    });
+    document.getElementById("l3-poss-result").textContent = "";
+  }
+
+  document.getElementById("l3-poss-check").onclick = () => {
+    const form = document.getElementById("l3-poss-form");
+    let score = 0;
+    l3PossItems.forEach(item => {
+      const sel = form[item.id];
+      sel.classList.remove("border-success","border-danger");
+      if (sel.value === item.correct) {
+        score++;
+        sel.classList.add("border-success");
+      } else {
+        sel.classList.add("border-danger");
+      }
+    });
+    document.getElementById("l3-poss-result").textContent =
+      `You got ${score} / ${l3PossItems.length} correct.`;
+  };
+
+  document.getElementById("l3-poss-scramble").onclick = renderL3Poss;
+
+  renderL3Poss();
+</script>
+
 
     <!-- DOWNLOAD PDF -->
     <div class="text-center my-4">
