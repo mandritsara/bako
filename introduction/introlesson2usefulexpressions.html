@@ -200,6 +200,450 @@
       </div>
     </section>
 
+    <!--quiz1-->
+
+    <section class="mb-5" id="l2-quiz1">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 1: Match the useful expressions</h2>
+      <p class="mini mb-3">
+        Tap an English line, then tap the matching Malagasy expression. On bigger screens you can also drag and drop.
+      </p>
+
+      <div class="row">
+        <!-- ENGLISH (select this first) -->
+        <div class="col-12 col-md-6 mb-3 mb-md-0">
+          <h6 class="text-success text-center mb-2">English</h6>
+          <ul class="list-group border border-success-subtle" id="l2-eng-list"></ul>
+        </div>
+
+        <!-- MALAGASY -->
+        <div class="col-12 col-md-6">
+          <h6 class="text-primary text-center mb-2">Malagasy</h6>
+          <ul class="list-group border border-primary-subtle" id="l2-malagasy-list">
+            <li class="list-group-item bg-light" draggable="true" data-key="misaotra">Misaotra</li>
+            <li class="list-group-item bg-light" draggable="true" data-key="tsisy">Tsisy fisaorana</li>
+            <li class="list-group-item bg-light" draggable="true" data-key="azafady">Azafady</li>
+            <li class="list-group-item bg-light" draggable="true" data-key="tsy">Tsy maninona</li>
+            <li class="list-group-item bg-light" draggable="true" data-key="soava">Soava dia</li>
+            <li class="list-group-item bg-light" draggable="true" data-key="tonga">Tonga soa</li>
+          </ul>
+        </div>
+      </div>
+
+      <button class="btn btn-primary mt-3 me-2" id="l2-q1-check">Check answers</button>
+      <button class="btn btn-outline-secondary mt-3" id="l2-q1-retry">Retry / Scramble</button>
+      <p id="l2-q1-result" class="mt-2 fw-bold"></p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const l2Pairs = [
+    { key: 'misaotra', text: 'Thank you' },
+    { key: 'tsisy',    text: 'You’re welcome / not at all' },
+    { key: 'azafady',  text: 'Excuse me / sorry' },
+    { key: 'tsy',      text: 'No problem' },
+    { key: 'soava',    text: 'Have a good trip' },
+    { key: 'tonga',    text: 'Welcome' }
+  ];
+
+  const l2EngList = document.getElementById('l2-eng-list');
+  const l2MalList = document.getElementById('l2-malagasy-list');
+  const l2MalItems = l2MalList.querySelectorAll('li');
+  const l2Q1Result = document.getElementById('l2-q1-result');
+
+  let l2SelectedEnglishLi = null;
+  let l2DraggedKey = null;
+
+  function l2Shuffle(arr) {
+    return arr.map(x => ({v:x, r:Math.random()}))
+              .sort((a,b) => a.r - b.r)
+              .map(x => x.v);
+  }
+
+  function renderL2English() {
+    l2EngList.innerHTML = '';
+    const scrambled = l2Shuffle(l2Pairs);
+    scrambled.forEach(item => {
+      const li = document.createElement('li');
+      li.className = 'list-group-item';
+      li.textContent = item.text;
+      li.dataset.answerKey = item.key;
+      li.dataset.droppedKey = '';
+
+      // select English first
+      li.addEventListener('click', () => {
+        if (l2SelectedEnglishLi) l2SelectedEnglishLi.classList.remove('active');
+        l2SelectedEnglishLi = li;
+        li.classList.add('active');
+      });
+
+      // allow drop
+      li.addEventListener('dragover', e => e.preventDefault());
+      li.addEventListener('drop', e => {
+        e.preventDefault();
+        if (!l2DraggedKey) return;
+        li.textContent = item.text + ' ← ' + l2DraggedKey;
+        li.dataset.droppedKey = l2DraggedKey;
+        li.classList.add('bg-light');
+      });
+
+      l2EngList.appendChild(li);
+    });
+    l2Q1Result.textContent = '';
+    l2SelectedEnglishLi = null;
+  }
+
+  // MALAGASY side
+  l2MalItems.forEach(li => {
+    // desktop drag
+    li.addEventListener('dragstart', () => {
+      l2DraggedKey = li.dataset.key;
+    });
+
+    // mobile tap: only if an English line is selected
+    li.addEventListener('click', () => {
+      if (!l2SelectedEnglishLi) return;
+      const malKey = li.dataset.key;
+      const engText = l2SelectedEnglishLi.textContent.split(' ← ')[0];
+      l2SelectedEnglishLi.textContent = engText + ' ← ' + malKey;
+      l2SelectedEnglishLi.dataset.droppedKey = malKey;
+      l2SelectedEnglishLi.classList.add('bg-light');
+    });
+  });
+
+  // check
+  document.getElementById('l2-q1-check').onclick = () => {
+    const engItems = l2EngList.querySelectorAll('li');
+    let score = 0;
+    engItems.forEach(li => {
+      li.classList.remove('border-success','border-danger');
+      if (li.dataset.droppedKey && li.dataset.droppedKey === li.dataset.answerKey) {
+        score++;
+        li.classList.add('border','border-success');
+      } else {
+        li.classList.add('border','border-danger');
+      }
+    });
+    l2Q1Result.textContent = `You matched ${score} / ${l2Pairs.length}.`;
+  };
+
+  // retry
+  document.getElementById('l2-q1-retry').onclick = () => {
+    renderL2English();
+  };
+
+  // initial
+  renderL2English();
+</script>
+
+
+    <!--quiz2-->
+
+    <section class="mb-5" id="l2-quiz2">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 2: Which expression fits?</h2>
+      <p class="mini mb-3">Choose the best Malagasy expression for each situation.</p>
+
+      <form id="l2-context-quiz">
+        <div id="l2-context-block"></div>
+
+        <button type="button" class="btn btn-primary mt-3 me-2" id="l2-context-check">Check</button>
+        <button type="button" class="btn btn-outline-secondary mt-3" id="l2-context-scramble">Scramble options</button>
+        <p id="l2-context-result" class="mt-3 fw-bold"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const l2ContextItems = [
+    {
+      id: "walkpast",
+      prompt: "You want to walk past someone in a narrow space.",
+      correct: "Azafady",
+      choices: ["Azafady","Misaotra betsaka","Tonga soa","Soava dia"]
+    },
+    {
+      id: "goahead",
+      prompt: "Someone says “azafady” to pass, you tell them it’s okay.",
+      correct: "Ndao",
+      choices: ["Ndao","Tsy maninona","Tsisy fisaorana"]
+    },
+    {
+      id: "sorrysmall",
+      prompt: "You made a small mistake and want to apologise.",
+      correct: "Miala tsiny",
+      choices: ["Miala tsiny","Mifona","Soava dia","Tonga soa"]
+    },
+    {
+      id: "sorryserious",
+      prompt: "You offended someone and want to ask forgiveness.",
+      correct: "Mifona",
+      choices: ["Mifona","Miala tsiny","Azafady"]
+    },
+    {
+      id: "noproblem",
+      prompt: "Someone apologises to you and you want to say “it’s ok / no problem”.",
+      correct: "Tsy maninona",
+      choices: ["Tsy maninona","Tsisy fisaorana","Misaotra"]
+    }
+  ];
+
+  const l2ContextBlock = document.getElementById('l2-context-block');
+
+  function shuffleL2(arr) {
+    return arr.map(x=>({v:x,r:Math.random()})).sort((a,b)=>a.r-b.r).map(x=>x.v);
+  }
+
+  function renderL2Context() {
+    l2ContextBlock.innerHTML = '';
+    l2ContextItems.forEach(item => {
+      const div = document.createElement('div');
+      div.className = 'mb-3';
+      const label = document.createElement('p');
+      label.textContent = item.prompt;
+      label.className = 'mb-1';
+      const select = document.createElement('select');
+      select.name = item.id;
+      select.className = 'form-select d-inline-block w-auto';
+      // placeholder
+      const opt0 = document.createElement('option');
+      opt0.value = "";
+      opt0.textContent = "—";
+      select.appendChild(opt0);
+      // shuffled choices
+      shuffleL2(item.choices.slice()).forEach(ch => {
+        const opt = document.createElement('option');
+        opt.value = ch;
+        opt.textContent = ch;
+        select.appendChild(opt);
+      });
+      div.appendChild(label);
+      div.appendChild(select);
+      l2ContextBlock.appendChild(div);
+    });
+    document.getElementById('l2-context-result').textContent = '';
+  }
+
+  document.getElementById('l2-context-check').onclick = () => {
+    const form = document.getElementById('l2-context-quiz');
+    let score = 0;
+    l2ContextItems.forEach(item => {
+      const sel = form[item.id];
+      sel.classList.remove('border-success','border-danger');
+      if ((sel.value || "").trim() === item.correct) {
+        score++;
+        sel.classList.add('border-success');
+      } else {
+        sel.classList.add('border-danger');
+      }
+    });
+    document.getElementById('l2-context-result').textContent =
+      `You got ${score} / ${l2ContextItems.length} correct.`;
+  };
+
+  document.getElementById('l2-context-scramble').onclick = renderL2Context;
+
+  renderL2Context();
+</script>
+
+    <!-quiz3-->
+
+    <section class="mb-5" id="l2-quiz3">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 3: Vocabulary</h2>
+      <p class="mini mb-3">Choose the correct meaning.</p>
+
+      <form id="l2-vocab-quiz">
+        <div id="l2-vocab-block"></div>
+
+        <button type="button" class="btn btn-primary mt-3 me-2" id="l2-vocab-check">Check</button>
+        <button type="button" class="btn btn-outline-secondary mt-3" id="l2-vocab-scramble">Scramble options</button>
+        <p id="l2-vocab-result" class="mt-3 fw-bold"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const l2VocabItems = [
+    {
+      id: "fisaorana",
+      mal: "Fisaorana",
+      correct: "gratitude",
+      choices: ["gratitude","go ahead","good / well","many / much"]
+    },
+    {
+      id: "betsaka",
+      mal: "Betsaka",
+      correct: "many / much",
+      choices: ["many / much","good / well","arrive","have a good ..."]
+    },
+    {
+      id: "ndao",
+      mal: "Ndao",
+      correct: "go ahead",
+      choices: ["go ahead","welcome","arrive"]
+    },
+    {
+      id: "soa",
+      mal: "Soa",
+      correct: "good / well",
+      choices: ["good / well","many / much","go ahead"]
+    },
+    {
+      id: "soava",
+      mal: "Soava",
+      correct: "“have a good ...”",
+      choices: ["“have a good ...”","arrive","you’re welcome"]
+    },
+    {
+      id: "tonga",
+      mal: "Tonga",
+      correct: "come / arrive",
+      choices: ["come / arrive","gratitude","have a good ..."]
+    }
+  ];
+
+  const l2VocabBlock = document.getElementById('l2-vocab-block');
+
+  function renderL2Vocab() {
+    l2VocabBlock.innerHTML = '';
+    l2VocabItems.forEach(item => {
+      const wrap = document.createElement('div');
+      wrap.className = 'mb-2';
+      const label = document.createElement('span');
+      label.innerHTML = `<span class="term">${item.mal}</span> → `;
+      const sel = document.createElement('select');
+      sel.name = item.id;
+      sel.className = 'form-select d-inline-block w-auto';
+      const opt0 = document.createElement('option');
+      opt0.value = "";
+      opt0.textContent = "—";
+      sel.appendChild(opt0);
+      shuffleL2(item.choices.slice()).forEach(ch => {
+        const opt = document.createElement('option');
+        opt.value = ch;
+        opt.textContent = ch;
+        sel.appendChild(opt);
+      });
+      wrap.appendChild(label);
+      wrap.appendChild(sel);
+      l2VocabBlock.appendChild(wrap);
+    });
+    document.getElementById('l2-vocab-result').textContent = '';
+  }
+
+  document.getElementById('l2-vocab-check').onclick = () => {
+    const form = document.getElementById('l2-vocab-quiz');
+    let score = 0;
+    l2VocabItems.forEach(item => {
+      const sel = form[item.id];
+      sel.classList.remove('border-success','border-danger');
+      if ((sel.value || "").trim() === item.correct) {
+        score++;
+        sel.classList.add('border-success');
+      } else {
+        sel.classList.add('border-danger');
+      }
+    });
+    document.getElementById('l2-vocab-result').textContent =
+      `You got ${score} / ${l2VocabItems.length} correct.`;
+  };
+
+  document.getElementById('l2-vocab-scramble').onclick = renderL2Vocab;
+
+  // reuse shuffle from above
+  renderL2Vocab();
+</script>
+
+    <!--quiz4-->
+
+    <section class="mb-5" id="l2-quiz4">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 4: Listening – short exchanges</h2>
+      <p class="mini mb-2">Listen to the recordings from this lesson. Tick every line you heard.</p>
+
+      <!-- you can keep 3 audios, like in the lesson -->
+      <audio controls class="w-100 mb-2">
+        <source src="/audio/introduction/lesson2con1.mp3" type="audio/mpeg" />
+      </audio>
+      <audio controls class="w-100 mb-2">
+        <source src="/audio/introduction/lesson2con2.mp3" type="audio/mpeg" />
+      </audio>
+      <audio controls class="w-100 mb-3">
+        <source src="/audio/introduction/lesson2con3.mp3" type="audio/mpeg" />
+      </audio>
+
+      <form id="l2-listen-form">
+        <!-- real lines -->
+        <div class="form-check mb-1">
+          <input class="form-check-input" type="checkbox" value="misaotra" id="l2l1">
+          <label class="form-check-label" for="l2l1">Misaotra</label>
+        </div>
+        <div class="form-check mb-1">
+          <input class="form-check-input" type="checkbox" value="tsisy" id="l2l2">
+          <label class="form-check-label" for="l2l2">Tsisy fisaorana</label>
+        </div>
+        <div class="form-check mb-1">
+          <input class="form-check-input" type="checkbox" value="azafady" id="l2l3">
+          <label class="form-check-label" for="l2l3">Azafady</label>
+        </div>
+        <div class="form-check mb-1">
+          <input class="form-check-input" type="checkbox" value="ndao" id="l2l4">
+          <label class="form-check-label" for="l2l4">Ndao</label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" value="tsym" id="l2l5">
+          <label class="form-check-label" for="l2l5">Tsy maninona</label>
+        </div>
+
+        <!-- distractors from lesson 2 -->
+        <div class="form-check mb-1">
+          <input class="form-check-input" type="checkbox" value="soava" id="l2l6">
+          <label class="form-check-label" for="l2l6">Soava dia</label>
+        </div>
+        <div class="form-check mb-1">
+          <input class="form-check-input" type="checkbox" value="tonga" id="l2l7">
+          <label class="form-check-label" for="l2l7">Tonga soa</label>
+        </div>
+
+        <button type="button" class="btn btn-primary mt-3" id="l2-listen-check">Check</button>
+        <p id="l2-listen-result" class="mt-3 fw-bold"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const l2ListenCorrect = new Set(["misaotra","tsisy","azafady","ndao","tsym"]);
+
+  document.getElementById('l2-listen-check').onclick = () => {
+    const form = document.getElementById('l2-listen-form');
+    const checks = form.querySelectorAll('.form-check-input');
+    let correct = 0, wrong = 0;
+    checks.forEach(ch => {
+      const good = l2ListenCorrect.has(ch.value);
+      ch.parentElement.classList.remove('border','border-success','border-danger','rounded');
+      if (ch.checked && good) {
+        correct++;
+        ch.parentElement.classList.add('border','border-success','rounded');
+      } else if (ch.checked && !good) {
+        wrong++;
+        ch.parentElement.classList.add('border','border-danger','rounded');
+      }
+    });
+    document.getElementById('l2-listen-result').textContent =
+      `You picked ${correct}/${l2ListenCorrect.size} correct lines and ${wrong} extra.`;
+  };
+</script>
+
+
     <!-- DOWNLOAD + NAV -->
     <div class="text-center my-4">
       <p class="mini">You can also download this lesson as a PDF for offline study:</p>
