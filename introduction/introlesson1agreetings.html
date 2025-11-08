@@ -229,31 +229,39 @@
     </section>
 
 <!--quiz 1-->
- <section class="mb-5" id="quiz1">
+<section class="mb-5" id="quiz1">
   <div class="card border-0 shadow-sm">
     <div class="card-body">
       <h2 class="h5 mb-3">Quiz 1: Match the greetings</h2>
-      <p class="mini mb-3">On mobile: tap a greeting (left), then tap its meaning (right). On desktop: you can still drag.</p>
+      <p class="mini mb-3">
+        Tap an English phrase, then tap its Malagasy equivalent to make a match.
+        On larger screens, you can also drag and drop.
+      </p>
+
       <div class="row">
-        <!-- LEFT: fixed -->
-        <div class="col-md-6">
-          <ul class="list-group" id="malagasyList">
-            <li class="list-group-item" draggable="true" data-key="salama">Salama tompoko</li>
-            <li class="list-group-item" draggable="true" data-key="haody">Haody</li>
-            <li class="list-group-item" draggable="true" data-key="manakory">Manakory ianao?</li>
-            <li class="list-group-item" draggable="true" data-key="tsara">Tsara fa misaotra</li>
-            <li class="list-group-item" draggable="true" data-key="ino">Ino vaovao?</li>
-            <li class="list-group-item" draggable="true" data-key="tsisy">Tsisy vaovao</li>
+        <!-- ENGLISH side -->
+        <div class="col-12 col-md-6 mb-3 mb-md-0">
+          <h6 class="text-success text-center mb-2">English</h6>
+          <ul class="list-group border border-success-subtle" id="englishList"></ul>
+        </div>
+
+        <!-- MALAGASY side -->
+        <div class="col-12 col-md-6">
+          <h6 class="text-primary text-center mb-2">Malagasy</h6>
+          <ul class="list-group border border-primary-subtle" id="malagasyList">
+            <li class="list-group-item bg-light" draggable="true" data-key="salama">Salama tompoko</li>
+            <li class="list-group-item bg-light" draggable="true" data-key="haody">Haody</li>
+            <li class="list-group-item bg-light" draggable="true" data-key="manakory">Manakory ianao?</li>
+            <li class="list-group-item bg-light" draggable="true" data-key="tsara">Tsara fa misaotra</li>
+            <li class="list-group-item bg-light" draggable="true" data-key="ino">Ino vaovao?</li>
+            <li class="list-group-item bg-light" draggable="true" data-key="tsisy">Tsisy vaovao</li>
           </ul>
         </div>
-        <!-- RIGHT: scrambled -->
-        <div class="col-md-6">
-          <ul class="list-group" id="englishList"></ul>
-        </div>
       </div>
+
       <button class="btn btn-primary mt-3 me-2" id="checkMatchBtn">Check answers</button>
-      <button class="btn btn-outline-secondary mt-3" id="retryMatchBtn">Retry / scramble</button>
-      <p id="matchResult" class="mt-2"></p>
+      <button class="btn btn-outline-secondary mt-3" id="retryMatchBtn">Retry / Scramble</button>
+      <p id="matchResult" class="mt-2 fw-bold"></p>
     </div>
   </div>
 </section>
@@ -268,20 +276,17 @@
     { key: 'tsisy', text: 'Nothing’s new' }
   ];
 
+  const englishList = document.getElementById('englishList');
   const malList = document.getElementById('malagasyList');
   const malItems = malList.querySelectorAll('li');
-  const englishList = document.getElementById('englishList');
   const matchResult = document.getElementById('matchResult');
 
-  let draggedKey = null;      // for desktop drag
-  let selectedKey = null;     // for mobile tap
-  let selectedLi = null;      // to remove highlight on new selection
+  let draggedKey = null;
+  let selectedKey = null;
+  let selectedLi = null;
 
   function shuffle(arr) {
-    return arr
-      .map(x => ({ v: x, r: Math.random() }))
-      .sort((a,b) => a.r - b.r)
-      .map(x => x.v);
+    return arr.map(x => ({v:x, r:Math.random()})).sort((a,b)=>a.r-b.r).map(x=>x.v);
   }
 
   function renderEnglishList() {
@@ -293,7 +298,8 @@
       li.textContent = item.text;
       li.dataset.answerKey = item.key;
       li.dataset.droppedKey = '';
-      // allow drop (desktop)
+
+      // drag/drop
       li.addEventListener('dragover', e => e.preventDefault());
       li.addEventListener('drop', e => {
         e.preventDefault();
@@ -302,28 +308,24 @@
         li.dataset.droppedKey = draggedKey;
         li.classList.add('bg-light');
       });
-      // allow tap (mobile)
+
+      // tap match
       li.addEventListener('click', () => {
-        if (!selectedKey) return; // nothing picked on the left
+        if (!selectedKey) return;
         li.textContent = item.text + ' ← ' + selectedKey;
         li.dataset.droppedKey = selectedKey;
         li.classList.add('bg-light');
       });
+
       englishList.appendChild(li);
     });
     matchResult.textContent = '';
   }
 
-  // left side: support drag + tap
+  // MALAGASY side
   malItems.forEach(li => {
-    // drag (desktop)
-    li.addEventListener('dragstart', () => {
-      draggedKey = li.dataset.key;
-    });
-
-    // tap (mobile)
+    li.addEventListener('dragstart', () => draggedKey = li.dataset.key);
     li.addEventListener('click', () => {
-      // clear previous highlight
       if (selectedLi) selectedLi.classList.remove('active');
       selectedKey = li.dataset.key;
       selectedLi = li;
@@ -332,7 +334,7 @@
   });
 
   // check button
-  document.getElementById('checkMatchBtn').addEventListener('click', () => {
+  document.getElementById('checkMatchBtn').onclick = () => {
     const rightItems = englishList.querySelectorAll('li');
     let score = 0;
     rightItems.forEach(li => {
@@ -344,21 +346,20 @@
         li.classList.add('border','border-danger');
       }
     });
-    matchResult.textContent = `You got ${score} / ${quiz1Pairs.length} correct.`;
-  });
+    matchResult.textContent = `You matched ${score} / ${quiz1Pairs.length} correctly.`;
+  };
 
-  // retry/scramble
-  document.getElementById('retryMatchBtn').addEventListener('click', () => {
-    // clear selection
+  // retry
+  document.getElementById('retryMatchBtn').onclick = () => {
     selectedKey = null;
     if (selectedLi) selectedLi.classList.remove('active');
     selectedLi = null;
     renderEnglishList();
-  });
+  };
 
-  // initial render
   renderEnglishList();
 </script>
+
 
 
     <!--quiz 2-->
