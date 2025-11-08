@@ -233,9 +233,9 @@
   <div class="card border-0 shadow-sm">
     <div class="card-body">
       <h2 class="h5 mb-3">Quiz 1: Match the greetings</h2>
-      <p class="mini mb-3">Drag the Malagasy/Tsimihety greeting (left) onto the correct English meaning (right).</p>
+      <p class="mini mb-3">On mobile: tap a greeting (left), then tap its meaning (right). On desktop: you can still drag.</p>
       <div class="row">
-        <!-- LEFT: fixed order from your lesson -->
+        <!-- LEFT: fixed -->
         <div class="col-md-6">
           <ul class="list-group" id="malagasyList">
             <li class="list-group-item" draggable="true" data-key="salama">Salama tompoko</li>
@@ -246,7 +246,7 @@
             <li class="list-group-item" draggable="true" data-key="tsisy">Tsisy vaovao</li>
           </ul>
         </div>
-        <!-- RIGHT: scrambled by JS -->
+        <!-- RIGHT: scrambled -->
         <div class="col-md-6">
           <ul class="list-group" id="englishList"></ul>
         </div>
@@ -259,7 +259,6 @@
 </section>
 
 <script>
-  // 1. data
   const quiz1Pairs = [
     { key: 'salama', text: 'Hello, sir' },
     { key: 'haody', text: 'Knock / hello at the door' },
@@ -269,20 +268,22 @@
     { key: 'tsisy', text: 'Nothing’s new' }
   ];
 
-  const malItems = document.querySelectorAll('#malagasyList li');
+  const malList = document.getElementById('malagasyList');
+  const malItems = malList.querySelectorAll('li');
   const englishList = document.getElementById('englishList');
   const matchResult = document.getElementById('matchResult');
-  let draggedKey = null;
 
-  // 2. helper to shuffle
+  let draggedKey = null;      // for desktop drag
+  let selectedKey = null;     // for mobile tap
+  let selectedLi = null;      // to remove highlight on new selection
+
   function shuffle(arr) {
     return arr
-      .map(x => ({ sort: Math.random(), value: x }))
-      .sort((a, b) => a.sort - b.sort)
-      .map(x => x.value);
+      .map(x => ({ v: x, r: Math.random() }))
+      .sort((a,b) => a.r - b.r)
+      .map(x => x.v);
   }
 
-  // 3. render the right-hand list (scrambled)
   function renderEnglishList() {
     englishList.innerHTML = '';
     const scrambled = shuffle(quiz1Pairs);
@@ -292,14 +293,20 @@
       li.textContent = item.text;
       li.dataset.answerKey = item.key;
       li.dataset.droppedKey = '';
-      // allow drop
+      // allow drop (desktop)
       li.addEventListener('dragover', e => e.preventDefault());
       li.addEventListener('drop', e => {
-        e.preventDefault(); // <-- this is the bit that often fixes "won't drop"
+        e.preventDefault();
         if (!draggedKey) return;
-        // restore original text first
         li.textContent = item.text + ' ← ' + draggedKey;
         li.dataset.droppedKey = draggedKey;
+        li.classList.add('bg-light');
+      });
+      // allow tap (mobile)
+      li.addEventListener('click', () => {
+        if (!selectedKey) return; // nothing picked on the left
+        li.textContent = item.text + ' ← ' + selectedKey;
+        li.dataset.droppedKey = selectedKey;
         li.classList.add('bg-light');
       });
       englishList.appendChild(li);
@@ -307,31 +314,45 @@
     matchResult.textContent = '';
   }
 
-  // 4. make left items draggable
+  // left side: support drag + tap
   malItems.forEach(li => {
+    // drag (desktop)
     li.addEventListener('dragstart', () => {
       draggedKey = li.dataset.key;
     });
+
+    // tap (mobile)
+    li.addEventListener('click', () => {
+      // clear previous highlight
+      if (selectedLi) selectedLi.classList.remove('active');
+      selectedKey = li.dataset.key;
+      selectedLi = li;
+      li.classList.add('active');
+    });
   });
 
-  // 5. check answers
+  // check button
   document.getElementById('checkMatchBtn').addEventListener('click', () => {
     const rightItems = englishList.querySelectorAll('li');
     let score = 0;
     rightItems.forEach(li => {
-      li.classList.remove('border-success', 'border-danger');
+      li.classList.remove('border-success','border-danger');
       if (li.dataset.droppedKey && li.dataset.droppedKey === li.dataset.answerKey) {
         score++;
-        li.classList.add('border', 'border-success');
+        li.classList.add('border','border-success');
       } else {
-        li.classList.add('border', 'border-danger');
+        li.classList.add('border','border-danger');
       }
     });
     matchResult.textContent = `You got ${score} / ${quiz1Pairs.length} correct.`;
   });
 
-  // 6. retry/scramble
+  // retry/scramble
   document.getElementById('retryMatchBtn').addEventListener('click', () => {
+    // clear selection
+    selectedKey = null;
+    if (selectedLi) selectedLi.classList.remove('active');
+    selectedLi = null;
     renderEnglishList();
   });
 
