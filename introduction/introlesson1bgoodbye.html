@@ -407,127 +407,28 @@
 
 
     <!--quiz 2-->
-    <section class="mb-5" id="l1b-quiz2">
+  <section class="mb-5" id="l1b-quiz2">
   <div class="card border-0 shadow-sm">
     <div class="card-body">
       <h2 class="h5 mb-3">Quiz 2: Time words (Official vs Tsimihety)</h2>
-      <p class="mini mb-3">Choose the correct form in each column.</p>
+      <p class="mini mb-3">Choose the correct form. You can reshuffle the options to try again.</p>
 
       <form id="l1b-time-quiz">
         <div class="row g-4">
           <!-- OFFICIAL -->
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6" id="l1b-official-col">
             <h6 class="mb-2 text-primary">Official Malagasy</h6>
-            <div class="mb-2">Morning →
-              <select class="form-select d-inline-block w-auto" name="off_morning">
-                <option value="">—</option>
-                <option>Maraina</option>
-                <option>Atoandro</option>
-                <option>Tolakandro</option>
-              </select>
-            </div>
-            <div class="mb-2">Noon →
-              <select class="form-select d-inline-block w-auto" name="off_noon">
-                <option value="">—</option>
-                <option>Maraina</option>
-                <option>Atoandro</option>
-                <option>Hariva</option>
-              </select>
-            </div>
-            <div class="mb-2">Afternoon →
-              <select class="form-select d-inline-block w-auto" name="off_afternoon">
-                <option value="">—</option>
-                <option>Hariva</option>
-                <option>Tolakandro</option>
-              </select>
-            </div>
-            <div class="mb-2">Night →
-              <select class="form-select d-inline-block w-auto" name="off_night">
-                <option value="">—</option>
-                <option>Alina</option>
-                <option>Hariva</option>
-              </select>
-            </div>
-            <div class="mb-2">Yesterday →
-              <select class="form-select d-inline-block w-auto" name="off_yesterday">
-                <option value="">—</option>
-                <option>Omaly</option>
-                <option>Androany</option>
-              </select>
-            </div>
-            <div class="mb-2">Today →
-              <select class="form-select d-inline-block w-auto" name="off_today">
-                <option value="">—</option>
-                <option>Androany</option>
-                <option>Rahampitso</option>
-              </select>
-            </div>
-            <div class="mb-2">Tomorrow →
-              <select class="form-select d-inline-block w-auto" name="off_tomorrow">
-                <option value="">—</option>
-                <option>Rahampitso</option>
-                <option>Omaly</option>
-              </select>
-            </div>
+            <!-- selects will be injected here -->
           </div>
-
           <!-- TSIMIHETY -->
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6" id="l1b-tsm-col">
             <h6 class="mb-2 text-success">Tsimihety</h6>
-            <div class="mb-2">Morning →
-              <select class="form-select d-inline-block w-auto" name="tsm_morning">
-                <option value="">—</option>
-                <option>Maraindrainy</option>
-                <option>Matsagna</option>
-                <option>Folakandro</option>
-              </select>
-            </div>
-            <div class="mb-2">Noon →
-              <select class="form-select d-inline-block w-auto" name="tsm_noon">
-                <option value="">—</option>
-                <option>Matsagna</option>
-                <option>Harivariva</option>
-              </select>
-            </div>
-            <div class="mb-2">Afternoon →
-              <select class="form-select d-inline-block w-auto" name="tsm_afternoon">
-                <option value="">—</option>
-                <option>Harivariva</option>
-                <option>Folakandro</option>
-              </select>
-            </div>
-            <div class="mb-2">Night →
-              <select class="form-select d-inline-block w-auto" name="tsm_night">
-                <option value="">—</option>
-                <option>Alina</option>
-                <option>Harivariva</option>
-              </select>
-            </div>
-            <div class="mb-2">Yesterday →
-              <select class="form-select d-inline-block w-auto" name="tsm_yesterday">
-                <option value="">—</option>
-                <option>Nomoaligny</option>
-                <option>Niany</option>
-              </select>
-            </div>
-            <div class="mb-2">Today →
-              <select class="form-select d-inline-block w-auto" name="tsm_today">
-                <option value="">—</option>
-                <option>Niany</option>
-                <option>Amarainy</option>
-              </select>
-            </div>
-            <div class="mb-2">Tomorrow →
-              <select class="form-select d-inline-block w-auto" name="tsm_tomorrow">
-                <option value="">—</option>
-                <option>Amarainy</option>
-                <option>Nomoaligny</option>
-              </select>
-            </div>
+            <!-- selects will be injected here -->
           </div>
         </div>
 
-        <button type="button" class="btn btn-primary mt-3" id="l1b-time-check">Check</button>
+        <button type="button" class="btn btn-primary mt-3 me-2" id="l1b-time-check">Check</button>
+        <button type="button" class="btn btn-outline-secondary mt-3" id="l1b-time-scramble">Scramble options</button>
         <p id="l1b-time-result" class="mt-3 fw-bold"></p>
       </form>
     </div>
@@ -535,48 +436,199 @@
 </section>
 
 <script>
-  const l1bTimeCorrect = {
-    off_morning: "Maraina",
-    off_noon: "Atoandro",
-    off_afternoon: "Hariva",    // your table: "Hariva"
-    off_night: "Alina",
-    off_yesterday: "Omaly",
-    off_today: "Androany",
-    off_tomorrow: "Rahampitso",
-    tsm_morning: "Maraindrainy",
-    tsm_noon: "Matsagna",
-    tsm_afternoon: "Harivariva",
-    tsm_night: "Alina",
-    tsm_yesterday: "Nomoaligny",
-    tsm_today: "Niany",
-    tsm_tomorrow: "Amarainy"
-  };
+  // 1. quiz data
+  const l1bTimeFields = [
+    // OFFICIAL
+    {
+      id: "off_morning",
+      col: "off",
+      label: "Morning",
+      correct: "Maraina",
+      choices: ["Maraina", "Atoandro", "Hariva", "Alina"]
+    },
+    {
+      id: "off_noon",
+      col: "off",
+      label: "Noon",
+      correct: "Atoandro",
+      choices: ["Atoandro", "Maraina", "Hariva", "Alina"]
+    },
+    {
+      id: "off_afternoon",
+      col: "off",
+      label: "Afternoon",
+      correct: "Hariva",
+      choices: ["Hariva", "Tolakandro", "Atoandro"]
+    },
+    {
+      id: "off_night",
+      col: "off",
+      label: "Night",
+      correct: "Alina",
+      choices: ["Alina", "Hariva", "Maraina"]
+    },
+    {
+      id: "off_yesterday",
+      col: "off",
+      label: "Yesterday",
+      correct: "Omaly",
+      choices: ["Omaly", "Androany", "Rahampitso"]
+    },
+    {
+      id: "off_today",
+      col: "off",
+      label: "Today",
+      correct: "Androany",
+      choices: ["Androany", "Omaly", "Rahampitso"]
+    },
+    {
+      id: "off_tomorrow",
+      col: "off",
+      label: "Tomorrow",
+      correct: "Rahampitso",
+      choices: ["Rahampitso", "Androany", "Omaly"]
+    },
+    // TSIMIHETY
+    {
+      id: "tsm_morning",
+      col: "tsm",
+      label: "Morning",
+      correct: "Maraindrainy",
+      choices: ["Maraindrainy", "Matsagna", "Folakandro"]
+    },
+    {
+      id: "tsm_noon",
+      col: "tsm",
+      label: "Noon",
+      correct: "Matsagna",
+      choices: ["Matsagna", "Harivariva", "Alina"]
+    },
+    {
+      id: "tsm_afternoon",
+      col: "tsm",
+      label: "Afternoon",
+      correct: "Harivariva",
+      choices: ["Harivariva", "Folakandro", "Matsagna"]
+    },
+    {
+      id: "tsm_night",
+      col: "tsm",
+      label: "Night",
+      correct: "Alina",
+      choices: ["Alina", "Harivariva"]
+    },
+    {
+      id: "tsm_yesterday",
+      col: "tsm",
+      label: "Yesterday",
+      correct: "Nomoaligny",
+      choices: ["Nomoaligny", "Niany", "Amarainy"]
+    },
+    {
+      id: "tsm_today",
+      col: "tsm",
+      label: "Today",
+      correct: "Niany",
+      choices: ["Niany", "Amarainy", "Nomoaligny"]
+    },
+    {
+      id: "tsm_tomorrow",
+      col: "tsm",
+      label: "Tomorrow",
+      correct: "Amarainy",
+      choices: ["Amarainy", "Niany", "Nomoaligny"]
+    }
+  ];
 
-  document.getElementById('l1b-time-check').onclick = () => {
-    const form = document.getElementById('l1b-time-quiz');
-    let score = 0;
-    const total = Object.keys(l1bTimeCorrect).length;
+  const l1bOffCol = document.getElementById("l1b-official-col");
+  const l1bTsmCol = document.getElementById("l1b-tsm-col");
 
-    Object.keys(l1bTimeCorrect).forEach(name => {
-      const sel = form[name];
-      if (!sel) return;
-      const val = (sel.value || "").trim();
-      if (val === l1bTimeCorrect[name]) {
-        score++;
-        sel.classList.add('border-success');
-        sel.classList.remove('border-danger');
+  // helper to shuffle an array
+  function shuffleArray(arr) {
+    return arr
+      .map(x => ({ val: x, r: Math.random() }))
+      .sort((a,b) => a.r - b.r)
+      .map(x => x.val);
+  }
+
+  // 2. render function
+  function renderTimeQuiz() {
+    // clear columns except headings
+    l1bOffCol.querySelectorAll(".l1b-field").forEach(el => el.remove());
+    l1bTsmCol.querySelectorAll(".l1b-field").forEach(el => el.remove());
+
+    l1bTimeFields.forEach(field => {
+      const wrapper = document.createElement("div");
+      wrapper.className = "mb-2 l1b-field";
+      wrapper.innerHTML = `${field.label} → `;
+      const select = document.createElement("select");
+      select.className = "form-select d-inline-block w-auto";
+      select.name = field.id;
+
+      // make a fresh shuffled copy of choices
+      const shuffledChoices = shuffleArray(field.choices.slice());
+      // add placeholder
+      const optPlaceholder = document.createElement("option");
+      optPlaceholder.value = "";
+      optPlaceholder.textContent = "—";
+      select.appendChild(optPlaceholder);
+      // add choices
+      shuffledChoices.forEach(choice => {
+        const opt = document.createElement("option");
+        opt.value = choice;
+        opt.textContent = choice;
+        select.appendChild(opt);
+      });
+
+      wrapper.appendChild(select);
+
+      if (field.col === "off") {
+        l1bOffCol.appendChild(wrapper);
       } else {
-        sel.classList.add('border-danger');
-        sel.classList.remove('border-success');
+        l1bTsmCol.appendChild(wrapper);
       }
     });
 
-    document.getElementById('l1b-time-result').textContent =
+    // clear result text
+    document.getElementById("l1b-time-result").textContent = "";
+  }
+
+  // 3. check function
+  document.getElementById("l1b-time-check").onclick = () => {
+    const form = document.getElementById("l1b-time-quiz");
+    let score = 0;
+    const total = l1bTimeFields.length;
+
+    l1bTimeFields.forEach(field => {
+      const sel = form[field.id];
+      // remove old borders
+      sel.classList.remove("border-success","border-danger");
+      const val = (sel.value || "").trim();
+      if (val === field.correct) {
+        score++;
+        sel.classList.add("border-success");
+      } else {
+        sel.classList.add("border-danger");
+      }
+    });
+
+    document.getElementById("l1b-time-result").textContent =
       `You got ${score} / ${total} correct.`;
   };
+
+  // 4. scramble button
+  document.getElementById("l1b-time-scramble").onclick = () => {
+    renderTimeQuiz();
+  };
+
+  // initial render
+  renderTimeQuiz();
 </script>
 
-    <!--quiz3--><section class="mb-5" id="l1b-quiz3">
+
+    <!--quiz3-->
+    
+    <section class="mb-5" id="l1b-quiz3">
   <div class="card border-0 shadow-sm">
     <div class="card-body">
       <h2 class="h5 mb-3">Quiz 3: Days of the week</h2>
