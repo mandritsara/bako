@@ -278,52 +278,60 @@
     </section>
 
     <!--quiz1-->
-    <section class="mb-5" id="l1b-quiz1">
+   <section class="mb-5" id="l1b-quiz1">
   <div class="card border-0 shadow-sm">
     <div class="card-body">
       <h2 class="h5 mb-3">Quiz 1: Match the goodbyes</h2>
-      <p class="mini mb-3">On mobile: tap a phrase on the left, then tap its meaning on the right. On desktop: you can drag.</p>
+      <p class="mini mb-3">
+        Tap an English goodbye, then tap the matching Malagasy expression.
+        On bigger screens you can also drag and drop.
+      </p>
+
       <div class="row">
-        <!-- LEFT: fixed list of lesson 1b goodbyes -->
-        <div class="col-md-6">
-          <ul class="list-group" id="l1b-malagasyList">
-            <li class="list-group-item" draggable="true" data-key="veloma">Veloma tompoko</li>
-            <li class="list-group-item" draggable="true" data-key="velomae">Veloma e</li>
-            <li class="list-group-item" draggable="true" data-key="mazotoa">Mazotoa</li>
-            <li class="list-group-item" draggable="true" data-key="rehefa">Rehefa avy eo</li>
-            <li class="list-group-item" draggable="true" data-key="mandr">Mandrapihaona</li>
+        <!-- ENGLISH side -->
+        <div class="col-12 col-md-6 mb-3 mb-md-0">
+          <h6 class="text-success text-center mb-2">English</h6>
+          <ul class="list-group border border-success-subtle" id="l1b-englishList"></ul>
+        </div>
+
+        <!-- MALAGASY side -->
+        <div class="col-12 col-md-6">
+          <h6 class="text-primary text-center mb-2">Malagasy</h6>
+          <ul class="list-group border border-primary-subtle" id="l1b-malagasyList">
+            <li class="list-group-item bg-light" draggable="true" data-key="veloma">Veloma tompoko</li>
+            <li class="list-group-item bg-light" draggable="true" data-key="velomae">Veloma e</li>
+            <li class="list-group-item bg-light" draggable="true" data-key="mazotoa">Mazotoa</li>
+            <li class="list-group-item bg-light" draggable="true" data-key="rehefa">Rehefa avy eo</li>
+            <li class="list-group-item bg-light" draggable="true" data-key="mandr">Mandrapihaona</li>
           </ul>
         </div>
-        <!-- RIGHT: scrambled meanings -->
-        <div class="col-md-6">
-          <ul class="list-group" id="l1b-englishList"></ul>
-        </div>
       </div>
+
       <button class="btn btn-primary mt-3 me-2" id="l1b-checkMatchBtn">Check answers</button>
-      <button class="btn btn-outline-secondary mt-3" id="l1b-retryMatchBtn">Retry / scramble</button>
-      <p id="l1b-matchResult" class="mt-2"></p>
+      <button class="btn btn-outline-secondary mt-3" id="l1b-retryMatchBtn">Retry / Scramble</button>
+      <p id="l1b-matchResult" class="mt-2 fw-bold"></p>
     </div>
   </div>
 </section>
 
 <script>
-  // data for lesson 1b
-  const l1bQuizPairs = [
-    { key: 'veloma', text: 'Goodbye (polite) / Goodbye, sir' },
+  // English ↔ Malagasy pairs for Lesson 1b
+  const l1bPairs = [
+    { key: 'veloma',  text: 'Goodbye (polite) / goodbye, sir' },
     { key: 'velomae', text: 'Bye! (informal)' },
-    { key: 'mazotoa', text: 'Enjoy / go well (said when someone is about to do something)' },
-    { key: 'rehefa', text: 'See you in a short while' },
-    { key: 'mandr', text: 'Until we meet again' }
+    { key: 'mazotoa', text: 'Enjoy / go well (mazotoa)' },
+    { key: 'rehefa',  text: 'See you in a little while' },
+    { key: 'mandr',   text: 'Until we meet again' }
   ];
 
-  const l1bMalList = document.getElementById('l1b-malagasyList');
-  const l1bMalItems = l1bMalList.querySelectorAll('li');
   const l1bEnglishList = document.getElementById('l1b-englishList');
-  const l1bMatchResult = document.getElementById('l1b-matchResult');
+  const l1bMalagasyList = document.getElementById('l1b-malagasyList');
+  const l1bMalItems = l1bMalagasyList.querySelectorAll('li');
+  const l1bResult = document.getElementById('l1b-matchResult');
 
-  let l1bDraggedKey = null;   // for desktop drag
-  let l1bSelectedKey = null;  // for mobile tap
-  let l1bSelectedLi = null;   // to unhighlight previous left item
+  let l1bDraggedKey = null;
+  let l1bSelectedKey = null;
+  let l1bSelectedLi = null;
 
   function l1bShuffle(arr) {
     return arr
@@ -332,9 +340,9 @@
       .map(x => x.v);
   }
 
-  function renderL1bEnglishList() {
+  function renderL1bEnglish() {
     l1bEnglishList.innerHTML = '';
-    const scrambled = l1bShuffle(l1bQuizPairs);
+    const scrambled = l1bShuffle(l1bPairs);
     scrambled.forEach(item => {
       const li = document.createElement('li');
       li.className = 'list-group-item';
@@ -342,7 +350,7 @@
       li.dataset.answerKey = item.key;
       li.dataset.droppedKey = '';
 
-      // allow drop (desktop)
+      // allow dropping (desktop)
       li.addEventListener('dragover', e => e.preventDefault());
       li.addEventListener('drop', e => {
         e.preventDefault();
@@ -362,10 +370,10 @@
 
       l1bEnglishList.appendChild(li);
     });
-    l1bMatchResult.textContent = '';
+    l1bResult.textContent = '';
   }
 
-  // left list: drag + tap
+  // right side: select Malagasy
   l1bMalItems.forEach(li => {
     // desktop drag
     li.addEventListener('dragstart', () => {
@@ -381,7 +389,7 @@
   });
 
   // check
-  document.getElementById('l1b-checkMatchBtn').addEventListener('click', () => {
+  document.getElementById('l1b-checkMatchBtn').onclick = () => {
     const rightItems = l1bEnglishList.querySelectorAll('li');
     let score = 0;
     rightItems.forEach(li => {
@@ -393,20 +401,21 @@
         li.classList.add('border','border-danger');
       }
     });
-    l1bMatchResult.textContent = `You got ${score} / ${l1bQuizPairs.length} correct.`;
-  });
+    l1bResult.textContent = `You matched ${score} / ${l1bPairs.length}.`;
+  };
 
-  // retry
-  document.getElementById('l1b-retryMatchBtn').addEventListener('click', () => {
+  // retry / scramble
+  document.getElementById('l1b-retryMatchBtn').onclick = () => {
     l1bSelectedKey = null;
     if (l1bSelectedLi) l1bSelectedLi.classList.remove('active');
     l1bSelectedLi = null;
-    renderL1bEnglishList();
-  });
+    renderL1bEnglish();
+  };
 
   // initial render
-  renderL1bEnglishList();
+  renderL1bEnglish();
 </script>
+
 
 
     <!--quiz 2-->
