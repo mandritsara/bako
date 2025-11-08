@@ -860,98 +860,157 @@
 
     <!--quiz 4-->
 
- <section class="mb-5" id="quiz4">
+ <section class="mb-5" id="quiz4a">
   <div class="card border-0 shadow-sm">
     <div class="card-body">
-      <h2 class="h5 mb-3">Quiz 4: Listening to the dialogue</h2>
+      <h2 class="h5 mb-3">Quiz 4a: Listening to the street greeting</h2>
       <p class="mini mb-3">Listen to the dialogue, then tick every line you heard.</p>
       <audio controls class="w-100 mb-3">
         <source src="/audio/introduction/lesson1con1.mp3" type="audio/mpeg" />
       </audio>
 
-      <form id="listeningLines">
-        <!-- real lines from the street greeting dialogue -->
+      <form id="listeningLines1">
+        <!-- Real lines -->
         <div class="form-check mb-1">
-          <input class="form-check-input" type="checkbox" value="salama" id="l1">
-          <label class="form-check-label" for="l1">Salama tompoko!</label>
+          <input class="form-check-input" type="checkbox" value="salama" id="q4a1">
+          <label class="form-check-label" for="q4a1">Salama tompoko!</label>
         </div>
         <div class="form-check mb-1">
-          <input class="form-check-input" type="checkbox" value="manakory" id="l2">
-          <label class="form-check-label" for="l2">Manakory ianao?</label>
+          <input class="form-check-input" type="checkbox" value="manakory" id="q4a2">
+          <label class="form-check-label" for="q4a2">Manakory ianao?</label>
         </div>
         <div class="form-check mb-1">
-          <input class="form-check-input" type="checkbox" value="tsara" id="l3">
-          <label class="form-check-label" for="l3">Tsara fa misaotra.</label>
+          <input class="form-check-input" type="checkbox" value="tsara" id="q4a3">
+          <label class="form-check-label" for="q4a3">Tsara fa misaotra.</label>
         </div>
         <div class="form-check mb-1">
-          <input class="form-check-input" type="checkbox" value="ino" id="l4">
-          <label class="form-check-label" for="l4">Ino vaovao?</label>
+          <input class="form-check-input" type="checkbox" value="ino" id="q4a4">
+          <label class="form-check-label" for="q4a4">Ino vaovao?</label>
         </div>
         <div class="form-check mb-2">
-          <input class="form-check-input" type="checkbox" value="tsisy" id="l5">
-          <label class="form-check-label" for="l5">Tsisy vaovao.</label>
+          <input class="form-check-input" type="checkbox" value="tsisy" id="q4a5">
+          <label class="form-check-label" for="q4a5">Tsisy vaovao.</label>
         </div>
 
-        <!-- plausible distractors from other parts of the same lesson -->
+        <!-- Distractors -->
         <div class="form-check mb-1">
-          <input class="form-check-input" type="checkbox" value="haody" id="l6">
-          <label class="form-check-label" for="l6">Haody!</label>
+          <input class="form-check-input" type="checkbox" value="haody" id="q4a6">
+          <label class="form-check-label" for="q4a6">Haody!</label>
         </div>
         <div class="form-check mb-1">
-          <input class="form-check-input" type="checkbox" value="mandrosoa" id="l7">
-          <label class="form-check-label" for="l7">Mandrosoa. Mipetrapetraha.</label>
+          <input class="form-check-input" type="checkbox" value="mandrosoa" id="q4a7">
+          <label class="form-check-label" for="q4a7">Mandrosoa. Mipetrapetraha.</label>
         </div>
         <div class="form-check mb-1">
-          <input class="form-check-input" type="checkbox" value="mazotoa" id="l8">
-          <label class="form-check-label" for="l8">Mazotoa!</label>
-        </div>
-        <div class="form-check mb-1">
-          <input class="form-check-input" type="checkbox" value="misaotra" id="l9">
-          <label class="form-check-label" for="l9">Misaotra betsaka.</label>
+          <input class="form-check-input" type="checkbox" value="mazotoa" id="q4a8">
+          <label class="form-check-label" for="q4a8">Mazotoa!</label>
         </div>
 
-        <button type="button" class="btn btn-primary mt-3" id="checkListeningLines">Check</button>
-        <p id="listenResult" class="mt-3 fw-bold"></p>
+        <button type="button" class="btn btn-primary mt-3" id="checkListening1">Check</button>
+        <p id="listenResult1" class="mt-3 fw-bold"></p>
       </form>
     </div>
   </div>
 </section>
 
 <script>
-  // lines actually present in lesson1con1 dialogue (the street greeting):
-  // Salama tompoko → Salama tompoko → Manakory ianao? → Tsara fa misaotra. → Ino vaovao? → Tsisy vaovao.
-  const correctLines = new Set(["salama","manakory","tsara","ino","tsisy"]);
+  const correctLines1 = new Set(["salama","manakory","tsara","ino","tsisy"]);
 
-  document.getElementById('checkListeningLines').onclick = () => {
-    const form = document.getElementById('listeningLines');
+  document.getElementById('checkListening1').onclick = () => {
+    const form = document.getElementById('listeningLines1');
     const checks = form.querySelectorAll('.form-check-input');
-
-    let correctSelected = 0;
-    let wrongSelected = 0;
-    const totalCorrect = correctLines.size;
-
+    let correct = 0, wrong = 0;
     checks.forEach(ch => {
-      const isCorrectLine = correctLines.has(ch.value);
-      // reset styles first
+      const good = correctLines1.has(ch.value);
       ch.parentElement.classList.remove('border','border-success','border-danger','rounded');
-
-      if (ch.checked && isCorrectLine) {
-        correctSelected++;
-        ch.parentElement.classList.add('border','border-success','rounded');
-      } else if (ch.checked && !isCorrectLine) {
-        wrongSelected++;
-        ch.parentElement.classList.add('border','border-danger','rounded');
+      if (ch.checked && good) {
+        correct++; ch.parentElement.classList.add('border','border-success','rounded');
+      } else if (ch.checked && !good) {
+        wrong++; ch.parentElement.classList.add('border','border-danger','rounded');
       }
     });
-
-    const result = document.getElementById('listenResult');
-    if (correctSelected === totalCorrect && wrongSelected === 0) {
-      result.textContent = '✅ Perfect — you picked exactly the lines from the dialogue.';
-    } else {
-      result.textContent = `You picked ${correctSelected}/${totalCorrect} correct lines, and ${wrongSelected} extra line(s) that weren’t in the recording. Listen again and try once more.`;
-    }
+    const res = document.getElementById('listenResult1');
+    res.textContent = `You picked ${correct}/${correctLines1.size} correct and ${wrong} wrong.`;
   };
 </script>
+<section class="mb-5" id="quiz4b">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 4b: Listening to the “Haody!” dialogue</h2>
+      <p class="mini mb-3">Listen to the second dialogue, then tick every line you heard.</p>
+      <audio controls class="w-100 mb-3">
+        <source src="/audio/introduction/lesson1con2.mp3" type="audio/mpeg" />
+      </audio>
+
+      <form id="listeningLines2">
+        <!-- Real lines -->
+        <div class="form-check mb-1">
+          <input class="form-check-input" type="checkbox" value="haody" id="q4b1">
+          <label class="form-check-label" for="q4b1">Haody!</label>
+        </div>
+        <div class="form-check mb-1">
+          <input class="form-check-input" type="checkbox" value="mandrosoa" id="q4b2">
+          <label class="form-check-label" for="q4b2">Mandrosoa. Mipetrapetraha.</label>
+        </div>
+        <div class="form-check mb-1">
+          <input class="form-check-input" type="checkbox" value="salama" id="q4b3">
+          <label class="form-check-label" for="q4b3">Salama tompoko!</label>
+        </div>
+        <div class="form-check mb-1">
+          <input class="form-check-input" type="checkbox" value="manakory" id="q4b4">
+          <label class="form-check-label" for="q4b4">Manakory ianao?</label>
+        </div>
+        <div class="form-check mb-1">
+          <input class="form-check-input" type="checkbox" value="tsara" id="q4b5">
+          <label class="form-check-label" for="q4b5">Tsara fa misaotra.</label>
+        </div>
+        <div class="form-check mb-1">
+          <input class="form-check-input" type="checkbox" value="ino" id="q4b6">
+          <label class="form-check-label" for="q4b6">Ino vaovao?</label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" value="tsisy" id="q4b7">
+          <label class="form-check-label" for="q4b7">Tsisy vaovao.</label>
+        </div>
+
+        <!-- Distractors -->
+        <div class="form-check mb-1">
+          <input class="form-check-input" type="checkbox" value="mazotoa" id="q4b8">
+          <label class="form-check-label" for="q4b8">Mazotoa!</label>
+        </div>
+        <div class="form-check mb-1">
+          <input class="form-check-input" type="checkbox" value="veloma" id="q4b9">
+          <label class="form-check-label" for="q4b9">Veloma tompoko!</label>
+        </div>
+
+        <button type="button" class="btn btn-primary mt-3" id="checkListening2">Check</button>
+        <p id="listenResult2" class="mt-3 fw-bold"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const correctLines2 = new Set(["haody","mandrosoa","salama","manakory","tsara","ino","tsisy"]);
+
+  document.getElementById('checkListening2').onclick = () => {
+    const form = document.getElementById('listeningLines2');
+    const checks = form.querySelectorAll('.form-check-input');
+    let correct = 0, wrong = 0;
+    checks.forEach(ch => {
+      const good = correctLines2.has(ch.value);
+      ch.parentElement.classList.remove('border','border-success','border-danger','rounded');
+      if (ch.checked && good) {
+        correct++; ch.parentElement.classList.add('border','border-success','rounded');
+      } else if (ch.checked && !good) {
+        wrong++; ch.parentElement.classList.add('border','border-danger','rounded');
+      }
+    });
+    const res = document.getElementById('listenResult2');
+    res.textContent = `You picked ${correct}/${correctLines2.size} correct and ${wrong} wrong.`;
+  };
+</script>
+
 
 
 
