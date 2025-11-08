@@ -207,26 +207,29 @@
     <div class="card-body">
       <h2 class="h5 mb-3">Quiz 1: Match the useful expressions</h2>
       <p class="mini mb-3">
-        Tap an English line, then tap the matching Malagasy expression. On bigger screens you can also drag and drop.
+        Tap a Malagasy expression, then tap its English meaning.
       </p>
 
       <div class="row">
-        <!-- ENGLISH (select this first) -->
+        <!-- MALAGASY FIRST -->
         <div class="col-12 col-md-6 mb-3 mb-md-0">
-          <h6 class="text-success text-center mb-2">English</h6>
-          <ul class="list-group border border-success-subtle" id="l2-eng-list"></ul>
-        </div>
-
-        <!-- MALAGASY -->
-        <div class="col-12 col-md-6">
           <h6 class="text-primary text-center mb-2">Malagasy</h6>
           <ul class="list-group border border-primary-subtle" id="l2-malagasy-list">
-            <li class="list-group-item bg-light" draggable="true" data-key="misaotra">Misaotra</li>
-            <li class="list-group-item bg-light" draggable="true" data-key="tsisy">Tsisy fisaorana</li>
-            <li class="list-group-item bg-light" draggable="true" data-key="azafady">Azafady</li>
-            <li class="list-group-item bg-light" draggable="true" data-key="tsy">Tsy maninona</li>
-            <li class="list-group-item bg-light" draggable="true" data-key="soava">Soava dia</li>
-            <li class="list-group-item bg-light" draggable="true" data-key="tonga">Tonga soa</li>
+            <!-- these are from Lesson 2 -->
+            <li class="list-group-item bg-light" data-key="misaotra">Misaotra</li>
+            <li class="list-group-item bg-light" data-key="tsisy">Tsisy fisaorana</li>
+            <li class="list-group-item bg-light" data-key="azafady">Azafady</li>
+            <li class="list-group-item bg-light" data-key="tsy">Tsy maninona</li>
+            <li class="list-group-item bg-light" data-key="soava">Soava dia</li>
+            <li class="list-group-item bg-light" data-key="tonga">Tonga soa</li>
+          </ul>
+        </div>
+
+        <!-- ENGLISH SECOND (SCRAMBLED) -->
+        <div class="col-12 col-md-6">
+          <h6 class="text-success text-center mb-2">English meaning</h6>
+          <ul class="list-group border border-success-subtle" id="l2-english-list">
+            <!-- JS fills -->
           </ul>
         </div>
       </div>
@@ -239,6 +242,7 @@
 </section>
 
 <script>
+  // Malagasy ↔ English pairs for Lesson 2
   const l2Pairs = [
     { key: 'misaotra', text: 'Thank you' },
     { key: 'tsisy',    text: 'You’re welcome / not at all' },
@@ -248,18 +252,20 @@
     { key: 'tonga',    text: 'Welcome' }
   ];
 
-  const l2EngList = document.getElementById('l2-eng-list');
-  const l2MalList = document.getElementById('l2-malagasy-list');
-  const l2MalItems = l2MalList.querySelectorAll('li');
-  const l2Q1Result = document.getElementById('l2-q1-result');
+  const l2MalList   = document.getElementById('l2-malagasy-list');
+  const l2MalItems  = l2MalList.querySelectorAll('li');
+  const l2EngList   = document.getElementById('l2-english-list');
+  const l2ResultEl  = document.getElementById('l2-q1-result');
 
-  let l2SelectedEnglishLi = null;
-  let l2DraggedKey = null;
+  // current selected malagasy
+  let l2SelectedMalKey = null;
+  let l2SelectedMalLi  = null;
 
   function l2Shuffle(arr) {
-    return arr.map(x => ({v:x, r:Math.random()}))
-              .sort((a,b) => a.r - b.r)
-              .map(x => x.v);
+    return arr
+      .map(x => ({ v: x, r: Math.random() }))
+      .sort((a,b) => a.r - b.r)
+      .map(x => x.v);
   }
 
   function renderL2English() {
@@ -269,75 +275,68 @@
       const li = document.createElement('li');
       li.className = 'list-group-item';
       li.textContent = item.text;
-      li.dataset.answerKey = item.key;
-      li.dataset.droppedKey = '';
+      li.dataset.answerKey = item.key;  // what it SHOULD match
+      li.dataset.matchedKey = '';       // what user matched
 
-      // select English first
+      // click to accept current Malagasy
       li.addEventListener('click', () => {
-        if (l2SelectedEnglishLi) l2SelectedEnglishLi.classList.remove('active');
-        l2SelectedEnglishLi = li;
-        li.classList.add('active');
-      });
-
-      // allow drop
-      li.addEventListener('dragover', e => e.preventDefault());
-      li.addEventListener('drop', e => {
-        e.preventDefault();
-        if (!l2DraggedKey) return;
-        li.textContent = item.text + ' ← ' + l2DraggedKey;
-        li.dataset.droppedKey = l2DraggedKey;
+        if (!l2SelectedMalKey) return; // nothing selected on Malagasy
+        const baseText = item.text;
+        li.textContent = baseText + ' ← ' + l2SelectedMalKey;
+        li.dataset.matchedKey = l2SelectedMalKey;
         li.classList.add('bg-light');
+
+        // clear malagasy selection
+        if (l2SelectedMalLi) l2SelectedMalLi.classList.remove('active');
+        l2SelectedMalKey = null;
+        l2SelectedMalLi  = null;
       });
 
       l2EngList.appendChild(li);
     });
-    l2Q1Result.textContent = '';
-    l2SelectedEnglishLi = null;
+    l2ResultEl.textContent = '';
   }
 
-  // MALAGASY side
+  // MALAGASY clicks
   l2MalItems.forEach(li => {
-    // desktop drag
-    li.addEventListener('dragstart', () => {
-      l2DraggedKey = li.dataset.key;
-    });
-
-    // mobile tap: only if an English line is selected
     li.addEventListener('click', () => {
-      if (!l2SelectedEnglishLi) return;
-      const malKey = li.dataset.key;
-      const engText = l2SelectedEnglishLi.textContent.split(' ← ')[0];
-      l2SelectedEnglishLi.textContent = engText + ' ← ' + malKey;
-      l2SelectedEnglishLi.dataset.droppedKey = malKey;
-      l2SelectedEnglishLi.classList.add('bg-light');
+      // clear previous
+      if (l2SelectedMalLi) l2SelectedMalLi.classList.remove('active');
+      l2SelectedMalKey = li.dataset.key;
+      l2SelectedMalLi  = li;
+      li.classList.add('active');
     });
   });
 
-  // check
-  document.getElementById('l2-q1-check').onclick = () => {
+  // CHECK
+  document.getElementById('l2-q1-check').addEventListener('click', () => {
     const engItems = l2EngList.querySelectorAll('li');
     let score = 0;
     engItems.forEach(li => {
       li.classList.remove('border-success','border-danger');
-      if (li.dataset.droppedKey && li.dataset.droppedKey === li.dataset.answerKey) {
+      const correct = li.dataset.answerKey;
+      const user    = li.dataset.matchedKey;
+      if (user && user === correct) {
         score++;
         li.classList.add('border','border-success');
       } else {
         li.classList.add('border','border-danger');
       }
     });
-    l2Q1Result.textContent = `You matched ${score} / ${l2Pairs.length}.`;
-  };
+    l2ResultEl.textContent = `You matched ${score} / ${l2Pairs.length} correctly.`;
+  });
 
-  // retry
-  document.getElementById('l2-q1-retry').onclick = () => {
+  // RETRY
+  document.getElementById('l2-q1-retry').addEventListener('click', () => {
+    if (l2SelectedMalLi) l2SelectedMalLi.classList.remove('active');
+    l2SelectedMalKey = null;
+    l2SelectedMalLi  = null;
     renderL2English();
-  };
+  });
 
-  // initial
+  // initial render
   renderL2English();
 </script>
-
 
     <!--quiz2-->
 
