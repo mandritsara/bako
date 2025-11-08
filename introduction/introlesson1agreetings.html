@@ -363,173 +363,221 @@
 
     <!--quiz 2-->
 
-<section class="mb-5" id="quiz2">
+<section class="mb-5" id="l1a-quiz2">
   <div class="card border-0 shadow-sm">
     <div class="card-body">
-      <h2 class="h5 mb-3">Quiz 2: Pronouns</h2>
-      <p class="mini mb-3">Choose the correct pronoun in each variety.</p>
+      <h2 class="h5 mb-3">Quiz 2: Pronouns (Official vs Tsimihety)</h2>
+      <p class="mini mb-3">Choose the correct pronoun. You can reshuffle the options to try again.</p>
 
-      <form id="pronounQuizSelect">
+      <form id="l1a-pronoun-quiz">
         <div class="row g-4">
           <!-- OFFICIAL LEFT -->
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6" id="l1a-official-col">
             <h6 class="mb-2 text-primary">Official Malagasy</h6>
-            <div class="mb-2">I →
-              <select class="form-select d-inline-block w-auto" name="off_I">
-                <option value="">—</option>
-                <option>Aho</option><option>Ianao</option><option>Ianareo</option>
-                <option>Izy</option><option>Izy ireo</option><option>Isika</option><option>Izahay</option>
-              </select>
-            </div>
-            <div class="mb-2">You (singular) →
-              <select class="form-select d-inline-block w-auto" name="off_you_sg">
-                <option value="">—</option>
-                <option>Aho</option><option>Ianao</option><option>Ianareo</option>
-                <option>Izy</option><option>Izy ireo</option><option>Isika</option><option>Izahay</option>
-              </select>
-            </div>
-            <div class="mb-2">You (plural) →
-              <select class="form-select d-inline-block w-auto" name="off_you_pl">
-                <option value="">—</option>
-                <option>Aho</option><option>Ianao</option><option>Ianareo</option>
-                <option>Izy</option><option>Izy ireo</option><option>Isika</option><option>Izahay</option>
-              </select>
-            </div>
-            <div class="mb-2">He / She / It →
-              <select class="form-select d-inline-block w-auto" name="off_3sg">
-                <option value="">—</option>
-                <option>Aho</option><option>Ianao</option><option>Ianareo</option>
-                <option>Izy</option><option>Izy ireo</option><option>Isika</option><option>Izahay</option>
-              </select>
-            </div>
-            <div class="mb-2">They →
-              <select class="form-select d-inline-block w-auto" name="off_they">
-                <option value="">—</option>
-                <option>Aho</option><option>Ianao</option><option>Ianareo</option>
-                <option>Izy</option><option>Izy ireo</option><option>Isika</option><option>Izahay</option>
-              </select>
-            </div>
-            <div class="mb-2">We (inclusive) →
-              <select class="form-select d-inline-block w-auto" name="off_we_inc">
-                <option value="">—</option>
-                <option>Aho</option><option>Ianao</option><option>Ianareo</option>
-                <option>Izy</option><option>Izy ireo</option><option>Isika</option><option>Izahay</option>
-              </select>
-            </div>
-            <div class="mb-2">We (exclusive) →
-              <select class="form-select d-inline-block w-auto" name="off_we_exc">
-                <option value="">—</option>
-                <option>Aho</option><option>Ianao</option><option>Ianareo</option>
-                <option>Izy</option><option>Izy ireo</option><option>Isika</option><option>Izahay</option>
-              </select>
-            </div>
+            <!-- JS will inject selects here -->
           </div>
 
           <!-- TSIMIHETY RIGHT -->
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6" id="l1a-tsm-col">
             <h6 class="mb-2 text-success">Tsimihety</h6>
-            <div class="mb-2">I →
-              <select class="form-select d-inline-block w-auto" name="tsm_I">
-                <option value="">—</option>
-                <option>Zaho</option><option>Ianao</option><option>Areo</option>
-                <option>Izy</option><option>Zareo</option><option>Antsika</option><option>Zahay</option>
-              </select>
-            </div>
-            <div class="mb-2">You (singular) →
-              <select class="form-select d-inline-block w-auto" name="tsm_you_sg">
-                <option value="">—</option>
-                <option>Zaho</option><option>Ianao</option><option>Areo</option>
-                <option>Izy</option><option>Zareo</option><option>Antsika</option><option>Zahay</option>
-              </select>
-            </div>
-            <div class="mb-2">You (plural) →
-              <select class="form-select d-inline-block w-auto" name="tsm_you_pl">
-                <option value="">—</option>
-                <option>Zaho</option><option>Ianao</option><option>Areo</option>
-                <option>Izy</option><option>Zareo</option><option>Antsika</option><option>Zahay</option>
-              </select>
-            </div>
-            <div class="mb-2">He / She / It →
-              <select class="form-select d-inline-block w-auto" name="tsm_3sg">
-                <option value="">—</option>
-                <option>Zaho</option><option>Ianao</option><option>Areo</option>
-                <option>Izy</option><option>Zareo</option><option>Antsika</option><option>Zahay</option>
-              </select>
-            </div>
-            <div class="mb-2">They →
-              <select class="form-select d-inline-block w-auto" name="tsm_they">
-                <option value="">—</option>
-                <option>Zaho</option><option>Ianao</option><option>Areo</option>
-                <option>Izy</option><option>Zareo</option><option>Antsika</option><option>Zahay</option>
-              </select>
-            </div>
-            <div class="mb-2">We (inclusive) →
-              <select class="form-select d-inline-block w-auto" name="tsm_we_inc">
-                <option value="">—</option>
-                <option>Zaho</option><option>Ianao</option><option>Areo</option>
-                <option>Izy</option><option>Zareo</option><option>Antsika</option><option>Zahay</option>
-              </select>
-            </div>
-            <div class="mb-2">We (exclusive) →
-              <select class="form-select d-inline-block w-auto" name="tsm_we_exc">
-                <option value="">—</option>
-                <option>Zaho</option><option>Ianao</option><option>Areo</option>
-                <option>Izy</option><option>Zareo</option><option>Antsika</option><option>Zahay</option>
-              </select>
-            </div>
+            <!-- JS will inject selects here -->
           </div>
         </div>
 
-        <button type="button" class="btn btn-primary mt-3" id="checkPronounSelect">Check</button>
-        <p id="pronounSelectResult" class="mt-3 fw-bold"></p>
+        <button type="button" class="btn btn-primary mt-3 me-2" id="l1a-pronoun-check">Check</button>
+        <button type="button" class="btn btn-outline-secondary mt-3" id="l1a-pronoun-scramble">Scramble options</button>
+        <p id="l1a-pronoun-result" class="mt-3 fw-bold"></p>
       </form>
     </div>
   </div>
 </section>
 
 <script>
-  const correctPronounSelect = {
-    // official
-    off_I: "Aho",
-    off_you_sg: "Ianao",
-    off_you_pl: "Ianareo",
-    off_3sg: "Izy",
-    off_they: "Izy ireo",
-    off_we_inc: "Isika",
-    off_we_exc: "Izahay",
-    // tsimihety
-    tsm_I: "Zaho",
-    tsm_you_sg: "Ianao",
-    tsm_you_pl: "Areo",
-    tsm_3sg: "Izy",
-    tsm_they: "Zareo",
-    tsm_we_inc: "Antsika",
-    tsm_we_exc: "Zahay"
-  };
+  // data straight from your Lesson 1a appendix
+  const l1aPronounFields = [
+    // OFFICIAL
+    {
+      id: "off_I",
+      col: "off",
+      label: "I",
+      correct: "Aho",
+      choices: ["Aho","Ianao","Ianareo","Izy","Izy ireo","Isika","Izahay"]
+    },
+    {
+      id: "off_you_sg",
+      col: "off",
+      label: "You (singular)",
+      correct: "Ianao",
+      choices: ["Ianao","Aho","Ianareo","Izy","Izy ireo","Isika","Izahay"]
+    },
+    {
+      id: "off_you_pl",
+      col: "off",
+      label: "You (plural)",
+      correct: "Ianareo",
+      choices: ["Ianareo","Ianao","Aho","Izy","Izy ireo","Isika","Izahay"]
+    },
+    {
+      id: "off_3sg",
+      col: "off",
+      label: "He / She / It",
+      correct: "Izy",
+      choices: ["Izy","Izy ireo","Ianao","Aho","Isika","Izahay"]
+    },
+    {
+      id: "off_they",
+      col: "off",
+      label: "They",
+      correct: "Izy ireo",
+      choices: ["Izy ireo","Izy","Ianareo","Isika","Izahay"]
+    },
+    {
+      id: "off_we_inc",
+      col: "off",
+      label: "We (inclusive)",
+      correct: "Isika",
+      choices: ["Isika","Izahay","Ianao","Aho"]
+    },
+    {
+      id: "off_we_exc",
+      col: "off",
+      label: "We (exclusive)",
+      correct: "Izahay",
+      choices: ["Izahay","Isika","Ianao","Aho"]
+    },
 
-  document.getElementById('checkPronounSelect').onclick = () => {
-    const form = document.getElementById('pronounQuizSelect');
-    let score = 0;
-    const total = Object.keys(correctPronounSelect).length;
+    // TSIMIHETY
+    {
+      id: "tsm_I",
+      col: "tsm",
+      label: "I",
+      correct: "Zaho",
+      choices: ["Zaho","Ianao","Areo","Izy","Zareo","Antsika","Zahay"]
+    },
+    {
+      id: "tsm_you_sg",
+      col: "tsm",
+      label: "You (singular)",
+      correct: "Ianao", // your note: pronounced “Ana”/“Anao”
+      choices: ["Ianao","Zaho","Areo","Izy","Zareo","Antsika","Zahay"]
+    },
+    {
+      id: "tsm_you_pl",
+      col: "tsm",
+      label: "You (plural)",
+      correct: "Areo",
+      choices: ["Areo","Ianao","Zaho","Zareo","Antsika","Zahay"]
+    },
+    {
+      id: "tsm_3sg",
+      col: "tsm",
+      label: "He / She / It",
+      correct: "Izy",
+      choices: ["Izy","Zaho","Ianao","Zareo","Antsika","Zahay"]
+    },
+    {
+      id: "tsm_they",
+      col: "tsm",
+      label: "They",
+      correct: "Zareo",
+      choices: ["Zareo","Izy","Areo","Zahay","Antsika"]
+    },
+    {
+      id: "tsm_we_inc",
+      col: "tsm",
+      label: "We (inclusive)",
+      correct: "Antsika",
+      choices: ["Antsika","Zahay","Zaho","Ianao","Areo"]
+    },
+    {
+      id: "tsm_we_exc",
+      col: "tsm",
+      label: "We (exclusive)",
+      correct: "Zahay",
+      choices: ["Zahay","Antsika","Zaho","Ianao"]
+    }
+  ];
 
-    Object.keys(correctPronounSelect).forEach(name => {
-      const sel = form[name];
-      if (!sel) return;
-      const userVal = (sel.value || "").trim();
-      const corrVal = correctPronounSelect[name];
-      if (userVal === corrVal) {
-        score++;
-        sel.classList.add('border-success');
-        sel.classList.remove('border-danger');
+  const l1aOffCol = document.getElementById("l1a-official-col");
+  const l1aTsmCol = document.getElementById("l1a-tsm-col");
+
+  function shuffleArr(arr) {
+    return arr
+      .map(x => ({ v: x, r: Math.random() }))
+      .sort((a,b) => a.r - b.r)
+      .map(x => x.v);
+  }
+
+  function renderL1aPronounQuiz() {
+    // remove previous injected fields
+    l1aOffCol.querySelectorAll(".l1a-field").forEach(n => n.remove());
+    l1aTsmCol.querySelectorAll(".l1a-field").forEach(n => n.remove());
+
+    l1aPronounFields.forEach(field => {
+      const wrapper = document.createElement("div");
+      wrapper.className = "mb-2 l1a-field";
+      wrapper.innerHTML = `${field.label} → `;
+
+      const sel = document.createElement("select");
+      sel.className = "form-select d-inline-block w-auto";
+      sel.name = field.id;
+
+      // placeholder
+      const optEmpty = document.createElement("option");
+      optEmpty.value = "";
+      optEmpty.textContent = "—";
+      sel.appendChild(optEmpty);
+
+      // shuffled choices
+      const shuffled = shuffleArr(field.choices.slice());
+      shuffled.forEach(choice => {
+        const opt = document.createElement("option");
+        opt.value = choice;
+        opt.textContent = choice;
+        sel.appendChild(opt);
+      });
+
+      wrapper.appendChild(sel);
+
+      if (field.col === "off") {
+        l1aOffCol.appendChild(wrapper);
       } else {
-        sel.classList.add('border-danger');
-        sel.classList.remove('border-success');
+        l1aTsmCol.appendChild(wrapper);
       }
     });
 
-    document.getElementById('pronounSelectResult').textContent =
+    document.getElementById("l1a-pronoun-result").textContent = "";
+  }
+
+  // check
+  document.getElementById("l1a-pronoun-check").onclick = () => {
+    const form = document.getElementById("l1a-pronoun-quiz");
+    let score = 0;
+    const total = l1aPronounFields.length;
+
+    l1aPronounFields.forEach(field => {
+      const sel = form[field.id];
+      sel.classList.remove("border-success","border-danger");
+      const val = (sel.value || "").trim();
+      if (val === field.correct) {
+        score++;
+        sel.classList.add("border-success");
+      } else {
+        sel.classList.add("border-danger");
+      }
+    });
+
+    document.getElementById("l1a-pronoun-result").textContent =
       `You got ${score} / ${total} correct.`;
   };
+
+  // scramble
+  document.getElementById("l1a-pronoun-scramble").onclick = () => {
+    renderL1aPronounQuiz();
+  };
+
+  // initial render
+  renderL1aPronounQuiz();
 </script>
 
     <!--quiz 3-->
