@@ -261,20 +261,56 @@
   </div>
 </section>
 
+<section class="mb-5">
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <h2 class="h5 mb-3">Quiz 1: Match the greetings</h2>
+      <p class="mini mb-3">Drag each Malagasy/Tsimihety greeting to its English meaning.</p>
+      <div class="row">
+        <div class="col-md-6">
+          <ul class="list-group" id="malagasyList">
+            <li class="list-group-item" draggable="true">Tsisy vaovao</li>
+            <li class="list-group-item" draggable="true">Haody</li>
+            <li class="list-group-item" draggable="true">Tsara fa misaotra</li>
+            <li class="list-group-item" draggable="true">Salama tompoko</li>
+            <li class="list-group-item" draggable="true">Ino vaovao?</li>
+            <li class="list-group-item" draggable="true">Manakory ianao?</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <ul class="list-group" id="englishList">
+            <li class="list-group-item" data-answer="Tsisy vaovao">Nothing’s new</li>
+            <li class="list-group-item" data-answer="Salama tompoko">Hello, sir</li>
+            <li class="list-group-item" data-answer="Ino vaovao?">What’s new?</li>
+            <li class="list-group-item" data-answer="Haody">Knock/Hello at the door</li>
+            <li class="list-group-item" data-answer="Manakory ianao?">How are you?</li>
+            <li class="list-group-item" data-answer="Tsara fa misaotra">Fine, thank you</li>
+          </ul>
+        </div>
+      </div>
+      <button class="btn btn-primary mt-3" id="checkMatchBtn">Check answers</button>
+      <p id="matchResult" class="mt-2"></p>
+    </div>
+  </div>
+</section>
+
 <script>
+  // Simple drag-and-drop quiz
   const malagasyList = document.querySelectorAll('#malagasyList li');
   const englishList = document.querySelectorAll('#englishList li');
   let draggedItem = null;
 
   malagasyList.forEach(item => {
-    item.addEventListener('dragstart', e => { draggedItem = item.textContent; });
+    item.addEventListener('dragstart', () => draggedItem = item.textContent.trim());
   });
 
   englishList.forEach(item => {
     item.addEventListener('dragover', e => e.preventDefault());
     item.addEventListener('drop', e => {
-      item.textContent += ` ← ${draggedItem}`;
-      item.classList.add('bg-light');
+      if (!item.textContent.includes('←')) {
+        item.textContent += ` ← ${draggedItem}`;
+        item.classList.add('bg-light');
+      }
     });
   });
 
@@ -283,26 +319,11 @@
     englishList.forEach(item => {
       if (item.textContent.includes(item.dataset.answer)) score++;
     });
-    document.getElementById('matchResult').textContent = `✅ You got ${score} / ${englishList.length} correct.`;
+    document.getElementById('matchResult').textContent =
+      `✅ You got ${score} / ${englishList.length} correct.`;
   };
 </script>
-<section class="mb-5">
-  <div class="card border-0 shadow-sm">
-    <div class="card-body">
-      <h2 class="h5 mb-3">Quiz 2: Fill in the pronoun</h2>
-      <p class="mini mb-3">Type the correct Tsimihety pronoun.</p>
-      <form id="pronounQuiz">
-        <div class="mb-2">I = <input type="text" class="form-control d-inline-block w-auto" name="I" placeholder="?" /></div>
-        <div class="mb-2">You (singular) = <input type="text" class="form-control d-inline-block w-auto" name="you1" placeholder="?" /></div>
-        <div class="mb-2">We (inclusive) = <input type="text" class="form-control d-inline-block w-auto" name="weinc" placeholder="?" /></div>
-        <div class="mb-2">We (exclusive) = <input type="text" class="form-control d-inline-block w-auto" name="weexc" placeholder="?" /></div>
-        <div class="mb-2">They = <input type="text" class="form-control d-inline-block w-auto" name="they" placeholder="?" /></div>
-        <button type="button" class="btn btn-primary mt-2" id="checkPronouns">Check answers</button>
-        <p id="pronounResult" class="mt-2"></p>
-      </form>
-    </div>
-  </div>
-</section>
+
 
 <script>
   const correctPronouns = { I:"Zaho", you1:"Ianao", weinc:"Antsika", weexc:"Zahay", they:"Zareo" };
