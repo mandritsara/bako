@@ -228,31 +228,34 @@
       </div>
     </section>
 
+    <!--quiz1-->
 <section class="mb-5" id="quiz1">
   <div class="card border-0 shadow-sm">
     <div class="card-body">
       <h2 class="h5 mb-3">Quiz 1: Match the greetings</h2>
       <p class="mini mb-3">
-        Tap an English phrase, then tap its Malagasy equivalent to make a match. On bigger screens you can also drag and drop.
+        Tap a Malagasy greeting, then tap the matching English meaning.
       </p>
 
       <div class="row">
-        <!-- ENGLISH side (select this first) -->
+        <!-- MALAGASY FIRST -->
         <div class="col-12 col-md-6 mb-3 mb-md-0">
-          <h6 class="text-success text-center mb-2">English</h6>
-          <ul class="list-group border border-success-subtle" id="englishList"></ul>
-        </div>
-
-        <!-- MALAGASY side -->
-        <div class="col-12 col-md-6">
           <h6 class="text-primary text-center mb-2">Malagasy</h6>
           <ul class="list-group border border-primary-subtle" id="malagasyList">
-            <li class="list-group-item bg-light" draggable="true" data-key="salama">Salama tompoko</li>
-            <li class="list-group-item bg-light" draggable="true" data-key="haody">Haody</li>
-            <li class="list-group-item bg-light" draggable="true" data-key="manakory">Manakory ianao?</li>
-            <li class="list-group-item bg-light" draggable="true" data-key="tsara">Tsara fa misaotra</li>
-            <li class="list-group-item bg-light" draggable="true" data-key="ino">Ino vaovao?</li>
-            <li class="list-group-item bg-light" draggable="true" data-key="tsisy">Tsisy vaovao</li>
+            <li class="list-group-item bg-light" data-key="salama">Salama tompoko</li>
+            <li class="list-group-item bg-light" data-key="haody">Haody</li>
+            <li class="list-group-item bg-light" data-key="manakory">Manakory ianao?</li>
+            <li class="list-group-item bg-light" data-key="tsara">Tsara fa misaotra</li>
+            <li class="list-group-item bg-light" data-key="ino">Ino vaovao?</li>
+            <li class="list-group-item bg-light" data-key="tsisy">Tsisy vaovao</li>
+          </ul>
+        </div>
+
+        <!-- ENGLISH SECOND -->
+        <div class="col-12 col-md-6">
+          <h6 class="text-success text-center mb-2">English meaning</h6>
+          <ul class="list-group border border-success-subtle" id="englishList">
+            <!-- filled by JS -->
           </ul>
         </div>
       </div>
@@ -265,105 +268,96 @@
 </section>
 
 <script>
+  // data
   const quiz1Pairs = [
-    { key: 'salama', text: 'Hello, sir' },
-    { key: 'haody', text: 'Knock / hello at the door' },
-    { key: 'manakory', text: 'How are you?' },
-    { key: 'tsara', text: 'Fine, thank you' },
-    { key: 'ino', text: 'What’s new?' },
-    { key: 'tsisy', text: 'Nothing’s new' }
+    { key: 'salama',  text: 'Hello, sir' },
+    { key: 'haody',   text: 'Knock / hello at the door' },
+    { key: 'manakory',text: 'How are you?' },
+    { key: 'tsara',   text: 'Fine, thank you' },
+    { key: 'ino',     text: 'What’s new?' },
+    { key: 'tsisy',   text: 'Nothing’s new' }
   ];
 
-  const englishList = document.getElementById('englishList');
-  const malagasyList = document.getElementById('malagasyList');
-  const malItems = malagasyList.querySelectorAll('li');
-  const matchResult = document.getElementById('matchResult');
+  const malList = document.getElementById('malagasyList');
+  const malItems = malList.querySelectorAll('li');
+  const engList = document.getElementById('englishList');
+  const resultEl = document.getElementById('matchResult');
 
-  // state
-  let draggedKey = null;              // for desktop drag
-  let selectedEnglishLi = null;       // which English line is currently selected
-  let selectedEnglishAnswerKey = null; // that English line's correct key
+  // state: which malagasy is currently selected
+  let selectedMalKey = null;
+  let selectedMalLi = null;
 
   function shuffle(arr) {
-    return arr.map(x => ({v:x, r:Math.random()})).sort((a,b)=>a.r-b.r).map(x=>x.v);
+    return arr.map(x => ({v:x, r:Math.random()}))
+              .sort((a,b)=>a.r-b.r)
+              .map(x=>x.v);
   }
 
   function renderEnglishList() {
-    englishList.innerHTML = '';
+    engList.innerHTML = '';
     const scrambled = shuffle(quiz1Pairs);
     scrambled.forEach(item => {
       const li = document.createElement('li');
       li.className = 'list-group-item';
       li.textContent = item.text;
-      li.dataset.answerKey = item.key;    // the key it expects
-      li.dataset.droppedKey = '';         // what the user matched
-      // select English FIRST (mobile flow)
+      li.dataset.answerKey = item.key;    // the correct Malagasy key
+      li.dataset.matchedKey = '';         // what user matched
+      // click to match (English side)
       li.addEventListener('click', () => {
-        // clear previous selection
-        if (selectedEnglishLi) selectedEnglishLi.classList.remove('active');
-        selectedEnglishLi = li;
-        selectedEnglishAnswerKey = item.key;
-        li.classList.add('active');
-      });
-      // allow drop (desktop)
-      li.addEventListener('dragover', e => e.preventDefault());
-      li.addEventListener('drop', e => {
-        e.preventDefault();
-        if (!draggedKey) return;
-        li.textContent = item.text + ' ← ' + draggedKey;
-        li.dataset.droppedKey = draggedKey;
+        if (!selectedMalKey) return; // no Malagasy picked yet
+        // show match
+        const baseText = item.text; // keep clean
+        li.textContent = baseText + ' ← ' + selectedMalKey;
+        li.dataset.matchedKey = selectedMalKey;
+        // style to show it's filled
         li.classList.add('bg-light');
+        // clear malagasy selection
+        if (selectedMalLi) selectedMalLi.classList.remove('active');
+        selectedMalKey = null;
+        selectedMalLi = null;
       });
-
-      englishList.appendChild(li);
+      engList.appendChild(li);
     });
-    // reset selection and message
-    selectedEnglishLi = null;
-    selectedEnglishAnswerKey = null;
-    matchResult.textContent = '';
+    resultEl.textContent = '';
   }
 
-  // MALAGASY side
+  // MALAGASY clicks
   malItems.forEach(li => {
-    // desktop drag
-    li.addEventListener('dragstart', () => {
-      draggedKey = li.dataset.key;
-    });
-
-    // mobile tap: only do something if an English line is selected
     li.addEventListener('click', () => {
-      if (!selectedEnglishLi) {
-        // no english selected yet, do nothing
-        return;
-      }
-      const malKey = li.dataset.key;
-      const englishText = selectedEnglishLi.textContent.split(' ← ')[0]; // keep original text
-      selectedEnglishLi.textContent = englishText + ' ← ' + malKey;
-      selectedEnglishLi.dataset.droppedKey = malKey;
-      selectedEnglishLi.classList.add('bg-light');
+      // clear previous
+      if (selectedMalLi) selectedMalLi.classList.remove('active');
+      selectedMalKey = li.dataset.key;
+      selectedMalLi = li;
+      li.classList.add('active');
     });
   });
 
   // check button
-  document.getElementById('checkMatchBtn').onclick = () => {
-    const rightItems = englishList.querySelectorAll('li');
+  document.getElementById('checkMatchBtn').addEventListener('click', () => {
+    const engItems = engList.querySelectorAll('li');
     let score = 0;
-    rightItems.forEach(li => {
+    engItems.forEach(li => {
       li.classList.remove('border-success','border-danger');
-      if (li.dataset.droppedKey && li.dataset.droppedKey === li.dataset.answerKey) {
+      const correctKey = li.dataset.answerKey;
+      const userKey = li.dataset.matchedKey;
+      if (userKey && userKey === correctKey) {
         score++;
         li.classList.add('border','border-success');
       } else {
         li.classList.add('border','border-danger');
       }
     });
-    matchResult.textContent = `You matched ${score} / ${quiz1Pairs.length} correctly.`;
-  };
+    resultEl.textContent = `You matched ${score} / ${quiz1Pairs.length} correctly.`;
+  });
 
   // retry/scramble
-  document.getElementById('retryMatchBtn').onclick = () => {
+  document.getElementById('retryMatchBtn').addEventListener('click', () => {
+    // clear malagasy selection
+    if (selectedMalLi) selectedMalLi.classList.remove('active');
+    selectedMalKey = null;
+    selectedMalLi = null;
     renderEnglishList();
-  };
+  });
 
   // initial render
   renderEnglishList();
