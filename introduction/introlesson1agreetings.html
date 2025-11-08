@@ -342,82 +342,240 @@
 
     <!--quiz 2-->
 
-    <section class="mb-5" id="quiz2">
+  <section class="mb-5" id="quiz2">
   <div class="card border-0 shadow-sm">
     <div class="card-body">
-      <h2 class="h5 mb-3">Quiz 2: Pronouns (Official + Tsimihety)</h2>
-      <p class="mini mb-3">Type the correct pronoun. Answers are not case-sensitive.</p>
+      <h2 class="h5 mb-3">Quiz 2: Pronouns</h2>
+      <p class="mini mb-3">Choose the correct pronoun for each meaning.</p>
 
-      <form id="pronounQuizFull">
+      <form id="pronounQuizSelect">
+        <!-- OFFICIAL -->
         <h6 class="mt-3 mb-2 text-primary">Official Malagasy</h6>
-        <div class="mb-2">I = <input type="text" class="form-control d-inline-block w-auto" name="aho" /></div>
-        <div class="mb-2">You (singular) = <input type="text" class="form-control d-inline-block w-auto" name="ianao" /></div>
-        <div class="mb-2">You (plural) = <input type="text" class="form-control d-inline-block w-auto" name="ianareo" /></div>
-        <div class="mb-2">He / She / It = <input type="text" class="form-control d-inline-block w-auto" name="izy" /></div>
-        <div class="mb-2">They = <input type="text" class="form-control d-inline-block w-auto" name="izyireo" /></div>
-        <div class="mb-2">We (inclusive) = <input type="text" class="form-control d-inline-block w-auto" name="isika" /></div>
-        <div class="mb-2">We (exclusive) = <input type="text" class="form-control d-inline-block w-auto" name="izahay" /></div>
+        <div class="mb-2">I →
+          <select class="form-select d-inline-block w-auto" name="off_I">
+            <option value="">—</option>
+            <option value="Aho">Aho</option>
+            <option value="Ianao">Ianao</option>
+            <option value="Ianareo">Ianareo</option>
+            <option value="Izy">Izy</option>
+            <option value="Izy ireo">Izy ireo</option>
+            <option value="Isika">Isika</option>
+            <option value="Izahay">Izahay</option>
+          </select>
+        </div>
+        <div class="mb-2">You (singular) →
+          <select class="form-select d-inline-block w-auto" name="off_you_sg">
+            <option value="">—</option>
+            <option value="Aho">Aho</option>
+            <option value="Ianao">Ianao</option>
+            <option value="Ianareo">Ianareo</option>
+            <option value="Izy">Izy</option>
+            <option value="Izy ireo">Izy ireo</option>
+            <option value="Isika">Isika</option>
+            <option value="Izahay">Izahay</option>
+          </select>
+        </div>
+        <div class="mb-2">You (plural) →
+          <select class="form-select d-inline-block w-auto" name="off_you_pl">
+            <option value="">—</option>
+            <option value="Aho">Aho</option>
+            <option value="Ianao">Ianao</option>
+            <option value="Ianareo">Ianareo</option>
+            <option value="Izy">Izy</option>
+            <option value="Izy ireo">Izy ireo</option>
+            <option value="Isika">Isika</option>
+            <option value="Izahay">Izahay</option>
+          </select>
+        </div>
+        <div class="mb-2">He / She / It →
+          <select class="form-select d-inline-block w-auto" name="off_3sg">
+            <option value="">—</option>
+            <option value="Aho">Aho</option>
+            <option value="Ianao">Ianao</option>
+            <option value="Ianareo">Ianareo</option>
+            <option value="Izy">Izy</option>
+            <option value="Izy ireo">Izy ireo</option>
+            <option value="Isika">Isika</option>
+            <option value="Izahay">Izahay</option>
+          </select>
+        </div>
+        <div class="mb-2">They →
+          <select class="form-select d-inline-block w-auto" name="off_they">
+            <option value="">—</option>
+            <option value="Aho">Aho</option>
+            <option value="Ianao">Ianao</option>
+            <option value="Ianareo">Ianareo</option>
+            <option value="Izy">Izy</option>
+            <option value="Izy ireo">Izy ireo</option>
+            <option value="Isika">Isika</option>
+            <option value="Izahay">Izahay</option>
+          </select>
+        </div>
+        <div class="mb-2">We (inclusive) →
+          <select class="form-select d-inline-block w-auto" name="off_we_inc">
+            <option value="">—</option>
+            <option value="Aho">Aho</option>
+            <option value="Ianao">Ianao</option>
+            <option value="Ianareo">Ianareo</option>
+            <option value="Izy">Izy</option>
+            <option value="Izy ireo">Izy ireo</option>
+            <option value="Isika">Isika</option>
+            <option value="Izahay">Izahay</option>
+          </select>
+        </div>
+        <div class="mb-2">We (exclusive) →
+          <select class="form-select d-inline-block w-auto" name="off_we_exc">
+            <option value="">—</option>
+            <option value="Aho">Aho</option>
+            <option value="Ianao">Ianao</option>
+            <option value="Ianareo">Ianareo</option>
+            <option value="Izy">Izy</option>
+            <option value="Izy ireo">Izy ireo</option>
+            <option value="Isika">Isika</option>
+            <option value="Izahay">Izahay</option>
+          </select>
+        </div>
 
+        <!-- TSIMIHETY -->
         <h6 class="mt-4 mb-2 text-success">Tsimihety</h6>
-        <div class="mb-2">I = <input type="text" class="form-control d-inline-block w-auto" name="zaho" /></div>
-        <div class="mb-2">You (singular) = <input type="text" class="form-control d-inline-block w-auto" name="tsm_ianao" /></div>
-        <div class="mb-2">You (plural) = <input type="text" class="form-control d-inline-block w-auto" name="areo" /></div>
-        <div class="mb-2">He / She / It = <input type="text" class="form-control d-inline-block w-auto" name="tsm_izy" /></div>
-        <div class="mb-2">They = <input type="text" class="form-control d-inline-block w-auto" name="zareo" /></div>
-        <div class="mb-2">We (inclusive) = <input type="text" class="form-control d-inline-block w-auto" name="antsika" /></div>
-        <div class="mb-2">We (exclusive) = <input type="text" class="form-control d-inline-block w-auto" name="zahay" /></div>
+        <div class="mb-2">I →
+          <select class="form-select d-inline-block w-auto" name="tsm_I">
+            <option value="">—</option>
+            <option value="Zaho">Zaho</option>
+            <option value="Ianao">Ianao</option>
+            <option value="Areo">Areo</option>
+            <option value="Izy">Izy</option>
+            <option value="Zareo">Zareo</option>
+            <option value="Antsika">Antsika</option>
+            <option value="Zahay">Zahay</option>
+          </select>
+        </div>
+        <div class="mb-2">You (singular) →
+          <select class="form-select d-inline-block w-auto" name="tsm_you_sg">
+            <option value="">—</option>
+            <option value="Zaho">Zaho</option>
+            <option value="Ianao">Ianao</option>
+            <option value="Areo">Areo</option>
+            <option value="Izy">Izy</option>
+            <option value="Zareo">Zareo</option>
+            <option value="Antsika">Antsika</option>
+            <option value="Zahay">Zahay</option>
+          </select>
+        </div>
+        <div class="mb-2">You (plural) →
+          <select class="form-select d-inline-block w-auto" name="tsm_you_pl">
+            <option value="">—</option>
+            <option value="Zaho">Zaho</option>
+            <option value="Ianao">Ianao</option>
+            <option value="Areo">Areo</option>
+            <option value="Izy">Izy</option>
+            <option value="Zareo">Zareo</option>
+            <option value="Antsika">Antsika</option>
+            <option value="Zahay">Zahay</option>
+          </select>
+        </div>
+        <div class="mb-2">He / She / It →
+          <select class="form-select d-inline-block w-auto" name="tsm_3sg">
+            <option value="">—</option>
+            <option value="Zaho">Zaho</option>
+            <option value="Ianao">Ianao</option>
+            <option value="Areo">Areo</option>
+            <option value="Izy">Izy</option>
+            <option value="Zareo">Zareo</option>
+            <option value="Antsika">Antsika</option>
+            <option value="Zahay">Zahay</option>
+          </select>
+        </div>
+        <div class="mb-2">They →
+          <select class="form-select d-inline-block w-auto" name="tsm_they">
+            <option value="">—</option>
+            <option value="Zaho">Zaho</option>
+            <option value="Ianao">Ianao</option>
+            <option value="Areo">Areo</option>
+            <option value="Izy">Izy</option>
+            <option value="Zareo">Zareo</option>
+            <option value="Antsika">Antsika</option>
+            <option value="Zahay">Zahay</option>
+          </select>
+        </div>
+        <div class="mb-2">We (inclusive) →
+          <select class="form-select d-inline-block w-auto" name="tsm_we_inc">
+            <option value="">—</option>
+            <option value="Zaho">Zaho</option>
+            <option value="Ianao">Ianao</option>
+            <option value="Areo">Areo</option>
+            <option value="Izy">Izy</option>
+            <option value="Zareo">Zareo</option>
+            <option value="Antsika">Antsika</option>
+            <option value="Zahay">Zahay</option>
+          </select>
+        </div>
+        <div class="mb-2">We (exclusive) →
+          <select class="form-select d-inline-block w-auto" name="tsm_we_exc">
+            <option value="">—</option>
+            <option value="Zaho">Zaho</option>
+            <option value="Ianao">Ianao</option>
+            <option value="Areo">Areo</option>
+            <option value="Izy">Izy</option>
+            <option value="Zareo">Zareo</option>
+            <option value="Antsika">Antsika</option>
+            <option value="Zahay">Zahay</option>
+          </select>
+        </div>
 
-        <button type="button" class="btn btn-primary mt-3" id="checkPronounsFull">Check answers</button>
-        <p id="pronounResultFull" class="mt-3 fw-bold"></p>
+        <button type="button" class="btn btn-primary mt-3" id="checkPronounSelect">Check answers</button>
+        <p id="pronounSelectResult" class="mt-3 fw-bold"></p>
       </form>
     </div>
   </div>
 </section>
 
 <script>
-  const correctPronounsFull = {
+  // correct answers from your appendix
+  const correctPronounSelect = {
     // official
-    aho: "Aho",
-    ianao: "Ianao",
-    ianareo: "Ianareo",
-    izy: "Izy",
-    izyireo: "Izy ireo",
-    isika: "Isika",
-    izahay: "Izahay",
+    off_I: "Aho",
+    off_you_sg: "Ianao",
+    off_you_pl: "Ianareo",
+    off_3sg: "Izy",
+    off_they: "Izy ireo",
+    off_we_inc: "Isika",
+    off_we_exc: "Izahay",
     // tsimihety
-    zaho: "Zaho",
-    tsm_ianao: "Ianao",
-    areo: "Areo",
-    tsm_izy: "Izy",
-    zareo: "Zareo",
-    antsika: "Antsika",
-    zahay: "Zahay"
+    tsm_I: "Zaho",
+    tsm_you_sg: "Ianao",      // your table says same form, pronounced Ana/Anao
+    tsm_you_pl: "Areo",
+    tsm_3sg: "Izy",
+    tsm_they: "Zareo",
+    tsm_we_inc: "Antsika",
+    tsm_we_exc: "Zahay"
   };
 
-  document.getElementById('checkPronounsFull').onclick = () => {
-    const form = document.getElementById('pronounQuizFull');
+  document.getElementById('checkPronounSelect').onclick = () => {
+    const form = document.getElementById('pronounQuizSelect');
     let score = 0;
-    const total = Object.keys(correctPronounsFull).length;
+    const total = Object.keys(correctPronounSelect).length;
 
-    Object.keys(correctPronounsFull).forEach(name => {
-      const input = form[name];
-      if (!input) return;
-      const userVal = input.value.trim().toLowerCase();
-      const corrVal = correctPronounsFull[name].toLowerCase();
+    Object.keys(correctPronounSelect).forEach(name => {
+      const sel = form[name];
+      if (!sel) return;
+      const userVal = (sel.value || "").trim();
+      const corrVal = correctPronounSelect[name];
       if (userVal === corrVal) {
         score++;
-        input.classList.add('border-success');
-        input.classList.remove('border-danger');
+        sel.classList.add('border-success');
+        sel.classList.remove('border-danger');
       } else {
-        input.classList.add('border-danger');
-        input.classList.remove('border-success');
+        sel.classList.add('border-danger');
+        sel.classList.remove('border-success');
       }
     });
 
-    document.getElementById('pronounResultFull').textContent =
+    document.getElementById('pronounSelectResult').textContent =
       `You got ${score} / ${total} correct.`;
   };
 </script>
+
 
     <!--quiz 3-->
 
