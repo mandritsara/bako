@@ -228,63 +228,140 @@
       </div>
     </section>
 
-<section class="mb-5">
+<!--quiz 1-->
+    <section class="mb-5" id="quiz1">
   <div class="card border-0 shadow-sm">
     <div class="card-body">
       <h2 class="h5 mb-3">Quiz 1: Match the greetings</h2>
-      <p class="mini mb-3">Drag each Malagasy/Tsimihety greeting to its English meaning.</p>
+      <p class="mini mb-3">Drag the Malagasy/Tsimihety greeting (left) onto the correct English meaning (right).</p>
       <div class="row">
+        <!-- LEFT: fixed order -->
         <div class="col-md-6">
           <ul class="list-group" id="malagasyList">
-            <li class="list-group-item" draggable="true">Tsisy vaovao</li>
-            <li class="list-group-item" draggable="true">Haody</li>
-            <li class="list-group-item" draggable="true">Tsara fa misaotra</li>
-            <li class="list-group-item" draggable="true">Salama tompoko</li>
-            <li class="list-group-item" draggable="true">Ino vaovao?</li>
-            <li class="list-group-item" draggable="true">Manakory ianao?</li>
+            <li class="list-group-item" draggable="true" data-key="salama">Salama tompoko</li>
+            <li class="list-group-item" draggable="true" data-key="haody">Haody</li>
+            <li class="list-group-item" draggable="true" data-key="manakory">Manakory ianao?</li>
+            <li class="list-group-item" draggable="true" data-key="tsara">Tsara fa misaotra</li>
+            <li class="list-group-item" draggable="true" data-key="ino">Ino vaovao?</li>
+            <li class="list-group-item" draggable="true" data-key="tsisy">Tsisy vaovao</li>
           </ul>
         </div>
+        <!-- RIGHT: will be scrambled -->
         <div class="col-md-6">
           <ul class="list-group" id="englishList">
-            <li class="list-group-item" data-answer="Tsisy vaovao">Nothing’s new</li>
-            <li class="list-group-item" data-answer="Salama tompoko">Hello, sir</li>
-            <li class="list-group-item" data-answer="Ino vaovao?">What’s new?</li>
-            <li class="list-group-item" data-answer="Haody">Knock/Hello at the door</li>
-            <li class="list-group-item" data-answer="Manakory ianao?">How are you?</li>
-            <li class="list-group-item" data-answer="Tsara fa misaotra">Fine, thank you</li>
+            <!-- filled by JS -->
           </ul>
         </div>
       </div>
-      <button class="btn btn-primary mt-3" id="checkMatchBtn">Check answers</button>
+      <button class="btn btn-primary mt-3 me-2" id="checkMatchBtn">Check answers</button>
+      <button class="btn btn-outline-secondary mt-3" id="retryMatchBtn">Retry / scramble</button>
       <p id="matchResult" class="mt-2"></p>
     </div>
   </div>
 </section>
 
-<section class="mb-5">
+<script>
+  // data for quiz 1
+  const quiz1Pairs = [
+    { key: 'salama', text: 'Hello, sir' },
+    { key: 'haody', text: 'Knock / hello at the door' },
+    { key: 'manakory', text: 'How are you?' },
+    { key: 'tsara', text: 'Fine, thank you' },
+    { key: 'ino', text: 'What’s new?' },
+    { key: 'tsisy', text: 'Nothing’s new' }
+  ];
+
+  const malItems = document.querySelectorAll('#malagasyList li');
+  const englishList = document.getElementById('englishList');
+  const matchResult = document.getElementById('matchResult');
+  let draggedKey = null;
+
+  // shuffle helper
+  function shuffle(arr) {
+    return arr.map(a => [Math.random(), a])
+              .sort((a,b) => a[0]-b[0])
+              .map(a => a[1]);
+  }
+
+  function renderEnglishList() {
+    englishList.innerHTML = '';
+    const shuffled = shuffle(quiz1Pairs);
+    shuffled.forEach(item => {
+      const li = document.createElement('li');
+      li.className = 'list-group-item';
+      li.dataset.answerKey = item.key;
+      li.textContent = item.text;
+      li.addEventListener('dragover', e => e.preventDefault());
+      li.addEventListener('drop', e => {
+        // don’t stack infinite tags
+        if (!li.textContent.includes('←')) {
+          li.textContent = item.text + ' ← ' + draggedKey;
+          li.dataset.droppedKey = draggedKey;
+          li.classList.add('bg-light');
+        }
+      });
+      englishList.appendChild(li);
+    });
+    matchResult.textContent = '';
+  }
+
+  // set up dragging on left
+  malItems.forEach(item => {
+    item.addEventListener('dragstart', () => {
+      draggedKey = item.dataset.key;
+    });
+  });
+
+  // check button
+  document.getElementById('checkMatchBtn').onclick = () => {
+    const rightItems = englishList.querySelectorAll('li');
+    let score = 0;
+    rightItems.forEach(li => {
+      if (li.dataset.droppedKey && li.dataset.droppedKey === li.dataset.answerKey) {
+        score++;
+        li.classList.add('border', 'border-success');
+      } else {
+        li.classList.add('border', 'border-danger');
+      }
+    });
+    matchResult.textContent = `You got ${score} / ${quiz1Pairs.length} correct.`;
+  };
+
+  // retry / scramble button
+  document.getElementById('retryMatchBtn').onclick = () => {
+    renderEnglishList();
+  };
+
+  // initial render
+  renderEnglishList();
+</script>
+
+    <!--quiz 2-->
+
+    <section class="mb-5" id="quiz2">
   <div class="card border-0 shadow-sm">
     <div class="card-body">
-      <h2 class="h5 mb-3">Quiz 2: Fill in the pronouns</h2>
-      <p class="mini mb-3">Type the correct pronoun for each meaning. Answers are not case-sensitive.</p>
+      <h2 class="h5 mb-3">Quiz 2: Pronouns (Official + Tsimihety)</h2>
+      <p class="mini mb-3">Type the correct pronoun. Answers are not case-sensitive.</p>
 
       <form id="pronounQuizFull">
         <h6 class="mt-3 mb-2 text-primary">Official Malagasy</h6>
-        <div class="mb-2">I = <input type="text" class="form-control d-inline-block w-auto" name="aho" placeholder="?" /></div>
-        <div class="mb-2">You (singular) = <input type="text" class="form-control d-inline-block w-auto" name="ianao" placeholder="?" /></div>
-        <div class="mb-2">You (plural) = <input type="text" class="form-control d-inline-block w-auto" name="ianareo" placeholder="?" /></div>
-        <div class="mb-2">He/She/It = <input type="text" class="form-control d-inline-block w-auto" name="izy" placeholder="?" /></div>
-        <div class="mb-2">They = <input type="text" class="form-control d-inline-block w-auto" name="izyireo" placeholder="?" /></div>
-        <div class="mb-2">We (inclusive) = <input type="text" class="form-control d-inline-block w-auto" name="isika" placeholder="?" /></div>
-        <div class="mb-2">We (exclusive) = <input type="text" class="form-control d-inline-block w-auto" name="izahay" placeholder="?" /></div>
+        <div class="mb-2">I = <input type="text" class="form-control d-inline-block w-auto" name="aho" /></div>
+        <div class="mb-2">You (singular) = <input type="text" class="form-control d-inline-block w-auto" name="ianao" /></div>
+        <div class="mb-2">You (plural) = <input type="text" class="form-control d-inline-block w-auto" name="ianareo" /></div>
+        <div class="mb-2">He / She / It = <input type="text" class="form-control d-inline-block w-auto" name="izy" /></div>
+        <div class="mb-2">They = <input type="text" class="form-control d-inline-block w-auto" name="izyireo" /></div>
+        <div class="mb-2">We (inclusive) = <input type="text" class="form-control d-inline-block w-auto" name="isika" /></div>
+        <div class="mb-2">We (exclusive) = <input type="text" class="form-control d-inline-block w-auto" name="izahay" /></div>
 
-        <h6 class="mt-4 mb-2 text-success">Tsimihety Dialect</h6>
-        <div class="mb-2">I = <input type="text" class="form-control d-inline-block w-auto" name="zaho" placeholder="?" /></div>
-        <div class="mb-2">You (singular) = <input type="text" class="form-control d-inline-block w-auto" name="tsm_ianao" placeholder="?" /></div>
-        <div class="mb-2">You (plural) = <input type="text" class="form-control d-inline-block w-auto" name="areo" placeholder="?" /></div>
-        <div class="mb-2">He/She/It = <input type="text" class="form-control d-inline-block w-auto" name="tsm_izy" placeholder="?" /></div>
-        <div class="mb-2">They = <input type="text" class="form-control d-inline-block w-auto" name="zareo" placeholder="?" /></div>
-        <div class="mb-2">We (inclusive) = <input type="text" class="form-control d-inline-block w-auto" name="antsika" placeholder="?" /></div>
-        <div class="mb-2">We (exclusive) = <input type="text" class="form-control d-inline-block w-auto" name="zahay" placeholder="?" /></div>
+        <h6 class="mt-4 mb-2 text-success">Tsimihety</h6>
+        <div class="mb-2">I = <input type="text" class="form-control d-inline-block w-auto" name="zaho" /></div>
+        <div class="mb-2">You (singular) = <input type="text" class="form-control d-inline-block w-auto" name="tsm_ianao" /></div>
+        <div class="mb-2">You (plural) = <input type="text" class="form-control d-inline-block w-auto" name="areo" /></div>
+        <div class="mb-2">He / She / It = <input type="text" class="form-control d-inline-block w-auto" name="tsm_izy" /></div>
+        <div class="mb-2">They = <input type="text" class="form-control d-inline-block w-auto" name="zareo" /></div>
+        <div class="mb-2">We (inclusive) = <input type="text" class="form-control d-inline-block w-auto" name="antsika" /></div>
+        <div class="mb-2">We (exclusive) = <input type="text" class="form-control d-inline-block w-auto" name="zahay" /></div>
 
         <button type="button" class="btn btn-primary mt-3" id="checkPronounsFull">Check answers</button>
         <p id="pronounResultFull" class="mt-3 fw-bold"></p>
@@ -295,7 +372,7 @@
 
 <script>
   const correctPronounsFull = {
-    // Official Malagasy
+    // official
     aho: "Aho",
     ianao: "Ianao",
     ianareo: "Ianareo",
@@ -303,7 +380,7 @@
     izyireo: "Izy ireo",
     isika: "Isika",
     izahay: "Izahay",
-    // Tsimihety
+    // tsimihety
     zaho: "Zaho",
     tsm_ianao: "Ianao",
     areo: "Areo",
@@ -318,13 +395,15 @@
     let score = 0;
     const total = Object.keys(correctPronounsFull).length;
 
-    Object.keys(correctPronounsFull).forEach(k => {
-      const input = form[k];
+    Object.keys(correctPronounsFull).forEach(name => {
+      const input = form[name];
       if (!input) return;
-      if (input.value.trim().toLowerCase() === correctPronounsFull[k].toLowerCase()) {
+      const userVal = input.value.trim().toLowerCase();
+      const corrVal = correctPronounsFull[name].toLowerCase();
+      if (userVal === corrVal) {
+        score++;
         input.classList.add('border-success');
         input.classList.remove('border-danger');
-        score++;
       } else {
         input.classList.add('border-danger');
         input.classList.remove('border-success');
@@ -332,93 +411,310 @@
     });
 
     document.getElementById('pronounResultFull').textContent =
-      `✅ You got ${score} / ${total} correct.`;
+      `You got ${score} / ${total} correct.`;
   };
 </script>
 
+    <!--quiz 3-->
 
-<script>
-  const correctPronouns = { I:"Zaho", you1:"Ianao", weinc:"Antsika", weexc:"Zahay", they:"Zareo" };
-  document.getElementById('checkPronouns').onclick = () => {
-    const form = document.getElementById('pronounQuiz');
-    let score = 0;
-    Object.keys(correctPronouns).forEach(k => {
-      if (form[k].value.trim().toLowerCase() === correctPronouns[k].toLowerCase()) score++;
-    });
-    document.getElementById('pronounResult').textContent = `✅ ${score}/5 correct`;
-  };
-</script>
-<section class="mb-5">
+    <section class="mb-5" id="quiz3">
   <div class="card border-0 shadow-sm">
     <div class="card-body">
-      <h2 class="h5 mb-3">Quiz 3: Choose the correct question word (Tsimihety)</h2>
-      <p class="mini mb-3">Select the right word for each English meaning.</p>
-      <form id="questionQuiz">
-        <div class="mb-2">What → 
-          <select class="form-select d-inline-block w-auto" name="what">
-            <option>—</option><option>Ino</option><option>Zovy</option><option>Akory</option>
+      <h2 class="h5 mb-3">Quiz 3: Question words</h2>
+      <p class="mini mb-3">Select the correct word for each English meaning.</p>
+
+      <form id="questionQuizFull">
+        <h6 class="mt-3 mb-2 text-primary">Official Malagasy</h6>
+        <div class="mb-2">What →
+          <select class="form-select d-inline-block w-auto" name="off_what">
+            <option value="">—</option>
+            <option>Inona</option>
+            <option>Iza</option>
+            <option>Aiza</option>
           </select>
         </div>
-        <div class="mb-2">Who → 
-          <select class="form-select d-inline-block w-auto" name="who">
-            <option>—</option><option>Ino</option><option>Zovy</option><option>Hafiriana</option>
+        <div class="mb-2">Who →
+          <select class="form-select d-inline-block w-auto" name="off_who">
+            <option value="">—</option>
+            <option>Iza</option>
+            <option>Inona</option>
+            <option>Firy</option>
           </select>
         </div>
-        <div class="mb-2">How → 
-          <select class="form-select d-inline-block w-auto" name="how">
-            <option>—</option><option>Akory</option><option>Ohatrino</option><option>Fa manino</option>
+        <div class="mb-2">When (past) →
+          <select class="form-select d-inline-block w-auto" name="off_whenpast">
+            <option value="">—</option>
+            <option>Oviana</option>
+            <option>Rahoviana</option>
           </select>
         </div>
-        <div class="mb-2">Why → 
-          <select class="form-select d-inline-block w-auto" name="why">
-            <option>—</option><option>Fa manino</option><option>Aiza</option><option>Ino</option>
+        <div class="mb-2">When (future) →
+          <select class="form-select d-inline-block w-auto" name="off_whenfuture">
+            <option value="">—</option>
+            <option>Rahoviana</option>
+            <option>Oviana</option>
           </select>
         </div>
-        <button type="button" class="btn btn-primary mt-2" id="checkQuestions">Check</button>
-        <p id="questionResult" class="mt-2"></p>
+        <div class="mb-2">Where →
+          <select class="form-select d-inline-block w-auto" name="off_where">
+            <option value="">—</option>
+            <option>Aiza</option>
+            <option>Ahoana</option>
+          </select>
+        </div>
+        <div class="mb-2">How much →
+          <select class="form-select d-inline-block w-auto" name="off_howmuch">
+            <option value="">—</option>
+            <option>Ohatrinona</option>
+            <option>Firy</option>
+          </select>
+        </div>
+        <div class="mb-2">How →
+          <select class="form-select d-inline-block w-auto" name="off_how">
+            <option value="">—</option>
+            <option>Ahoana</option>
+            <option>Aiza</option>
+          </select>
+        </div>
+        <div class="mb-2">How many →
+          <select class="form-select d-inline-block w-auto" name="off_howmany">
+            <option value="">—</option>
+            <option>Firy</option>
+            <option>Ohatrinona</option>
+          </select>
+        </div>
+        <div class="mb-2">What time →
+          <select class="form-select d-inline-block w-auto" name="off_whattime">
+            <option value="">—</option>
+            <option>Amin’ny firy</option>
+            <option>Oviana</option>
+          </select>
+        </div>
+        <div class="mb-2">Why →
+          <select class="form-select d-inline-block w-auto" name="off_why">
+            <option value="">—</option>
+            <option>Fa maninona</option>
+            <option>Ahoana</option>
+          </select>
+        </div>
+
+        <h6 class="mt-4 mb-2 text-success">Tsimihety</h6>
+        <div class="mb-2">What →
+          <select class="form-select d-inline-block w-auto" name="tsm_what">
+            <option value="">—</option>
+            <option>Ino</option>
+            <option>Zovy</option>
+          </select>
+        </div>
+        <div class="mb-2">Who →
+          <select class="form-select d-inline-block w-auto" name="tsm_who">
+            <option value="">—</option>
+            <option>Zovy</option>
+            <option>Ino</option>
+          </select>
+        </div>
+        <div class="mb-2">When (past) →
+          <select class="form-select d-inline-block w-auto" name="tsm_whenpast">
+            <option value="">—</option>
+            <option>Tafiriana</option>
+            <option>Hafiriana</option>
+          </select>
+        </div>
+        <div class="mb-2">When (future) →
+          <select class="form-select d-inline-block w-auto" name="tsm_whenfuture">
+            <option value="">—</option>
+            <option>Hafiriana</option>
+            <option>Tafiriana</option>
+          </select>
+        </div>
+        <div class="mb-2">Where →
+          <select class="form-select d-inline-block w-auto" name="tsm_where">
+            <option value="">—</option>
+            <option>Aiza</option>
+            <option>Akory</option>
+          </select>
+        </div>
+        <div class="mb-2">How much →
+          <select class="form-select d-inline-block w-auto" name="tsm_howmuch">
+            <option value="">—</option>
+            <option>Ohatrino</option>
+            <option>Firy</option>
+          </select>
+        </div>
+        <div class="mb-2">How →
+          <select class="form-select d-inline-block w-auto" name="tsm_how">
+            <option value="">—</option>
+            <option>Akory</option>
+            <option>Ino</option>
+          </select>
+        </div>
+        <div class="mb-2">How many →
+          <select class="form-select d-inline-block w-auto" name="tsm_howmany">
+            <option value="">—</option>
+            <option>Firy</option>
+            <option>Ohatrino</option>
+          </select>
+        </div>
+        <div class="mb-2">What time →
+          <select class="form-select d-inline-block w-auto" name="tsm_whattime">
+            <option value="">—</option>
+            <option>Amin’ny firy</option>
+            <option>Hafiriana</option>
+          </select>
+        </div>
+        <div class="mb-2">Why →
+          <select class="form-select d-inline-block w-auto" name="tsm_why">
+            <option value="">—</option>
+            <option>Fa manino</option>
+            <option>Akory</option>
+          </select>
+        </div>
+
+        <button type="button" class="btn btn-primary mt-3" id="checkQuestionsFull">Check answers</button>
+        <p id="questionResultFull" class="mt-3 fw-bold"></p>
       </form>
     </div>
   </div>
 </section>
 
 <script>
-  const correctQ = { what:"Ino", who:"Zovy", how:"Akory", why:"Fa manino" };
-  document.getElementById('checkQuestions').onclick = () => {
-    const form = document.getElementById('questionQuiz');
+  const correctQuestions = {
+    // official
+    off_what: "Inona",
+    off_who: "Iza",
+    off_whenpast: "Oviana",
+    off_whenfuture: "Rahoviana",
+    off_where: "Aiza",
+    off_howmuch: "Ohatrinona",
+    off_how: "Ahoana",
+    off_howmany: "Firy",
+    off_whattime: "Amin’ny firy",
+    off_why: "Fa maninona",
+    // tsimihety
+    tsm_what: "Ino",
+    tsm_who: "Zovy",
+    tsm_whenpast: "Tafiriana",
+    tsm_whenfuture: "Hafiriana",
+    tsm_where: "Aiza",
+    tsm_howmuch: "Ohatrino",
+    tsm_how: "Akory",
+    tsm_howmany: "Firy",
+    tsm_whattime: "Amin’ny firy",
+    tsm_why: "Fa manino"
+  };
+
+  document.getElementById('checkQuestionsFull').onclick = () => {
+    const form = document.getElementById('questionQuizFull');
     let score = 0;
-    Object.keys(correctQ).forEach(k => {
-      if (form[k].value === correctQ[k]) score++;
+    const total = Object.keys(correctQuestions).length;
+
+    Object.keys(correctQuestions).forEach(name => {
+      const sel = form[name];
+      if (!sel) return;
+      const userVal = (sel.value || "").trim();
+      const corrVal = correctQuestions[name].trim();
+      if (userVal === corrVal) {
+        score++;
+        sel.classList.add('border-success');
+        sel.classList.remove('border-danger');
+      } else {
+        sel.classList.add('border-danger');
+        sel.classList.remove('border-success');
+      }
     });
-    document.getElementById('questionResult').textContent = `✅ ${score}/4 correct`;
+
+    document.getElementById('questionResultFull').textContent =
+      `You got ${score} / ${total} correct.`;
   };
 </script>
-<section class="mb-5">
+
+    <!--quiz 4-->
+
+    <section class="mb-5" id="quiz4">
   <div class="card border-0 shadow-sm">
     <div class="card-body">
-      <h2 class="h5 mb-3">Quiz 4: Listening practice</h2>
-      <p class="mini mb-3">Listen and choose the correct translation.</p>
-      <audio controls class="mb-2 w-100">
+      <h2 class="h5 mb-3">Quiz 4: Listening to the dialogue</h2>
+      <p class="mini mb-3">Listen to the whole dialogue, then tick the lines that actually appear.</p>
+      <audio controls class="w-100 mb-3">
         <source src="/audio/introduction/lesson1con1.mp3" type="audio/mpeg" />
       </audio>
-      <select class="form-select w-auto" id="listenSelect">
-        <option>—</option>
-        <option value="A">Fine, thank you</option>
-        <option value="B">How are you?</option>
-        <option value="C">Come in, have a seat</option>
-      </select>
-      <button class="btn btn-primary mt-2" id="checkListening">Check</button>
-      <p id="listenResult" class="mt-2"></p>
+
+      <form id="listeningLines">
+        <!-- real ones from the lesson -->
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="salama" id="line1">
+          <label class="form-check-label" for="line1">Salama tompoko!</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="manakory" id="line2">
+          <label class="form-check-label" for="line2">Manakory ianao?</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="tsara" id="line3">
+          <label class="form-check-label" for="line3">Tsara fa misaotra.</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="ino" id="line4">
+          <label class="form-check-label" for="line4">Ino vaovao?</label>
+        </div>
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox" value="tsisy" id="line5">
+          <label class="form-check-label" for="line5">Tsisy vaovao.</label>
+        </div>
+
+        <!-- distractors: don't appear in first dialogue -->
+        <p class="mini mb-2">These might not be in this recording:</p>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="haody" id="line6">
+          <label class="form-check-label" for="line6">Haody!</label>
+        </div>
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox" value="mandrosoa" id="line7">
+          <label class="form-check-label" for="line7">Mandrosoa. Mipetrapetraha.</label>
+        </div>
+
+        <button type="button" class="btn btn-primary mt-2" id="checkListeningLines">Check</button>
+        <p id="listenResult" class="mt-3 fw-bold"></p>
+      </form>
     </div>
   </div>
 </section>
 
 <script>
-  document.getElementById('checkListening').onclick = () => {
-    const val = document.getElementById('listenSelect').value;
-    document.getElementById('listenResult').textContent =
-      val === 'B' ? '✅ Correct! The clip says “Manakory ianao?” — How are you?' : '❌ Try again.';
+  // lines that ARE in lesson1con1 (first dialogue)
+  const correctLines = new Set(["salama","manakory","tsara","ino","tsisy"]);
+
+  document.getElementById('checkListeningLines').onclick = () => {
+    const form = document.getElementById('listeningLines');
+    const checks = form.querySelectorAll('.form-check-input');
+
+    let correctSelected = 0;
+    let totalCorrect = correctLines.size;
+    let wrongSelected = 0;
+
+    checks.forEach(ch => {
+      const val = ch.value;
+      if (ch.checked && correctLines.has(val)) {
+        correctSelected++;
+        ch.parentElement.classList.add('border','border-success','rounded');
+      } else if (ch.checked && !correctLines.has(val)) {
+        wrongSelected++;
+        ch.parentElement.classList.add('border','border-danger','rounded');
+      } else {
+        ch.parentElement.classList.remove('border','border-success','border-danger','rounded');
+      }
+    });
+
+    // basic scoring: must pick all correct and no wrong to get full
+    const resultEl = document.getElementById('listenResult');
+    if (correctSelected === totalCorrect && wrongSelected === 0) {
+      resultEl.textContent = '✅ Perfect — you identified every line in the dialogue.';
+    } else {
+      resultEl.textContent = `You got ${correctSelected}/${totalCorrect} correct, with ${wrongSelected} extra selected. Listen again and try once more.`;
+    }
   };
 </script>
+
 
 
     <!-- DOWNLOAD PDF -->
