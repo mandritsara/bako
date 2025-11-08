@@ -14,6 +14,9 @@
     .sidebar-box { background: #f8f9fa; border-radius: .5rem; padding: 1rem; height: 100%; }
     .vocab td { vertical-align: top; }
     .table-tight td, .table-tight th { padding: .4rem .5rem; }
+    .custom-table { border: 1px solid #dee2e6; border-radius: .25rem; }
+    .custom-table th { background-color: #f1f3f5; font-weight: 600; }
+    .custom-list { list-style-type: disc; margin-left: 1.5rem; }
   </style>
 </head>
 <body class="bg-white">
@@ -58,11 +61,33 @@
               <audio controls class="w-100 mb-3">
                 <source src="/audio/" type="audio/mpeg" />
               </audio>
+
+              <!-- Example Table -->
+              <div class="table-responsive mb-3">
+                <table class="table table-sm table-bordered custom-table">
+                  <thead>
+                    <tr>
+                      <th>{{TABLE1_HEADER1}}</th>
+                      <th>{{TABLE1_HEADER2}}</th>
+                      <th>{{TABLE1_HEADER3}}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {{TABLE1_ROWS}}
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Example List -->
+              <ul class="custom-list mb-3">
+                {{LIST1_ITEMS}}
+              </ul>
+
             </div>
 
             <div class="col-md-4">
               <div class="sidebar-box">
-                <h3 class="h6 mb-2">{{SIDEBAR1_TITLE}}</h3>
+                <h2 class="h5 mb-2">{{SIDEBAR1_TITLE}}</h2>
                 <p class="mb-2">{{SIDEBAR1_TEXT}}</p>
                 <div class="example p-2 bg-white border rounded mb-0">
                   {{SIDEBAR1_EXAMPLE}}
@@ -80,6 +105,7 @@
         <div class="card-body">
           <div class="row g-4 align-items-start">
             <div class="col-md-8">
+              <h2 class="h5">{{SECTION2_HEADING}}</h2>
               <p class="mb-2">{{SECTION2_INTRO}}</p>
 
               <div class="example mb-3">
@@ -91,13 +117,34 @@
               </audio>
 
               {{SECTION2_EXPLANATION_PARAS}}
+
+              <!-- Example Table -->
+              <div class="table-responsive mb-3">
+                <table class="table table-striped table-sm custom-table">
+                  <thead>
+                    <tr>
+                      <th>{{TABLE2_HEADER1}}</th>
+                      <th>{{TABLE2_HEADER2}}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {{TABLE2_ROWS}}
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Example Ordered List -->
+              <ol class="mb-3">
+                {{LIST2_ITEMS}}
+              </ol>
+
             </div>
 
             <div class="col-md-4">
               <div class="sidebar-box">
-                <h3 class="h6 mb-2">{{SIDEBAR2_TITLE}}</h3>
+                <h2 class="h5 mb-2">{{SIDEBAR2_TITLE}}</h2>
                 <p class="mb-3">{{SIDEBAR2_TEXT}}</p>
-                <h3 class="h6 mb-2">{{SIDEBAR2_SUBTITLE}}</h3>
+                <h2 class="h5 mb-2">{{SIDEBAR2_SUBTITLE}}</h2>
                 <p class="mb-0">{{SIDEBAR2_SUBTEXT}}</p>
               </div>
             </div>
