@@ -1,8 +1,9 @@
-// Subfolder script (works in /introduction/, /grammar/, /theme/)
+// /grammar/grammar.js
+// Works inside the /grammar/ subfolder of https://mandritsara.github.io/bako/
 
 document.addEventListener("DOMContentLoaded", () => {
   loadHeaderFooter();
-  loadLessonsIfPresent(); // runs only if a #lessons-container exists
+  loadLessonsIfPresent();
 });
 
 // ------------------------------
@@ -12,15 +13,18 @@ function loadHeaderFooter() {
   const header = document.getElementById("header");
   const footer = document.getElementById("footer");
 
+  // IMPORTANT: adjust BASE if this repo is hosted at /bako/
+  const BASE = "/bako/";
+
   if (header) {
-    fetch("/header.html")
+    fetch(BASE + "header.html")
       .then(r => { if (!r.ok) throw new Error("header"); return r.text(); })
       .then(html => { header.innerHTML = html; })
       .catch(err => console.error("Error loading header:", err));
   }
 
   if (footer) {
-    fetch("/footer.html")
+    fetch(BASE + "footer.html")
       .then(r => { if (!r.ok) throw new Error("footer"); return r.text(); })
       .then(html => { footer.innerHTML = html; })
       .catch(err => console.error("Error loading footer:", err));
@@ -32,20 +36,14 @@ function loadHeaderFooter() {
 // ------------------------------
 function loadLessonsIfPresent() {
   const box = document.getElementById("lessons-container");
-  if (!box) return; // This is a single-lesson page, nothing to do
+  if (!box) return; // No container → single lesson page, nothing to do
 
-  // Work out which category this subfolder is
-  const path = location.pathname.toLowerCase();
-  let category = null;
-  if (path.includes("/introduction/")) category = "Introductory Lessons";
-  else if (path.includes("/grammar/")) category = "Grammar Lessons";
-  else if (path.includes("/theme/")) category = "Thematic Lessons";
-  if (!category) return;
+  const BASE = "/bako/";
 
-  fetch("/lessons.json", { cache: "no-store" })
+  fetch(BASE + "lessons.json", { cache: "no-store" })
     .then(r => { if (!r.ok) throw new Error(`lessons.json ${r.status}`); return r.json(); })
     .then(data => {
-      const cat = (data.lessons || []).find(c => c.category === category);
+      const cat = (data.lessons || []).find(c => c.category === "Grammar Lessons");
       if (!cat) return;
 
       const h3 = document.createElement("h3");
@@ -55,8 +53,8 @@ function loadLessonsIfPresent() {
       const grid = document.createElement("div");
       grid.className = "lesson-container";
 
-      // JSON is root-relative; this normalizer is a safety net if any old links slipped through
-      const normalize = (url) => url.replace(/^https?:\/\/mandritsara\.github\.io\/bako\//, "/");
+      // normalizer – makes URLs relative even if JSON contains full links
+      const normalize = (url) => url.replace(/^https?:\/\/mandritsara\.github\.io\/bako\//, BASE);
 
       cat.links.forEach(item => {
         const a = document.createElement("a");
@@ -69,7 +67,7 @@ function loadLessonsIfPresent() {
         const pdf  = normalize(item.url);
         const html = pdf.replace(/\.pdf$/i, ".html");
 
-        // Prefer HTML if available
+        // prefer HTML if it exists
         fetch(html, { method: "HEAD" })
           .then(res => { a.href = res.ok ? html : pdf; })
           .catch(() => { a.href = pdf; });
