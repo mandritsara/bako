@@ -588,122 +588,25 @@
   <div class="card border-0 shadow-sm">
     <div class="card-body">
       <h2 class="h5 mb-3">Quiz 3: Question words</h2>
-      <p class="mini mb-3">Match the English meaning to the correct form in each variety.</p>
+      <p class="mini mb-3">Match the English meaning to the correct form in each variety. You can reshuffle the options to try again.</p>
 
       <form id="questionQuizFull">
         <div class="row g-4">
           <!-- OFFICIAL LEFT -->
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6" id="qq-official-col">
             <h6 class="mb-2 text-primary">Official Malagasy</h6>
-            <div class="mb-2">What →
-              <select class="form-select d-inline-block w-auto" name="off_what">
-                <option value="">—</option><option>Inona</option><option>Iza</option><option>Aiza</option>
-              </select>
-            </div>
-            <div class="mb-2">Who →
-              <select class="form-select d-inline-block w-auto" name="off_who">
-                <option value="">—</option><option>Iza</option><option>Inona</option><option>Firy</option>
-              </select>
-            </div>
-            <div class="mb-2">When (past) →
-              <select class="form-select d-inline-block w-auto" name="off_whenpast">
-                <option value="">—</option><option>Oviana</option><option>Rahoviana</option>
-              </select>
-            </div>
-            <div class="mb-2">When (future) →
-              <select class="form-select d-inline-block w-auto" name="off_whenfuture">
-                <option value="">—</option><option>Rahoviana</option><option>Oviana</option>
-              </select>
-            </div>
-            <div class="mb-2">Where →
-              <select class="form-select d-inline-block w-auto" name="off_where">
-                <option value="">—</option><option>Aiza</option><option>Ahoana</option>
-              </select>
-            </div>
-            <div class="mb-2">How much →
-              <select class="form-select d-inline-block w-auto" name="off_howmuch">
-                <option value="">—</option><option>Ohatrinona</option><option>Firy</option>
-              </select>
-            </div>
-            <div class="mb-2">How →
-              <select class="form-select d-inline-block w-auto" name="off_how">
-                <option value="">—</option><option>Ahoana</option><option>Aiza</option>
-              </select>
-            </div>
-            <div class="mb-2">How many →
-              <select class="form-select d-inline-block w-auto" name="off_howmany">
-                <option value="">—</option><option>Firy</option><option>Ohatrinona</option>
-              </select>
-            </div>
-            <div class="mb-2">What time →
-              <select class="form-select d-inline-block w-auto" name="off_whattime">
-                <option value="">—</option><option>Amin’ny firy</option><option>Oviana</option>
-              </select>
-            </div>
-            <div class="mb-2">Why →
-              <select class="form-select d-inline-block w-auto" name="off_why">
-                <option value="">—</option><option>Fa maninona</option><option>Ahoana</option>
-              </select>
-            </div>
+            <!-- JS will inject fields here -->
           </div>
 
           <!-- TSIMIHETY RIGHT -->
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6" id="qq-tsm-col">
             <h6 class="mb-2 text-success">Tsimihety</h6>
-            <div class="mb-2">What →
-              <select class="form-select d-inline-block w-auto" name="tsm_what">
-                <option value="">—</option><option>Ino</option><option>Zovy</option>
-              </select>
-            </div>
-            <div class="mb-2">Who →
-              <select class="form-select d-inline-block w-auto" name="tsm_who">
-                <option value="">—</option><option>Zovy</option><option>Ino</option>
-              </select>
-            </div>
-            <div class="mb-2">When (past) →
-              <select class="form-select d-inline-block w-auto" name="tsm_whenpast">
-                <option value="">—</option><option>Tafiriana</option><option>Hafiriana</option>
-              </select>
-            </div>
-            <div class="mb-2">When (future) →
-              <select class="form-select d-inline-block w-auto" name="tsm_whenfuture">
-                <option value="">—</option><option>Hafiriana</option><option>Tafiriana</option>
-              </select>
-            </div>
-            <div class="mb-2">Where →
-              <select class="form-select d-inline-block w-auto" name="tsm_where">
-                <option value="">—</option><option>Aiza</option><option>Akory</option>
-              </select>
-            </div>
-            <div class="mb-2">How much →
-              <select class="form-select d-inline-block w-auto" name="tsm_howmuch">
-                <option value="">—</option><option>Ohatrino</option><option>Firy</option>
-              </select>
-            </div>
-            <div class="mb-2">How →
-              <select class="form-select d-inline-block w-auto" name="tsm_how">
-                <option value="">—</option><option>Akory</option><option>Ino</option>
-              </select>
-            </div>
-            <div class="mb-2">How many →
-              <select class="form-select d-inline-block w-auto" name="tsm_howmany">
-                <option value="">—</option><option>Firy</option><option>Ohatrino</option>
-              </select>
-            </div>
-            <div class="mb-2">What time →
-              <select class="form-select d-inline-block w-auto" name="tsm_whattime">
-                <option value="">—</option><option>Amin’ny firy</option><option>Hafiriana</option>
-              </select>
-            </div>
-            <div class="mb-2">Why →
-              <select class="form-select d-inline-block w-auto" name="tsm_why">
-                <option value="">—</option><option>Fa manino</option><option>Akory</option>
-              </select>
-            </div>
+            <!-- JS will inject fields here -->
           </div>
         </div>
 
-        <button type="button" class="btn btn-primary mt-3" id="checkQuestionsFull">Check</button>
+        <button type="button" class="btn btn-primary mt-3 me-2" id="checkQuestionsFull">Check</button>
+        <button type="button" class="btn btn-outline-secondary mt-3" id="scrambleQuestionsFull">Scramble options</button>
         <p id="questionResultFull" class="mt-3 fw-bold"></p>
       </form>
     </div>
@@ -711,55 +614,233 @@
 </section>
 
 <script>
-  const correctQuestions = {
-    // official
-    off_what: "Inona",
-    off_who: "Iza",
-    off_whenpast: "Oviana",
-    off_whenfuture: "Rahoviana",
-    off_where: "Aiza",
-    off_howmuch: "Ohatrinona",
-    off_how: "Ahoana",
-    off_howmany: "Firy",
-    off_whattime: "Amin’ny firy",
-    off_why: "Fa maninona",
-    // tsimihety
-    tsm_what: "Ino",
-    tsm_who: "Zovy",
-    tsm_whenpast: "Tafiriana",
-    tsm_whenfuture: "Hafiriana",
-    tsm_where: "Aiza",
-    tsm_howmuch: "Ohatrino",
-    tsm_how: "Akory",
-    tsm_howmany: "Firy",
-    tsm_whattime: "Amin’ny firy",
-    tsm_why: "Fa manino"
-  };
+  // same answers as your original
+  const questionFields = [
+    // OFFICIAL
+    {
+      id: "off_what",
+      col: "off",
+      label: "What",
+      correct: "Inona",
+      choices: ["Inona","Iza","Aiza"]
+    },
+    {
+      id: "off_who",
+      col: "off",
+      label: "Who",
+      correct: "Iza",
+      choices: ["Iza","Inona","Firy"]
+    },
+    {
+      id: "off_whenpast",
+      col: "off",
+      label: "When (past)",
+      correct: "Oviana",
+      choices: ["Oviana","Rahoviana"]
+    },
+    {
+      id: "off_whenfuture",
+      col: "off",
+      label: "When (future)",
+      correct: "Rahoviana",
+      choices: ["Rahoviana","Oviana"]
+    },
+    {
+      id: "off_where",
+      col: "off",
+      label: "Where",
+      correct: "Aiza",
+      choices: ["Aiza","Ahoana"]
+    },
+    {
+      id: "off_howmuch",
+      col: "off",
+      label: "How much",
+      correct: "Ohatrinona",
+      choices: ["Ohatrinona","Firy"]
+    },
+    {
+      id: "off_how",
+      col: "off",
+      label: "How",
+      correct: "Ahoana",
+      choices: ["Ahoana","Aiza"]
+    },
+    {
+      id: "off_howmany",
+      col: "off",
+      label: "How many",
+      correct: "Firy",
+      choices: ["Firy","Ohatrinona"]
+    },
+    {
+      id: "off_whattime",
+      col: "off",
+      label: "What time",
+      correct: "Amin’ny firy",
+      choices: ["Amin’ny firy","Oviana"]
+    },
+    {
+      id: "off_why",
+      col: "off",
+      label: "Why",
+      correct: "Fa maninona",
+      choices: ["Fa maninona","Ahoana"]
+    },
 
+    // TSIMIHETY
+    {
+      id: "tsm_what",
+      col: "tsm",
+      label: "What",
+      correct: "Ino",
+      choices: ["Ino","Zovy"]
+    },
+    {
+      id: "tsm_who",
+      col: "tsm",
+      label: "Who",
+      correct: "Zovy",
+      choices: ["Zovy","Ino"]
+    },
+    {
+      id: "tsm_whenpast",
+      col: "tsm",
+      label: "When (past)",
+      correct: "Tafiriana",
+      choices: ["Tafiriana","Hafiriana"]
+    },
+    {
+      id: "tsm_whenfuture",
+      col: "tsm",
+      label: "When (future)",
+      correct: "Hafiriana",
+      choices: ["Hafiriana","Tafiriana"]
+    },
+    {
+      id: "tsm_where",
+      col: "tsm",
+      label: "Where",
+      correct: "Aiza",
+      choices: ["Aiza","Akory"]
+    },
+    {
+      id: "tsm_howmuch",
+      col: "tsm",
+      label: "How much",
+      correct: "Ohatrino",
+      choices: ["Ohatrino","Firy"]
+    },
+    {
+      id: "tsm_how",
+      col: "tsm",
+      label: "How",
+      correct: "Akory",
+      choices: ["Akory","Ino"]
+    },
+    {
+      id: "tsm_howmany",
+      col: "tsm",
+      label: "How many",
+      correct: "Firy",
+      choices: ["Firy","Ohatrino"]
+    },
+    {
+      id: "tsm_whattime",
+      col: "tsm",
+      label: "What time",
+      correct: "Amin’ny firy",
+      choices: ["Amin’ny firy","Hafiriana"]
+    },
+    {
+      id: "tsm_why",
+      col: "tsm",
+      label: "Why",
+      correct: "Fa manino",
+      choices: ["Fa manino","Akory"]
+    }
+  ];
+
+  const offCol = document.getElementById("qq-official-col");
+  const tsmCol = document.getElementById("qq-tsm-col");
+
+  function shuffleArr(arr) {
+    return arr
+      .map(x => ({ v: x, r: Math.random() }))
+      .sort((a,b) => a.r - b.r)
+      .map(x => x.v);
+  }
+
+  function renderQuestionQuiz() {
+    // clear previous
+    offCol.querySelectorAll(".qq-field").forEach(n => n.remove());
+    tsmCol.querySelectorAll(".qq-field").forEach(n => n.remove());
+
+    questionFields.forEach(field => {
+      const wrapper = document.createElement("div");
+      wrapper.className = "mb-2 qq-field";
+      wrapper.innerHTML = `${field.label} → `;
+
+      const sel = document.createElement("select");
+      sel.className = "form-select d-inline-block w-auto";
+      sel.name = field.id;
+
+      const optEmpty = document.createElement("option");
+      optEmpty.value = "";
+      optEmpty.textContent = "—";
+      sel.appendChild(optEmpty);
+
+      const shuffled = shuffleArr(field.choices.slice());
+      shuffled.forEach(choice => {
+        const opt = document.createElement("option");
+        opt.value = choice;
+        opt.textContent = choice;
+        sel.appendChild(opt);
+      });
+
+      wrapper.appendChild(sel);
+
+      if (field.col === "off") {
+        offCol.appendChild(wrapper);
+      } else {
+        tsmCol.appendChild(wrapper);
+      }
+    });
+
+    document.getElementById("questionResultFull").textContent = "";
+  }
+
+  // check
   document.getElementById('checkQuestionsFull').onclick = () => {
     const form = document.getElementById('questionQuizFull');
     let score = 0;
-    const total = Object.keys(correctQuestions).length;
+    const total = questionFields.length;
 
-    Object.keys(correctQuestions).forEach(name => {
-      const sel = form[name];
-      if (!sel) return;
+    questionFields.forEach(field => {
+      const sel = form[field.id];
+      sel.classList.remove("border-success","border-danger");
       const userVal = (sel.value || "").trim();
-      const corrVal = correctQuestions[name];
-      if (userVal === corrVal) {
+      if (userVal === field.correct) {
         score++;
         sel.classList.add('border-success');
-        sel.classList.remove('border-danger');
       } else {
         sel.classList.add('border-danger');
-        sel.classList.remove('border-success');
       }
     });
 
     document.getElementById('questionResultFull').textContent =
       `You got ${score} / ${total} correct.`;
   };
+
+  // scramble
+  document.getElementById("scrambleQuestionsFull").onclick = () => {
+    renderQuestionQuiz();
+  };
+
+  // initial render
+  renderQuestionQuiz();
 </script>
+
 
     <!--quiz 4-->
 
