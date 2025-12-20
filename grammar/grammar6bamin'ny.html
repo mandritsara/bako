@@ -11,12 +11,17 @@
   <style>
     .sup { font-size: .75em; vertical-align: super; }
     .mini { font-size: .95rem; color: #555; }
+
     .example {
       background: #f8f9fa;
       border-left: 4px solid #dee2e6;
       padding: .75rem 1rem;
       border-radius: .5rem;
+      font-size: 1rem; /* prevents accidental small text */
     }
+
+    /* Table alignment fixes */
+    .table td, .table th { vertical-align: top; }
   </style>
 </head>
 
@@ -47,13 +52,11 @@
   <section class="mb-4">
     <div class="card border-0 shadow-sm">
       <div class="card-body">
-
-        <p>
+        <p class="mb-0">
           In the previous lesson, we learned about the preposition <b>amin’ny</b> or
           <b>tamin’ny</b>, which can mean “with” (and sometimes “in,” “on,” or “by,”
           depending on the context and sentence structure).
         </p>
-
       </div>
     </div>
   </section>
@@ -65,18 +68,16 @@
 
         <h2 class="h5">1. Basic Usage of Amin’ny</h2>
 
-        <p><b>Structure:</b></p>
+        <p class="mb-2"><b>Structure:</b></p>
 
         <div class="example mb-3">
-          <p><b>amin’ny</b> + noun</p>
-          <p class="mini">
-            Example: <i>amin’ny tavoahangy</i> (in/with the bottle)
-          </p>
+          <p class="mb-1"><b>amin’ny</b> + noun</p>
+          <p class="mb-0">Example: <i>amin’ny tavoahangy</i> (in/with the bottle)</p>
         </div>
 
         <div class="example mb-3">
-          <p>Verb + <b>amin’ny</b> + noun + subject</p>
-          <p class="mini">
+          <p class="mb-1">Verb + <b>amin’ny</b> + noun + subject</p>
+          <p class="mb-0">
             Example: <i>Misotro rano amin’ny tavoahangy izy</i><br />
             (He drinks water from a bottle.)
           </p>
@@ -99,18 +100,18 @@
         <h3 class="h6">a. Answer the questions:</h3>
 
         <div class="example mb-3">
-          <p>
+          <p class="mb-0">
             Sentence: <b>Mahandro sakafo amin’ny saribao i Soa.</b><br />
-            <span class="mini">(Soa cooks food with charcoal.)</span>
+            (Soa cooks food with charcoal.)
           </p>
         </div>
 
-        <ul>
-          <li>Manino i Soa? <span class="mini">(Why does Soa cook?)</span><br />Answer: …</li>
-          <li>Iza no mahandro sakafo amin’ny saribao? <span class="mini">(Who cooks food with charcoal?)</span><br />Answer: …</li>
-          <li>Mahandro sakafo amin’ny inona i Soa? <span class="mini">(With what does Soa cook food?)</span><br />Answer: …</li>
-          <li>Mahandro inona amin’ny saribao i Soa? <span class="mini">(What does Soa cook with charcoal?)</span><br />Answer: …</li>
-          <li>Mahandro sakafo amin’ny saribao ve i Soa? <span class="mini">(Does Soa cook food with charcoal?)</span><br />Answer: …</li>
+        <ul class="mb-0">
+          <li>Manino i Soa? (Why does Soa cook?)<br />Answer: …</li>
+          <li>Iza no mahandro sakafo amin’ny saribao? (Who cooks food with charcoal?)<br />Answer: …</li>
+          <li>Mahandro sakafo amin’ny inona i Soa? (With what does Soa cook food?)<br />Answer: …</li>
+          <li>Mahandro inona amin’ny saribao i Soa? (What does Soa cook with charcoal?)<br />Answer: …</li>
+          <li>Mahandro sakafo amin’ny saribao ve i Soa? (Does Soa cook food with charcoal?)<br />Answer: …</li>
         </ul>
 
         <audio controls class="w-100 mt-3">
@@ -129,17 +130,17 @@
         <h3 class="h6">b. Ask questions:</h3>
 
         <div class="example mb-3">
-          <p>
+          <p class="mb-0">
             Sentence: <b>Nihinana tamin’ny tànana izy.</b><br />
-            <span class="mini">(He ate with his hands.)</span>
+            (He ate with his hands.)
           </p>
         </div>
 
-        <ul>
-          <li>……………… ? – Nihinana tamin’ny tànana <span class="mini">(What did he do?)</span></li>
-          <li>……………… ? – Izy <span class="mini">(Who ate with hands?)</span></li>
-          <li>……………… ? – Tamin’ny tànana <span class="mini">(With what did he eat?)</span></li>
-          <li>……………… ? – Ie, nihinana tamin’ny tànana izy. <span class="mini">(Did he eat with his hands?)</span></li>
+        <ul class="mb-0">
+          <li>……………… ? – Nihinana tamin’ny tànana (What did he do?)</li>
+          <li>……………… ? – Izy (Who ate with hands?)</li>
+          <li>……………… ? – Tamin’ny tànana (With what did he eat?)</li>
+          <li>……………… ? – Ie, nihinana tamin’ny tànana izy. (Did he eat with his hands?)</li>
         </ul>
 
         <audio controls class="w-100 mt-3">
@@ -163,9 +164,9 @@
         </p>
 
         <div class="example mb-3">
-          <p>
+          <p class="mb-0">
             Example: <b>Manasa vilia amin’ny rano mafana izy.</b><br />
-            <span class="mini">(He washes dishes with hot water.)</span>
+            (He washes dishes with hot water.)
           </p>
         </div>
 
@@ -174,7 +175,7 @@
         </audio>
 
         <div class="table-responsive mt-4">
-          <table class="table table-bordered align-middle">
+          <table class="table table-bordered">
             <thead class="table-light">
               <tr>
                 <th>Verbs</th>
@@ -184,32 +185,32 @@
             </thead>
             <tbody>
               <tr>
-                <td><b>Manasa<br />(to wash)</b></td>
+                <td><b>Manasa</b><br />(to wash)</td>
                 <td><i>Lamba</i> (clothes)</td>
                 <td><i>Tànana</i> (hands)</td>
               </tr>
               <tr>
-                <td></td>
+                <td>&nbsp;</td>
                 <td><i>Vilia</i> (dishes)</td>
                 <td><i>Rano</i> (water)</td>
               </tr>
               <tr>
-                <td></td>
-                <td></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
                 <td><i>Savony</i> (soap)</td>
               </tr>
               <tr>
-                <td><b>Misotro<br />(to drink)</b></td>
+                <td><b>Misotro</b><br />(to drink)</td>
                 <td><i>Rano</i> (water)</td>
                 <td><i>Vera</i> (glass)</td>
               </tr>
               <tr>
-                <td><b>Mamaofy<br />(to peel)</b></td>
+                <td><b>Mamaofy</b><br />(to peel)</td>
                 <td><i>Paoma</i> (apple)</td>
                 <td><i>Antsy</i> (knife)</td>
               </tr>
               <tr>
-                <td><b>Mihinana<br />(to eat)</b></td>
+                <td><b>Mihinana</b><br />(to eat)</td>
                 <td><i>Vary</i> (rice)</td>
                 <td><i>Sotro</i> (spoon)</td>
               </tr>
@@ -217,16 +218,24 @@
           </table>
         </div>
 
+        <!-- IMAGE (relative path for /grammar/ page) -->
         <div class="my-4">
-          <img src="/grammar/grammar6b.jpg"
-               alt="Grammar Lesson 6b images 1 to 6"
-               class="img-fluid w-100"
-               loading="lazy" />
+          <img
+            src="grammar6b.jpg"
+            alt="Grammar Lesson 6b – writing sentences using amin’ny (images 1 to 6)"
+            class="img-fluid w-100"
+            loading="lazy"
+          />
         </div>
 
         <p><b>Tasks: Write a sentence for each image:</b></p>
         <ol>
-          <li></li><li></li><li></li><li></li><li></li><li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
         </ol>
 
       </div>
