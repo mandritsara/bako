@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Malagasy–Tsimihety Theme Lesson 5: Jobs</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    .sup  { font-size: .75em; vertical-align: super; }
+    .tsm  { font-size: .75em; vertical-align: super; color: #c0392b; }
+    .off  { font-size: .75em; vertical-align: super; color: #2980b9; }
+    .mini { font-size: .95rem; color: #555; }
+    .example { background: #f8f9fa; border-left: 4px solid #dee2e6; padding: .75rem 1rem; border-radius: .5rem; }
+    .sidebar-box { background: #f8f9fa; border-radius: .5rem; padding: 1rem; }
+    .custom-table { border: 1px solid #dee2e6; border-radius: .25rem; }
+    .custom-table th { background-color: #f1f3f5; font-weight: 600; }
+    .legend-tsm { color: #c0392b; font-weight: 600; }
+    .legend-off { color: #2980b9; font-weight: 600; }
+    .word-tsm { color: #c0392b; font-weight: 600; }
+    .word-off { color: #2980b9; font-weight: 600; }
+    .phrase-box {
+      background: #f0f7f6;
+      border-left: 4px solid #3a6f6a;
+      padding: .6rem 1rem;
+      border-radius: .5rem;
+      margin-bottom: .75rem;
+    }
+
+    /* Job cards grid */
+    .job-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    @media (max-width: 576px) {
+      .job-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .job-card {
+      text-align: center;
+      border: 1px solid #dee2e6;
+      border-radius: .5rem;
+      padding: .75rem .5rem;
+      background: #fff;
+    }
+    .job-card img {
+      width: 100%;
+      max-width: 110px;
+      height: 100px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto .5rem;
+    }
+    .job-card .job-num {
+      font-size: .72rem;
+      color: #888;
+    }
+    .job-card .job-name {
+      font-weight: 700;
+      color: #3a6f6a;
+      font-size: .95rem;
+    }
+
+    /* Suffix rule highlight */
+    .rule-box {
+      background: #fff8e1;
+      border-left: 4px solid #f39c12;
+      padding: .75rem 1rem;
+      border-radius: .5rem;
+      margin-bottom: 1rem;
+    }
+    .mp-highlight { color: #c0392b; font-weight: 700; }
+  </style>
+</head>
+<body class="bg-white">
+  <div id="header"></div>
+
+  <main class="container my-4">
+
+    <!-- BREADCRUMB -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/themes.html">Thematic Lessons</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Theme Lesson 5: Jobs</li>
+      </ol>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="mb-4">
+      <h1 class="h2">Malagasy–Tsimihety Theme Lesson 5: Jobs</h1>
+      <p class="mini mb-1">(Malagasy–Tsimihety with Bako — Thematic Lesson 5) • September 2024</p>
+      <p class="lead mb-2">Asa — Jobs</p>
+      <p class="mini">
+        <span class="legend-tsm">Red = Tsimihety</span> &nbsp;|&nbsp;
+        <span class="legend-off">Blue = Official Malagasy</span>
+      </p>
+    </header>
+
+    <!-- SECTION 1: Question & Response + Jobs Grid -->
+    <section class="mb-4">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body">
+          <h2 class="h5 mb-3">1. Question and Response Structure</h2>
+
+          <div class="phrase-box">
+            <p class="mb-1"><strong>Q:</strong> <span class="word-off">Inona no asany?<sup>off</sup></span> / <span class="word-tsm">Ino asany?<sup>tsm</sup></span> — What is his/her job?</p>
+            <p class="mb-1"><strong>A:</strong> <span class="word-off">… no asany<sup>off</sup></span> / <span class="word-tsm">Asany …<sup>tsm</sup></span> — His/her job is …</p>
+            <p class="mb-0"><strong>A:</strong> … izy. — He/she is …</p>
+          </div>
+
+          <audio controls class="w-100 mb-3">
+            <source src="https://mandritsara.github.io/bako/audio/theme/theme5.1.1.mp3" type="audio/mpeg" />
+          </audio>
+
+          <h3 class="h6 mb-3">Jobs 1–12</h3>
+          <div class="job-grid mb-3">
+            <div class="job-card">
+              <img src="https://bako.blog/images/theme5pic1.jpg" alt="Mpanjaitra" />
+              <p class="job-num">1</p>
+              <p class="job-name">Mpanjaitra</p>
+              <p class="mini mb-0">Tailor</p>
+            </div>
+            <div class="job-card">
+              <img src="https://bako.blog/images/theme5pic2.jpg" alt="Mpanao mofo" />
+              <p class="job-num">2</p>
+              <p class="job-name">Mpanao mofo</p>
+              <p class="mini mb-0">Baker</p>
+            </div>
+            <div class="job-card">
+              <img src="https://bako.blog/images/theme5pic3.jpg" alt="Mpaka sary" />
+              <p class="job-num">3</p>
+              <p class="job-name">Mpaka sary</p>
+              <p class="mini mb-0">Photographer</p>
+            </div>
+            <div class="job-card">
+              <img src="https://bako.blog/images/theme5pic4.jpg" alt="Mpianatra" />
+              <p class="job-num">4</p>
+              <p class="job-name">Mpianatra</p>
+              <p class="mini mb-0">Student</p>
+            </div>
+            <div class="job-card">
+              <img src="https://bako.blog/images/theme5pic5.jpg" alt="Mpampianatra" />
+              <p class="job-num">5</p>
+              <p class="job-name">Mpampianatra</p>
+              <p class="mini mb-0">Teacher</p>
+            </div>
+            <div class="job-card">
+              <img src="https://bako.blog/images/theme5pic6.jpg" alt="Mpivarotra" />
+              <p class="job-num">6</p>
+              <p class="job-name">Mpivarotra</p>
+              <p class="mini mb-0">Seller</p>
+            </div>
+            <div class="job-card">
+              <img src="https://bako.blog/images/theme5pic7.jpg" alt="Mpamboly" />
+              <p class="job-num">7</p>
+              <p class="job-name">Mpamboly</p>
+              <p class="mini mb-0">Farmer (plants)</p>
+            </div>
+            <div class="job-card">
+              <img src="https://bako.blog/images/theme5pic8.jpg" alt="Mpiompy" />
+              <p class="job-num">8</p>
+              <p class="job-name">Mpiompy</p>
+              <p class="mini mb-0">Breeder (animals)</p>
+            </div>
+            <div class="job-card">
+              <img src="https://bako.blog/images/theme5pic9.jpg" alt="Mpanao zaridaina" />
+              <p class="job-num">9</p>
+              <p class="job-name">Mpanao zaridaina</p>
+              <p class="mini mb-0">Gardener</p>
+            </div>
+            <div class="job-card">
+              <img src="https://bako.blog/images/theme5pic10.jpg" alt="Mpihira" />
+              <p class="job-num">10</p>
+              <p class="job-name">Mpihira</p>
+              <p class="mini mb-0">Singer</p>
+            </div>
+            <div class="job-card">
+              <img src="https://bako.blog/images/theme5pic11.jpg" alt="Mpitsabo" />
+              <p class="job-num">11</p>
+              <p class="job-name">Mpitsabo</p>
+              <p class="mini mb-0">Nurse</p>
+            </div>
+            <div class="job-card">
+              <img src="https://bako.blog/images/theme5pic12.jpg" alt="Dokotera" />
+              <p class="job-num">12</p>
+              <p class="job-name">Dokotera</p>
+              <p class="mini mb-0">Doctor</p>
+            </div>
+          </div>
+
+          <audio controls class="w-100 mb-3">
+            <source src="https://mandritsara.github.io/bako/audio/theme/theme5.1.2.mp3" type="audio/mpeg" />
+          </audio>
+
+          <h3 class="h6 mb-3">Jobs 13–18</h3>
+          <div class="job-grid mb-3">
+            <div class="job-card">
+              <img src="https://bako.blog/images/theme5pic13.jpg" alt="Mpandrafitra" />
+              <p class="job-num">13</p>
+              <p class="job-name">Mpandrafitra</p>
+              <p class="mini mb-0">Carpenter</p>
+            </div>
+            <div class="job-card">
+              <img src="https://bako.blog/images/theme5pic14.jpg" alt="Mpandoko" />
+              <p class="job-num">14</p>
+              <p class="job-name">Mpandoko</p>
+              <p class="mini mb-0">Painter</p>
+            </div>
+            <div class="job-card">
+              <img src="https://bako.blog/images/theme5pic15.jpg" alt="Mpanamboatra fiara" />
+              <p class="job-num">15</p>
+              <p class="job-name">Mpanamboatra fiara</p>
+              <p class="mini mb-0">Mechanic</p>
+            </div>
+            <div class="job-card">
+              <img src="https://bako.blog/images/theme5pic16.jpg" alt="Mpamono afo" />
+              <p class="job-num">16</p>
+              <p class="job-name">Mpamono afo</p>
+              <p class="mini mb-0">Firefighter</p>
+            </div>
+            <div class="job-card">
+              <img src="https://bako.blog/images/theme5pic17.jpg" alt="Sekretera" />
+              <p class="job-num">17</p>
+              <p class="job-name">Sekretera</p>
+              <p class="mini mb-0">Secretary</p>
+            </div>
+            <div class="job-card">
+              <img src="https://bako.blog/images/theme5pic18.jpg" alt="Mpamily / Sofera" />
+              <p class="job-num">18</p>
+              <p class="job-name">Mpamily / Sofera</p>
+              <p class="mini mb-0">Driver</p>
+            </div>
+          </div>
+
+          <audio controls class="w-100 mb-3">
+            <source src="https://mandritsara.github.io/bako/audio/theme/theme5.2.1.mp3" type="audio/mpeg" />
+          </audio>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Grammar — Possessive Adjectives -->
+    <section class="mb-4">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body">
+          <h2 class="h5 mb-3">2. Grammar Notes — Possessive Adjectives</h2>
+
+          <audio controls class="w-100 mb-3">
+            <source src="https://mandritsara.github.io/bako/audio/theme/theme5.3.1.mp3" type="audio/mpeg" />
+          </audio>
+
+          <div class="row g-4">
+            <div class="col-md-7">
+              <p>Possessive adjectives in Malagasy are added as <strong>suffixes</strong> to nouns. For example:</p>
+              <div class="example mb-3">
+                <p class="mb-1"><strong>Asa</strong>ko — My job</p>
+                <p class="mb-0"><strong>Asa</strong>nao — Your job</p>
+              </div>
+
+              <p>Here are the possessive suffixes:</p>
+              <div class="table-responsive mb-3">
+                <table class="table table-sm table-bordered custom-table">
+                  <thead>
+                    <tr>
+                      <th>Subject Pronoun</th>
+                      <th>Suffix</th>
+                      <th>Example</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Aho / Zaho</td><td><strong>-ko</strong></td><td>Asako (my job)</td></tr>
+                    <tr><td>Ianao</td><td><strong>-nao</strong></td><td>Asanao (your job)</td></tr>
+                    <tr><td>Izy</td><td><strong>-ny</strong></td><td>Asany (his/her job)</td></tr>
+                    <tr><td>Izahay</td><td><strong>-nay</strong></td><td>Asanay</td></tr>
+                    <tr><td>Isika</td><td><strong>-ntsika</strong></td><td>Asantsika</td></tr>
+                    <tr><td>Ianareo</td><td><strong>-reo</strong></td><td>Asareo</td></tr>
+                    <tr><td>Izy ireo</td><td><strong>-ny</strong></td><td>Asany</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <audio controls class="w-100 mb-3">
+                <source src="https://mandritsara.github.io/bako/audio/theme/theme5.3.3.mp3" type="audio/mpeg" />
+              </audio>
+            </div>
+
+            <div class="col-md-5">
+              <div class="sidebar-box mb-3">
+                <h3 class="h6 mb-2">Sample dialogue</h3>
+                <audio controls class="w-100 mb-2">
+                  <source src="https://mandritsara.github.io/bako/audio/theme/theme5.3.2.mp3" type="audio/mpeg" />
+                </audio>
+                <div class="example">
+                  <p class="mb-1">— Inona no asa<em>nao</em>?</p>
+                  <p class="mb-1">— Tantsaha <em>aho</em></p>
+                  <p class="mb-1">— <span class="mp-highlight">Mp</span>amboly sy <span class="mp-highlight">mp</span>iompy zany <em>ianao</em>?</p>
+                  <p class="mb-1">— Ia, <strong>m</strong>amboly vary sy <strong>m</strong>iompy akoho <em>aho</em></p>
+                  <p class="mb-1">— Ary ianao, inona no asa<em>nao</em>?</p>
+                  <p class="mb-0">— Sofera no asa<em>ko</em></p>
+                </div>
+                <div class="mt-2 mini">
+                  <p class="mb-1">Tantsaha = farmer</p>
+                  <p class="mb-1">Zany = so</p>
+                  <p class="mb-0">Ary ianao = and you</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="phrase-box mt-2">
+            <p class="mb-0"><strong>Practice Exercise:</strong> Use the possessive suffixes with <strong>"asa"</strong> (job) to indicate different people's jobs.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Job Names from Verbs -->
+    <section class="mb-4">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body">
+          <h2 class="h5 mb-3">3. Job Names Derived from Verbs</h2>
+
+          <audio controls class="w-100 mb-3">
+            <source src="https://mandritsara.github.io/bako/audio/theme/theme5.4.1.mp3" type="audio/mpeg" />
+          </audio>
+
+          <p>Many job names in Malagasy are derived from verbs. This is generally done by changing the initial letter <strong>M</strong> in the verb to <strong class="mp-highlight">Mp</strong> (with some exceptions).</p>
+
+          <div class="rule-box text-center">
+            <p class="mb-1"><strong>M . . . . (verb) → <span class="mp-highlight">Mp</span> . . . . (job)</strong></p>
+            <p class="mb-0"><strong>Mianatra</strong> (to study) → <strong><span class="mp-highlight">Mp</span>ianatra</strong> (student)</p>
+          </div>
+
+          <div class="phrase-box">
+            <p class="mb-2"><strong>Exercise:</strong> Try to find the verb form for each job by answering:</p>
+            <p class="mb-1 text-center"><span class="word-off">MANINONA ny …?<sup>off</sup></span> / <span class="word-tsm">MANINO ny …?<sup>tsm</sup></span></p>
+          </div>
+
+          <div class="example">
+            <p class="mb-1">Manino ny <strong><span class="mp-highlight">mp</span>ianatra</strong>?</p>
+            <p class="mb-1">— <strong>M</strong>ianatra izy</p>
+            <p class="mb-0 mini">(What does the student do? — He/she studies)</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DOWNLOAD PDF -->
+    <div class="text-center my-4">
+      <p class="mini">You can also download this lesson as a PDF for offline study:</p>
+      <a class="btn btn-outline-secondary" href="/theme/theme5jobs.pdf" target="_blank" rel="noopener">Download PDF</a>
+    </div>
+
+    <!-- PREV / NEXT -->
+    <div class="d-flex justify-content-between mb-5">
+      <a href="/theme/theme4inthekitchen.html">&laquo; Lesson 4: In the Kitchen</a>
+      <a href="/theme/theme6clothingandcolours.html">Lesson 6: Clothing &amp; Colours &raquo;</a>
+    </div>
+
+  </main>
+
+  <div id="footer"></div>
+  <script src="/theme/theme.js"></script>
+</body>
+</html>
