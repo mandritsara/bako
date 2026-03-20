@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Malagasy–Tsimihety Theme Lesson 3: Weather and Climate</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    .sup  { font-size: .75em; vertical-align: super; }
+    .tsm  { font-size: .75em; vertical-align: super; color: #c0392b; }
+    .off  { font-size: .75em; vertical-align: super; color: #2980b9; }
+    .mini { font-size: .95rem; color: #555; }
+    .example { background: #f8f9fa; border-left: 4px solid #dee2e6; padding: .75rem 1rem; border-radius: .5rem; }
+    .sidebar-box { background: #f8f9fa; border-radius: .5rem; padding: 1rem; height: 100%; }
+    .custom-table { border: 1px solid #dee2e6; border-radius: .25rem; }
+    .custom-table th { background-color: #f1f3f5; font-weight: 600; }
+    .legend-tsm { color: #c0392b; font-weight: 600; }
+    .legend-off { color: #2980b9; font-weight: 600; }
+    .word-tsm { color: #c0392b; font-weight: 600; }
+    .word-off { color: #2980b9; font-weight: 600; }
+    .tense-n { color: #c0392b; font-weight: 700; }
+    .tense-h { color: #c0392b; font-weight: 700; }
+
+    /* Weather condition cards */
+    .weather-card {
+      border: 1px solid #dee2e6;
+      border-radius: .5rem;
+      overflow: hidden;
+      height: 100%;
+    }
+    .weather-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+    }
+    .weather-card .weather-body {
+      padding: .75rem 1rem;
+      background: #f8f9fa;
+    }
+    .weather-label {
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: #888;
+      margin-bottom: .25rem;
+    }
+
+    /* Climate boxes */
+    .climate-hot {
+      background: #fff3e0;
+      border-left: 4px solid #e67e22;
+      padding: .75rem 1rem;
+      border-radius: .5rem;
+    }
+    .climate-cool {
+      background: #e8f4fd;
+      border-left: 4px solid #2980b9;
+      padding: .75rem 1rem;
+      border-radius: .5rem;
+    }
+
+    /* Season boxes */
+    .season-box {
+      background: #f0f7f6;
+      border: 1px solid #3a6f6a;
+      border-radius: .5rem;
+      padding: .6rem 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body class="bg-white">
+  <div id="header"></div>
+
+  <main class="container my-4">
+
+    <!-- BREADCRUMB -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/themes.html">Thematic Lessons</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Theme Lesson 3: Weather and Climate</li>
+      </ol>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="mb-4">
+      <h1 class="h2">Malagasy–Tsimihety Theme Lesson 3: Weather and Climate</h1>
+      <p class="mini mb-1">(Malagasy–Tsimihety with Bako — Theme Lesson 3) • March 2024</p>
+      <p class="lead mb-2">Ny andro sy Ny toetr'andro</p>
+      <p class="mini">
+        <span class="legend-tsm">Red = Tsimihety</span> &nbsp;|&nbsp;
+        <span class="legend-off">Blue = Official Malagasy</span>
+      </p>
+    </header>
+
+    <!-- SECTION 1: Asking about the weather -->
+    <section class="mb-4">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body">
+          <h2 class="h5 mb-3">1. How do you ask about the weather?</h2>
+
+          <audio controls class="w-100 mb-3">
+            <source src="https://mandritsara.github.io/bako/audio/theme/theme3.1.1.mp3" type="audio/mpeg" />
+          </audio>
+
+          <div class="example mb-3">
+            <p class="mb-2">How is the weather? =
+              <span class="word-off">Manahoana ny andro?<sup>off</sup></span> /
+              <span class="word-tsm">Manakôry ny andro?<sup>tsm</sup></span>
+            </p>
+            <p class="mb-1">Don't forget the past and future tense rules:</p>
+            <p class="mb-1"><span class="tense-n">N</span>anakory ny andro? <span class="mini">(past)</span></p>
+            <p class="mb-0"><span class="tense-h">H</span>anakory ny andro? <span class="mini">(future)</span></p>
+          </div>
+
+          <audio controls class="w-100 mb-3">
+            <source src="https://mandritsara.github.io/bako/audio/theme/theme3.1.2.mp3" type="audio/mpeg" />
+          </audio>
+
+          <h3 class="h6 mt-3 mb-3">Different types of weather conditions:</h3>
+
+          <div class="row g-3 mb-3">
+
+            <!-- Rainy -->
+            <div class="col-6 col-md-3">
+              <div class="weather-card">
+                <img src="https://bako.blog/images/theme3pic1.jpg"
+                     alt="Rainy weather"
+                     style="display:block;width:100%;height:160px;object-fit:cover;" />
+                <div class="weather-body">
+                  <p class="weather-label">Rainy</p>
+                  <p class="mb-0 fw-bold">Manorana ny andro</p>
+                  <p class="mini mb-0">it's raining</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sunny -->
+            <div class="col-6 col-md-3">
+              <div class="weather-card">
+                <img src="https://bako.blog/images/theme3pic2.jpg"
+                     alt="Sunny weather"
+                     style="display:block;width:100%;height:160px;object-fit:cover;" />
+                <div class="weather-body">
+                  <p class="weather-label">Sunny</p>
+                  <p class="mb-0"><span class="word-off">Mafana ny andro<sup>off</sup></span></p>
+                  <p class="mb-0"><span class="word-tsm">mahamay ny andro<sup>tsm</sup></span></p>
+                  <p class="mini mb-0">it's hot</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Windy -->
+            <div class="col-6 col-md-3">
+              <div class="weather-card">
+                <img src="https://bako.blog/images/theme3pic3.jpg"
+                     alt="Windy weather"
+                     style="display:block;width:100%;height:160px;object-fit:cover;" />
+                <div class="weather-body">
+                  <p class="weather-label">Windy</p>
+                  <p class="mb-0 fw-bold">Mandrivotra ny andro</p>
+                  <p class="mini mb-0">it's windy</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chilly -->
+            <div class="col-6 col-md-3">
+              <div class="weather-card">
+                <img src="https://bako.blog/images/theme3pic4.jpg"
+                     alt="Chilly weather"
+                     style="display:block;width:100%;height:160px;object-fit:cover;" />
+                <div class="weather-body">
+                  <p class="weather-label">Chilly</p>
+                  <p class="mb-0"><span class="word-off">Mangatsiaka ny andro<sup>off</sup></span></p>
+                  <p class="mb-0"><span class="word-tsm">Manintsy ny andro<sup>tsm</sup></span></p>
+                  <p class="mini mb-0">it's cold</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- General good/bad -->
+          <div class="example mb-3">
+            <p class="mb-1"><strong>When it's generally bad or good:</strong></p>
+            <p class="mb-1"><strong>Ratsy ny andro</strong> = the weather is bad (no sun, with clouds)</p>
+            <p class="mb-0"><strong>Tsara ny andro</strong> = it's nice (with sun)</p>
+          </div>
+
+          <audio controls class="w-100 mb-3">
+            <source src="https://mandritsara.github.io/bako/audio/theme/theme3.1.3.mp3" type="audio/mpeg" />
+          </audio>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Nouns -->
+    <section class="mb-4">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body">
+          <h2 class="h5 mb-3">2. Nouns — Weather Vocabulary</h2>
+
+          <div class="row g-4">
+            <div class="col-md-6">
+              <h3 class="h6 mb-2">Ny… (the…)</h3>
+              <div class="table-responsive mb-3">
+                <table class="table table-sm table-striped custom-table">
+                  <thead>
+                    <tr>
+                      <th>English</th>
+                      <th><span class="legend-off">Official</span></th>
+                      <th><span class="legend-tsm">Tsimihety</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Wind</td><td class="word-off">Rivotra</td><td class="word-tsm">rivotro</td></tr>
+                    <tr><td>Rain</td><td class="word-off">Orana</td><td class="word-tsm">ôragnandro</td></tr>
+                    <tr><td>Cloud</td><td class="word-off">Rahona</td><td class="word-tsm">rôndro</td></tr>
+                    <tr><td>Sun</td><td class="word-off">Masoandro</td><td class="word-tsm">masôva</td></tr>
+                    <tr><td>Sky</td><td class="word-off">Lanitra</td><td class="word-tsm">langitry</td></tr>
+                    <tr><td>Fog</td><td class="word-off">Zavona</td><td class="word-tsm">vôndro</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <audio controls class="w-100 mb-3">
+                <source src="https://mandritsara.github.io/bako/audio/theme/theme3.2.1.mp3" type="audio/mpeg" />
+              </audio>
+            </div>
+
+            <div class="col-md-6">
+              <h3 class="h6 mb-2">Descriptions</h3>
+              <div class="example mb-3">
+                <p class="mb-1"><strong>Mando</strong> = humid &nbsp;|&nbsp; <strong>Maina</strong> = dry</p>
+                <p class="mb-1">Mando ny rivotra = the wind is humid</p>
+                <p class="mb-1">Avy ny orana / latsaka ny orana = it's raining</p>
+                <p class="mb-1">Manga ny lanitra = the sky is blue</p>
+                <p class="mb-1">Manjavona ny andro = the weather is foggy</p>
+                <p class="mb-0">Mandrahona ny andro = it's cloudy</p>
+              </div>
+
+              <audio controls class="w-100 mb-3">
+                <source src="https://mandritsara.github.io/bako/audio/theme/theme3.2.2.mp3" type="audio/mpeg" />
+              </audio>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Climates -->
+    <section class="mb-4">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body">
+          <h2 class="h5 mb-3">3. Madagascar's Two Main Climates</h2>
+
+          <p class="mb-3">Madagascar is in the southern hemisphere, so the characteristics of the seasons are different from those in the northern hemisphere.</p>
+
+          <div class="row g-3 mb-3">
+            <div class="col-md-6">
+              <div class="climate-hot">
+                <p class="fw-bold mb-1" style="color:#e67e22;">MAFANA sy MANDO</p>
+                <p class="mb-1">Hot and humid</p>
+                <p class="mb-0 mini">October to March</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="climate-cool">
+                <p class="fw-bold mb-1" style="color:#2980b9;">MANINTSY sy MAINA</p>
+                <p class="mb-1">Cool and dry</p>
+                <p class="mb-0 mini">April to September</p>
+              </div>
+            </div>
+          </div>
+
+          <audio controls class="w-100 mb-3">
+            <source src="https://mandritsara.github.io/bako/audio/theme/theme3.2.3.mp3" type="audio/mpeg" />
+          </audio>
+
+          <h3 class="h6 mt-3 mb-3">The four Malagasy seasons:</h3>
+
+          <div class="row g-3 mb-3">
+            <div class="col-6 col-md-3">
+              <div class="season-box">
+                <p class="mini mb-1">Summer</p>
+                <p class="mb-0 fw-bold"><span class="word-off">Fahavaratra<sup>off</sup></span><br><span class="word-tsm">asara<sup>tsm</sup></span></p>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="season-box">
+                <p class="mini mb-1">Autumn</p>
+                <p class="mb-0 fw-bold">Fararano</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="season-box">
+                <p class="mini mb-1">Winter</p>
+                <p class="mb-0 fw-bold"><span class="word-off">Ririnina<sup>off</sup></span><br><span class="word-tsm">maintany<sup>tsm</sup></span></p>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="season-box">
+                <p class="mini mb-1">Spring</p>
+                <p class="mb-0 fw-bold">Lohataona</p>
+              </div>
+            </div>
+          </div>
+
+          <audio controls class="w-100 mb-3">
+            <source src="https://mandritsara.github.io/bako/audio/theme/theme3.2.4.mp3" type="audio/mpeg" />
+          </audio>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Notes & Exercises -->
+    <section class="mb-4">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body">
+          <h2 class="h5 mb-3">4. Notes &amp; Exercises</h2>
+
+          <ol class="mb-3">
+            <li class="mb-3">
+              Using the words above, describe the weather in your area in December and July.
+              <div class="example mt-2">
+                <p class="mb-0 word-tsm">Manakory ny andro any aminareo amin'ny volana Desambra sy volana Jolay?</p>
+              </div>
+            </li>
+            <li class="mb-3">
+              For Malagasy people in general, when we listen to the weather forecast, "good weather" means sunny and without rain. However, during the planting season, we need rain, and farmers do not agree with the concept of "bad weather" (with rain).
+            </li>
+            <li class="mb-3">
+              The word <strong>"NY ANDRO"</strong> (which means <em>day</em>) is also used to describe the weather or climate.
+            </li>
+            <li>
+              Madagascar is in the southern hemisphere, so the characteristics of the seasons are different from those in the northern hemisphere.
+            </li>
+          </ol>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DOWNLOAD PDF -->
+    <div class="text-center my-4">
+      <p class="mini">You can also download this lesson as a PDF for offline study:</p>
+      <a class="btn btn-outline-secondary" href="/theme/theme%203%20weather%20and%20climate.pdf" target="_blank" rel="noopener">Download PDF</a>
+    </div>
+
+    <!-- PREV / NEXT -->
+    <div class="d-flex justify-content-between mb-5">
+      <a href="/theme/theme2thehouse.html">&laquo; Lesson 2: The House</a>
+      <a href="/theme/theme4inthekitchen.html">Lesson 4: In the Kitchen &raquo;</a>
+    </div>
+
+  </main>
+
+  <div id="footer"></div>
+  <script src="/theme/theme.js"></script>
+</body>
+</html>
