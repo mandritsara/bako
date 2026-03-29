@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ------------------------------------------------------
 // Load header.html and footer.html from the SAME folder
-// as the current grammar page
+// as the current theme page
 // ------------------------------------------------------
 function loadHeaderFooter() {
   const header = document.getElementById("header");
@@ -36,3 +36,21 @@ function loadHeaderFooter() {
       .catch(err => console.error("FOOTER LOAD ERROR:", err));
   }
 }
+
+// ------------------------------------------------------
+// Google Analytics — injected here so every theme
+// lesson page automatically gets tracking, including
+// any future lessons added to this folder.
+// ------------------------------------------------------
+(function injectGA() {
+  if (window.__GA_INIT__) return;
+  window.__GA_INIT__ = true;
+  const s = document.createElement("script");
+  s.src = "https://www.googletagmanager.com/gtag/js?id=G-DG828TL4V1";
+  s.async = true;
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag("js", new Date());
+  gtag("config", "G-DG828TL4V1");
+})();
