@@ -83,20 +83,3 @@ function loadLessonsIfPresent() {
     .catch(err => console.error("Error loading lessons:", err));
 }
 
-// ------------------------------
-// Google Analytics (guarded)
-// ------------------------------
-(function () {
-  if (window.__GA_INIT__) return;
-  window.__GA_INIT__ = true;
-
-  const s = document.createElement("script");
-  s.src = "https://www.googletagmanager.com/gtag/js?id=G-DG828TL4V1";
-  s.async = true;
-  document.head.appendChild(s);
-
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
-  gtag('js', new Date());
-  gtag('config', 'G-DG828TL4V1');
-})();

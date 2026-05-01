@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Lessons</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    .video-card {
+      background-color: #fdf6f0;
+      border: 2px solid #a0522d;
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 2rem;
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .video-card h4 {
+      color: #a0522d;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .video-card p {
+      color: #7a4a30;
+      font-size: 0.93rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Responsive 16:9 YouTube embed */
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 6px;
+      background: #000;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    .page-title {
+      color: #43766C;
+      font-weight: 700;
+      margin: 1.5rem 0 0.25rem;
+    }
+
+    .page-subtitle {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 1.75rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+
+  <div class="container">
+    <h2 class="page-title">Video Lessons</h2>
+    <p class="page-subtitle">Watch and listen as Bako brings the vocabulary to life.</p>
+
+    <!-- VIDEO 1 -->
+    <div class="video-card">
+      <h4>Anarana sy Asa — Names &amp; Jobs</h4>
+      <p>A vocabulary video introducing common job names in Malagasy and Tsimihety, with illustrated examples.</p>
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/_sWN6f5AxE0?rel=0"
+          title="Malagasy Vocabulary – Names and Jobs"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+    <!-- Add further videos below in the same pattern -->
+
+  </div>
+
+  <div id="footer"></div>
+  <script src="/script.js?v=6" defer></script>
+</body>
+</html>

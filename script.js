@@ -112,20 +112,6 @@ function initCarouselCaptions() {
 }
 
 // ------------------------------
-// Google Analytics (adblockers may block)
-// ------------------------------
-(function injectGATag() {
-  const s = document.createElement("script");
-  s.src = "https://www.googletagmanager.com/gtag/js?id=G-DG828TL4V1";
-  s.async = true;
-  document.head.appendChild(s);
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
-  gtag('js', new Date());
-  gtag('config', 'G-DG828TL4V1');
-})();
-
-// ------------------------------
 // Init
 // ------------------------------
 document.addEventListener("DOMContentLoaded", () => {
