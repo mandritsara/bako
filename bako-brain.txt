@@ -1,0 +1,623 @@
+# BAKO'S LANGUAGE TUTOR — KNOWLEDGE BASE
+# Learning Malagasy and Tsimihety with Bako
+# Site: https://mandritsara.github.io/bako/
+# Last updated: 2025
+#
+# INSTRUCTIONS FOR AI TUTOR:
+# You are a warm, encouraging Malagasy and Tsimihety language tutor for the website
+# "Learning Malagasy and Tsimihety with Bako". The teacher is Bako, a tutor based in
+# Mandritsara, Madagascar since 2008, teaching missionaries and visitors.
+# When a topic in conversation matches a lesson below, reactively mention it and provide
+# the URL. Do not proactively push lessons — only link them when naturally relevant.
+# Always show both Tsimihety (tsm) and Official Malagasy (off) variants.
+# Correct learner errors gently: ❌ what they wrote → ✅ correction + brief explanation.
+# Red = Tsimihety, Blue = Official Malagasy (mention this convention if relevant).
+
+# ============================================================
+# CORE GRAMMAR RULES
+# ============================================================
+
+SENTENCE STRUCTURE:
+- Malagasy sentences do NOT start with the subject. The subject comes LAST.
+- Order: PREDICATE (verb/adjective/noun) — SUBJECT
+- Examples:
+  Miasa izy. (He works.) — NOT "Izy miasa."
+  Tsara ny andro. (The weather is fine.)
+  Mpampianatra i Soa. (Soa is a teacher.)
+
+TENSE (verb prefix system):
+- M- = present:  Miasa (works/is working)
+- N- = past:     Niasa (worked)
+- H- = future:   Hiasa (will work)
+- Rule: replace M with N for past, M with H for future.
+- Examples: Mihira / Nihira / Hihira (sing/sang/will sing)
+
+NEGATION:
+- Place TSY before the verb/adjective.
+- Tsy miasa izy. (He doesn't work.)
+- Tsy tsara ny andro. (The weather is not good.)
+
+YES / NO:
+- Yes: Eny (off) / Ia (tsm)
+- No: Tsia / A-a (off) / Ehe (tsm)
+
+QUESTION PARTICLE VE / MOA:
+- Add "ve" or "moa" to turn a statement into a yes/no question.
+- Miasa ve izy? (Does he work?)
+- Answer: Ia / Eny (yes) or Ehe / Tsia (no)
+
+"NY" = the definite article (the, a, le, la, les):
+- ny andro = the weather/day
+- ny trano = the house
+
+# ============================================================
+# PRONOUNS (KEY TSIMIHETY vs OFFICIAL DIFFERENCES)
+# ============================================================
+
+| English         | Official (off) | Tsimihety (tsm) |
+|-----------------|----------------|-----------------|
+| I / me          | aho / ahy      | zaho            |
+| you (singular)  | ianao / anao   | anao            |
+| he/she/it       | izy            | izy             |
+| we (inclusive)  | isika / antsika| antsika         |
+| we (exclusive)  | izahay / anay  | zahay / aminay  |
+| you (plural)    | ianareo / anareo| areo           |
+| they/them       | izy ireo       | zareo           |
+
+NOTE: "Zaho" vs "aho" is one of the most important Tsimihety markers.
+Tsimihety learners in Mandritsara should use zaho (tsm).
+
+# ============================================================
+# QUESTION WORDS
+# ============================================================
+
+| English         | Official (off)      | Tsimihety (tsm)     |
+|-----------------|---------------------|---------------------|
+| What (doing)?   | Maninona? / Inona?  | Manino? / Ino?      |
+| Who?            | Iza no?             | Zôvy?               |
+| Where?          | Aiza?               | Aiza?               |
+| When (past)?    | Oviana no?          | Tafiriagna?         |
+| When (future)?  | Rahoviana no?       | Hafiriagna?         |
+| How?            | Manahoana?          | Manakôry?           |
+| How much?       | Ohatrinona?         | Ohatrino?           |
+| Whose?          | N'iza? / An'iza?    | Njôvy? / Anjôvy?    |
+| For whom?       | Ho an'iza?          | Ho anjôvy?          |
+| At what freq?   | Isaky ny inona no?  | Isaka ino?          |
+
+# ============================================================
+# LESSON INDEX WITH URLS
+# (Use these when linking lessons reactively in conversation)
+# ============================================================
+
+--- INTRODUCTORY LESSONS ---
+
+[INTRO-1a] Greetings + Pronouns and Question Words
+URL: https://mandritsara.github.io/bako/introduction/introlesson1agreetings.pdf
+Topics: Salama tompoko, Manakôry ianao?, Tsara fa misaotra, Haody, Ino vaovao?, Tsisy vaovao
+
+[INTRO-1b] Goodbye + Days, Weeks, Months
+URL: https://mandritsara.github.io/bako/introduction/introlesson1bgoodbye.pdf
+Topics: Veloma, Mazotoa, Amin'ny manaraka indray, days of week, Mandrapihaoana, Rehefa avy eo
+
+[INTRO-2] Useful Expressions + Malagasy Hospitality
+URL: https://mandritsara.github.io/bako/introduction/introlesson2usefulexpressions.pdf
+Topics: Misaotra, Tsisy fisaorana, Azafady, Tsy maninona, Miala tsiny, body language, hospitality customs
+
+[INTRO-3] Introducing Yourself + Basic Grammar Rules
+URL: https://mandritsara.github.io/bako/introduction/introlesson3introducingyourself.pdf
+Topics: Anarako..., Avy any... zaho, Asako..., Manambady, Mananjanaka, Tonga soa, Faly mahafantatra anao
+
+[INTRO-4] Going to the Market + Numbers, Money, Groceries
+URL: https://mandritsara.github.io/bako/introduction/introlesson4goingtothemarket.pdf
+Topics: Manao bazary, Misy...ve?, Ohatrino(na)?, Amezo/Omeo, Ariary, Tsisy monnaie/madinika, units of measurement
+
+[INTRO-5] Going to Church + Ordinal Numbers
+URL: https://mandritsara.github.io/bako/introduction/introlesson5goingtochurch.pdf
+Topics: Mandeha mivavaka, Mandeha miangona, Baiboly, Fihirana FFPM, ASAFA, Fanompoam-pivavahana, Fiderana, Fanatitra, Toriteny, Tsodrano, Mifandray tanana
+
+[INTRO-6] Visiting a Village + Adjectives
+URL: https://mandritsara.github.io/bako/introduction/introlesson6visitingavillage.pdf
+Topics: Any ambanivohitra, Tsara/Ratsy, Betsaka/Tsisy, Madio, Malalaka, Vaovao, Tabataba, adjectives
+
+--- GRAMMAR LESSONS ---
+
+[GRAM-1] Forming Sentences
+URL: https://mandritsara.github.io/bako/grammar/grammar1formingsentences.pdf
+Topics: Predicate-Subject order, adjective sentences, Madio/Faly/Ravoravo, Manahoana/Manakôry, Inona no/Ino, Iza no/Zôvy, Ve/Moa questions
+
+[GRAM-2] Phrases with Verbs
+URL: https://mandritsara.github.io/bako/grammar/grammar2phraseswithverbs.pdf
+Topics: Intransitive verbs, M/N/H tense system, TSY negation, Manino/Zôvy/Ve questions
+
+[GRAM-3] Intransitive Verbs
+URL: https://mandritsara.github.io/bako/grammar/grammar3intransitiveverbs.pdf
+Topics: Intransitive verb patterns, vocabulary: miasa, mianatra, mitsangatsangana, mandeha, mihira, misoma/milalao, misakafo, mody
+
+[GRAM-4a] Transitive Verbs (I)
+URL: https://mandritsara.github.io/bako/grammar/grammar4atransitiveverbs.pdf
+Topics: Transitive verb structure: Verb–Object–Subject, manasa, mividy, mahandro, mitetika
+
+[GRAM-4b] Transitive Verbs (II)
+URL: https://mandritsara.github.io/bako/grammar/grammar4btransitiveverbs2.pdf
+Topics: Mamangy (visit), Manampy (help), Manontany (ask), Mitady/Mizaha (look for/examine), Mijery/Mizaha (watch)
+
+[GRAM-5] Adverbs and Common Auxiliary Verbs
+URL: https://mandritsara.github.io/bako/grammar/grammar5adverbsandcommonauxiliaryverbs.pdf
+Topics:
+- Adverbs: Efa/Afa (already), Mbola tsy/Tsabeky (not yet), Mbola/Mbala (still), Efa tsy/Afa tsy (no longer)
+- Degree adverbs: Be (very), Tsara (well), Loatra (too much), Mafy (hard/fast), Haingana/Malaky (quickly), Foana (always)
+- Auxiliaries: Mila (need), Te (want), Angamba (maybe), Efa (already)
+
+[GRAM-6a] Using "Amin'ny" for Instrumental Complements
+URL: https://mandritsara.github.io/bako/grammar/grammar6aamin'ny.pdf
+Topics: Amin'ny = "with" (instrument), structure: Verb + amin'ny + object + subject
+- Past tense: tamin'ny
+- Questions: Amin'ny ino? (tsm) / Amin'ny inona? (off)
+- Example: Migiaka/Misotro rano amin'ny tavoahangy izy. (He drinks water from a bottle.)
+
+[GRAM-6b] Using "Amin'ny" and "Tamin'ny" Extended
+URL: https://mandritsara.github.io/bako/grammar/grammar6bamin'ny.pdf
+Topics: Extended use of amin'ny, exercises with Mahandro sakafo amin'ny saribao (cook with charcoal)
+
+[GRAM-7] Opposites
+URL: https://mandritsara.github.io/bako/grammar/grammar7opposites.pdf
+Topics: Forming opposites with TSY, specific opposite pairs:
+- Sarotra/Môra (difficult/easy, tsm: Sarotro/Môra)
+- Tia/Tsy tia (like/not like)
+- Mianatra/Tsy mianatra (study/not study)
+- Eny/Ia (yes), Tsia/Ehe (no)
+
+[GRAM-8] Demonstrative Words
+URL: https://mandritsara.github.io/bako/grammar/grammar8demonstrativewords.pdf
+Topics:
+| Distance    | Singular (off) | Plural (off) | Singular (tsm) | Plural (tsm) |
+|-------------|----------------|--------------|----------------|--------------|
+| Near        | ity            | ireto        | tôho           | ireto        |
+| Intermediate| io             | ireo         | io             | ireo         |
+| Farther     | itsy           | iretsy       | rôho           | rôho         |
+| Very far    | iny            | ireny        | iny            | ireny        |
+- Iza io lehilahy io? / Zôvy io lalahy io? (Who is that man?)
+- Inona ireto zavatra ireto? / Ino ireto raha ireto? (What are these things?)
+
+[GRAM-9a] Comparisons (I) — Equality
+URL: https://mandritsara.github.io/bako/grammar/grammar9acomparisons.pdf
+Topics: Equality markers: Toa an', Tahaka an'/ny, Toy ny, Mitovy amin', Sahala amin'
+- Samy (off) / Samby (tsm) = both
+- Sy (off) / Ndreky (tsm) = and (connecting nouns)
+- Example: Mamy toy ny akondro ny voasary. (The orange is as sweet as a banana.)
+
+[GRAM-9b] Comparisons (II) — Comparative
+URL: https://mandritsara.github.io/bako/grammar/grammar9bcomparisons2.pdf
+Topics: Kokoa noho = "more than / -er than"
+- Structure 1: Adjective + kokoa noho + object + subject
+- Structure 2: Adjective + kokoa + subject + noho + object
+- Example: Mamy kokoa noho ny siramamy ny tantely. (Honey is sweeter than sugar.)
+
+[GRAM-9d] Comparisons (III) — Superlative and Duplication
+URL: https://mandritsara.github.io/bako/grammar/grammar9dcomparisons3.pdf
+Topics: Duplication for comparison:
+- Tsara → tsaratsara (better), Ratsy → ratsiratsy (less bad)
+- Mafana → mafanafana (less hot), Manintsy → manintsinintsy (colder)
+- Irregular: Mangatsiaka → mangatsiatsiaka, Mavesatra → mavesabesatra
+- Letter changes in duplication: l→d, v→b, s→ts, r→dr
+
+[GRAM-10] Indirect Object — Complement d'Attribution
+URL: (not yet published — draft available)
+Topics: Ho an'iza? (off) / Ho anjôvy? (tsm) = "for whom?"
+- Introduced by HO (for), placed before subject
+- Structure: Verb – C.Attribution – Subject
+- Example: Manao mofo ho an'ny ankizy izy. (He makes bread for the children.)
+- Pronoun table: ho ahy (for me), ho anao (for you), ho azy (for him/her), ho antsika (for us incl.), ho aminay (for us excl.), ho anareo (for you pl.), ho azy ireo/ho aminjareo (for them)
+
+[GRAM-11] Conjunctions (Exercises)
+URL: (not yet published)
+Topics: Practice exercises on conjunctions from Gram 6 list (see conjunctions section below)
+
+[GRAM-13b] Possessives (suite)
+URL: (not yet published — draft available)
+Topics: Possessive suffix structure: NOM + suffixe (possesseur)
+- Mofo + ZAHAY → MofoNAY (our bread)
+- Penina + IZY → PeninANAZY (his/her pen)
+- Question: NOM-ZÔVY? (tsm) / NOM-N'IZA? (off) = Whose?
+
+[GRAM-14d] Prepositions of Place (suite)
+URL: (not yet published — draft available)
+Topics: Prepositions: Ambony (on/above), Ambany (under), Aloha/Alôhaka (before/in front), Aoriana/Afara (behind), Anoloana/Alôhaka (in front of), Andamosina/Afara (behind), Afovoany/Anivo (middle), Anaty (inside), Ivelany/Ambelany (outside), Akaiky/Marigny (near), Lavitra/Lavitry (far), Anelanelana (between), Manodidina (around), Ampita (across)
+- Questions: AIZA? (where), INONA/INO no? (what), IZA/ZÔVY? (who), VE? (yes/no)
+
+[GRAM-15a] Time Complements (I) — When
+URL: (not yet published — draft available)
+Topics: Time complements answer "When?" — come AFTER the subject
+- Structure: Predicate – Subject – C.Temps
+- Past question: Oviana no? (off) / Tafiriagna? (tsm)
+- Future question: Rahoviana no? (off) / Hafiriagna? (tsm)
+- Time vocab:
+  | English      | Official       | Tsimihety      |
+  |--------------|----------------|----------------|
+  | Yesterday    | Omaly          | Nomoaligny     |
+  | Today        | Androany/Anio  | Niagny         |
+  | Tomorrow     | Rahampitso     | Amaraigny      |
+  | Day before   | Afak'omaly     | Afaka nomoaligny|
+  | Day after    | Afaka rahampitso| Afaka amaraigny|
+- Preposition: Amin'ny (present/future) → Tamin'ny (past)
+  Ex: Amin'ny Zoma (this Friday) → Tamin'ny Zoma (last Friday)
+
+[GRAM-15b] Time Complements (II) — Months, Weeks, Years
+URL: (not yet published — draft available)
+Topics:
+- Months: Zanvie, Fevrie, Marsa, Avrily, Mey, Jona, Jolay, Aogositra, Septambra, Oktobra, Novambra, Desambra
+  (tsm: Vôlagna... same month names, Vôlagna = month)
+- This week/month/year: Amin'ity herinandro/volana/taona ity (off) / Amin'ny herinandro/vôlagna/taogno tôho (tsm)
+- Last week: Tamin'ny herinandro lasa (off) / Tamin'ny herinandro teo igny (tsm)
+- Next week: Amin'ny herinandro ho avy (off) / Amin'ny herinandro io/rôho (tsm)
+
+[GRAM-15d] Time Complements (III) — Time of Day
+URL: (not yet published — draft available)
+Topics:
+- At what time? Amin'ny firy no? (off/tsm present/future) / Tamin'ny firy no? (off) / Tmin'ny firy? (tsm past)
+- Meals: Homagna maraindraigny (breakfast tsm) / Misakafo maraina (off)
+         Homagna matsagna (lunch tsm) / Misakafo atoandro (off)
+         Homagna amin'ny aligny (dinner tsm) / Misakafo hariva (off)
+- Frequency: Isaky ny inona no? (off) / Isaka ino? (tsm) = How often?
+
+[GRAM-16a] The Passive Voice (I)
+URL: (not yet published — draft available)
+Topics: Passive voice is natural and frequent in Malagasy — emphasises the OBJECT not the action.
+- Active: VERB – object – subject (emphasis on action/subject)
+- Passive: PASSIVE VERB – subject/agent suffix – object (emphasis on object)
+- Example pair:
+  Active: Manasa ovy izy. (He washes potatoes — emphasis: washing)
+  Passive: Sasany ny ovy. (The potatoes are washed — emphasis: potatoes)
+- Common active→passive verb pairs:
+  Manasa → Sasana (wash), Manadio → Diovina (clean), Mahandro → Andrahoina (cook)
+  Mitetika → Tetehana (chop), Mividy → Vidiana (buy), Mamboly → (plant)
+  Manao → Atao (do/make), Mamaofy/Magnofy → (peel), Mandroso → Aroso (serve)
+  Mamaky → Vakina (read/peel), Mila → Ilaina (need), Manisy → Asiana (add)
+
+[GRAM-16d] The Passive Voice (II — Exercises)
+URL: (not yet published — draft available)
+Topics: Passive voice revision exercises, active/passive comparison table
+
+--- THEME LESSONS ---
+
+[THEME-1] Family — Ny Fianakaviana
+URL: https://mandritsara.github.io/bako/theme/theme1family.pdf
+Topics: Family structure in Malagasy culture, family tree vocabulary:
+- Renibe (grandmother), Raibe (grandfather), Reny (mother), Ray (father)
+- Ray aman-dReny (parents), Zanaka (children), Zafy (grandchildren)
+- Vady (spouse), Zoky (older sibling), Zandry (younger sibling)
+- Rahalahy/Anadahy (brother), Rahavavy/Anabavy (sister)
+- Hambana/Kambana (twins), Talabolo/Voalohany (firstborn), Farany (lastborn)
+- Iray tampo / Naman-kibo araoky / Kibo araiky (siblings)
+- Uncle (maternal): Zama (tsm) / Anadahin-dReny (off)
+- Uncle (paternal): Iadabe/Iadahely (tsm) / Rahalahin-dRay (off)
+- Manambady (to be married), Mananjanaka (to have children)
+
+[THEME-2] The House — Ny Trano / Ny Tragno (tsm)
+URL: https://mandritsara.github.io/bako/theme/theme%202%20the%20house.pdf
+Topics:
+- Nouns: Fefy/Lakôro (fence), Vavahady (gate), Tokontany (courtyard), Làlana (road/street)
+  Tafo (roof), Rindrina/Rimba (wall), Varavarana/Tamiagna (door), Varavarankely (window)
+  Rihana/Etazy (floor/storey), Tohatra/Escalier (stairs), Lavarangana/Rangalava (balcony)
+- Adjectives: Lehibe/Geda (big), Kely/Hely (small), Avo/Ambo (high), Iva (low)
+  Malalaka (spacious), Tery/Mahety (cramped), Madio (clean), Maloto (dirty), Simba/Maratra (broken)
+- Verbs: Manao/Manamboatra/Mitsabo (build), Manamboatra (repair), Manadio (clean)
+  Mividy (buy), Mivarotra (sell), Manofa/Mamondro (rent)
+- Cultural note: Traditional houses face west; cardinals (Avaratra/North, Atsimo/South, Andrefana/West, Atsinanana/East) used for directions
+
+[THEME-3] Weather and Climate — Ny Andro / Ny Toetr'andro
+URL: https://mandritsara.github.io/bako/theme/theme%203%20weather%20and%20climate.pdf
+Topics:
+- Question: Manahoana ny andro? (off) / Manakôry ny andro? (tsm) = How is the weather?
+- Weather expressions:
+  Manorana ny andro (it's raining)
+  Mafana ny andro / Mahamay ny andro (tsm) (it's hot)
+  Mandrivotra ny andro (it's windy)
+  Mangatsiaka ny andro / Manintsy ny andro (tsm) (it's cold)
+  Ratsy ny andro (bad weather), Tsara ny andro (good weather/sunny)
+- Nouns: Rivotra/Rivotro (wind), Orana/Ôragnandro (rain), Rahona/Rôndro (cloud)
+  Masoandro/Masôva (sun), Lanitra/Langitry (sky), Zavona/Vôndro (fog)
+- Other: Mando (humid), Maina (dry), Manga ny lanitra (blue sky), Manjavona (brumeux)
+- Two seasons: Mafana sy Mando (hot & wet, Oct-Mar), Manintsy sy Maina (cool & dry)
+
+[THEME-4] In the Kitchen — Ao an-dakozia / Lakozia
+URL: https://mandritsara.github.io/bako/theme/theme4inthekitchen.pdf
+Topics:
+- Question: Aiza ny...? (Where is...?) — Answer: Ity/Tôho (here)
+- Kitchen nouns: Latabatra (table), Seza/Sezy (chair), Tsihy (mat)
+  Sotrobe/Sadrô (big spoon), Sotro/Sôtro (spoon), Vera (glass)
+  Kaopy/Tasy (cup), Antsy/Meso (knife), Vilia/Kapila (plate)
+  Jôgy (carafe), Vilany (pot), Siô (bucket), Koveta/Govety (basin)
+  Lapoaly (pan), Sinibe/Sajô (jar), Fatana/Fatampera (stove)
+- Kitchen verbs: Manasa (wash), Manadio (clean), Mamaofy/Magnofy (peel)
+  Mitetika/Manapatapaka (chop), Mahandro (cook), Manendy (fry)
+  Mitono/Mitogno (grill), Manao/Mitsabo (make)
+
+[THEME-5] Jobs — Ny Asa
+URL: https://mandritsara.github.io/bako/theme/theme5jobs.pdf
+Topics:
+- Question: Inona no asany? (off) / Ino asany? (tsm) = What is his/her job?
+- Jobs vocabulary:
+  Mpanjaitra (tailor), Mpanao mofo (baker), Mpaka sary (photographer)
+  Mpianatra (student), Mpampianatra (teacher), Mpivarotra (seller/shopkeeper)
+  Mpamboly (farmer/planter), Mpiompy (animal breeder), Mpanao zaridaina (gardener)
+  Mpihira (singer), Mpitsabo (nurse), Dokotera (doctor), Mpandrafitra (carpenter)
+  Mpandoko (painter), Mpanamboatra fiara (mechanic), Mpamono afo (firefighter)
+  Sekretera (secretary), Mpamily/Sofera (driver)
+- Note: "Mp-" prefix indicates a person who does something habitually/professionally
+
+[THEME-6] Clothing and Colours — Ny Fitafiana sy ny Loko
+URL: https://mandritsara.github.io/bako/theme/theme6clothingandcolours.pdf
+Topics:
+- Verb for wearing: Manao (to wear/put on)
+- Clothing: Pataloha/Jôka (trousers), Zipo (skirt), Akanjo (shirt/top)
+  Lobaka/Kazaka (jacket), T-shirt, Akanjo bà/Palitô (coat)
+  Satroka bà (hat-cap), Kapa/Kiraro (sandals), Kiraro (shoes)
+  Palitao/Palitô (coat), Satroka/Satroko (hat), Elo/Mahavoly (scarf)
+  Fehikibo/Ceinture (belt), Bakiraro/Fôbà (socks), Solomaso (glasses)
+- Lamba (traditional wrap): Mitafy lamba, Misikina, Mandreritry (tsm), Mirandrana
+
+[THEME-7a] Parts of the Body — Ny Vatan'ny Olona
+URL: https://mandritsara.github.io/bako/theme/theme7apartsofthebody.pdf
+Topics:
+| English       | Official (off)      | Tsimihety (tsm)     |
+|---------------|---------------------|---------------------|
+| Head          | loha                | lôha                |
+| Hair          | volo                | maramaragna         |
+| Eyes          | maso                | maso                |
+| Ears          | sofina              | sôfigny             |
+| Tongue        | lela                | lela                |
+| Teeth         | nify                | nify                |
+| Mouth         | vava                | vava                |
+| Nose          | orona               | ôrogno              |
+| Legs/feet     | tongotra            | hongotro            |
+| Hands         | tànana              | tànana              |
+| Fingers       | rantsan-tànana      | rantsan-tànana      |
+| Back          | lamosina            | tahezagna           |
+| Face          | tarehy              | sôra                |
+| Chest         | tratra              | tratra              |
+| Stomach       | kibo                | bôko                |
+| Neck          | tenda               | tenda               |
+| Shoulders     | soroka              | havay               |
+- Practice: Aiza ny maso? (Where are the eyes?) → Ity / Ireto
+
+[THEME-7b] Parts of the Body — Diseases — Ny Aretina
+URL: https://mandritsara.github.io/bako/theme/theme7bpartsofthebodydiseases.pdf
+Topics:
+- Marary = sick/patient/pain (noun and adjective)
+- Questions: Iza no marary? (off) / Zôvy marary? (tsm) = Who is sick?
+  Inona no marary? / Ino marary? = What is the problem?
+  Aiza no marary? / Aiza marary? = Where does it hurt?
+  Marary ve? = Is it painful?
+- Three ways to describe illness:
+  1. Voan'ny + disease (off) / Azon'ny + disease (tsm) = I have a...
+  2. Marary ny + body part = My ... hurts
+  3. Misy aretin'ny + body part = There is a problem with my...
+- Tsisy marary (no patient/no pain), Tsy marary (not sick)
+
+[THEME-8a] Fruits and Vegetables — Ny Voankazo
+URL: https://mandritsara.github.io/bako/theme/theme8afruitsandvegetables.pdf
+Topics: Tropical fruits of Madagascar, seasonal availability
+- Akondro (banana — year-round), Voanjo (lychee), Manga (mango)
+- Voasary (orange), Paoma (apple), Voatavo (pumpkin/gourd)
+- Cultural note: Each region has specific crops; lychee exported to Europe
+
+[THEME-8b] Vegetables and Spices — Ny Legioma sy Zavamanitra
+URL: https://mandritsara.github.io/bako/theme/theme8bvegetablesandspices.pdf
+Topics:
+| # | Official      | Tsimihety   | English         |
+|---|---------------|-------------|-----------------|
+| 1 | Voatabia      | Tomaty      | Tomatoes        |
+| 2 | Anana         | Anambe      | Green leaves    |
+| 3 | Baranjely     | —           | Aubergine       |
+| 4 | Konkombra     | —           | Cucumber        |
+| 5 | Laisoa        | —           | Cabbage         |
+| 6 | Ovy           | Ponne de terre| Potatoes      |
+| 7 | Petit pois    | —           | Peas            |
+| 9 | Karaoty       | —           | Carrot          |
+|10 | Voatavo       | —           | Pumpkin         |
+|12 | Tongolo gasy  | Tongolo lay | Garlic          |
+|13 | Sakamalao     | Sakaitany   | Ginger          |
+|14 | Sakay         | —           | Chili           |
+|15 | Tongolo ejipta| Tongolo be  | Onion           |
+|16 | Tsaramaso tanora| Haricot vert| Green bean    |
+|17 | Tongolo ravina maitso| Tongolo | Spring onion |
+- Dry-grain vegetables available year-round (dried and preserved)
+
+[THEME-9] Animals — Ny Biby
+URL: https://mandritsara.github.io/bako/theme/theme9animals.pdf
+Topics: Animals in Malagasy daily life
+- Zebu (omby): central to Malagasy life — ploughing, meat, fertiliser, wealth symbol, transport
+- Akoho (chicken/poultry), Kisoa/Kambo (pig), Alika (dog), Saka (cat)
+- Omby (zebu/cow), Ondry (sheep), Osy (goat)
+- Insects: Moka (mosquito), Valala (locust)
+- Cultural: first cockerel crow = 3am; seeing crows/owls has cultural significance
+- Biby fiompy = farm animals, Biby dia = wild animals
+
+[THEME-11a] Asking and Giving Directions (I) — Manontany Làlana
+URL: (not yet published — draft available)
+Topics:
+- Làlana/Làlagn (road), Arabe (street/paved), Làlana mahitsy (shortcut)
+  Làlantany (dirt track), Làlankely (alley/path)
+- Distance expressed in hours of travel: Adiny (off) / Lera (tsm)
+  Ex: Làlagn 3 lera = 3 hours' travel
+- Cardinal directions: Avaratra (N), Atsimo (S), Andrefana/Andrefagna (W), Atsinanana/Atinianagna (E)
+  Mianavaratra/Magnavaratra = go north, Mianatsimo/Magnatsimo = go south
+- Three location question words: AIZA? (where?), MANDEHA AIZA/MANKAIZA? (going where?), AVY AIZA? (from where?)
+- Road condition: Ratsy (bad), Tsara (good), Maina/Maigny (dry), Malama/Malamatra (muddy)
+  Mamotaka/Magôdra (slippery), Lavitra/Lavitry (far), Akaiky/Marigny (near)
+
+[THEME-11d] Asking and Giving Directions (III) — Manontany Làlana (Tohiny 3)
+URL: (not yet published — published PDF version exists)
+Topics: Direction verbs:
+| # | Malagasy              | English                        |
+|---|----------------------|--------------------------------|
+| 1 | Mivily ankavia       | Turn left                      |
+| 2 | Mivily ankavanana    | Turn right                     |
+| 3 | Miankavia            | Go left                        |
+| 4 | Miankavanana / Mandeha ankahery (tsm) | Go right      |
+| 5 | Mihodina             | Turn around                    |
+| 6 | Mandeha mahitsy      | Go straight on                 |
+| 7 | Manohy mahitsy       | Continue straight              |
+| 8 | Midina / Mijôtso (tsm)| Go down                       |
+| 9 | Miakatra             | Go up                          |
+|10 | Miampita ny làlana   | Cross the street               |
+|11 | Miampita ny tetezana | Cross the bridge               |
+|14 | Mandalo ny...        | Go past / pass by...           |
+|15 | Mandeha hatramin'ny faran'ny làlana | Go to end of road|
+- Dialogue: Soa asking Fara for directions to hospital (full dialogue available)
+- Key vocab: Mahitsy (straight), Fiviliana (turning), Tetezana (bridge), Etazy (storey/floor)
+  Sampanan-dàlana (fork in road), Vavahady (gate), Mbola tsy (not yet), Avy eo (from there)
+
+[THEME-14b] Daily Routine — Ny Andavanandro
+URL: (not yet published — draft available)
+Topics: Rakoto the farmer's daily routine.
+- Daily routine verbs:
+  | Official          | Tsimihety         | English              |
+  |-------------------|-------------------|----------------------|
+  | Mipetraka         | —                 | To live/stay         |
+  | Mifoha            | Mionjogno         | To wake up           |
+  | Miomana           | Magnomagna        | To prepare           |
+  | Misakafo          | Homagna           | To eat/have a meal   |
+  | Manome sakafo     | Magnome hanigny   | To feed (animals)    |
+  | Mandeha miasa     | —                 | To go to work        |
+  | Miverina miasa    | Mimpôdy miasa     | To return to work    |
+  | Miala sasatra     | Magnala disaka    | To rest              |
+  | Mody              | —                 | To go home           |
+  | Mandro            | Miseky            | To shower            |
+  | Mihaino radio     | Mitandregny radio | To listen to radio   |
+  | Matory            | Mandry            | To sleep             |
+- Time of day:
+  | Official          | Tsimihety         | English        |
+  |-------------------|-------------------|----------------|
+  | Maraina           | Maraindraigny     | Morning        |
+  | Atoandro          | Matsagna          | Midday/noon    |
+  | Tolakandro        | Harivariva        | Afternoon      |
+  | Hariva            | Harivariva        | Evening        |
+  | Alina             | Aligny            | Night          |
+- Conjunctions used in routine: Dia/Avite (then/towards), Avy eo/Avake (then/after), Sy/Ndraiky (and), Rehefa/Izikoa (when/while), Satria/Satrià (because)
+
+[THEME — CHURCH] Going to Church — Fiangonana
+URL: https://mandritsara.github.io/bako/introduction/introlesson5goingtochurch.pdf
+Topics: Baptist church vocabulary, service structure:
+- Mandeha mivavaka / Mandeha miangona = going to church
+- Books: Baiboly (Bible), Fihirana FFPM, ASAFA (hymn books)
+- Service sections: Fiderana (worship), Fanatitra (offering), Anjara ho an'ny ankizy (children's lesson),
+  Vakiteny (Bible reading), Toriteny (sermon), Filazana vaovao (announcements), Tsodrano (benediction)
+- Useful church verbs: Mitsangana (stand up), Mipetraka/Mantotry (sit down), Mihira (sing),
+  Mivavaka (pray), Mamaky Tenin'Andriamanitra (read God's word), Mijoro vavolombelona (give testimony)
+- Pronom used in church: ANTSIKA (we all — inclusive)
+
+# ============================================================
+# CONJUNCTIONS — Les Conjonctions Fréquentes (Grammar 6 content)
+# ============================================================
+
+| # | Official              | Tsimihety     | Meaning                    |
+|---|----------------------|---------------|----------------------------|
+| 1 | Sy / Ary / Ka        | Ndraiky       | And                        |
+| 2 | Satria               | Satrià        | Because                    |
+| 3 | Noho izany           | Mahazany      | So / Therefore             |
+| 4 | Raha / Rehefa        | Izikoa        | If / When / While          |
+| 5 | Na dia...aza         | —             | Even if                    |
+| 6 | Soa ihany fa         | Tsotsoko      | Fortunately / At least     |
+| 7 | Afa-tsy              | —             | Except / Unless            |
+| 8 | Saingy / Fa          | —             | But                        |
+| 9 | Mba h- / Mandra-     | Beky          | So that / In order to      |
+|10 | Avy eo / Dia         | Avake         | Then / After that          |
+|11 | Alohan'ny            | Alohaka       | Before                     |
+|12 | Sady                 | —             | But also / At the same time|
+|13 | Samy                 | Samby         | Both                       |
+|15 | Sao / Fandrao        | Sandrô        | In case / Lest / For fear  |
+|16 | Raha vao...dia       | —             | As soon as                 |
+
+# ============================================================
+# PREPOSITIONS OF PLACE / LOCATIVES
+# ============================================================
+
+LOCATIVE PRONOUNS (distance + visibility):
+- ETO / AKETO (tsm): here — close and visible
+- ATO / AKATO (tsm): here — close, not visible
+- EO / AKEO (tsm): there — close, visible
+- AO / AKAO (tsm): there — close, not visible
+- ETSY/ERY / ARÔHO (tsm): a bit far, visible
+- ANY / AKANY (tsm): far, not visible
+- ENY / AKENY (tsm): in the air/space
+- Past tense: add T- → eto → TETO, any → TANY
+
+PREPOSITIONS WITH PEOPLE (amin'ny → personal):
+- Eto amiko (here with me), Any aminao (there with you)
+- Aminy (with him/her), Amintsika/Aminay (with us), Aminareo (with you pl.), Aminjareo (with them)
+
+# ============================================================
+# COMMON VERBS QUICK REFERENCE
+# ============================================================
+
+| Verb (off/tsm)              | English           | Past (N-)    | Future (H-)   |
+|-----------------------------|-------------------|--------------|---------------|
+| Miasa                       | Work              | Niasa        | Hiasa         |
+| Mianatra                    | Study             | Nianatra     | Hianatra      |
+| Mandeha                     | Go/Walk           | Nandeha      | Handeha       |
+| Mihira                      | Sing              | Nihira       | Hihira        |
+| Misoma (tsm)/Milalao (off)  | Play              | Nisoma       | Hisoma        |
+| Misakafo/Homagna (tsm)      | Eat a meal        | Nisakafo     | Hisakafo      |
+| Mody/Mimpôdy (tsm)          | Go home           | Nody         | Hody          |
+| Mivavaka                    | Pray              | Nivavaka     | Hivavaka      |
+| Mampianatra                 | Teach             | Nampianatra  | Hampianatra   |
+| Mandihy                     | Dance             | Nandihy      | Handihy       |
+| Milomano                    | Swim              | Nilomano     | Hilomano      |
+| Mihomehy                    | Laugh             | Nihomehy     | Hihomehy      |
+| Mitomany                    | Cry               | Nitomany     | Hitomany      |
+| Matory/Mandry (tsm)         | Sleep             | Natory       | Hatory        |
+| Mifoha/Mionjogno (tsm)      | Wake up           | Nifoha       | Hifoha        |
+| Mitsangana/Mantotry (sit)   | Stand up/Sit down | Nitsangana   | Hitsangana    |
+| Mahandro                    | Cook              | Nahandro     | Hahandro      |
+| Mividy                      | Buy               | Nividy       | Hividy        |
+| Mivarotra                   | Sell              | Nivarotra    | Hivarotra     |
+| Manasa                      | Wash              | Nanasa       | Hanasa        |
+| Manadio                     | Clean             | Nanadio      | Hanadio       |
+| Misotro/Migiaka (tsm)       | Drink             | Nisotro      | Hisotro       |
+| Mihinana/Migiaka (food,tsm) | Eat               | Nihinana     | Hihinana      |
+| Manontany                   | Ask               | Nanontany    | Hanontany     |
+| Mamangy                     | Visit             | Namangy      | Hamangy       |
+| Manampy                     | Help              | Nanampy      | Hanampy       |
+
+# ============================================================
+# KEY ADJECTIVES AND OPPOSITES
+# ============================================================
+
+| Adjective (off/tsm)         | Meaning      | Opposite                    |
+|-----------------------------|--------------|-----------------------------|
+| Tsara                       | Good/fine    | Ratsy (bad)                 |
+| Mafana                      | Hot          | Mangatsiaka/Manintsy (tsm)  |
+| Faly/Ravoravo (tsm)         | Happy        | Malahelo (sad)              |
+| Madio                       | Clean        | Maloto (dirty)              |
+| Lehibe/Geda (tsm)           | Big          | Kely/Hely (tsm) (small)     |
+| Mora/Môra (tsm)             | Easy/cheap   | Lafo (expensive)/Sarotra    |
+| Sarotra/Sarotro (tsm)       | Difficult    | Mora (easy)                 |
+| Betsaka                     | Many/a lot   | Kely (few)                  |
+| Lavitra/Lavitry (tsm)       | Far          | Akaiky/Marigny (tsm) (near) |
+| Avo/Ambo (tsm)              | High/tall    | Iva (low)                   |
+| Vaovao                      | New          | Ela (old)                   |
+| Antitra/Antitry (tsm)       | Old (person) | Tanora (young)              |
+| Mamy                        | Sweet        | Mangidy (bitter)            |
+| Matsiro                     | Delicious    | Ratsy (bad tasting)         |
+
+# ============================================================
+# CULTURAL NOTES FOR MISSIONARIES
+# ============================================================
+
+- Mandritsara is in the Sofia region, northern Madagascar. Tsimihety is the local dialect.
+- Greeting: SALAMA TOMPOKO is the standard greeting in Mandritsara.
+- HAODY = equivalent of knocking when arriving at someone's home.
+- TOMPOKO = polite address (sir/ma'am) — use liberally.
+- AZAFADY = please/excuse me/sorry — very versatile word.
+- Body language: use both hands when giving/receiving; slightly bow when walking past; remove hat entering houses, passing a funeral.
+- Family: extended family structure, cousins = siblings, uncles/aunts = parents.
+- Church: Baptist church common in Mandritsara; services at 9am, Sunday school at 8am.
+- Market: prices in ARIARY (Ar); no change is common (tsisy monnaie/madinika).
+- Rice: eaten 3 times a day; central to culture and agriculture.
+- Zebu: symbol of wealth, central to ceremonies, farming, and daily life.
+- 18 tribes across 22 regions — each with dialect variations.
+- Two seasons: hot/wet (Oct-Mar) and cool/dry.
+- Traditional medicine (herbal) widely used alongside modern medicine.
+- Zagnahary/Andriamanitra = God (Creator); ancestors play intermediary role in traditional belief.
