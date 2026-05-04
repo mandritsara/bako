@@ -3,24 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Practise Malagasy & Tsimihety – Bako's AI Tutor</title>
+  <title>Practise Official Malagasy – AI Chat Tutor</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    :root { --tsm:#b91c1c;--off:#1d4ed8;--teal:#3a6f6a;--bg:#faf7f2;--card:#fff;--border:#e5ded4;--text:#2c2017;--muted:#7a6e63;--br:18px; }
+    :root { --off:#1d4ed8;--teal:#3a6f6a;--bg:#faf7f2;--card:#fff;--border:#e5ded4;--text:#2c2017;--muted:#7a6e63;--br:18px; }
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:24px 16px 40px}
     .page-header{text-align:center;margin-bottom:20px;max-width:680px}
     .badge-row{display:flex;gap:8px;justify-content:center;margin-bottom:12px}
     .badge{font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:20px}
-    .badge-tsm{background:#fde8e8;color:var(--tsm);border:1px solid #f5c0c0}
     .badge-off{background:#e8eeff;color:var(--off);border:1px solid #c0ccf5}
     .badge-ai{background:#e8f5e9;color:#2e7d32;border:1px solid #b0d9b3}
-    .page-header h1{font-family:'Lora',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:600;color:var(--teal);line-height:1.3;margin-bottom:6px}
+    .badge-free{background:#fdf6e8;color:#92620a;border:1px solid #f0d9a0}
+    .page-header h1{font-family:'Lora',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:600;color:var(--off);line-height:1.3;margin-bottom:6px}
     .page-header p{font-size:.95rem;color:var(--muted);line-height:1.5}
     .chat-window{width:100%;max-width:680px;background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(44,32,23,.08);display:flex;flex-direction:column}
-    .chat-toolbar{background:var(--teal);color:white;padding:14px 20px;display:flex;align-items:center;gap:12px}
+    .chat-toolbar{background:var(--off);color:white;padding:14px 20px;display:flex;align-items:center;gap:12px}
     .avatar{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
     .chat-toolbar .info{flex:1}
     .chat-toolbar .info strong{display:block;font-size:.95rem}
@@ -28,10 +28,10 @@
     .status-dot{width:8px;height:8px;border-radius:50%;background:#4ade80;display:inline-block;margin-right:4px}
     .mode-selector{display:flex;gap:4px}
     .mode-btn{font-size:.7rem;font-weight:600;padding:4px 10px;border-radius:12px;border:1.5px solid rgba(255,255,255,.4);background:transparent;color:rgba(255,255,255,.7);cursor:pointer;transition:all .2s}
-    .mode-btn.active{background:white;color:var(--teal);border-color:white}
+    .mode-btn.active{background:white;color:var(--off);border-color:white}
     .messages{flex:1;min-height:380px;max-height:460px;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px;background:var(--bg)}
     .welcome-card{background:white;border:1px solid var(--border);border-radius:12px;padding:16px 18px;font-size:.88rem;line-height:1.6;color:var(--muted)}
-    .welcome-card strong{color:var(--teal)}
+    .welcome-card strong{color:var(--off)}
     .chip-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
     .chip{background:#f0ece5;border:1px solid var(--border);border-radius:20px;padding:4px 12px;font-size:.8rem;cursor:pointer;transition:background .15s;color:var(--text)}
     .chip:hover{background:#e5ded4}
@@ -39,13 +39,11 @@
     @keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
     .msg-row.user{flex-direction:row-reverse}
     .bubble-avatar{width:28px;height:28px;border-radius:50%;font-size:.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-    .bot-avatar{background:#e8f0ee}
-    .user-avatar{background:var(--teal);color:white}
+    .bot-avatar{background:#e8eeff}
+    .user-avatar{background:var(--off);color:white}
     .bubble{max-width:75%;padding:10px 14px;line-height:1.55;font-size:.9rem}
     .bot-bubble{background:white;border:1px solid var(--border);border-radius:var(--br) var(--br) var(--br) 4px}
-    .user-bubble{background:var(--teal);color:white;border-radius:var(--br) var(--br) 4px var(--br)}
-    .lesson-link{display:inline-block;margin-top:8px;padding:5px 12px;background:#f0f7f6;border:1px solid #c0d9d6;border-radius:20px;color:var(--teal);font-size:.8rem;text-decoration:none}
-    .lesson-link:hover{background:#e0f0ee}
+    .user-bubble{background:var(--off);color:white;border-radius:var(--br) var(--br) 4px var(--br)}
     .typing-row{display:flex;align-items:center;gap:8px}
     .typing-dots{display:flex;gap:4px;padding:10px 14px;background:white;border:1px solid var(--border);border-radius:var(--br) var(--br) var(--br) 4px}
     .typing-dots span{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:bounce .9s infinite}
@@ -54,153 +52,128 @@
     @keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
     .input-area{padding:14px 16px;border-top:1px solid var(--border);background:white;display:flex;align-items:flex-end;gap:10px}
     .input-area textarea{flex:1;border:1.5px solid var(--border);border-radius:12px;padding:9px 13px;font-family:'Source Sans 3',sans-serif;font-size:.9rem;resize:none;outline:none;line-height:1.4;max-height:120px;transition:border-color .2s;background:var(--bg);color:var(--text)}
-    .input-area textarea:focus{border-color:var(--teal)}
+    .input-area textarea:focus{border-color:var(--off)}
     .input-area textarea::placeholder{color:#b0a898}
-    .send-btn{width:40px;height:40px;border-radius:50%;background:var(--teal);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s,transform .1s}
-    .send-btn:hover{background:#2a4f4d}
+    .send-btn{width:40px;height:40px;border-radius:50%;background:var(--off);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s,transform .1s}
+    .send-btn:hover{background:#1539a8}
     .send-btn:active{transform:scale(.93)}
     .send-btn svg{width:18px;height:18px;fill:white}
     .send-btn:disabled{background:#c5bdb5;cursor:not-allowed}
     .info-strip{width:100%;max-width:680px;margin-top:12px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
     .info-strip span{font-size:.75rem;color:var(--muted);display:flex;align-items:center;gap:4px}
-    .dot-tsm{width:8px;height:8px;border-radius:50%;background:var(--tsm);display:inline-block}
-    .dot-off{width:8px;height:8px;border-radius:50%;background:var(--off);display:inline-block}
+    .bako-link{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:8px 16px;background:#f0f7f6;border:1px solid #c0d9d6;border-radius:20px;color:var(--teal);font-size:.82rem;text-decoration:none;transition:background .15s}
+    .bako-link:hover{background:#e0f0ee}
     .messages::-webkit-scrollbar{width:5px}
     .messages::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
     .error-bubble{background:#fde8e8;border:1px solid #f5c0c0;color:#7f1d1d;font-size:.85rem;padding:8px 12px;border-radius:10px}
-    .loading-brain{text-align:center;padding:30px;color:var(--muted);font-size:.9rem}
   </style>
 </head>
 <body>
   <div class="page-header">
     <div class="badge-row">
-      <span class="badge badge-tsm">Tsimihety</span>
       <span class="badge badge-off">Official Malagasy</span>
       <span class="badge badge-ai">AI Tutor</span>
+      <span class="badge badge-free">Free to use</span>
     </div>
-    <h1>Chat with Bako's AI Language Tutor</h1>
-    <p>Practise Malagasy and Tsimihety conversation. Ask questions, try sentences, and get gentle corrections.</p>
+    <h1>Official Malagasy Chat Tutor</h1>
+    <p>Practise standard Malagasy in a friendly conversation. Ask questions, try sentences, get corrections.</p>
   </div>
 
   <div class="chat-window">
     <div class="chat-toolbar">
-      <div class="avatar">🌿</div>
+      <div class="avatar">🇲🇬</div>
       <div class="info">
-        <strong>Bako's Tutor</strong>
-        <span id="statusText"><span class="status-dot"></span>Loading lessons…</span>
+        <strong>Malagasy Tutor</strong>
+        <span><span class="status-dot"></span>Ready to chat</span>
       </div>
       <div class="mode-selector">
-        <button class="mode-btn active" data-mode="beginner" onclick="setMode(this)">Guided</button>
-        <button class="mode-btn" data-mode="intermediate" onclick="setMode(this)">Practice</button>
-        <button class="mode-btn" data-mode="freeform" onclick="setMode(this)">Immersion</button>
+        <button class="mode-btn active" data-mode="guided" onclick="setMode(this)">Guided</button>
+        <button class="mode-btn" data-mode="practice" onclick="setMode(this)">Practice</button>
+        <button class="mode-btn" data-mode="immersion" onclick="setMode(this)">Immersion</button>
       </div>
     </div>
+
     <div class="messages" id="messages">
-      <div class="loading-brain" id="loadingMsg">🌿 Loading lesson knowledge…</div>
+      <div class="welcome-card">
+        <strong>Salama! 👋</strong> Welcome to the Official Malagasy chat tutor.<br><br>
+        Type in <strong>English</strong> or <strong>Malagasy</strong>. I'll help you learn standard Malagasy — the language used across all of Madagascar. Start on <strong>Guided</strong> for full English explanations, or jump straight to <strong>Immersion</strong> if you're feeling confident.
+        <div class="chip-list">
+          <span class="chip" onclick="sendChip(this)">How do I say "my name is..."?</span>
+          <span class="chip" onclick="sendChip(this)">Teach me how to greet someone</span>
+          <span class="chip" onclick="sendChip(this)">Correct this: Miasa aho tsy</span>
+          <span class="chip" onclick="sendChip(this)">How do tenses work in Malagasy?</span>
+          <span class="chip" onclick="sendChip(this)">Manao ahoana ianao?</span>
+          <span class="chip" onclick="sendChip(this)">What does "ny" mean?</span>
+        </div>
+        <br>
+        <a href="https://mandritsara.github.io/bako/bako-chat.html" class="bako-link">
+          🌿 Want to learn the Tsimihety dialect? Try Bako's tutor →
+        </a>
+      </div>
     </div>
+
     <div class="input-area">
-      <textarea id="userInput" rows="1" placeholder="Type in English, Malagasy, or Tsimihety…" onkeydown="handleKey(event)" oninput="autoResize(this)" disabled></textarea>
-      <button class="send-btn" id="sendBtn" onclick="sendMessage()" title="Send" disabled>
+      <textarea id="userInput" rows="1" placeholder="Type in English or Malagasy…" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+      <button class="send-btn" id="sendBtn" onclick="sendMessage()" title="Send">
         <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
       </button>
     </div>
   </div>
 
   <div class="info-strip">
-    <span><span class="dot-tsm"></span> Tsimihety in red</span>
-    <span><span class="dot-off"></span> Official Malagasy in blue</span>
-    <span>🔑 Enter to send</span>
+    <span>🇲🇬 Standard Malagasy — spoken across all Madagascar</span>
+    <span>🔑 Enter to send, Shift+Enter for new line</span>
   </div>
 
 <script>
-  // ══════════════════════════════════════════════════
-  // CONFIG — update these two values before deploying
-  // ══════════════════════════════════════════════════
-  // ══════════════════════════════════════════════════
-  // Cloudflare Worker handles the API key securely
-  // ══════════════════════════════════════════════════
-  const BRAIN_URL = 'https://raw.githubusercontent.com/mandritsara/bako/main/bako-brain.txt';
+  const WORKER_URL = 'https://bako-gemini-proxy.ceejay77.workers.dev/';
 
-  const GEMINI_URL = 'https://bako-gemini-proxy.ceejay77.workers.dev/';
-
-  let brainContent = '';
-  let currentMode = 'beginner';
+  let currentMode = 'guided';
   let conversationHistory = [];
 
-  const BASE_INSTRUCTIONS = `You are a warm, encouraging Malagasy and Tsimihety language tutor for the website "Learning Malagasy and Tsimihety with Bako". Bako has been tutoring missionaries in Mandritsara, Madagascar since 2008.
-
-Use the KNOWLEDGE BASE below to inform all responses. It contains Bako's actual lesson content, vocabulary, grammar rules, and lesson URLs.
+  const BASE_INSTRUCTIONS = `You are a warm, encouraging Official Malagasy language tutor. You teach standard Malagasy (Malagasy officiel) — the national language of Madagascar used in education, government, and media across all 22 regions.
 
 TEACHING APPROACH:
-- Always show both Tsimihety (tsm) and Official Malagasy (off) variants when relevant
-- When the learner writes Malagasy or Tsimihety, ALWAYS check for errors and correct gently
+- Teach standard/official Malagasy only (not dialect-specific)
+- Always check learner's Malagasy for errors and correct gently
 - Correction format: ❌ what they wrote → ✅ correction + brief explanation
-- Celebrate attempts warmly: Tsara! / Bien! / Excellent!
+- Celebrate attempts warmly: Tsara! / Excellent! / Bien essayé!
 - Keep responses conversational and concise
 - End with an invitation to keep practising
 
-LESSON LINKING (REACTIVE ONLY):
-- When the conversation topic matches a lesson in the knowledge base, naturally mention it
-- Format: [Lesson Name](URL) — this will render as a styled button
-- Only link when genuinely relevant — never force it
-- Do not proactively ask "what topic do you want to practise?"
+KEY GRAMMAR REMINDERS TO APPLY:
+- Sentence order: PREDICATE first, subject last ("Miasa izy" not "Izy miasa")
+- Tense: M-=present, N-=past, H-=future (Miasa/Niasa/Hiasa)
+- Negation: TSY before verb ("Tsy miasa izy")
+- Article: NY = the/a
+- Yes/No questions: add VE or MOA
+- Yes = Eny, No = Tsia
+- Pronouns: aho(I), ianao(you), izy(he/she), isika(we incl), izahay(we excl), ianareo(you pl), izy ireo(they)
+- Question words: Inona(what), Iza(who), Aiza(where), Oviana(when past), Rahoviana(when future), Manahoana(how), Ohatrinona(how much)
 
 MODES:
 - Guided: explain everything in simple English with full translations, very supportive
-- Practice: mix English and Malagasy, less hand-holding, encourage longer exchanges
-- Immersion: respond mostly in Malagasy/Tsimihety as a natural conversation partner
+- Practice: mix English and Malagasy, less hand-holding, encourage forming sentences
+- Immersion: respond mostly in Malagasy, correct errors naturally like a conversation partner
 
-KNOWLEDGE BASE:
-`;
+Do not teach Tsimihety dialect — direct learners to Bako's tutor at https://mandritsara.github.io/bako/bako-chat.html if they ask about Tsimihety or the Mandritsara dialect.`;
 
   function getModeText() {
-    if (currentMode === 'beginner') return '\n\nCURRENT MODE: Guided — explain everything clearly in English with full translations. Be very supportive and encouraging.';
-    if (currentMode === 'intermediate') return '\n\nCURRENT MODE: Practice — mix English and Malagasy responses, give less hand-holding, encourage the learner to form their own sentences.';
-    return '\n\nCURRENT MODE: Freeform — respond mostly in Malagasy/Tsimihety, correct errors naturally.';
-  }
-
-  async function loadBrain() {
-    try {
-      const res = await fetch(BRAIN_URL);
-      if (!res.ok) throw new Error('fetch failed');
-      brainContent = await res.text();
-      onReady();
-    } catch {
-      brainContent = 'Bako is a Malagasy-Tsimihety tutor in Mandritsara. Key: zaho (tsm) = aho (off). Tense: M=present, N=past, H=future. Sentence order: Predicate then Subject.';
-      onReady(true);
-    }
-  }
-
-  function onReady(fallback = false) {
-    document.getElementById('loadingMsg').remove();
-    document.getElementById('statusText').innerHTML = '<span class="status-dot"></span>Ready to chat';
-    document.getElementById('userInput').disabled = false;
-    document.getElementById('sendBtn').disabled = false;
-
-    const messages = document.getElementById('messages');
-    const welcome = document.createElement('div');
-    welcome.className = 'welcome-card';
-    welcome.innerHTML = `<strong>Salama! 👋</strong> Welcome to your Malagasy–Tsimihety practise space.<br><br>
-      Type in <strong>English</strong>, <strong>Malagasy</strong>, or <strong>Tsimihety</strong>. Start on <strong>Guided</strong> mode for full explanations, switch to <strong>Practice</strong> or <strong>Immersion</strong> as you grow.
-      ${fallback ? '<br><small style="color:#b91c1c">⚠️ Running in basic mode — could not load full lesson database.</small>' : ''}
-      <div class="chip-list">
-        <span class="chip" onclick="sendChip(this)">How do I say "I work" in Tsimihety?</span>
-        <span class="chip" onclick="sendChip(this)">What's the difference between zaho and aho?</span>
-        <span class="chip" onclick="sendChip(this)">Correct this: Miasa zaho tsy</span>
-        <span class="chip" onclick="sendChip(this)">Teach me directions vocabulary</span>
-        <span class="chip" onclick="sendChip(this)">Miasa ve ianao?</span>
-      </div>`;
-    messages.appendChild(welcome);
-    document.getElementById('userInput').focus();
+    if (currentMode === 'guided') return '\n\nCURRENT MODE: Guided — explain everything clearly in English with full translations. Very supportive.';
+    if (currentMode === 'practice') return '\n\nCURRENT MODE: Practice — mix English and Malagasy, encourage the learner to form their own sentences.';
+    return '\n\nCURRENT MODE: Immersion — respond mostly in Malagasy, correct errors naturally.';
   }
 
   function setMode(btn) {
     document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     currentMode = btn.dataset.mode;
-    const labels = { beginner: 'Guided', intermediate: 'Practice', freeform: 'Immersion' };
-    const notes = { beginner: "I'll explain everything in English with full translations.", intermediate: "I'll mix English and Malagasy — time to start forming your own sentences!", freeform: "Immersion mode — I'll respond mostly in Malagasy/Tsimihety. Dive in!" };
-    appendBotMessage(`Mode: <strong>${labels[currentMode]}</strong>. ${notes[currentMode]}`);
+    const notes = {
+      guided: "I'll explain everything in English with full translations.",
+      practice: "I'll mix English and Malagasy — time to start forming your own sentences!",
+      immersion: "Immersion mode — I'll respond mostly in Malagasy. Dive in!"
+    };
+    appendBotMessage(`Mode: <strong>${btn.textContent}</strong>. ${notes[currentMode]}`);
   }
 
   function sendChip(el) { document.getElementById('userInput').value = el.textContent; sendMessage(); }
@@ -213,7 +186,7 @@ KNOWLEDGE BASE:
     let h = text.replace(/\n/g,'<br>');
     h = h.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
     h = h.replace(/\*(.*?)\*/g,'<em>$1</em>');
-    h = h.replace(/\[([^\]]+)\]\((https?:\/\/[^\)]+)\)/g,'<br><a class="lesson-link" href="$2" target="_blank">📖 $1</a>');
+    h = h.replace(/\[([^\]]+)\]\((https?:\/\/[^\)]+)\)/g,'<br><a style="display:inline-block;margin-top:8px;padding:5px 12px;background:#e8eeff;border:1px solid #c0ccf5;border-radius:20px;color:var(--off);font-size:.8rem;text-decoration:none;" href="$2" target="_blank">📖 $1</a>');
     return h;
   }
 
@@ -229,7 +202,7 @@ KNOWLEDGE BASE:
     const m = document.getElementById('messages');
     const row = document.createElement('div');
     row.className = 'msg-row';
-    row.innerHTML = `<div class="bubble-avatar bot-avatar">🌿</div><div class="bubble bot-bubble">${html}</div>`;
+    row.innerHTML = `<div class="bubble-avatar bot-avatar">🇲🇬</div><div class="bubble bot-bubble">${html}</div>`;
     m.appendChild(row); scrollToBottom();
   }
 
@@ -237,7 +210,7 @@ KNOWLEDGE BASE:
     const m = document.getElementById('messages');
     const row = document.createElement('div');
     row.className = 'typing-row'; row.id = 'typing';
-    row.innerHTML = `<div class="bubble-avatar bot-avatar" style="width:28px;height:28px;border-radius:50%;background:#e8f0ee;display:flex;align-items:center;justify-content:center;font-size:.85rem;">🌿</div><div class="typing-dots"><span></span><span></span><span></span></div>`;
+    row.innerHTML = `<div class="bubble-avatar bot-avatar" style="width:28px;height:28px;border-radius:50%;background:#e8eeff;display:flex;align-items:center;justify-content:center;font-size:.85rem;">🇲🇬</div><div class="typing-dots"><span></span><span></span><span></span></div>`;
     m.appendChild(row); scrollToBottom();
   }
 
@@ -246,7 +219,7 @@ KNOWLEDGE BASE:
   async function sendMessage() {
     const input = document.getElementById('userInput');
     const text = input.value.trim();
-    if (!text || !brainContent) return;
+    if (!text) return;
 
     const sendBtn = document.getElementById('sendBtn');
     sendBtn.disabled = true;
@@ -256,17 +229,17 @@ KNOWLEDGE BASE:
     conversationHistory.push({ role: 'user', parts: [{ text }] });
     showTyping();
 
-    const systemPrompt = BASE_INSTRUCTIONS + brainContent + getModeText();
+    const systemPrompt = BASE_INSTRUCTIONS + getModeText();
 
     try {
-      const res = await fetch(GEMINI_URL, {
+      const res = await fetch(WORKER_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           model: 'gemini-2.5-flash',
           system_instruction: { parts: [{ text: systemPrompt }] },
           contents: conversationHistory,
-          generationConfig: { maxOutputTokens: 1000, temperature: 0.7 }
+          generationConfig: { maxOutputTokens: 800, temperature: 0.7 }
         })
       });
       const data = await res.json();
@@ -288,7 +261,7 @@ KNOWLEDGE BASE:
     input.focus();
   }
 
-  loadBrain();
+  document.getElementById('userInput').focus();
 </script>
 </body>
 </html>
