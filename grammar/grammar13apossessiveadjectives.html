@@ -19,29 +19,30 @@
     }
     .syl-break { letter-spacing: .08em; }
     /* Suffix table */
-    #suffix-table { font-size: .82rem; }
-    #suffix-table th { background-color: #f1f3f5; font-weight: 600; vertical-align: middle; }
-    #suffix-table td { vertical-align: top; }
+    #suffix-table { font-size: .92rem; }
+    #suffix-table th {
+      background-color: #f1f3f5;
+      font-weight: 600;
+      vertical-align: middle;
+      font-size: .85rem;
+      padding: .5rem .6rem;
+    }
+    #suffix-table td {
+      vertical-align: top;
+      padding: .55rem .6rem;
+      line-height: 1.5;
+    }
+    #suffix-table tbody tr:nth-child(odd) td { background-color: #fafbfc; }
     #suffix-table .cell-off  { color: #1a5276; }
     #suffix-table .cell-tsm  { color: #c0392b; }
     .possessor-label { font-weight: 700; }
-    .sub-off  { display: block; }
-    .sub-tsm  { display: block; }
-    .cell-note { font-size: .8em; color: #555; font-style: italic; }
-    /* Exercise */
-    .exercise-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-    }
+    .sub-off  { display: block; margin-bottom: .15rem; }
+    .sub-tsm  { display: block; margin-bottom: .15rem; }
+    .cell-note { display: block; font-size: .8em; color: #555; font-style: italic; margin-top: .2rem; }
     @media (max-width: 600px) {
-      .exercise-grid { grid-template-columns: 1fr 1fr; }
-      #suffix-table { font-size: .72rem; }
+      #suffix-table { font-size: .78rem; }
+      #suffix-table th, #suffix-table td { padding: .4rem .35rem; }
     }
-    .ex-item { text-align: center; }
-    .ex-item img { max-width: 80px; margin-bottom: .4rem; }
-    .ex-label { font-weight: 600; display: block; }
-    .ex-prompt { font-size: .88rem; color: #333; }
     .answers-card { background: #f0f7f0; border-left: 4px solid #27ae60; padding: 1rem 1.25rem; border-radius: .4rem; }
   </style>
 </head>
@@ -475,65 +476,13 @@
 
 <p>Using the table above, form the possessive as in the example.</p>
 
-<div class="example-box mb-3">
-  <p class="mb-1"><strong>Example:</strong> <em>Mofo</em> (bread)</p>
-  <p class="mb-0">
-    Mofo<strong>KO</strong> <sup class="label">(off)</sup> &nbsp;/&nbsp;
-    <span class="tsm">Mofo<strong>anahy</strong> <sup class="label">(tsm)</sup></span>
-    &nbsp; (my bread) &nbsp;→&nbsp; <strong>Zaho</strong> &gt; Me
-  </p>
-</div>
+<img src="/bako/images/grammar13apic1.jpg"
+     alt="Exercise illustrations: bread (example), orange, teeth, pen, table, cat, child, sweets, tortoise, sunglasses"
+     style="max-width: 750px; width: 100%; display: block; margin: 1rem 0;" />
 
 <audio controls class="w-100 mb-4">
   <source src="/audio/grammar/grammar13a.3.1.mp3" type="audio/mpeg" />
 </audio>
-
-<div class="exercise-grid">
-    <span class="ex-label">1. Voasary</span>
-    <span class="ex-prompt">VoasariANAHY &gt; …</span>
-  </div>
-
-  <div class="ex-item">
-    <span class="ex-label">2. Nify</span>
-    <span class="ex-prompt">NifiNA(O) &gt; …</span>
-  </div>
-
-  <div class="ex-item">
-    <span class="ex-label">3. Penina</span>
-    <span class="ex-prompt">PeninANAZY &gt; …</span>
-  </div>
-
-  <div class="ex-item">
-    <span class="ex-label">4. Latabatra</span>
-    <span class="ex-prompt">LatabaTRATSIKA &gt; …</span>
-  </div>
-
-  <div class="ex-item">
-    <span class="ex-label">5. Piso</span>
-    <span class="ex-prompt">PisoNAY &gt; …</span>
-  </div>
-
-  <div class="ex-item">
-    <span class="ex-label">6. Zanaka</span>
-    <span class="ex-prompt">ZanaKARE(O) &gt; …</span>
-  </div>
-
-  <div class="ex-item">
-    <span class="ex-label">7. Vatoaomy</span>
-    <span class="ex-prompt">VatomamiNJAREO &gt; …</span>
-  </div>
-
-  <div class="ex-item">
-    <span class="ex-label">8. Sokatra</span>
-    <span class="ex-prompt">SokaTR'I SOA &gt; …</span>
-  </div>
-
-  <div class="ex-item">
-    <span class="ex-label">9. Solomaso</span>
-    <span class="ex-prompt">SolomasoN'NY ankizy &gt; …</span>
-  </div>
-
-</div>
 
 <!-- ANSWERS -->
 <h3 class="h6 mt-4">Answers</h3>
