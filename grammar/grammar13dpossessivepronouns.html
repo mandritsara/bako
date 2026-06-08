@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Malagasy–Tsimihety Grammar Lesson 13D: Possessive Pronouns</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    .tsm  { color: #c0392b; font-weight: 600; }
+    .off  { color: #1a5276; font-weight: 600; }
+    sup.label { font-size: .7em; font-weight: 400; vertical-align: super; }
+    .example-box {
+      background: #f8f9fa;
+      border-left: 4px solid #dee2e6;
+      padding: .75rem 1rem;
+      border-radius: .4rem;
+    }
+    /* Pronoun table */
+    #pronoun-table th {
+      background-color: #d6eaf8;
+      font-weight: 600;
+      font-size: .88rem;
+      padding: .5rem .6rem;
+    }
+    #pronoun-table td { vertical-align: middle; padding: .55rem .6rem; font-size: .92rem; }
+    #pronoun-table tbody tr:nth-child(odd) td { background-color: #fafbfc; }
+    /* Vocab table */
+    #vocab-table td { font-size: .88rem; padding: .35rem .5rem; vertical-align: middle; }
+    #vocab-table td:nth-child(odd) { font-weight: 700; background: #f5f5f5; }
+    /* Matching quiz */
+    .match-container { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    .match-col { flex: 1; min-width: 220px; }
+    .match-item {
+      padding: .45rem .7rem;
+      margin-bottom: .35rem;
+      border: 2px solid #dee2e6;
+      border-radius: .4rem;
+      cursor: pointer;
+      background: #fff;
+      transition: background .15s, border-color .15s;
+      font-size: .88rem;
+      user-select: none;
+    }
+    .match-item:hover:not(.correct):not(.disabled) { background: #eaf4fb; border-color: #aed6f1; }
+    .match-item.selected  { background: #d6eaf8; border-color: #1a5276; }
+    .match-item.correct   { background: #d5f5e3; border-color: #27ae60; cursor: default; }
+    .match-item.wrong     { background: #fdecea; border-color: #e74c3c; }
+    .match-item.disabled  { cursor: default; }
+    .match-label { font-weight: 700; margin-right: .3rem; }
+    #match-feedback { font-weight: 600; min-height: 1.4rem; }
+    /* Dialogue */
+    .dialogue-line { margin-bottom: .2rem; }
+    .dialogue-line em { color: #555; }
+  </style>
+</head>
+
+<body class="bg-white">
+<div id="header"></div>
+
+<main class="container my-4">
+
+<!-- BREADCRUMB -->
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><a href="/grammar.html">Grammar</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Grammar Lesson 13D</li>
+  </ol>
+</nav>
+
+<!-- HEADER -->
+<header class="mb-4">
+  <h1 class="h2">Malagasy–Tsimihety Grammar Lesson 13D</h1>
+  <p class="text-muted mb-1">Possessive Pronouns</p>
+  <p class="text-muted">Malagasy–Tsimihety with Bako</p>
+</header>
+
+<!-- SECTION 1 -->
+<section class="mb-4">
+<div class="card border-0 shadow-sm">
+<div class="card-body">
+
+<h2 class="h5">1. Possessive Pronouns</h2>
+
+<p>These are pronouns (replacing nouns) that indicate ownership. They vary only according to the person (the possessor).</p>
+
+<div class="table-responsive">
+<table class="table table-bordered" id="pronoun-table">
+<thead>
+<tr>
+  <th>Subject pronoun</th>
+  <th><span class="off">Official (off)</span></th>
+  <th><span class="tsm">Tsimihety (tsm)</span></th>
+  <th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Aho / <span class="tsm">zaho</span> — "I"</td>
+  <td><span class="off">AHY</span></td>
+  <td><span class="tsm">NIHINAHY</span></td>
+  <td>"mine"</td>
+</tr>
+<tr>
+  <td>Ianao / <span class="tsm">ana(o)</span> — "you" (sg.)</td>
+  <td><span class="off">ANAO</span></td>
+  <td><span class="tsm">NIHINĀ(O)</span></td>
+  <td>"yours"</td>
+</tr>
+<tr>
+  <td>Izy — "he / she"</td>
+  <td><span class="off">AZY</span></td>
+  <td><span class="tsm">NIHINAZY</span></td>
+  <td>"his / hers"</td>
+</tr>
+<tr>
+  <td>Isika / <span class="tsm">antsika</span> — "we" (incl.)</td>
+  <td><span class="off">ANTSIKA</span></td>
+  <td><span class="tsm">NIHINTSIKA</span></td>
+  <td>"ours"</td>
+</tr>
+<tr>
+  <td>Izahay / <span class="tsm">zahay</span> — "we" (excl.)</td>
+  <td><span class="off">ANAY</span></td>
+  <td><span class="tsm">NIHINAY</span></td>
+  <td>"ours"</td>
+</tr>
+<tr>
+  <td>Ianareo / <span class="tsm">are(o)</span> — "you" (pl.)</td>
+  <td><span class="off">ANAREO</span></td>
+  <td><span class="tsm">NIHINARE(O)</span></td>
+  <td>"yours"</td>
+</tr>
+<tr>
+  <td>Izy ireo / <span class="tsm">zareo</span> — "they"</td>
+  <td><span class="off">AZY IREO</span></td>
+  <td><span class="tsm">NIHINJARE(O)</span></td>
+  <td>"theirs"</td>
+</tr>
+<tr>
+  <td>I Soa (proper name)</td>
+  <td><span class="off">AN'I SOA</span></td>
+  <td><span class="tsm">NIHIN'I SOA</span></td>
+  <td>"Soa's"</td>
+</tr>
+<tr>
+  <td>Ny dokotera — "the doctor"</td>
+  <td><span class="off">AN'NY DOKOTERA</span></td>
+  <td><span class="tsm">NIHIN'NY DOKOTERA</span></td>
+  <td>"the doctor's"</td>
+</tr>
+<tr>
+  <td colspan="4" style="background:#eaf4fb;">
+    <strong>Questions:</strong>&nbsp;
+    <span class="off">An'iza …?</span> (off)&nbsp;&nbsp;
+    <span class="tsm">Nihinjôvy …?</span> (tsm)&nbsp;&nbsp;
+    "Whose is …?"
+  </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<audio controls class="w-100 mt-3">
+  <source src="/audio/grammar/grammar13d.1.1.mp3" type="audio/mpeg" />
+</audio>
+
+</div>
+</div>
+</section>
+
+<!-- SECTION 2 -->
+<section class="mb-4">
+<div class="card border-0 shadow-sm">
+<div class="card-body">
+
+<h2 class="h5">2. Say Whose It Is</h2>
+
+<p>Ask and answer the question as in the example, using the table in section 1 above.</p>
+
+<div class="example-box mb-3">
+  <p class="mb-1"><strong>Example:</strong></p>
+  <p class="mb-1">
+    <span class="off">AN'IZA ny mofo?</span> (off) &nbsp;→&nbsp; <span class="off"><strong>ahy</strong></span>
+  </p>
+  <p class="mb-1">
+    <span class="tsm">NIHINJÔVY ny môfo?</span> (tsm) &nbsp;→&nbsp; <span class="tsm"><strong>Nihinahy</strong></span>
+  </p>
+  <p class="mb-0 fst-italic text-muted">(Whose bread is this? — It's mine.) &nbsp; MOFO / zaho &nbsp;(bread / I)</p>
+</div>
+
+<img src="/bako/images/grammar13dpic1.jpg"
+     alt="Exercise illustrations: orange, table, sweets, mango, cat, tortoise, pen, ball, sunglasses, skirt, banana, book, rice, pot, eggs"
+     style="max-width: 750px; width: 100%; display: block; margin: 1rem 0;" />
+
+<audio controls class="w-100 mt-2">
+  <source src="/audio/grammar/grammar13d.2.1.mp3" type="audio/mpeg" />
+</audio>
+
+</div>
+</div>
+</section>
+
+<!-- VOCABULARY -->
+<section class="mb-4">
+<div class="card border-0 shadow-sm">
+<div class="card-body">
+
+<h2 class="h5">Vocabulary</h2>
+
+<div class="table-responsive">
+<table class="table table-bordered table-sm" id="vocab-table">
+<tbody>
+<tr>
+  <td>Voasary</td><td>Orange</td>
+  <td>Piso</td><td>Cat</td>
+  <td>Solomaso</td><td>Glasses</td>
+  <td>Vary</td><td>Rice</td>
+</tr>
+<tr>
+  <td>Latabatra</td><td>Table</td>
+  <td>Sokatra</td><td>Tortoise</td>
+  <td>Zipo</td><td>Skirt</td>
+  <td>Vilany</td><td>Pot</td>
+</tr>
+<tr>
+  <td>Vatomamy</td><td>Sweet</td>
+  <td>Penina</td><td>Pen</td>
+  <td>Manga</td><td>Mango</td>
+  <td>Atody</td><td>Eggs</td>
+</tr>
+<tr>
+  <td>Baolina</td><td>Ball</td>
+  <td>Boky</td><td>Book</td>
+  <td>Ankizy</td><td>Child</td>
+  <td colspan="2"></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<audio controls class="w-100 mt-3">
+  <source src="/audio/grammar/grammar13d.3.1.mp3" type="audio/mpeg" />
+</audio>
+
+</div>
+</div>
+</section>
+
+<!-- SECTION 3: Interactive Matching Quiz -->
+<section class="mb-4">
+<div class="card border-0 shadow-sm">
+<div class="card-body">
+
+<h2 class="h5">3. Who Does It Belong To?</h2>
+
+<p>
+  Click a possessive form on the left, then click its matching combination on the right.
+  Then translate each one into your own language.
+</p>
+
+<div class="d-flex justify-content-between align-items-center mb-2">
+  <div id="match-feedback" class="text-muted"></div>
+  <div id="match-score" style="font-size:.9rem; color:#555;"></div>
+</div>
+
+<div class="match-container" id="match-game">
+
+  <div class="match-col" id="col-left">
+    <p class="fw-bold mb-2 text-center">Possessive forms</p>
+    <div class="match-item" data-id="1"><span class="match-label">1.</span> Pisoko</div>
+    <div class="match-item" data-id="2"><span class="match-label">2.</span> Varintsika</div>
+    <div class="match-item" data-id="3"><span class="match-label">3.</span> Bokin'ny mpampianatra</div>
+    <div class="match-item" data-id="4"><span class="match-label">4.</span> Sakafon'ny piso</div>
+    <div class="match-item" data-id="5"><span class="match-label">5.</span> Vilaniny</div>
+    <div class="match-item" data-id="6"><span class="match-label">6.</span> Atodinay</div>
+    <div class="match-item" data-id="7"><span class="match-label">7.</span> Penin'i Vao</div>
+    <div class="match-item" data-id="8"><span class="match-label">8.</span> Manganao</div>
+    <div class="match-item" data-id="9"><span class="match-label">9.</span> Baolinareo</div>
+    <div class="match-item" data-id="10"><span class="match-label">10.</span> Solomason'ny namako</div>
+    <div class="match-item" data-id="11"><span class="match-label">11.</span> Latabatry ny dokoteran'i Soa</div>
+    <div class="match-item" data-id="12"><span class="match-label">12.</span> Vatomamin'ny ankizinareo</div>
+    <div class="match-item" data-id="13"><span class="match-label">13.</span> Sokatry ny namanay</div>
+    <div class="match-item" data-id="14"><span class="match-label">14.</span> Sezan'ny mpampianatsika</div>
+    <div class="match-item" data-id="15"><span class="match-label">15.</span> Mpampianatry ny naman'ny zanako</div>
+  </div>
+
+  <div class="match-col" id="col-right">
+    <p class="fw-bold mb-2 text-center">Combinations</p>
+    <!-- data-match = the question number this answer belongs to -->
+    <div class="match-item" data-match="5"><span class="match-label">a.</span> Vilany + izy</div>
+    <div class="match-item" data-match="10"><span class="match-label">b.</span> Solomaso + namana + zaho</div>
+    <div class="match-item" data-match="7"><span class="match-label">d.</span> Penina + i Vao</div>
+    <div class="match-item" data-match="1"><span class="match-label">e.</span> Piso + zaho</div>
+    <div class="match-item" data-match="13"><span class="match-label">f.</span> Sokatra + namana + zahay</div>
+    <div class="match-item" data-match="6"><span class="match-label">g.</span> Atody + zahay</div>
+    <div class="match-item" data-match="9"><span class="match-label">h.</span> Baolina + ianareo</div>
+    <div class="match-item" data-match="15"><span class="match-label">i.</span> mpampianatra + namana + zanaka + zaho</div>
+    <div class="match-item" data-match="2"><span class="match-label">j.</span> vary + antsika</div>
+    <div class="match-item" data-match="8"><span class="match-label">k.</span> Manga + ianao</div>
+    <div class="match-item" data-match="11"><span class="match-label">l.</span> latabatra + dokotera + i Soa</div>
+    <div class="match-item" data-match="3"><span class="match-label">m.</span> Boky + mpampianatra</div>
+    <div class="match-item" data-match="14"><span class="match-label">n.</span> Seza + mpampianatra + antsika</div>
+    <div class="match-item" data-match="4"><span class="match-label">o.</span> sakafo + piso</div>
+    <div class="match-item" data-match="12"><span class="match-label">p.</span> sokatra + namana + izahay</div>
+  </div>
+
+</div>
+
+<div class="d-flex gap-2 mt-3">
+  <button class="btn btn-sm btn-outline-secondary" id="btn-reset">Reset</button>
+  <button class="btn btn-sm btn-outline-primary" id="btn-reveal">Show all answers</button>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- SECTION 4: Reading Dialogue -->
+<section class="mb-4">
+<div class="card border-0 shadow-sm">
+<div class="card-body">
+
+<h2 class="h5">4. Reading Dialogue — Listen and Understand</h2>
+
+<div class="example-box mb-3">
+
+  <p class="dialogue-line"><strong>— Bokinjôvy tôho? &lt;boky&gt;</strong></p>
+  <p class="dialogue-line"><em>(Whose book is this?)</em></p>
+
+  <p class="dialogue-line mt-2"><strong>— Nihinahy.</strong></p>
+  <p class="dialogue-line"><em>(It's mine.)</em></p>
+
+  <p class="dialogue-line mt-2"><strong>— Ary nihinjôvy reto sezy reto? &lt;sezy&gt;</strong></p>
+  <p class="dialogue-line"><em>(And whose are these chairs?)</em></p>
+
+  <p class="dialogue-line mt-2"><strong>— Sezin'ny ankizy. &lt;ankizy&gt;</strong></p>
+  <p class="dialogue-line"><em>(They belong to the children.)</em></p>
+
+  <p class="dialogue-line mt-2"><strong>— Ary latabatra zôvy tôho? &lt;latabatra&gt;</strong></p>
+  <p class="dialogue-line"><em>(And whose table is this?)</em></p>
+
+  <p class="dialogue-line mt-2"><strong>— Latabatry ny mpampianatray. &lt;latabatra – mpampianatra&gt;</strong></p>
+  <p class="dialogue-line"><em>(It's our teacher's table.)</em></p>
+
+  <p class="dialogue-line mt-2"><strong>— Penin'ny mpampianatrareo koa ve reto? &lt;penina – mpampianatra&gt;</strong></p>
+  <p class="dialogue-line"><em>(Are these also your teacher's pens?)</em></p>
+
+  <p class="dialogue-line mt-2"><strong>— Ehe, nihin'i Soa.</strong></p>
+  <p class="dialogue-line"><em>(No, they belong to Soa.)</em></p>
+
+  <p class="dialogue-line mt-2"><strong>— Ary nihinjôvy ny baolina? &lt;baolina&gt;</strong></p>
+  <p class="dialogue-line"><em>(And whose is the ball?)</em></p>
+
+  <p class="dialogue-line mt-2"><strong>— Baolintsika.</strong></p>
+  <p class="dialogue-line"><em>(It's ours.)</em></p>
+
+  <p class="dialogue-line mt-2"><strong>— Ary ny solomaso? &lt;solomaso&gt;</strong></p>
+  <p class="dialogue-line"><em>(And the glasses?)</em></p>
+
+  <p class="dialogue-line mt-2"><strong>— Nihinao!</strong></p>
+  <p class="dialogue-line"><em>(They're yours!)</em></p>
+
+  <p class="dialogue-line mt-2"><strong>— Nihinahy ve tôho solomaso tôho?</strong></p>
+  <p class="dialogue-line"><em>(Are these glasses mine?)</em></p>
+
+  <p class="dialogue-line mt-2"><strong>— Ia, nihinao!</strong></p>
+  <p class="dialogue-line mb-0"><em>(Yes, they're yours!)</em></p>
+
+</div>
+
+<p class="fst-italic text-muted" style="font-size:.88rem;">
+  Key words: Ary = and &nbsp;|&nbsp; Koa = also &nbsp;|&nbsp; Ia = yes &nbsp;|&nbsp;
+  Ehe = no &nbsp;|&nbsp; Tôho = this &nbsp;|&nbsp; Reto = these &nbsp;|&nbsp;
+  Ve = question particle
+</p>
+
+<audio controls class="w-100 mt-3">
+  <source src="/audio/grammar/grammar13d.4.1.mp3" type="audio/mpeg" />
+</audio>
+
+</div>
+</div>
+</section>
+
+<!-- PDF DOWNLOAD -->
+<div class="text-center my-4">
+  <p class="text-muted" style="font-size:.95rem;">You can also download this lesson as a PDF for offline study:</p>
+  <a class="btn btn-outline-secondary" href="/grammar/grammar13dpossessivepronouns.pdf" target="_blank" rel="noopener">Download PDF</a>
+</div>
+
+<!-- PREV / NEXT -->
+<div class="d-flex justify-content-between mb-5">
+  <a href="/grammar/grammar13apossessiveadjectives.html">&laquo; Lesson 13A</a>
+  <a href="/grammar/grammar14.html">Lesson 14 &raquo;</a>
+</div>
+
+</main>
+
+<div id="footer"></div>
+<script src="/grammar/grammar.js"></script>
+
+<script>
+(function () {
+  // correct answer map: left data-id → right data-match value
+  const correct = {1:1,2:2,3:3,4:4,5:5,6:6,7:7,8:8,9:9,10:10,11:11,12:12,13:13,14:14,15:15};
+
+  let selLeft  = null;
+  let selRight = null;
+  let score    = 0;
+  const total  = 15;
+
+  const feedback = document.getElementById('match-feedback');
+  const scoreEl  = document.getElementById('match-score');
+
+  function updateScore() {
+    scoreEl.textContent = score > 0 ? score + ' / ' + total + ' correct' : '';
+  }
+
+  function clearSel() {
+    document.querySelectorAll('.match-item.selected').forEach(e => e.classList.remove('selected'));
+    selLeft = null; selRight = null;
+    feedback.textContent = '';
+  }
+
+  function lock(el) { el.classList.add('disabled'); }
+
+  function tryMatch() {
+    if (selLeft === null || selRight === null) return;
+    var lEl = document.querySelector('#col-left  [data-id="'    + selLeft  + '"]');
+    var rEl = document.querySelector('#col-right [data-match="' + selRight + '"]');
+    if (parseInt(selRight) === parseInt(selLeft)) {
+      lEl.classList.replace('selected','correct');
+      rEl.classList.replace('selected','correct');
+      lock(lEl); lock(rEl);
+      score++;
+      updateScore();
+      feedback.style.color = '#27ae60';
+      feedback.textContent = '✓ Correct!';
+      if (score === total) {
+        feedback.textContent = '✓ Well done — all matched!';
+      }
+    } else {
+      lEl.classList.add('wrong'); rEl.classList.add('wrong');
+      feedback.style.color = '#e74c3c';
+      feedback.textContent = '✗ Try again.';
+      setTimeout(function() {
+        lEl.classList.remove('wrong','selected');
+        rEl.classList.remove('wrong','selected');
+        feedback.textContent = '';
+      }, 900);
+    }
+    selLeft = null; selRight = null;
+  }
+
+  document.querySelectorAll('#col-left .match-item').forEach(function(el) {
+    el.addEventListener('click', function() {
+      if (this.classList.contains('correct') || this.classList.contains('disabled')) return;
+      clearSel();
+      this.classList.add('selected');
+      selLeft = this.dataset.id;
+      if (selRight !== null) tryMatch();
+    });
+  });
+
+  document.querySelectorAll('#col-right .match-item').forEach(function(el) {
+    el.addEventListener('click', function() {
+      if (this.classList.contains('correct') || this.classList.contains('disabled')) return;
+      document.querySelectorAll('#col-right .match-item.selected').forEach(function(e){ e.classList.remove('selected'); });
+      this.classList.add('selected');
+      selRight = this.dataset.match;
+      if (selLeft !== null) tryMatch();
+    });
+  });
+
+  document.getElementById('btn-reset').addEventListener('click', function() {
+    score = 0; selLeft = null; selRight = null;
+    feedback.textContent = ''; updateScore();
+    document.querySelectorAll('.match-item').forEach(function(el) {
+      el.className = 'match-item';
+    });
+  });
+
+  document.getElementById('btn-reveal').addEventListener('click', function() {
+    document.querySelectorAll('#col-left .match-item').forEach(function(el) {
+      var rEl = document.querySelector('#col-right [data-match="' + el.dataset.id + '"]');
+      if (!el.classList.contains('correct'))   { el.classList.add('correct');  lock(el);  }
+      if (rEl && !rEl.classList.contains('correct')) { rEl.classList.add('correct'); lock(rEl); }
+    });
+    score = total; updateScore();
+    feedback.style.color = '#555';
+    feedback.textContent = 'All answers revealed.';
+  });
+})();
+</script>
+
+</body>
+</html>
