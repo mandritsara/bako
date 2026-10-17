@@ -9,35 +9,102 @@
   <style>
     .tsm { color: #c0392b; font-weight: 600; }
     .off { color: #1a5276; font-weight: 600; }
-    /* Word grids */
-    .word-grid td {
-      padding: .6rem .75rem;
-      vertical-align: top;
+    sup.label { font-size: .7em; font-weight: 400; vertical-align: super; }
+    /* Classroom grid table */
+    #classroom-grid th {
+      background: #d6eaf8;
+      font-weight: 700;
+      padding: .5rem .65rem;
       font-size: .9rem;
-      width: 25%;
     }
-    .word-grid tbody tr:nth-child(odd) td { background: #fafbfc; }
-    .g-off { font-weight: 700; color: #1a5276; display: block; }
-    .g-tsm { color: #c0392b; font-style: italic; font-size: .85rem; display: block; }
-    /* Vocab tables */
-    .vocab-table th {
+    #classroom-grid td {
+      padding: .55rem .65rem;
+      font-size: .9rem;
+      vertical-align: top;
+    }
+    #classroom-grid tbody tr:nth-child(odd) td { background: #fafbfc; }
+    .c-term { font-weight: 700; display: block; }
+    .c-tsm  { color: #c0392b; font-style: italic; font-size: .85rem; display: block; }
+    /* Classroom vocab table */
+    #classroom-vocab th {
       background: #d6eaf8;
       font-weight: 700;
       padding: .45rem .6rem;
       font-size: .88rem;
     }
-    .vocab-table td {
+    #classroom-vocab td {
       padding: .4rem .6rem;
       font-size: .88rem;
       vertical-align: top;
     }
-    .vocab-table tbody tr:nth-child(odd) td { background: #fafbfc; }
-    .v-off { font-weight: 700; color: #1a5276; display: block; }
-    .v-tsm { color: #c0392b; font-style: italic; font-size: .83rem; display: block; }
+    #classroom-vocab tbody tr:nth-child(odd) td { background: #fafbfc; }
+    #classroom-vocab .malagasy { font-weight: 700; }
+    #classroom-vocab .tsm-form { color: #c0392b; font-style: italic; font-size: .83rem; display: block; }
+    /* Verb grid */
+    #verb-grid th {
+      background: #d6eaf8;
+      font-weight: 700;
+      padding: .5rem .65rem;
+      font-size: .9rem;
+    }
+    #verb-grid td {
+      padding: .5rem .65rem;
+      font-size: .9rem;
+      vertical-align: top;
+    }
+    #verb-grid tbody tr:nth-child(odd) td { background: #fafbfc; }
+    .v-term { font-weight: 700; display: block; }
+    .v-tsm  { color: #c0392b; font-style: italic; font-size: .85rem; display: block; }
+    /* Verb vocab table */
+    #verb-vocab th {
+      background: #d6eaf8;
+      font-weight: 700;
+      padding: .45rem .6rem;
+      font-size: .88rem;
+    }
+    #verb-vocab td {
+      padding: .4rem .6rem;
+      font-size: .88rem;
+      vertical-align: top;
+    }
+    #verb-vocab tbody tr:nth-child(odd) td { background: #fafbfc; }
+    #verb-vocab .malagasy { font-weight: 700; }
+    #verb-vocab .tsm-form { color: #c0392b; font-style: italic; font-size: .83rem; display: block; }
     /* Translation exercise */
-    .trans-item { margin-bottom: .5rem; font-size: .9rem; }
-    .trans-q { font-weight: 600; }
-    .trans-a { color: #555; font-style: italic; margin-left: 1.2rem; }
+    #trans-table th {
+      background: #d6eaf8;
+      font-weight: 700;
+      padding: .45rem .6rem;
+      font-size: .88rem;
+    }
+    #trans-table td {
+      padding: .45rem .6rem;
+      font-size: .88rem;
+      vertical-align: middle;
+    }
+    #trans-table tbody tr:nth-child(odd) td { background: #fafbfc; }
+    #trans-table .q { font-style: italic; font-weight: 600; color: #1a5276; }
+    /* Answers */
+    .answers-card {
+      background: #f0f7f0;
+      border-left: 4px solid #27ae60;
+      padding: 1rem 1.25rem;
+      border-radius: .4rem;
+    }
+    #answers-table th {
+      background: #d5f5e3;
+      font-weight: 700;
+      padding: .45rem .6rem;
+      font-size: .88rem;
+    }
+    #answers-table td {
+      padding: .4rem .6rem;
+      font-size: .88rem;
+      vertical-align: top;
+    }
+    #answers-table tbody tr:nth-child(odd) td { background: #eafaf1; }
+    #answers-table .q { font-style: italic; font-weight: 600; color: #1a5276; }
+    #answers-table .a { color: #1e8449; }
   </style>
 </head>
 
@@ -67,52 +134,65 @@
 <div class="card-body">
 
 <h2 class="h5">B — Efitrano Fianarana (The Classroom)</h2>
-<p class="text-muted" style="font-size:.88rem;">
-  <span class="off">Official Malagasy (off)</span> is shown in blue bold.
-  <span class="tsm">Tsimihety (tsm)</span> forms are in red italic below.
-</p>
 
 <audio controls class="w-100 mb-3">
   <source src="/audio/theme/theme12b.1.1.mp3" type="audio/mpeg" />
 </audio>
 
-<div class="table-responsive">
-<table class="table table-bordered word-grid">
+<!-- Word grid -->
+<div class="table-responsive mb-3">
+<table class="table table-bordered" id="classroom-grid">
 <tbody>
 <tr>
-  <td><span class="g-off">Latabatra</span></td>
-  <td><span class="g-off">Seza (off)</span><span class="g-tsm">sezy (tsm)</span></td>
-  <td><span class="g-off">Famantaranandro (off)</span><span class="g-tsm">montre (tsm)</span></td>
-  <td><span class="g-off">Sarintany</span></td>
+  <td><span class="c-term">Latabatra</span></td>
+  <td>
+    <span class="c-term"><span class="off">Seza <sup class="label">(off)</sup></span></span>
+    <span class="c-tsm">sezy <sup class="label">(tsm)</sup></span>
+  </td>
+  <td>
+    <span class="c-term"><span class="off">Famantaranandro <sup class="label">(off)</sup></span></span>
+    <span class="c-tsm">montre <sup class="label">(tsm)</sup></span>
+  </td>
+  <td><span class="c-term">Sarintany</span></td>
 </tr>
 <tr>
-  <td><span class="g-off">Solaitrabe</span></td>
-  <td><span class="g-off">Mpianatra</span></td>
-  <td><span class="g-off">Mpampianatra</span></td>
-  <td><span class="g-off">Fanariam-pako</span></td>
+  <td><span class="c-term">Solaitrabe</span></td>
+  <td><span class="c-term">Mpianatra</span></td>
+  <td><span class="c-term">Mpampianatra</span></td>
+  <td><span class="c-term">Fanariam-pako</span></td>
 </tr>
 <tr>
-  <td><span class="g-off">Birao</span></td>
-  <td><span class="g-off">Solosaina</span></td>
-  <td><span class="g-off">Varavarankely</span></td>
-  <td><span class="g-off">Varavarana (off)</span><span class="g-tsm">Tamiagna (tsm)</span></td>
+  <td><span class="c-term">Birao</span></td>
+  <td><span class="c-term">Solosaina</span></td>
+  <td><span class="c-term">Varavarankely</span></td>
+  <td>
+    <span class="c-term"><span class="off">Varavarana <sup class="label">(off)</sup></span></span>
+    <span class="c-tsm">Tamiagna <sup class="label">(tsm)</sup></span>
+  </td>
 </tr>
 <tr>
-  <td><span class="g-off">Arimoara (off)</span><span class="g-tsm">Lalimoara (tsm)</span></td>
-  <td><span class="g-off">Etazera (off)</span><span class="g-tsm">Tazera (tsm)</span></td>
-  <td><span class="g-off">Lakilasy</span></td>
-  <td><span class="g-off">Sekoly</span></td>
+  <td>
+    <span class="c-term"><span class="off">Arimoara <sup class="label">(off)</sup></span></span>
+    <span class="c-tsm">Lalimoara <sup class="label">(tsm)</sup></span>
+  </td>
+  <td>
+    <span class="c-term"><span class="off">Etazera <sup class="label">(off)</sup></span></span>
+    <span class="c-tsm">Tazera <sup class="label">(tsm)</sup></span>
+  </td>
+  <td><span class="c-term">Lakilasy</span></td>
+  <td><span class="c-term">Sekoly</span></td>
 </tr>
 </tbody>
 </table>
 </div>
 
-<audio controls class="w-100 my-3">
+<audio controls class="w-100 mb-3">
   <source src="/audio/theme/theme12b.1.2.mp3" type="audio/mpeg" />
 </audio>
 
+<!-- Bilingual vocab table -->
 <div class="table-responsive">
-<table class="table table-bordered vocab-table mb-0">
+<table class="table table-bordered" id="classroom-vocab">
 <thead>
 <tr>
   <th>Malagasy</th><th>English</th>
@@ -121,36 +201,36 @@
 </thead>
 <tbody>
 <tr>
-  <td><span class="v-off">Latabatra</span></td><td>Table</td>
-  <td><span class="v-off">Mpianatra</span></td><td>Student / pupil</td>
+  <td class="malagasy">Latabatra</td><td>Table</td>
+  <td class="malagasy">Mpianatra</td><td>Student / pupil</td>
 </tr>
 <tr>
-  <td><span class="v-off">Seza (off)</span><span class="v-tsm">sezy (tsm)</span></td><td>Chair</td>
-  <td><span class="v-off">Mpampianatra</span></td><td>Teacher</td>
+  <td class="malagasy"><span class="off">Seza <sup class="label">(off)</sup></span><span class="tsm-form">sezy <sup class="label">(tsm)</sup></span></td><td>Chair</td>
+  <td class="malagasy">Mpampianatra</td><td>Teacher</td>
 </tr>
 <tr>
-  <td><span class="v-off">Famantaranandro (off)</span><span class="v-tsm">montre (tsm)</span></td><td>Wall clock</td>
-  <td><span class="v-off">Varavarana (off)</span><span class="v-tsm">Tamiagna (tsm)</span></td><td>Door</td>
+  <td class="malagasy"><span class="off">Famantaranandro <sup class="label">(off)</sup></span><span class="tsm-form">montre <sup class="label">(tsm)</sup></span></td><td>Wall clock</td>
+  <td class="malagasy"><span class="off">Varavarana <sup class="label">(off)</sup></span><span class="tsm-form">Tamiagna <sup class="label">(tsm)</sup></span></td><td>Door</td>
 </tr>
 <tr>
-  <td><span class="v-off">Sarintany</span></td><td>Map / globe</td>
-  <td><span class="v-off">Varavarankely</span></td><td>Window</td>
+  <td class="malagasy">Sarintany</td><td>Map / globe</td>
+  <td class="malagasy">Varavarankely</td><td>Window</td>
 </tr>
 <tr>
-  <td><span class="v-off">Solaitrabe</span></td><td>Blackboard</td>
-  <td><span class="v-off">Solosaina</span></td><td>Computer</td>
+  <td class="malagasy">Solaitrabe</td><td>Blackboard</td>
+  <td class="malagasy">Solosaina</td><td>Computer</td>
 </tr>
 <tr>
-  <td><span class="v-off">Fanariam-pako</span></td><td>Waste-paper basket</td>
-  <td><span class="v-off">Birao</span></td><td>Desk / bureau</td>
+  <td class="malagasy">Fanariam-pako</td><td>Waste-paper basket</td>
+  <td class="malagasy">Birao</td><td>Desk / bureau</td>
 </tr>
 <tr>
-  <td><span class="v-off">Arimoara (off)</span><span class="v-tsm">Lalimoara (tsm)</span></td><td>Wardrobe / cupboard</td>
-  <td><span class="v-off">Etazera (off)</span><span class="v-tsm">Tazera (tsm)</span></td><td>Shelf</td>
+  <td class="malagasy"><span class="off">Arimoara <sup class="label">(off)</sup></span><span class="tsm-form">Lalimoara <sup class="label">(tsm)</sup></span></td><td>Wardrobe / cupboard</td>
+  <td class="malagasy"><span class="off">Etazera <sup class="label">(off)</sup></span><span class="tsm-form">Tazera <sup class="label">(tsm)</sup></span></td><td>Shelf</td>
 </tr>
 <tr>
-  <td><span class="v-off">Lakilasy</span></td><td>Classroom</td>
-  <td><span class="v-off">Sekoly</span></td><td>School</td>
+  <td class="malagasy">Lakilasy</td><td>Classroom</td>
+  <td class="malagasy">Sekoly</td><td>School</td>
 </tr>
 </tbody>
 </table>
@@ -171,61 +251,63 @@
   <source src="/audio/theme/theme12b.2.1.mp3" type="audio/mpeg" />
 </audio>
 
-<div class="table-responsive">
-<table class="table table-bordered word-grid">
+<!-- Verb grid -->
+<div class="table-responsive mb-3">
+<table class="table table-bordered" id="verb-grid">
 <tbody>
 <tr>
-  <td><span class="g-off">Mampianatra</span></td>
-  <td><span class="g-off">Mianatra</span></td>
-  <td><span class="g-off">Manoratra</span></td>
-  <td><span class="g-off">Mamaky teny / mamaky boky</span></td>
+  <td><span class="v-term">Mampianatra</span></td>
+  <td><span class="v-term">Mianatra</span></td>
+  <td><span class="v-term">Manoratra</span></td>
+  <td><span class="v-term">Mamaky teny / mamaky boky</span></td>
 </tr>
 <tr>
-  <td><span class="g-off">Mandeha mianatra</span></td>
-  <td><span class="g-off">Mody</span></td>
-  <td><span class="g-off">Manisa</span></td>
-  <td><span class="g-off">Manety</span><span class="g-tsm">Manapaka (tsm)</span></td>
+  <td><span class="v-term">Mandeha mianatra</span></td>
+  <td><span class="v-term">Mody</span></td>
+  <td><span class="v-term">Manisa</span></td>
+  <td><span class="v-term">Manety <span class="v-tsm">Manapaka <sup class="label">(tsm)</sup></span></span></td>
 </tr>
 <tr>
-  <td><span class="g-off">Milahatra</span></td>
-  <td><span class="g-off">Mihaino</span><span class="g-tsm">Mitandregny (tsm)</span></td>
-  <td><span class="g-off">Manangan-tānana</span></td>
-  <td><span class="g-off">Miresaka</span><span class="g-tsm">Mikoragna (tsm)</span></td>
+  <td><span class="v-term">Milahatra</span></td>
+  <td><span class="v-term">Mihaino <span class="v-tsm">Mitandregny <sup class="label">(tsm)</sup></span></span></td>
+  <td><span class="v-term">Manangan-tānana</span></td>
+  <td><span class="v-term">Miresaka <span class="v-tsm">Mikoragna <sup class="label">(tsm)</sup></span></span></td>
 </tr>
 <tr>
-  <td><span class="g-off">Voasazy</span></td>
-  <td><span class="g-off">Mandika</span></td>
-  <td><span class="g-off">Mandoko</span></td>
-  <td><span class="g-off">Mamafa solaitrabe</span></td>
+  <td><span class="v-term">Voasazy</span></td>
+  <td><span class="v-term">Mandika</span></td>
+  <td><span class="v-term">Mandoko</span></td>
+  <td><span class="v-term">Mamafa solaitrabe</span></td>
 </tr>
 <tr>
-  <td><span class="g-off">Milalao</span><span class="g-tsm">Misoma (tsm)</span></td>
-  <td><span class="g-off">Manontany</span></td>
-  <td><span class="g-off">Maka rivotra</span></td>
-  <td><span class="g-off">Mieritreritra</span></td>
+  <td><span class="v-term">Milalao <span class="v-tsm">Misoma <sup class="label">(tsm)</sup></span></span></td>
+  <td><span class="v-term">Manontany</span></td>
+  <td><span class="v-term">Maka rivotra</span></td>
+  <td><span class="v-term">Mieritreritra</span></td>
 </tr>
 <tr>
-  <td><span class="g-off">Mikajy</span></td>
-  <td><span class="g-off">Manazava</span></td>
-  <td><span class="g-off">Miarahaba</span><span class="g-tsm">Magname salama (tsm)</span></td>
-  <td><span class="g-off">Mianjera</span><span class="g-tsm">Lavo (tsm)</span></td>
+  <td><span class="v-term">Mikajy</span></td>
+  <td><span class="v-term">Manazava</span></td>
+  <td><span class="v-term">Miarahaba <span class="v-tsm">Magname salama <sup class="label">(tsm)</sup></span></span></td>
+  <td><span class="v-term">Mianjera <span class="v-tsm">Lavo <sup class="label">(tsm)</sup></span></span></td>
 </tr>
 <tr>
-  <td><span class="g-off">Mitsangana</span></td>
-  <td><span class="g-off">Mipetraka</span><span class="g-tsm">Mantotry (tsm)</span></td>
-  <td><span class="g-off">Mivoaka</span><span class="g-tsm">Miboaka (tsm)</span></td>
-  <td><span class="g-off">Miditra</span><span class="g-tsm">Miditry (tsm)</span></td>
+  <td><span class="v-term">Mitsangana</span></td>
+  <td><span class="v-term">Mipetraka <span class="v-tsm">Mantotry <sup class="label">(tsm)</sup></span></span></td>
+  <td><span class="v-term">Mivoaka <span class="v-tsm">Miboaka <sup class="label">(tsm)</sup></span></span></td>
+  <td><span class="v-term">Miditra <span class="v-tsm">Miditry <sup class="label">(tsm)</sup></span></span></td>
 </tr>
 </tbody>
 </table>
 </div>
 
-<audio controls class="w-100 my-3">
+<audio controls class="w-100 mb-3">
   <source src="/audio/theme/theme12b.2.2.mp3" type="audio/mpeg" />
 </audio>
 
+<!-- Bilingual verb table -->
 <div class="table-responsive">
-<table class="table table-bordered vocab-table mb-0">
+<table class="table table-bordered" id="verb-vocab">
 <thead>
 <tr>
   <th>English</th><th>Malagasy</th>
@@ -234,60 +316,60 @@
 </thead>
 <tbody>
 <tr>
-  <td>Teach</td><td><span class="v-off">Mampianatra</span></td>
-  <td>Go to school</td><td><span class="v-off">Mandeha mianatra</span></td>
+  <td>Teach</td><td class="malagasy">Mampianatra</td>
+  <td>Go to school</td><td class="malagasy">Mandeha mianatra</td>
 </tr>
 <tr>
-  <td>Study</td><td><span class="v-off">Mianatra</span></td>
-  <td>Go home</td><td><span class="v-off">Mody</span></td>
+  <td>Study</td><td class="malagasy">Mianatra</td>
+  <td>Go home</td><td class="malagasy">Mody</td>
 </tr>
 <tr>
-  <td>Write</td><td><span class="v-off">Manoratra</span></td>
-  <td>Talk</td><td><span class="v-off">Miresaka</span><span class="v-tsm">Mikoragna (tsm)</span></td>
+  <td>Write</td><td class="malagasy">Manoratra</td>
+  <td>Talk</td><td class="malagasy">Miresaka <span class="tsm-form">Mikoragna <sup class="label">(tsm)</sup></span></td>
 </tr>
 <tr>
-  <td>Read a book</td><td><span class="v-off">Mamaky boky / mamaky teny</span></td>
-  <td>Fall down</td><td><span class="v-off">Mianjera</span><span class="v-tsm">Lavo (tsm)</span></td>
+  <td>Read a book</td><td class="malagasy">Mamaky boky / mamaky teny</td>
+  <td>Fall down</td><td class="malagasy">Mianjera <span class="tsm-form">Lavo <sup class="label">(tsm)</sup></span></td>
 </tr>
 <tr>
-  <td>Listen</td><td><span class="v-off">Mihaino</span><span class="v-tsm">Mitandregny (tsm)</span></td>
-  <td>Cut</td><td><span class="v-off">Manety</span><span class="v-tsm">Manapaka (tsm)</span></td>
+  <td>Listen</td><td class="malagasy">Mihaino <span class="tsm-form">Mitandregny <sup class="label">(tsm)</sup></span></td>
+  <td>Cut</td><td class="malagasy">Manety <span class="tsm-form">Manapaka <sup class="label">(tsm)</sup></span></td>
 </tr>
 <tr>
-  <td>Line up</td><td><span class="v-off">Milahatra</span></td>
-  <td>Count</td><td><span class="v-off">Manisa</span></td>
+  <td>Line up</td><td class="malagasy">Milahatra</td>
+  <td>Count</td><td class="malagasy">Manisa</td>
 </tr>
 <tr>
-  <td>Be punished</td><td><span class="v-off">Voasazy</span></td>
-  <td>Calculate</td><td><span class="v-off">Mikajy</span></td>
+  <td>Be punished</td><td class="malagasy">Voasazy</td>
+  <td>Calculate</td><td class="malagasy">Mikajy</td>
 </tr>
 <tr>
-  <td>Raise hand</td><td><span class="v-off">Manangan-tānana</span></td>
-  <td>Copy</td><td><span class="v-off">Mandika</span></td>
+  <td>Raise hand</td><td class="malagasy">Manangan-tānana</td>
+  <td>Copy</td><td class="malagasy">Mandika</td>
 </tr>
 <tr>
-  <td>Wipe blackboard</td><td><span class="v-off">Mamafa solaitrabe</span></td>
-  <td>Paint / colour</td><td><span class="v-off">Mandoko</span></td>
+  <td>Wipe blackboard</td><td class="malagasy">Mamafa solaitrabe</td>
+  <td>Paint / colour</td><td class="malagasy">Mandoko</td>
 </tr>
 <tr>
-  <td>Play</td><td><span class="v-off">Milalao</span><span class="v-tsm">Misoma (tsm)</span></td>
-  <td>Ask a question</td><td><span class="v-off">Manontany</span></td>
+  <td>Play</td><td class="malagasy">Milalao <span class="tsm-form">Misoma <sup class="label">(tsm)</sup></span></td>
+  <td>Ask a question</td><td class="malagasy">Manontany</td>
 </tr>
 <tr>
-  <td>Take a break</td><td><span class="v-off">Maka rivotra</span></td>
-  <td>Think</td><td><span class="v-off">Mieritreritra</span></td>
+  <td>Take a break</td><td class="malagasy">Maka rivotra</td>
+  <td>Think</td><td class="malagasy">Mieritreritra</td>
 </tr>
 <tr>
-  <td>Greet</td><td><span class="v-off">Miarahaba</span><span class="v-tsm">Magname salama (tsm)</span></td>
-  <td>Explain</td><td><span class="v-off">Manazava</span></td>
+  <td>Greet</td><td class="malagasy">Miarahaba <span class="tsm-form">Magname salama <sup class="label">(tsm)</sup></span></td>
+  <td>Explain</td><td class="malagasy">Manazava</td>
 </tr>
 <tr>
-  <td>Stand</td><td><span class="v-off">Mitsangana</span></td>
-  <td>Sit</td><td><span class="v-off">Mipetraka</span><span class="v-tsm">Mantotry (tsm)</span></td>
+  <td>Stand</td><td class="malagasy">Mitsangana</td>
+  <td>Sit</td><td class="malagasy">Mipetraka <span class="tsm-form">Mantotry <sup class="label">(tsm)</sup></span></td>
 </tr>
 <tr>
-  <td>Exit</td><td><span class="v-off">Mivoaka</span><span class="v-tsm">Miboaka (tsm)</span></td>
-  <td>Enter</td><td><span class="v-off">Miditra</span><span class="v-tsm">Miditry (tsm)</span></td>
+  <td>Exit</td><td class="malagasy">Mivoaka <span class="tsm-form">Miboaka <sup class="label">(tsm)</sup></span></td>
+  <td>Enter</td><td class="malagasy">Miditra <span class="tsm-form">Miditry <sup class="label">(tsm)</sup></span></td>
 </tr>
 </tbody>
 </table>
@@ -308,36 +390,54 @@
   <source src="/audio/theme/theme12b.3.1.mp3" type="audio/mpeg" />
 </audio>
 
-<ol class="mb-3">
-  <li>Mampianatra malagasy zaho</li>
-  <li>Manoratra amin'ny solaitrabe izy</li>
-  <li>Mamaky boky i Soa</li>
-  <li>Mihaino ny mpampianatra ny mpianatra</li>
-  <li>Nianjera izy</li>
-  <li>Milahatra ny mpianatra</li>
-  <li>Misoma ny mpianatra</li>
-  <li>Afaka manontany ianao</li>
-  <li>Mieritreritra izy</li>
-  <li>Manazava lesona ny mpampianatra</li>
-  <li>Miditra ny mpampianatra dia mipetraka izy</li>
-</ol>
-
-<details>
-<summary class="fw-semibold">Answers</summary>
-<div class="mt-2">
-<div class="trans-item"><span class="trans-q">1. Mampianatra malagasy zaho</span> <span class="trans-a">→ I teach Malagasy</span></div>
-<div class="trans-item"><span class="trans-q">2. Manoratra amin'ny solaitrabe izy</span> <span class="trans-a">→ He is writing on the blackboard</span></div>
-<div class="trans-item"><span class="trans-q">3. Mamaky boky i Soa</span> <span class="trans-a">→ Soa is reading a book</span></div>
-<div class="trans-item"><span class="trans-q">4. Mihaino ny mpampianatra ny mpianatra</span> <span class="trans-a">→ The students are listening to the teacher</span></div>
-<div class="trans-item"><span class="trans-q">5. Nianjera izy</span> <span class="trans-a">→ He fell down</span></div>
-<div class="trans-item"><span class="trans-q">6. Milahatra ny mpianatra</span> <span class="trans-a">→ The students line up</span></div>
-<div class="trans-item"><span class="trans-q">7. Misoma ny mpianatra</span> <span class="trans-a">→ The students play</span></div>
-<div class="trans-item"><span class="trans-q">8. Afaka manontany ianao</span> <span class="trans-a">→ You can ask a question</span></div>
-<div class="trans-item"><span class="trans-q">9. Mieritreritra izy</span> <span class="trans-a">→ He is thinking</span></div>
-<div class="trans-item"><span class="trans-q">10. Manazava lesona ny mpampianatra</span> <span class="trans-a">→ The teacher explains the lesson</span></div>
-<div class="trans-item"><span class="trans-q">11. Miditra ny mpampianatra dia mipetraka izy</span> <span class="trans-a">→ The teacher enters and sits down</span></div>
+<div class="table-responsive">
+<table class="table table-bordered" id="trans-table">
+<thead>
+<tr>
+  <th>Malagasy</th>
+  <th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="q">Mampianatra malagasy zaho</td><td></td></tr>
+<tr><td class="q">Manoratra amin'ny solaitrabe izy</td><td></td></tr>
+<tr><td class="q">Mamaky boky i Soa</td><td></td></tr>
+<tr><td class="q">Mihaino ny mpampianatra ny mpianatra</td><td></td></tr>
+<tr><td class="q">Nianjera izy</td><td></td></tr>
+<tr><td class="q">Milahatra ny mpianatra</td><td></td></tr>
+<tr><td class="q">Misoma ny mpianatra</td><td></td></tr>
+<tr><td class="q">Afaka manontany ianao</td><td></td></tr>
+<tr><td class="q">Mieritreritra izy</td><td></td></tr>
+<tr><td class="q">Manazava lesona ny mpampianatra</td><td></td></tr>
+<tr><td class="q">Miditra ny mpampianatra dia mipetraka izy</td><td></td></tr>
+</tbody>
+</table>
 </div>
-</details>
+
+<h3 class="h6 mt-4">Answers</h3>
+<div class="answers-card">
+<table class="table table-bordered mb-0" id="answers-table">
+<thead>
+<tr>
+  <th>Malagasy</th>
+  <th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="q">Mampianatra malagasy zaho</td><td class="a">I teach Malagasy</td></tr>
+<tr><td class="q">Manoratra amin'ny solaitrabe izy</td><td class="a">He is writing on the blackboard</td></tr>
+<tr><td class="q">Mamaky boky i Soa</td><td class="a">Soa is reading a book</td></tr>
+<tr><td class="q">Mihaino ny mpampianatra ny mpianatra</td><td class="a">The students are listening to the teacher</td></tr>
+<tr><td class="q">Nianjera izy</td><td class="a">He fell down</td></tr>
+<tr><td class="q">Milahatra ny mpianatra</td><td class="a">The students line up</td></tr>
+<tr><td class="q">Misoma ny mpianatra</td><td class="a">The students play</td></tr>
+<tr><td class="q">Afaka manontany ianao</td><td class="a">You can ask a question</td></tr>
+<tr><td class="q">Mieritreritra izy</td><td class="a">He is thinking</td></tr>
+<tr><td class="q">Manazava lesona ny mpampianatra</td><td class="a">The teacher explains the lesson</td></tr>
+<tr><td class="q">Miditra ny mpampianatra dia mipetraka izy</td><td class="a">The teacher enters and sits down</td></tr>
+</tbody>
+</table>
+</div>
 
 </div>
 </div>
