@@ -8,7 +8,7 @@ function loadHeaderFooter() {
   if (header) {
     fetch("/header.html")
       .then(r => { if (!r.ok) throw new Error("header"); return r.text(); })
-      .then(html => header.innerHTML = html)
+      .then(html => { header.innerHTML = html; markActiveNav(header); })
       .catch(err => console.error("Error loading header:", err));
   }
 
@@ -18,6 +18,15 @@ function loadHeaderFooter() {
       .then(html => footer.innerHTML = html)
       .catch(err => console.error("Error loading footer:", err));
   }
+}
+
+// Highlight the nav link for the current page (header.html hardcodes Home)
+function markActiveNav(header) {
+  const clean = (p) => p.replace(/^\/bako(?=\/)/, "").replace(/index\.html$/, "");
+  const here = clean(location.pathname);
+  header.querySelectorAll(".topnav a").forEach(a => {
+    a.classList.toggle("active", clean(new URL(a.href, location.href).pathname) === here);
+  });
 }
 
 // ------------------------------
@@ -41,33 +50,44 @@ function loadLessons() {
       const cat = (data.lessons || []).find(c => c.category === category);
       if (!cat) return;
 
-      const h3 = document.createElement("h3");
-      h3.textContent = cat.category;
-      box.appendChild(h3);
-
       const grid = document.createElement("div");
-      grid.className = "lesson-container";
+      grid.className = "lesson-grid";
 
       // If lessons.json still has old github.io links, normalize them to root paths
       const normalize = (url) => url.replace(/^https?:\/\/mandritsara\.github\.io\/bako\//, "/");
 
-      cat.links.forEach(lesson => {
-        const a = document.createElement("a");
-        a.className = "lesson-card";
-        a.style.textDecoration = "none";
+      const el = (tag, cls, text) => {
+        const e = document.createElement(tag);
+        e.className = cls;
+        e.textContent = text;
+        return e;
+      };
 
-        const h4 = document.createElement("h4");
-        h4.textContent = lesson.title;
+      cat.links.forEach(lesson => {
+        // "Lesson 1a - GREETINGS + (Pronouns and Question Words)"
+        //   → label "Lesson 1a", title "GREETINGS", extra "Pronouns and Question Words"
+        const m = lesson.title.match(/^(Lesson\s+[\w-]+)\s*(?:-\s+)?(.*)$/);
+        const label = m ? m[1] : "";
+        const [title, extra] = (m ? m[2] : lesson.title).split(/\s+\+\s+/);
+
+        const a = document.createElement("a");
+        a.className = "lesson-tile";
+        a.appendChild(el("span", "lesson-label", label));
+        a.appendChild(el("span", "lesson-title", title));
+        if (extra) a.appendChild(el("span", "lesson-extra", extra.replace(/^\((.*)\)$/, "$1")));
 
         const pdf  = normalize(lesson.url);
         const html = pdf.replace(/\.pdf$/i, ".html");
+        a.href = pdf;
 
         // Prefer HTML if present, otherwise PDF
         fetch(html, { method: "HEAD" })
-          .then(res => { a.href = res.ok ? html : pdf; })
-          .catch(() => { a.href = pdf; });
+          .then(res => {
+            if (res.ok) a.href = html;
+            else a.appendChild(el("span", "lesson-pdf", "PDF"));
+          })
+          .catch(() => {});
 
-        a.appendChild(h4);
         grid.appendChild(a);
       });
 
