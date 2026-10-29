@@ -1,116 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Learning Malagasy with Bako</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <style>
-        .carousel-control-prev-icon, .carousel-control-next-icon {
-            background-color: rgba(0, 0, 0, 0.5); /* Ensure visibility */
-            padding: 20px; /* Make arrows larger */
-            border-radius: 50%;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery - Learning Malagasy with Bako</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,700;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="page.css">
+  <style>
+    /* Photo grid: columns keep each photo at its own shape */
+    .photo-grid {
+      columns: 3 280px;
+      column-gap: 18px;
+    }
 
-    </style>
+    .photo {
+      break-inside: avoid;
+      margin: 0 0 18px;
+      border-radius: 14px;
+      background: #fff;
+      border: 1px solid #dce4e1;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+
+    .photo button {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      background: none;
+      cursor: zoom-in;
+    }
+
+    .photo img {
+      display: block;
+      width: 100%;
+      height: auto;
+      transition: opacity 0.2s ease;
+    }
+
+    .photo button:hover img {
+      opacity: 0.9;
+    }
+
+    .photo figcaption {
+      padding: 12px 16px 14px;
+      font-size: 0.98rem;
+      line-height: 1.45;
+      color: #3e4a47;
+    }
+
+    /* Full-size viewer */
+    .viewer {
+      width: min(1100px, 100vw - 32px);
+      max-height: calc(100vh - 32px);
+      padding: 0;
+      border: 0;
+      border-radius: 16px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .viewer::backdrop {
+      background: rgba(15, 25, 23, 0.85);
+    }
+
+    .viewer img {
+      display: block;
+      width: 100%;
+      max-height: calc(100vh - 170px);
+      object-fit: contain;
+      background: #111;
+    }
+
+    .viewer-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+    }
+
+    .viewer-bar p {
+      flex: 1;
+      margin: 0;
+      font-size: 1rem;
+      color: #24302d;
+    }
+
+    .viewer-btn {
+      flex: none;
+      min-width: 44px;
+      min-height: 44px;
+      border: 1px solid #dce4e1;
+      border-radius: 10px;
+      background: #fff;
+      color: #35635a;
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    .viewer-btn:hover {
+      border-color: #35635a;
+    }
+  </style>
 </head>
-<body>
+<body class="page">
+  <div id="header"></div>
 
-    <!-- Header (Loaded via JS) -->
-    <div id="header"></div>
+  <main class="page-main">
+    <h1 class="page-title">Photo Gallery</h1>
+    <p class="page-lead">Bako's home village, family and life in Madagascar. Tap a photo to see it larger.</p>
 
-    <div class="container mt-4">
-        <h2 class="text-center">Photo Gallery</h2>
-        <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" data-bs-wrap="true">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
-                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
-                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
-                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="8" aria-label="Slide 9"></button>
-                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="9" aria-label="Slide 10"></button>
-                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="10" aria-label="Slide 11"></button>
-                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="11" aria-label="Slide 12"></button>
-                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="12" aria-label="Slide 13"></button>
-                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="13" aria-label="Slide 14"></button>
-                <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="14" aria-label="Slide 15"></button>
-            </div>
-            <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="https://mandritsara.github.io/bako/images/bakochildren.jpeg" class="d-block w-100" style="max-height: 500px; object-fit: contain;" alt="children">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://mandritsara.github.io/bako/images/bakocooking.jpeg" class="d-block w-100" style="max-height: 500px; object-fit: contain;" alt="cooking">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://mandritsara.github.io/bako/images/bakofamily.jpeg" class="d-block w-100" style="max-height: 500px; object-fit: contain;" alt="family">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://mandritsara.github.io/bako/images/bakohometown.jpeg" class="d-block w-100" style="max-height: 500px; object-fit: contain;" alt="hometown">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://mandritsara.github.io/bako/images/bakolab.jpeg" class="d-block w-100" style="max-height: 500px; object-fit: contain;" alt="lab">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://mandritsara.github.io/bako/images/bakohouse.jpeg" class="d-block w-100" style="max-height: 500px; object-fit: contain;" alt="house">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://mandritsara.github.io/bako/images/bakohouse2.jpeg" class="d-block w-100" style="max-height: 500px; object-fit: contain;" alt="house2">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://mandritsara.github.io/bako/images/bakoparents.jpeg" class="d-block w-100" style="max-height: 500px; object-fit: contain;" alt="parents">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://mandritsara.github.io/bako/images/bakoswimming.jpeg" class="d-block w-100" style="max-height: 500px; object-fit: contain;" alt="swimming">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://mandritsara.github.io/bako/images/bakowalking.jpeg" class="d-block w-100" style="max-height: 500px; object-fit: contain;" alt="walking">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://mandritsara.github.io/bako/images/bakorice.jpeg" class="d-block w-100" style="max-height: 500px; object-fit: contain;" alt="rice">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://mandritsara.github.io/bako/images/bakoroad.jpeg" class="d-block w-100" style="max-height: 500px; object-fit: contain;" alt="road">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://mandritsara.github.io/bako/images/ombi.jpeg" class="d-block w-100" style="max-height: 500px; object-fit: contain;" alt="ombi">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://mandritsara.github.io/bako/images/ombi2.jpeg" class="d-block w-100" style="max-height: 500px; object-fit: contain;" alt="ombi2">
-                </div>
-                 <div class="carousel-item">
-                    <img src="https://mandritsara.github.io/bako/images/bakoboys.jpeg" class="d-block w-100" style="max-height: 500px; object-fit: contain;" alt="boys">
-                 </div>
-            </div>
-            <!-- Navigation buttons -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-
-        <!-- ✅ The captions will appear inside this div (outside the carousel) -->
-        <div id="carousel-caption-below" class="carousel-caption-below"></div>
+    <div class="photo-grid">
+      <figure class="photo">
+        <button type="button"><img src="images/bakochildren.jpeg" width="838" height="1280" alt="Bako with nephews in the home village" loading="lazy"></button>
+        <figcaption>My nephews and I on vacation in our home village.</figcaption>
+      </figure>
+      <figure class="photo">
+        <button type="button"><img src="images/bakocooking.jpeg" width="911" height="1280" alt="Pounding cassava leaves" loading="lazy"></button>
+        <figcaption>My sister and I pounding cassava leaves ('ravitoto') for lunch, with rice.</figcaption>
+      </figure>
+      <figure class="photo">
+        <button type="button"><img src="images/bakofamily.jpeg" width="1280" height="832" alt="Family dinner by candlelight" loading="lazy"></button>
+        <figcaption>Family dinner by candlelight, with visitors (not often) from Tana, in the village.</figcaption>
+      </figure>
+      <figure class="photo">
+        <button type="button"><img src="images/bakohometown.jpeg" width="1670" height="1156" alt="Lake Amparihibe and rice fields" loading="lazy"></button>
+        <figcaption>Our lake, called "Amparihibe," 1 km from the village—our water source. A lake for bathing, fishing, hunting birds, but also our source of drinking water.</figcaption>
+      </figure>
+      <figure class="photo">
+        <button type="button"><img src="images/bakolab.jpeg" width="1080" height="710" alt="Bako working in the hospital laboratory" loading="lazy"></button>
+        <figcaption>HVMM Laboratory Technician (2005–2010)</figcaption>
+      </figure>
+      <figure class="photo">
+        <button type="button"><img src="images/bakohouse.jpeg" width="1280" height="890" alt="The home village of Amparihibe" loading="lazy"></button>
+        <figcaption>In our home village, 'Amparihibe.'</figcaption>
+      </figure>
+      <figure class="photo">
+        <button type="button"><img src="images/bakohouse2.jpeg" width="1280" height="879" alt="The village with bamboo and fruit trees" loading="lazy"></button>
+        <figcaption>Our village—the bamboo behind our house, decades old, along with fruit trees and fields.</figcaption>
+      </figure>
+      <figure class="photo">
+        <button type="button"><img src="images/bakoparents.jpeg" width="1124" height="1192" alt="Bako's parents and youngest siblings" loading="lazy"></button>
+        <figcaption>My parents and the three youngest siblings (L to R). My father. My mother. My little sister, me, my brother.</figcaption>
+      </figure>
+      <figure class="photo">
+        <button type="button"><img src="images/bakoswimming.jpeg" width="2048" height="1339" alt="Swimming in the lake near the village" loading="lazy"></button>
+        <figcaption>Return to our home village for the holidays—swimming in the nearby lake.</figcaption>
+      </figure>
+      <figure class="photo">
+        <button type="button"><img src="images/bakowalking.jpeg" width="1471" height="1060" alt="Walking back from the market" loading="lazy"></button>
+        <figcaption>Walking back from the Thursday market, about ten kilometers away.</figcaption>
+      </figure>
+      <figure class="photo">
+        <button type="button"><img src="images/bakorice.jpeg" width="1280" height="850" alt="Vegetable gardens near the lake" loading="lazy"></button>
+        <figcaption>Our vegetable gardens near the lake, with different kinds of vegetables.</figcaption>
+      </figure>
+      <figure class="photo">
+        <button type="button"><img src="images/bakoroad.jpeg" width="1288" height="626" alt="Waiting by the road for the taxi-brousse" loading="lazy"></button>
+        <figcaption>Waiting for the taxi-brousse to return to the center of the island, hundreds of kilometers away.</figcaption>
+      </figure>
+      <figure class="photo">
+        <button type="button"><img src="images/ombi.jpeg" width="1280" height="860" alt="Omby trampling the rice harvest" loading="lazy"></button>
+        <figcaption>Rice harvest. Omby (Malagasy cows) trampling the rice.</figcaption>
+      </figure>
+      <figure class="photo">
+        <button type="button"><img src="images/ombi2.jpeg" width="1280" height="824" alt="Harvest with an ox cart" loading="lazy"></button>
+        <figcaption>Harvest.</figcaption>
+      </figure>
+      <figure class="photo">
+        <button type="button"><img src="images/bakoboys.jpeg" width="1280" height="840" alt="Two boys standing in the rice fields" loading="lazy"></button>
+        <figcaption>Our rice fields. July–August.</figcaption>
+      </figure>
     </div>
+  </main>
 
-    <div id="footer"></div>
+  <dialog class="viewer" id="viewer" aria-label="Photo viewer">
+    <img id="viewer-img" src="" alt="">
+    <div class="viewer-bar">
+      <button type="button" class="viewer-btn" id="viewer-prev" aria-label="Previous photo">&lsaquo;</button>
+      <p id="viewer-caption"></p>
+      <button type="button" class="viewer-btn" id="viewer-next" aria-label="Next photo">&rsaquo;</button>
+      <button type="button" class="viewer-btn" id="viewer-close" aria-label="Close">&times;</button>
+    </div>
+  </dialog>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Custom JavaScript -->
-    <script src="/script.js?v=6" defer></script>
+  <div id="footer"></div>
 
+  <script>
+    // Open any photo full size; step through with the buttons or arrow keys
+    (function () {
+      const photos = [...document.querySelectorAll(".photo")];
+      const viewer = document.getElementById("viewer");
+      const img = document.getElementById("viewer-img");
+      const caption = document.getElementById("viewer-caption");
+      let current = 0;
 
+      function show(i) {
+        current = (i + photos.length) % photos.length;
+        const p = photos[current].querySelector("img");
+        img.src = p.src;
+        img.alt = p.alt;
+        caption.textContent = photos[current].querySelector("figcaption").textContent;
+      }
+
+      photos.forEach((fig, i) => fig.querySelector("button").addEventListener("click", () => {
+        show(i);
+        viewer.showModal();
+      }));
+
+      document.getElementById("viewer-prev").addEventListener("click", () => show(current - 1));
+      document.getElementById("viewer-next").addEventListener("click", () => show(current + 1));
+      document.getElementById("viewer-close").addEventListener("click", () => viewer.close());
+      viewer.addEventListener("click", e => { if (e.target === viewer) viewer.close(); });
+      viewer.addEventListener("keydown", e => {
+        if (e.key === "ArrowLeft") show(current - 1);
+        if (e.key === "ArrowRight") show(current + 1);
+      });
+    })();
+  </script>
+  <script src="/script.js?v=7" defer></script>
 </body>
 </html>

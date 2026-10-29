@@ -4,18 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Numbers Quiz (1–100)</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,700;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <link rel="stylesheet" type="text/css" href="/page.css">
 </head>
-<body>
-<div id="header"></div>
-<body class="bg-light">
+<body class="page">
+  <div id="header"></div>
   <div class="container py-5">
 
     <!-- Centered Quiz Box -->
     <div class="d-flex justify-content-center mb-5">
       <div class="card shadow-lg p-4" style="max-width: 500px; width: 100%;">
-        <h4 class="text-center text-success mb-3">Malagasy Numbers Quiz (1-100) </h4>
+        <h4 class="text-center quiz-title mb-3">Malagasy Numbers Quiz (1-100) </h4>
         <p id="quiz-question" class="fs-5 fw-bold text-center">Loading question...</p>
         <input type="text" id="quiz-answer" class="form-control mb-3 text-center" placeholder="Type your answer..." />
         <div class="d-flex justify-content-center gap-2">
@@ -27,7 +30,7 @@
     </div>
 
     <div class="card mb-5">
-      <div class="card-header bg-primary text-white">Number Table (1–100)</div>
+      <div class="card-header quiz-table-head">Number Table (1–100)</div>
       <div class="card-body table-responsive">
         <table class="table table-striped table-bordered">
           <thead>
@@ -140,8 +143,6 @@
       </div>
     </div>
   </div>
-
-  <div id="footer"></div>
   <script>
 const numbers = [{ num: 1, mg: "iray" }, { num: 2, mg: "roa" }, { num: 3, mg: "telo" }, { num: 4, mg: "efatra" }, { num: 5, mg: "dimy" }, { num: 6, mg: "enina" }, { num: 7, mg: "fito" }, { num: 8, mg: "valo" }, { num: 9, mg: "sivy" }, { num: 10, mg: "folo" }, { num: 11, mg: "iraika ambin'ny folo" }, { num: 12, mg: "roa ambin'ny folo" }, { num: 13, mg: "telo ambin'ny folo" }, { num: 14, mg: "efatra ambin'ny folo" }, { num: 15, mg: "dimy ambin'ny folo" }, { num: 16, mg: "enina ambin'ny folo" }, { num: 17, mg: "fito ambin'ny folo" }, { num: 18, mg: "valo ambin'ny folo" }, { num: 19, mg: "sivy ambin'ny folo" }, { num: 20, mg: "roapolo" }, { num: 21, mg: "iray amby roapolo" }, { num: 22, mg: "roa amby roapolo" }, { num: 23, mg: "telo amby roapolo" }, { num: 24, mg: "efatra amby roapolo" }, { num: 25, mg: "dimy amby roapolo" }, { num: 26, mg: "enina amby roapolo" }, { num: 27, mg: "fito amby roapolo" }, { num: 28, mg: "valo amby roapolo" }, { num: 29, mg: "sivy amby roapolo" }, { num: 30, mg: "telopolo" }, { num: 31, mg: "iray amby telopolo" }, { num: 32, mg: "roa amby telopolo" }, { num: 33, mg: "telo amby telopolo" }, { num: 34, mg: "efatra amby telopolo" }, { num: 35, mg: "dimy amby telopolo" }, { num: 36, mg: "enina amby telopolo" }, { num: 37, mg: "fito amby telopolo" }, { num: 38, mg: "valo amby telopolo" }, { num: 39, mg: "sivy amby telopolo" }, { num: 40, mg: "efapolo" }, { num: 41, mg: "iray amby efapolo" }, { num: 42, mg: "roa amby efapolo" }, { num: 43, mg: "telo amby efapolo" }, { num: 44, mg: "efatra amby efapolo" }, { num: 45, mg: "dimy amby efapolo" }, { num: 46, mg: "enina amby efapolo" }, { num: 47, mg: "fito amby efapolo" }, { num: 48, mg: "valo amby efapolo" }, { num: 49, mg: "sivy amby efapolo" }, { num: 50, mg: "dimampolo" }, { num: 51, mg: "iray amby dimampolo" }, { num: 52, mg: "roa amby dimampolo" }, { num: 53, mg: "telo amby dimampolo" }, { num: 54, mg: "efatra amby dimampolo" }, { num: 55, mg: "dimy amby dimampolo" }, { num: 56, mg: "enina amby dimampolo" }, { num: 57, mg: "fito amby dimampolo" }, { num: 58, mg: "valo amby dimampolo" }, { num: 59, mg: "sivy amby dimampolo" }, { num: 60, mg: "enimpolo" }, { num: 61, mg: "iray amby enimpolo" }, { num: 62, mg: "roa amby enimpolo" }, { num: 63, mg: "telo amby enimpolo" }, { num: 64, mg: "efatra amby enimpolo" }, { num: 65, mg: "dimy amby enimpolo" }, { num: 66, mg: "enina amby enimpolo" }, { num: 67, mg: "fito amby enimpolo" }, { num: 68, mg: "valo amby enimpolo" }, { num: 69, mg: "sivy amby enimpolo" }, { num: 70, mg: "fitopolo" }, { num: 71, mg: "iray amby fitopolo" }, { num: 72, mg: "roa amby fitopolo" }, { num: 73, mg: "telo amby fitopolo" }, { num: 74, mg: "efatra amby fitopolo" }, { num: 75, mg: "dimy amby fitopolo" }, { num: 76, mg: "enina amby fitopolo" }, { num: 77, mg: "fito amby fitopolo" }, { num: 78, mg: "valo amby fitopolo" }, { num: 79, mg: "sivy amby fitopolo" }, { num: 80, mg: "valopolo" }, { num: 81, mg: "iray amby valopolo" }, { num: 82, mg: "roa amby valopolo" }, { num: 83, mg: "telo amby valopolo" }, { num: 84, mg: "efatra amby valopolo" }, { num: 85, mg: "dimy amby valopolo" }, { num: 86, mg: "enina amby valopolo" }, { num: 87, mg: "fito amby valopolo" }, { num: 88, mg: "valo amby valopolo" }, { num: 89, mg: "sivy amby valopolo" }, { num: 90, mg: "sivifolo" }, { num: 91, mg: "iray amby sivifolo" }, { num: 92, mg: "roa amby sivifolo" }, { num: 93, mg: "telo amby sivifolo" }, { num: 94, mg: "efatra amby sivifolo" }, { num: 95, mg: "dimy amby sivifolo" }, { num: 96, mg: "enina amby sivifolo" }, { num: 97, mg: "fito amby sivifolo" }, { num: 98, mg: "valo amby sivifolo" }, { num: 99, mg: "sivy amby sivifolo" }, { num: 100, mg: "zato"  }];    let current;
     function newQuiz() {

@@ -97,45 +97,9 @@ function loadLessons() {
 }
 
 // ------------------------------
-// Carousel captions (guarded)
-// ------------------------------
-function initCarouselCaptions() {
-  const captions = [
-    "My nephews and I on vacation in our home village.",
-    "My sister and I pounding cassava leaves ('ravitoto') for lunch, with rice.",
-    "Family dinner by candlelight, with visitors (not often) from Tana, in the village.",
-    "Our lake, called \"Amparihibe,\" 1 km from the village—our water source. A lake for bathing, fishing, hunting birds, but also our source of drinking water.",
-    "HVMM Laboratory Technician (2005–2010)",
-    "In our home village, 'Amparihibe.'",
-    "Our village—the bamboo behind our house, decades old, along with fruit trees and fields.",
-    "My parents and the three youngest siblings (L to R). My father. My mother. My little sister, me, my brother.",
-    "Return to our home village for the holidays—swimming in the nearby lake.",
-    "Walking back from the Thursday market, about ten kilometers away.",
-    "Our vegetable gardens near the lake, with different kinds of vegetables.",
-    "Waiting for the taxi-brousse to return to the center of the island, hundreds of kilometers away.",
-    "Rice harvest. Omby (Malagasy cows) trampling the rice.",
-    "Harvest.",
-    "Our rice fields. July–August."
-  ];
-
-  const carousel = document.getElementById("galleryCarousel");
-  const captionEl = document.getElementById("carousel-caption-below");
-  const items = document.querySelectorAll(".carousel-item");
-  if (!carousel || !captionEl || !items.length) return;
-
-  function update() {
-    const i = Array.from(items).findIndex(x => x.classList.contains("active"));
-    if (i !== -1) captionEl.innerHTML = `<p>${captions[i] || ""}</p>`;
-  }
-  update();
-  carousel.addEventListener("slid.bs.carousel", update);
-}
-
-// ------------------------------
 // Init
 // ------------------------------
 document.addEventListener("DOMContentLoaded", () => {
   loadHeaderFooter();
   loadLessons();
-  initCarouselCaptions();
 });

@@ -1,51 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Learning Malagasy with Bako</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Learning Malagasy with Bako</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,700;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <link rel="stylesheet" type="text/css" href="/page.css">
 </head>
-<body>
+<body class="page">
+  <div id="header"></div>
 
-    <!-- Header (Loaded via JS) -->
-    <div id="header"></div>
+  <main class="page-main narrow">
+    <h1 class="page-title">Contact Me</h1>
+    <p class="page-lead">If you have any questions about learning Malagasy or Tsimihety, feel free to reach out!</p>
 
-    <div class="container text-center mt-5">
-        <h2 class="mb-3">Contact Me</h2>
-        <p>If you have any questions about learning Malagasy or Tsimihety, feel free to reach out!</p>
+    <div class="panel">
+      <!-- Contact Email -->
+      <p>Email: <a href="mailto:joelchin@gmail.com">joelchin@gmail.com</a></p>
 
-        <!-- Contact Email -->
-        <p>
-            📧 Email: <a href="mailto:joelchin@gmail.com" class="text-primary">joelchin@gmail.com</a>
-        </p>
-
-        <!-- Contact Form -->
-        <form class="mt-4" action="https://formsubmit.co/66badc733328b134a78ab038d844c74a" method="POST">
-            <input type="hidden" name="_next" value="https://mandritsara.github.io/bako/thankyou.html">
-            <input type="hidden" name="_subject" value="New Contact Form Submission">
-            <div class="mb-3">
-                <label for="name" class="form-label">Your Name</label>
-                <input type="text" class="form-control" id="name" name="name" required>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Your Email</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            <div class="mb-3">
-                <label for="message" class="form-label">Your Message</label>
-                <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-success">Send Message</button>
-        </form>
+      <!-- Contact Form -->
+      <form action="https://formsubmit.co/66badc733328b134a78ab038d844c74a" method="POST">
+        <input type="hidden" name="_next" value="https://mandritsara.github.io/bako/thankyou.html">
+        <input type="hidden" name="_subject" value="New Contact Form Submission">
+        <div class="mb-3">
+          <label for="name" class="form-label">Your Name</label>
+          <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Your Email</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-4">
+          <label for="message" class="form-label">Your Message</label>
+          <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn-bako">Send Message</button>
+      </form>
     </div>
+  </main>
 
-    <!-- Footer (Loaded via JS) -->
-    <div id="footer"></div>
+  <div id="footer"></div>
 
-   <script src="/script.js?v=6" defer></script>
-
-
+  <script src="/script.js?v=7" defer></script>
 </body>
 </html>

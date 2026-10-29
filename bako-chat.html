@@ -13,18 +13,19 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,700;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
   <style>
-    :root { --tsm:#b91c1c;--off:#1d4ed8;--teal:#3a6f6a;--bg:#faf7f2;--card:#fff;--border:#e5ded4;--text:#2c2017;--muted:#7a6e63;--br:18px; }
+    :root { --tsm:#b91c1c;--off:#1d4ed8;--teal:#35635a;--bg:#f6f8f7;--card:#fff;--border:#dce4e1;--text:#24302d;--muted:#5f6b68;--br:18px; }
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:24px 16px 40px}
+    body{font-family:'Nunito Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:24px 16px 40px}
     .page-header{text-align:center;margin-bottom:20px;max-width:680px}
     .badge-row{display:flex;gap:8px;justify-content:center;margin-bottom:12px}
     .badge{font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:20px}
     .badge-tsm{background:#fde8e8;color:var(--tsm);border:1px solid #f5c0c0}
     .badge-off{background:#e8eeff;color:var(--off);border:1px solid #c0ccf5}
     .badge-ai{background:#e8f5e9;color:#2e7d32;border:1px solid #b0d9b3}
-    .page-header h1{font-family:'Lora',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:600;color:var(--teal);line-height:1.3;margin-bottom:6px}
+    .page-header h1{font-family:'Nunito Sans',sans-serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:800;color:var(--teal);line-height:1.3;margin-bottom:6px}
     .page-header p{font-size:.95rem;color:var(--muted);line-height:1.5}
     .chat-window{width:100%;max-width:680px;background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(44,32,23,.08);display:flex;flex-direction:column}
     .chat-toolbar{background:var(--teal);color:white;padding:14px 20px;display:flex;align-items:center;gap:12px}
@@ -40,8 +41,8 @@
     .welcome-card{background:white;border:1px solid var(--border);border-radius:12px;padding:16px 18px;font-size:.88rem;line-height:1.6;color:var(--muted)}
     .welcome-card strong{color:var(--teal)}
     .chip-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-    .chip{background:#f0ece5;border:1px solid var(--border);border-radius:20px;padding:4px 12px;font-size:.8rem;cursor:pointer;transition:background .15s;color:var(--text)}
-    .chip:hover{background:#e5ded4}
+    .chip{background:#eef3f1;border:1px solid var(--border);border-radius:20px;padding:4px 12px;font-size:.8rem;cursor:pointer;transition:background .15s;color:var(--text)}
+    .chip:hover{background:#dce4e1}
     .msg-row{display:flex;align-items:flex-end;gap:8px;animation:fadeUp .25s ease}
     @keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
     .msg-row.user{flex-direction:row-reverse}
@@ -60,7 +61,7 @@
     .typing-dots span:nth-child(3){animation-delay:.3s}
     @keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
     .input-area{padding:14px 16px;border-top:1px solid var(--border);background:white;display:flex;align-items:flex-end;gap:10px}
-    .input-area textarea{flex:1;border:1.5px solid var(--border);border-radius:12px;padding:9px 13px;font-family:'Source Sans 3',sans-serif;font-size:.9rem;resize:none;outline:none;line-height:1.4;max-height:120px;transition:border-color .2s;background:var(--bg);color:var(--text)}
+    .input-area textarea{flex:1;border:1.5px solid var(--border);border-radius:12px;padding:9px 13px;font-family:'Nunito Sans',sans-serif;font-size:.9rem;resize:none;outline:none;line-height:1.4;max-height:120px;transition:border-color .2s;background:var(--bg);color:var(--text)}
     .input-area textarea:focus{border-color:var(--teal)}
     .input-area textarea::placeholder{color:#b0a898}
     .send-btn{width:40px;height:40px;border-radius:50%;background:var(--teal);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s,transform .1s}
@@ -76,9 +77,17 @@
     .messages::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
     .error-bubble{background:#fde8e8;border:1px solid #f5c0c0;color:#7f1d1d;font-size:.85rem;padding:8px 12px;border-radius:10px}
     .loading-brain{text-align:center;padding:30px;color:var(--muted);font-size:.9rem}
+    /* Site header and footer stretch edge to edge above and below the chat */
+    body{margin:0}
+    #header{align-self:stretch;margin:-24px -16px 24px}
+    #footer{align-self:stretch;margin:40px -16px -40px}
+    #footer footer{border-top:1px solid var(--border);background:#fff;text-align:center;padding:16px}
+    #footer p{margin:0;font-size:.95rem;color:var(--muted)}
+    .chat-window p,.chat-window ul,.chat-window ol{font-size:inherit}
   </style>
 </head>
 <body>
+  <div id="header"></div>
   <div class="page-header">
     <div class="badge-row">
       <span class="badge badge-tsm">Tsimihety</span>
@@ -297,5 +306,7 @@ KNOWLEDGE BASE:
 
   loadBrain();
 </script>
+  <div id="footer"></div>
+  <script src="/script.js?v=7" defer></script>
 </body>
 </html>

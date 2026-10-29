@@ -3,38 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grammar Lessons</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="styles.css">
+  <title>About the Website</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,700;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <link rel="stylesheet" type="text/css" href="/page.css">
+  <style>
+    .quote {
+      margin: 1.75rem 0;
+      padding: 22px 26px;
+      border-radius: 14px;
+      background: #eef6f4;
+      color: #284c45;
+    }
+
+    .quote p {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .quote p + p {
+      margin-top: 0.5rem;
+    }
+  </style>
 </head>
-<body>
+<body class="page">
   <div id="header"></div>
 
-  <!-- Main Content Section -->
-  <div class="container content-container">
-    <h2>About the Website</h2>
+  <main class="page-main narrow">
+    <h1 class="page-title">About the Website</h1>
 
-    <p>Hello, my name is Bako, and welcome to my website!</p>
+    <div class="panel">
+      <p>Hello, my name is Bako, and welcome to my website!</p>
 
-    <p>I have been a language teacher in Mandritsara since 2008. Over the years, I have personally tutored many missionaries and visitors to the <a href="https://www.mandritsara.org.uk/" target="_blank">Hopitaly Vaovao Mahafaly Mandritsara</a> project.</p>
+      <p>I have been a language teacher in Mandritsara since 2008. Over the years, I have personally tutored many missionaries and visitors to the <a href="https://www.mandritsara.org.uk/" target="_blank">Hopitaly Vaovao Mahafaly Mandritsara</a> project.</p>
 
-    <p>In Mandritsara, the local Tsimihety people have their own dialect. However, official Malagasy language is widely spoken and understood by most people.</p>
+      <p>In Mandritsara, the local Tsimihety people have their own dialect. However, official Malagasy language is widely spoken and understood by most people.</p>
 
-    <p>It is my firm belief that language and culture are intertwined.</p>
+      <p>It is my firm belief that language and culture are intertwined.</p>
 
-    <blockquote>
-      <p><span class="text-highlight">Understanding context is crucial to mastering Malagasy/Tsimihety.</span><br>
-      <span class="text-highlight">Conversely, learning the language provides a window into the heart and soul of the people.</span></p>
-    </blockquote>
+      <blockquote class="quote">
+        <p>Understanding context is crucial to mastering Malagasy/Tsimihety.</p>
+        <p>Conversely, learning the language provides a window into the heart and soul of the people.</p>
+      </blockquote>
 
-    <p>I thank God for this unique role despite my lack of teaching qualification. I am a scientist by training. My teaching method has been refined through years of careful study and observation, with plenty of helpful feedback from my students.</p>
+      <p>I thank God for this unique role despite my lack of teaching qualification. I am a scientist by training. My teaching method has been refined through years of careful study and observation, with plenty of helpful feedback from my students.</p>
 
-    <p>This website is my attempt at committing to paper what I have gleaned over the years. Through these prepared lessons, I hope to provide a framework that will help future students master both Malagasy and Tsimihety.</p>
-  </div>
+      <p class="mb-0">This website is my attempt at committing to paper what I have gleaned over the years. Through these prepared lessons, I hope to provide a framework that will help future students master both Malagasy and Tsimihety.</p>
+    </div>
+  </main>
 
-    <div id="footer"></div>
-  
-  <!-- Link to script.js which will now handle lesson loading -->
-   <script src="script.js" defer></script>
+  <div id="footer"></div>
+
+  <script src="/script.js?v=7" defer></script>
 </body>
 </html>
