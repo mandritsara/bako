@@ -52,6 +52,10 @@ e.g. `grammar10.1.1.mp3` = Grammar lesson 10, page 1, section 1.
 
 **Lesson index:** `lessons.json` in the repo root lists all published lessons with titles and URLs. The lesson index pages read this to build their link lists dynamically.
 
+- Keep titles in the form `Lesson 14a - THE DAILY ROUTINE`. Parts with the same number (14a, 14b, 14d) are shown as one card with Part A / B / D buttons, so the number and letter matter.
+- Theme lessons can have a picture on their card: add `"image": "/images/theme15apic1.jpg"` to the **first part** of the lesson. With no suitable picture, use a Font Awesome icon instead, e.g. `"icon": "fa-broom"`.
+- Learners' progress (ticks, "Continue where you left off") is saved in their own browser only, keyed by the lesson's file path — renaming a lesson file resets its tick.
+
 ---
 
 ## Content Pipeline

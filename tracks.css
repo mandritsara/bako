@@ -68,11 +68,96 @@ body.track.themes  { --track: #2e7d4f; --track-tint: #e5f3ea; }
   color: #4f5b58;
 }
 
+/* ── Continue banner + progress ── */
+.lesson-banner {
+  max-width: 1100px;
+  margin: 1.75rem auto 0;
+  padding: 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.banner-kicker {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #66726f;
+}
+
+.banner-title {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #24302d;
+}
+
+.banner-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.track a.banner-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 10px;
+  border: 1px solid #c9d3d0;
+  background: #fff;
+  color: #24302d;
+  font-weight: 700;
+}
+
+.track a.banner-btn.primary {
+  border-color: var(--track);
+  background: var(--track);
+  color: #fff;
+}
+
+.lesson-meter {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-top: 14px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #4f5b58;
+}
+
+.meter-bar {
+  flex: 1 1 160px;
+  max-width: 320px;
+  height: 8px;
+  border-radius: 999px;
+  background: #dce4e1;
+  overflow: hidden;
+}
+
+.meter-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--track);
+}
+
+.meter-reset {
+  padding: 4px 8px;
+  border: 0;
+  background: none;
+  color: #66726f;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
 /* ── Lesson cards ── */
 .lesson-grid {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem 1.25rem 4rem;
+  padding: 1.75rem 1.25rem 4rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 18px;
@@ -82,13 +167,11 @@ body.track.themes  { --track: #2e7d4f; --track-tint: #e5f3ea; }
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 20px 20px 18px;
   border-radius: 14px;
   background: #fff;
   border: 1px solid #dce4e1;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  color: #24302d;
+  overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
@@ -96,7 +179,37 @@ body.track.themes  { --track: #2e7d4f; --track-tint: #e5f3ea; }
   transform: translateY(-3px);
   border-color: var(--track);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  color: #24302d;
+}
+
+.lesson-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 18px 20px 18px;
+}
+
+/* Theme pictures */
+.lesson-pic {
+  height: 130px;
+  padding: 10px;
+  background: #fff;
+  border-bottom: 1px solid #e8eeec;
+}
+
+.lesson-pic img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.lesson-pic.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--track-tint);
+  color: var(--track);
+  font-size: 3rem;
 }
 
 .lesson-label {
@@ -110,12 +223,21 @@ body.track.themes  { --track: #2e7d4f; --track-tint: #e5f3ea; }
   font-weight: 800;
 }
 
-.lesson-title {
+.track a.lesson-title {
   font-size: 1.05rem;
   font-weight: 800;
   line-height: 1.3;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  overflow-wrap: anywhere;
+  color: #24302d;
+}
+
+/* The title link covers the whole card; part links sit above it */
+.track a.lesson-title::after {
+  content: "";
+  position: absolute;
+  inset: 0;
 }
 
 .lesson-extra {
@@ -123,17 +245,164 @@ body.track.themes  { --track: #2e7d4f; --track-tint: #e5f3ea; }
   color: #4f5b58;
 }
 
+/* Parts of a lesson (A, B, D) */
+.lesson-parts {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.lesson-parts.rows {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.track a.lesson-part {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 34px;
+  padding: 4px 12px;
+  border-radius: 8px;
+  border: 1px solid #c9d3d0;
+  background: #fff;
+  color: #24302d;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.track a.lesson-part:hover {
+  border-color: var(--track);
+  color: var(--track);
+}
+
+.lesson-parts.rows a.lesson-part {
+  display: block;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.lesson-part .part-title {
+  font-weight: 600;
+  color: #4f5b58;
+}
+
+/* Opened lessons */
+.track a.lesson-part.seen {
+  border-color: var(--track-tint);
+  background: var(--track-tint);
+  color: var(--track);
+}
+
+.track a.lesson-part.seen::before {
+  content: "\2713";
+  font-weight: 800;
+}
+
+.lesson-tile.started {
+  border-color: #c9d3d0;
+}
+
+.lesson-tick {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--track);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  pointer-events: none;
+}
+
+.lesson-tick::before {
+  content: "\2713";
+}
+
 /* Shown on lessons only available as a PDF */
 .lesson-pdf {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  padding: 1px 7px;
-  border-radius: 6px;
+  margin-left: 6px;
+  padding: 0 6px;
+  border-radius: 5px;
   border: 1px solid #c9d3d0;
   color: #66726f;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
+  letter-spacing: 0;
+  vertical-align: middle;
+}
+
+/* Phones: two cards per row */
+@media (max-width: 576px) {
+  .lesson-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding-top: 1.25rem;
+  }
+
+  .lesson-body {
+    padding: 12px 12px 14px;
+  }
+
+  .lesson-pic {
+    height: 96px;
+    padding: 6px;
+  }
+
+  .lesson-pic.icon {
+    font-size: 2.2rem;
+  }
+
+  .lesson-label {
+    font-size: 0.75rem;
+    padding: 1px 7px;
+  }
+
+  .track a.lesson-title {
+    font-size: 0.88rem;
+    letter-spacing: 0;
+  }
+
+  .lesson-extra {
+    font-size: 0.82rem;
+  }
+
+  .track a.lesson-part {
+    min-height: 32px;
+    padding: 3px 8px;
+    font-size: 0.78rem;
+  }
+
+  .lesson-part .part-title {
+    display: none; /* too long for half-width cards */
+  }
+
+  .lesson-parts.rows {
+    flex-direction: row;
+  }
+
+  .lesson-parts.rows a.lesson-part {
+    display: inline-flex;
+  }
+
+  .lesson-tick {
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
+  }
+
+  .banner-title {
+    font-size: 1.05rem;
+  }
 }
 
 /* ── Footer (loaded from footer.html) ── */

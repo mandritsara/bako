@@ -1,3 +1,17 @@
+// ------------------------------------------------------
+// Remember that this lesson was opened, for the progress
+// shown on the track page (same key format as script.js)
+// ------------------------------------------------------
+(function recordLessonVisit() {
+  try {
+    const key = decodeURI(location.pathname)
+      .replace(/^\/bako(?=\/)/, "").replace(/\.(html|pdf)$/i, "").toLowerCase();
+    const progress = JSON.parse(localStorage.getItem("bako-progress")) || {};
+    progress[key] = Date.now();
+    localStorage.setItem("bako-progress", JSON.stringify(progress));
+  } catch (e) {}
+})();
+
 // Subfolder script (works in /introduction/, /grammar/, /theme/)
 
 document.addEventListener("DOMContentLoaded", () => {
