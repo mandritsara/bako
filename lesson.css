@@ -1,0 +1,161 @@
+/* Lesson pages (grammar/, introduction/, theme/)
+   Loaded before each page's own <style> block, so page-specific styles still win. */
+
+:root {
+  --bs-body-font-family: 'Nunito Sans', system-ui, sans-serif;
+}
+
+body {
+  margin: 0; /* styles.css adds a 20px margin around the page */
+  font-family: 'Nunito Sans', system-ui, sans-serif;
+  color: #24302d;
+}
+
+main.container {
+  max-width: 980px;
+  padding-top: 0.5rem;
+}
+
+/* ── Breadcrumb ── */
+.breadcrumb {
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb a {
+  color: #35635a;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+  color: #66726f;
+}
+
+/* ── Lesson title ── */
+main > header h1,
+main > header h1[class] { /* [class] outranks Bootstrap's .h2 */
+  font-weight: 800;
+  line-height: 1.2;
+  color: #35635a;
+}
+
+/* ── Section cards ── */
+.card.border-0 {
+  border: 1px solid #dce4e1 !important;
+  border-radius: 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05) !important;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card h2,
+.card h3 {
+  font-weight: 800;
+  color: #35635a;
+}
+
+/* ── Audio ── */
+audio {
+  border-radius: 999px;
+}
+
+/* ── PDF download button ── */
+.btn-outline-secondary {
+  --bs-btn-color: #35635a;
+  --bs-btn-border-color: #35635a;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #35635a;
+  --bs-btn-hover-border-color: #35635a;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #284c45;
+  --bs-btn-active-border-color: #284c45;
+  padding: 0.6rem 1.5rem;
+  border-width: 2px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+/* ── Exercise buttons (Check, Show answers) ── */
+.btn-primary {
+  --bs-btn-bg: #35635a;
+  --bs-btn-border-color: #35635a;
+  --bs-btn-hover-bg: #284c45;
+  --bs-btn-hover-border-color: #284c45;
+  --bs-btn-active-bg: #284c45;
+  --bs-btn-active-border-color: #284c45;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: #35635a;
+  --bs-btn-border-color: #35635a;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #35635a;
+  --bs-btn-hover-border-color: #35635a;
+  --bs-btn-active-bg: #284c45;
+  --bs-btn-active-border-color: #284c45;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+/* ── Previous / next lesson ── */
+.d-flex.justify-content-between.mb-5 {
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 1.5rem;
+  border-top: 1px solid #dce4e1;
+}
+
+.d-flex.justify-content-between.mb-5 > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 18px;
+  border-radius: 10px;
+  border: 1px solid #dce4e1;
+  background: #fff;
+  color: #35635a;
+  font-weight: 700;
+  text-decoration: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.d-flex.justify-content-between.mb-5 > a:hover {
+  border-color: #35635a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.d-flex.justify-content-between.mb-5 > a:last-child {
+  margin-left: auto;
+}
+
+.d-flex.justify-content-between.mb-5 > a.disabled {
+  background: #f6f8f7;
+  color: #8a9592 !important;
+  pointer-events: none;
+}
+
+/* ── Footer (loaded from footer.html) ── */
+footer {
+  border-top: 1px solid #dce4e1;
+  background: #f6f8f7;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #66726f;
+}
+
+@media (max-width: 576px) {
+  .header h1 { font-size: 1.9rem; }
+  .card-body { padding: 1.1rem; }
+}
