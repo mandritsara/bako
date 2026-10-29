@@ -1,44 +1,50 @@
 .header {
-  background-color: #f4f4f4; /* Dark background for the header */
+  background-color: #fff;
   padding: 0;
   text-align: center;
-  color: #f2f2f2; /* Light text for contrast */
 }
 
 .header h1 {
   font-size: 2.5rem;
-  font-weight: bold;
-  color: #3a6f6a; /* Highlighted text color for the title */
+  font-weight: 800;
+  line-height: 1.15;
+  color: #35635a; /* Bako teal */
+  margin: 0;
+  padding: 2rem 1.25rem 0.4rem;
 }
 
 .header h2 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 400;
   font-style: italic;
-  color: #6c757d; /* Subtle lighter text for the tagline */
+  color: #66726f; /* Subtle lighter text for the tagline */
+  margin: 0;
+  padding: 0 1.25rem 1.5rem;
 }
 
 .topnav {
-  overflow: hidden;
-  background-color: #333; /* Dark background for the navigation bar */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #35635a; /* Teal navigation bar */
 }
 
 .topnav a {
-  float: left;
-  color: #f2f2f2; /* Light text for navigation links */
-  text-align: center;
-  padding: 10px 16px;
+  color: #e3eeeb;
+  padding: 14px 20px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .topnav a:hover {
-  background-color: #ddd; /* Light background on hover */
-  color: black; /* Dark text on hover */
+  background-color: #2b524a;
+  color: #fff;
 }
 
 .topnav a.active {
-  background-color: #04AA6D; /* Highlighted background for the active link */
-  color: white; /* Text color for the active link */
+  color: #fff;
+  box-shadow: inset 0 -3px 0 #f2c14e; /* Yellow underline for the current page */
 }
 
 
