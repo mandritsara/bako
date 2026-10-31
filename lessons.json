@@ -67,7 +67,11 @@
         {"title": "Lesson 12b - AT SCHOOL (continued)", "url": "https://mandritsara.github.io/bako/theme/theme12batschool2.pdf"},
         {"title": "Lesson 13 - CHORES", "url": "https://mandritsara.github.io/bako/theme/theme13chores.pdf", "icon": "fa-broom"},
         {"title": "Lesson 14a - THE DAILY ROUTINE", "url": "https://mandritsara.github.io/bako/theme/theme14athedailyroutine.pdf", "icon": "fa-sun"},
-        {"title": "Lesson 14b - THE DAILY ROUTINE (continued)", "url": "https://mandritsara.github.io/bako/theme/theme14bthedailyroutine2.pdf"}
+        {"title": "Lesson 14b - THE DAILY ROUTINE (continued)", "url": "https://mandritsara.github.io/bako/theme/theme14bthedailyroutine2.pdf"},
+        {"title": "Lesson 15a - TRANSPORT", "url": "https://mandritsara.github.io/bako/theme/theme15atransport.pdf", "image": "/images/theme15apic1.jpg"},
+        {"title": "Lesson 15b - TRANSPORT (continued)", "url": "https://mandritsara.github.io/bako/theme/theme15btransport2.pdf"},
+        {"title": "Lesson 15d - TRANSPORT (continued 2)", "url": "https://mandritsara.github.io/bako/theme/theme15dtransport3.pdf"},
+        {"title": "Lesson 15e - TRANSPORT (continued 3)", "url": "https://mandritsara.github.io/bako/theme/theme15etransport4.pdf"}
       ]
     }
   ]
